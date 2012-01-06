@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
+		C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */; };
+		C7E2EF2E14B78D4C0000884E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EF2D14B78D4C0000884E /* main.m */; };
+		C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3014B78D4C0000884E /* Credits.rtf */; };
+		C7E2EF3514B78D4D0000884E /* TAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EF3414B78D4D0000884E /* TAppDelegate.m */; };
+		C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3614B78D4D0000884E /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C7E2EF1D14B78D4C0000884E /* Transitive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transitive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7E2EF2114B78D4C0000884E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C7E2EF2414B78D4C0000884E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		C7E2EF2514B78D4C0000884E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C7E2EF2614B78D4C0000884E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C7E2EF2914B78D4C0000884E /* Transitive-Info.plist */ = {isa = PBXFileReference; path = "Transitive-Info.plist"; sourceTree = "<group>"; };
+		C7E2EF2B14B78D4C0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7E2EF2D14B78D4C0000884E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C7E2EF2F14B78D4C0000884E /* Transitive-Prefix.pch */ = {isa = PBXFileReference; path = "Transitive-Prefix.pch"; sourceTree = "<group>"; };
+		C7E2EF3114B78D4C0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		C7E2EF3314B78D4C0000884E /* TAppDelegate.h */ = {isa = PBXFileReference; path = TAppDelegate.h; sourceTree = "<group>"; };
+		C7E2EF3414B78D4D0000884E /* TAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TAppDelegate.m; sourceTree = "<group>"; };
+		C7E2EF3714B78D4D0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7E2EF1A14B78D4C0000884E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C7E2EF1214B78D4C0000884E = {
+			isa = PBXGroup;
+			children = (
+				C7E2EF2714B78D4C0000884E /* Transitive */,
+				C7E2EF2014B78D4C0000884E /* Frameworks */,
+				C7E2EF1E14B78D4C0000884E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C7E2EF1E14B78D4C0000884E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7E2EF1D14B78D4C0000884E /* Transitive.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7E2EF2014B78D4C0000884E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7E2EF2114B78D4C0000884E /* Cocoa.framework */,
+				C7E2EF2314B78D4C0000884E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7E2EF2314B78D4C0000884E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7E2EF2414B78D4C0000884E /* AppKit.framework */,
+				C7E2EF2514B78D4C0000884E /* CoreData.framework */,
+				C7E2EF2614B78D4C0000884E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		C7E2EF2714B78D4C0000884E /* Transitive */ = {
+			isa = PBXGroup;
+			children = (
+				C7E2EF3314B78D4C0000884E /* TAppDelegate.h */,
+				C7E2EF3414B78D4D0000884E /* TAppDelegate.m */,
+				C7E2EF3614B78D4D0000884E /* MainMenu.xib */,
+				C7E2EF2814B78D4C0000884E /* Supporting Files */,
+			);
+			path = Transitive;
+			sourceTree = "<group>";
+		};
+		C7E2EF2814B78D4C0000884E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C7E2EF2914B78D4C0000884E /* Transitive-Info.plist */,
+				C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */,
+				C7E2EF2D14B78D4C0000884E /* main.m */,
+				C7E2EF2F14B78D4C0000884E /* Transitive-Prefix.pch */,
+				C7E2EF3014B78D4C0000884E /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7E2EF1C14B78D4C0000884E /* Transitive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7E2EF3B14B78D4D0000884E /* Build configuration list for PBXNativeTarget "Transitive" */;
+			buildPhases = (
+				C7E2EF1914B78D4C0000884E /* Sources */,
+				C7E2EF1A14B78D4C0000884E /* Frameworks */,
+				C7E2EF1B14B78D4C0000884E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Transitive;
+			productName = Transitive;
+			productReference = C7E2EF1D14B78D4C0000884E /* Transitive.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7E2EF1414B78D4C0000884E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = C7E2EF1714B78D4C0000884E /* Build configuration list for PBXProject "Transitive" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C7E2EF1214B78D4C0000884E;
+			productRefGroup = C7E2EF1E14B78D4C0000884E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7E2EF1C14B78D4C0000884E /* Transitive */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7E2EF1B14B78D4C0000884E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */,
+				C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */,
+				C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7E2EF1914B78D4C0000884E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7E2EF2E14B78D4C0000884E /* main.m in Sources */,
+				C7E2EF3514B78D4D0000884E /* TAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7E2EF2B14B78D4C0000884E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C7E2EF3014B78D4C0000884E /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7E2EF3114B78D4C0000884E /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		C7E2EF3614B78D4D0000884E /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7E2EF3714B78D4D0000884E /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C7E2EF3914B78D4D0000884E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C7E2EF3A14B78D4D0000884E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C7E2EF3C14B78D4D0000884E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Transitive/Transitive-Prefix.pch";
+				INFOPLIST_FILE = "Transitive/Transitive-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C7E2EF3D14B78D4D0000884E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Transitive/Transitive-Prefix.pch";
+				INFOPLIST_FILE = "Transitive/Transitive-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7E2EF1714B78D4C0000884E /* Build configuration list for PBXProject "Transitive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7E2EF3914B78D4D0000884E /* Debug */,
+				C7E2EF3A14B78D4D0000884E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7E2EF3B14B78D4D0000884E /* Build configuration list for PBXNativeTarget "Transitive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7E2EF3C14B78D4D0000884E /* Debug */,
+				C7E2EF3D14B78D4D0000884E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7E2EF1414B78D4C0000884E /* Project object */;
+}
