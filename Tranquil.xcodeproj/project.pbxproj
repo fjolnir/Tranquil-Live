@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C744E3A014B8337D00078FBB /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C744E39F14B8337D00078FBB /* Scripts */; };
+		C744E3A314B834EF00078FBB /* TScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3A214B834EF00078FBB /* TScene.m */; };
+		C74B3A9914B7E280006741C4 /* TScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C74B3A9814B7E280006741C4 /* TScriptContext.m */; };
+		C74B3A9A14B7E628006741C4 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
+		C74B3A9C14B80AA1006741C4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */; };
+		C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
+		C7AA4F5414B7BC64008577CD /* Lua.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
+		C7AA4F5C14B7BFF6008577CD /* TOverlayTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */; };
+		C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
+		C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */; };
+		C7E2EF2E14B78D4C0000884E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EF2D14B78D4C0000884E /* main.m */; };
+		C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3014B78D4C0000884E /* Credits.rtf */; };
+		C7E2EF3514B78D4D0000884E /* TAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EF3414B78D4D0000884E /* TAppDelegate.m */; };
+		C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3614B78D4D0000884E /* MainMenu.xib */; };
+		C7E2EFA114B78EC80000884E /* TMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EFA014B78EC80000884E /* TMainWindowController.m */; };
+		C7E2EFA414B78F7D0000884E /* TOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EFA314B78F7D0000884E /* TOpenGLView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7AA4F4E14B7BBE5008577CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C7E2EFB114B793750000884E;
+			remoteInfo = Lua;
+		};
+		C7AA4F5814B7BEAF008577CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C7E2EFB014B793750000884E;
+			remoteInfo = Lua;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C7E2F0D714B798740000884E /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C7AA4F5414B7BC64008577CD /* Lua.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C744E39F14B8337D00078FBB /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
+		C744E3A114B834EF00078FBB /* TScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TScene.h; sourceTree = "<group>"; };
+		C744E3A214B834EF00078FBB /* TScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TScene.m; sourceTree = "<group>"; };
+		C74B3A9714B7E280006741C4 /* TScriptContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TScriptContext.h; sourceTree = "<group>"; };
+		C74B3A9814B7E280006741C4 /* TScriptContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TScriptContext.m; sourceTree = "<group>"; };
+		C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		C760C4F514B7AE1700451951 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lua.xcodeproj; path = Lua/Lua.xcodeproj; sourceTree = "<group>"; };
+		C7AA4F5A14B7BFF6008577CD /* TOverlayTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOverlayTextView.h; sourceTree = "<group>"; };
+		C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOverlayTextView.m; sourceTree = "<group>"; };
+		C7E2EF1D14B78D4C0000884E /* Tranquil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tranquil.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7E2EF2114B78D4C0000884E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C7E2EF2414B78D4C0000884E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		C7E2EF2514B78D4C0000884E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C7E2EF2614B78D4C0000884E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C7E2EF2914B78D4C0000884E /* Tranquil-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tranquil-Info.plist"; sourceTree = "<group>"; };
+		C7E2EF2B14B78D4C0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7E2EF2D14B78D4C0000884E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C7E2EF2F14B78D4C0000884E /* Tranquil-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tranquil-Prefix.pch"; sourceTree = "<group>"; };
+		C7E2EF3114B78D4C0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		C7E2EF3314B78D4C0000884E /* TAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TAppDelegate.h; sourceTree = "<group>"; };
+		C7E2EF3414B78D4D0000884E /* TAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TAppDelegate.m; sourceTree = "<group>"; };
+		C7E2EF3714B78D4D0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C7E2EF9F14B78EC80000884E /* TMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMainWindowController.h; sourceTree = "<group>"; };
+		C7E2EFA014B78EC80000884E /* TMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMainWindowController.m; sourceTree = "<group>"; };
+		C7E2EFA214B78F7D0000884E /* TOpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOpenGLView.h; sourceTree = "<group>"; };
+		C7E2EFA314B78F7D0000884E /* TOpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOpenGLView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7E2EF1A14B78D4C0000884E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C74B3A9C14B80AA1006741C4 /* CoreVideo.framework in Frameworks */,
+				C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */,
+				C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */,
+				C74B3A9A14B7E628006741C4 /* Lua.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C7AA4F4814B7BBE5008577CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7AA4F4F14B7BBE5008577CD /* Lua.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7E2EF1214B78D4C0000884E = {
+			isa = PBXGroup;
+			children = (
+				C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */,
+				C7E2EF2714B78D4C0000884E /* Tranquil */,
+				C7E2EF2014B78D4C0000884E /* Frameworks */,
+				C7E2EF1E14B78D4C0000884E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C7E2EF1E14B78D4C0000884E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7E2EF1D14B78D4C0000884E /* Tranquil.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7E2EF2014B78D4C0000884E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */,
+				C760C4F514B7AE1700451951 /* OpenGL.framework */,
+				C7E2EF2114B78D4C0000884E /* Cocoa.framework */,
+				C7E2EF2314B78D4C0000884E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7E2EF2314B78D4C0000884E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7E2EF2414B78D4C0000884E /* AppKit.framework */,
+				C7E2EF2514B78D4C0000884E /* CoreData.framework */,
+				C7E2EF2614B78D4C0000884E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		C7E2EF2714B78D4C0000884E /* Tranquil */ = {
+			isa = PBXGroup;
+			children = (
+				C7E2EF9E14B78E010000884E /* Core */,
+				C7E2EF3314B78D4C0000884E /* TAppDelegate.h */,
+				C7E2EF3414B78D4D0000884E /* TAppDelegate.m */,
+				C744E39F14B8337D00078FBB /* Scripts */,
+				C7E2EF3614B78D4D0000884E /* MainMenu.xib */,
+				C7E2EF2814B78D4C0000884E /* Supporting Files */,
+			);
+			path = Tranquil;
+			sourceTree = "<group>";
+		};
+		C7E2EF2814B78D4C0000884E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C7E2EF2914B78D4C0000884E /* Tranquil-Info.plist */,
+				C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */,
+				C7E2EF2D14B78D4C0000884E /* main.m */,
+				C7E2EF2F14B78D4C0000884E /* Tranquil-Prefix.pch */,
+				C7E2EF3014B78D4C0000884E /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C7E2EF9E14B78E010000884E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C7E2EF9F14B78EC80000884E /* TMainWindowController.h */,
+				C7E2EFA014B78EC80000884E /* TMainWindowController.m */,
+				C7E2EFA214B78F7D0000884E /* TOpenGLView.h */,
+				C7E2EFA314B78F7D0000884E /* TOpenGLView.m */,
+				C7AA4F5A14B7BFF6008577CD /* TOverlayTextView.h */,
+				C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */,
+				C74B3A9714B7E280006741C4 /* TScriptContext.h */,
+				C74B3A9814B7E280006741C4 /* TScriptContext.m */,
+				C744E3A114B834EF00078FBB /* TScene.h */,
+				C744E3A214B834EF00078FBB /* TScene.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7E2EF1C14B78D4C0000884E /* Tranquil */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7E2EF3B14B78D4D0000884E /* Build configuration list for PBXNativeTarget "Tranquil" */;
+			buildPhases = (
+				C7E2EF1914B78D4C0000884E /* Sources */,
+				C7E2EF1A14B78D4C0000884E /* Frameworks */,
+				C7E2EF1B14B78D4C0000884E /* Resources */,
+				C7E2F0D714B798740000884E /* Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C7AA4F5914B7BEAF008577CD /* PBXTargetDependency */,
+			);
+			name = Tranquil;
+			productName = Tranquil;
+			productReference = C7E2EF1D14B78D4C0000884E /* Tranquil.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7E2EF1414B78D4C0000884E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = C7E2EF1714B78D4C0000884E /* Build configuration list for PBXProject "Tranquil" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C7E2EF1214B78D4C0000884E;
+			productRefGroup = C7E2EF1E14B78D4C0000884E /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C7AA4F4814B7BBE5008577CD /* Products */;
+					ProjectRef = C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				C7E2EF1C14B78D4C0000884E /* Tranquil */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C7AA4F4F14B7BBE5008577CD /* Lua.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Lua.framework;
+			remoteRef = C7AA4F4E14B7BBE5008577CD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7E2EF1B14B78D4C0000884E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */,
+				C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */,
+				C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */,
+				C744E3A014B8337D00078FBB /* Scripts in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7E2EF1914B78D4C0000884E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7E2EF2E14B78D4C0000884E /* main.m in Sources */,
+				C7E2EF3514B78D4D0000884E /* TAppDelegate.m in Sources */,
+				C7E2EFA114B78EC80000884E /* TMainWindowController.m in Sources */,
+				C7E2EFA414B78F7D0000884E /* TOpenGLView.m in Sources */,
+				C7AA4F5C14B7BFF6008577CD /* TOverlayTextView.m in Sources */,
+				C74B3A9914B7E280006741C4 /* TScriptContext.m in Sources */,
+				C744E3A314B834EF00078FBB /* TScene.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C7AA4F5914B7BEAF008577CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Lua;
+			targetProxy = C7AA4F5814B7BEAF008577CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7E2EF2B14B78D4C0000884E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C7E2EF3014B78D4C0000884E /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7E2EF3114B78D4C0000884E /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		C7E2EF3614B78D4D0000884E /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7E2EF3714B78D4D0000884E /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C7E2EF3914B78D4D0000884E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C7E2EF3A14B78D4D0000884E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C7E2EF3C14B78D4D0000884E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tranquil/Tranquil-Prefix.pch";
+				INFOPLIST_FILE = "Tranquil/Tranquil-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C7E2EF3D14B78D4D0000884E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tranquil/Tranquil-Prefix.pch";
+				INFOPLIST_FILE = "Tranquil/Tranquil-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7E2EF1714B78D4C0000884E /* Build configuration list for PBXProject "Tranquil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7E2EF3914B78D4D0000884E /* Debug */,
+				C7E2EF3A14B78D4D0000884E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7E2EF3B14B78D4D0000884E /* Build configuration list for PBXNativeTarget "Tranquil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7E2EF3C14B78D4D0000884E /* Debug */,
+				C7E2EF3D14B78D4D0000884E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7E2EF1414B78D4C0000884E /* Project object */;
+}

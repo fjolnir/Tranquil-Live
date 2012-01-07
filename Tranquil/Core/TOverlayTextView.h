@@ -1,0 +1,3 @@
+@interface TOverlayTextView : NSTextView
+
+@end
