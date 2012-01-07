@@ -18,6 +18,12 @@
 		C744E3F014B84CB400078FBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C744E3EE14B84CB400078FBB /* InfoPlist.strings */; };
 		C744E3F714B84CCD00078FBB /* TAudioPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3F614B84CCD00078FBB /* TAudioPlugin.m */; };
 		C744E3F814B84D2500078FBB /* TranquilAudio.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
+		C744E3FD14B84ECD00078FBB /* TAudioProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3FC14B84ECD00078FBB /* TAudioProcessor.m */; };
+		C744E3FF14B8502500078FBB /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E3FE14B8502500078FBB /* CoreAudio.framework */; };
+		C744E40114B851CC00078FBB /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E40014B851CB00078FBB /* AudioUnit.framework */; };
+		C744E42414B8903500078FBB /* libportaudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42314B8903500078FBB /* libportaudio.a */; };
+		C744E42614B8905A00078FBB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42514B8905A00078FBB /* AudioToolbox.framework */; };
+		C744E42A14B8A49200078FBB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
 		C74B3A9914B7E280006741C4 /* TScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C74B3A9814B7E280006741C4 /* TScriptContext.m */; };
 		C74B3A9A14B7E628006741C4 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
 		C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
@@ -109,6 +115,13 @@
 		C744E3F114B84CB400078FBB /* TranquilAudio-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TranquilAudio-Prefix.pch"; sourceTree = "<group>"; };
 		C744E3F514B84CCD00078FBB /* TAudioPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAudioPlugin.h; sourceTree = "<group>"; };
 		C744E3F614B84CCD00078FBB /* TAudioPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAudioPlugin.m; sourceTree = "<group>"; };
+		C744E3FB14B84ECD00078FBB /* TAudioProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAudioProcessor.h; sourceTree = "<group>"; };
+		C744E3FC14B84ECD00078FBB /* TAudioProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAudioProcessor.m; sourceTree = "<group>"; };
+		C744E3FE14B8502500078FBB /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		C744E40014B851CB00078FBB /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		C744E42314B8903500078FBB /* libportaudio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libportaudio.a; path = PortAudio/lib/libportaudio.a; sourceTree = SOURCE_ROOT; };
+		C744E42514B8905A00078FBB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C744E42714B8A26D00078FBB /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C74B3A9714B7E280006741C4 /* TScriptContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TScriptContext.h; sourceTree = "<group>"; };
 		C74B3A9814B7E280006741C4 /* TScriptContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TScriptContext.m; sourceTree = "<group>"; };
 		C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -148,7 +161,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C744E42A14B8A49200078FBB /* Accelerate.framework in Frameworks */,
+				C744E42614B8905A00078FBB /* AudioToolbox.framework in Frameworks */,
+				C744E40114B851CC00078FBB /* AudioUnit.framework in Frameworks */,
+				C744E3FF14B8502500078FBB /* CoreAudio.framework in Frameworks */,
 				C744E3EA14B84CB400078FBB /* Cocoa.framework in Frameworks */,
+				C744E42414B8903500078FBB /* libportaudio.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +216,8 @@
 			children = (
 				C744E3F514B84CCD00078FBB /* TAudioPlugin.h */,
 				C744E3F614B84CCD00078FBB /* TAudioPlugin.m */,
+				C744E3FB14B84ECD00078FBB /* TAudioProcessor.h */,
+				C744E3FC14B84ECD00078FBB /* TAudioProcessor.m */,
 				C744E3EC14B84CB400078FBB /* Supporting Files */,
 			);
 			name = Audio;
@@ -214,6 +234,11 @@
 		C744E3EC14B84CB400078FBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C744E42314B8903500078FBB /* libportaudio.a */,
+				C744E42714B8A26D00078FBB /* Accelerate.framework */,
+				C744E42514B8905A00078FBB /* AudioToolbox.framework */,
+				C744E40014B851CB00078FBB /* AudioUnit.framework */,
+				C744E3FE14B8502500078FBB /* CoreAudio.framework */,
 				C744E3ED14B84CB400078FBB /* TranquilAudio-Info.plist */,
 				C744E3EE14B84CB400078FBB /* InfoPlist.strings */,
 				C744E3F114B84CB400078FBB /* TranquilAudio-Prefix.pch */,
@@ -465,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C744E3F714B84CCD00078FBB /* TAudioPlugin.m in Sources */,
+				C744E3FD14B84ECD00078FBB /* TAudioProcessor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,8 +577,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TranquilGraphics/TranquilGraphics-Prefix.pch";
-				INFOPLIST_FILE = "TranquilGraphics/TranquilGraphics-Info.plist";
+				GCC_PREFIX_HEADER = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Prefix.pch";
+				INFOPLIST_FILE = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
@@ -563,8 +589,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TranquilGraphics/TranquilGraphics-Prefix.pch";
-				INFOPLIST_FILE = "TranquilGraphics/TranquilGraphics-Info.plist";
+				GCC_PREFIX_HEADER = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Prefix.pch";
+				INFOPLIST_FILE = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
@@ -575,9 +601,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TranquilAudio/TranquilAudio-Prefix.pch";
-				INFOPLIST_FILE = "TranquilAudio/TranquilAudio-Info.plist";
+				GCC_PREFIX_HEADER = "Tranquil/Plugins/Audio/Supporting Files/TranquilAudio-Prefix.pch";
+				HEADER_SEARCH_PATHS = PortAudio/include;
+				INFOPLIST_FILE = "Tranquil/Plugins/Audio/Supporting Files/TranquilAudio-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PortAudio/lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -587,9 +618,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TranquilAudio/TranquilAudio-Prefix.pch";
-				INFOPLIST_FILE = "TranquilAudio/TranquilAudio-Info.plist";
+				GCC_PREFIX_HEADER = "Tranquil/Plugins/Audio/Supporting Files/TranquilAudio-Prefix.pch";
+				HEADER_SEARCH_PATHS = PortAudio/include;
+				INFOPLIST_FILE = "Tranquil/Plugins/Audio/Supporting Files/TranquilAudio-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PortAudio/lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -674,6 +710,7 @@
 				C744E3D314B8464E00078FBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C744E3F214B84CB400078FBB /* Build configuration list for PBXNativeTarget "TranquilAudio" */ = {
 			isa = XCConfigurationList;
@@ -682,6 +719,7 @@
 				C744E3F414B84CB400078FBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C7E2EF1714B78D4C0000884E /* Build configuration list for PBXProject "Tranquil" */ = {
 			isa = XCConfigurationList;
