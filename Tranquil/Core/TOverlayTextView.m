@@ -38,4 +38,9 @@
 {
 	return NO;
 }
+
+- (void)scrollWheel:(NSEvent *)theEvent
+{
+	// Do nothing, doesn't look good
+}
 @end
