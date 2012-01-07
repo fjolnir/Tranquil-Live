@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		C744E3A014B8337D00078FBB /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C744E39F14B8337D00078FBB /* Scripts */; };
 		C744E3A314B834EF00078FBB /* TScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3A214B834EF00078FBB /* TScene.m */; };
+		C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
+		C744E3CF14B8464E00078FBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C744E3CD14B8464E00078FBB /* InfoPlist.strings */; };
+		C744E3D914B8467200078FBB /* TGraphicsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3D814B8467200078FBB /* TGraphicsPlugin.m */; };
+		C744E3E014B846CC00078FBB /* TranquilGraphics.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */; };
+		C744E3E314B847AE00078FBB /* TPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3E214B847AD00078FBB /* TPluginManager.m */; };
 		C74B3A9914B7E280006741C4 /* TScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C74B3A9814B7E280006741C4 /* TScriptContext.m */; };
 		C74B3A9A14B7E628006741C4 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
 		C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
@@ -25,6 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C744E3DD14B846B200078FBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C744E3C714B8464E00078FBB;
+			remoteInfo = TranquilGraphics;
+		};
 		C7AA4F4E14B7BBE5008577CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */;
@@ -42,6 +54,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C744E3DF14B846BC00078FBB /* Copy Plugins */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C744E3E014B846CC00078FBB /* TranquilGraphics.bundle in Copy Plugins */,
+			);
+			name = "Copy Plugins";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7E2F0D714B798740000884E /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,6 +82,15 @@
 		C744E39F14B8337D00078FBB /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		C744E3A114B834EF00078FBB /* TScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TScene.h; sourceTree = "<group>"; };
 		C744E3A214B834EF00078FBB /* TScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TScene.m; sourceTree = "<group>"; };
+		C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranquilGraphics.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		C744E3CC14B8464E00078FBB /* TranquilGraphics-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TranquilGraphics-Info.plist"; sourceTree = "<group>"; };
+		C744E3CE14B8464E00078FBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C744E3D014B8464E00078FBB /* TranquilGraphics-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TranquilGraphics-Prefix.pch"; sourceTree = "<group>"; };
+		C744E3D714B8467200078FBB /* TGraphicsPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGraphicsPlugin.h; sourceTree = "<group>"; };
+		C744E3D814B8467200078FBB /* TGraphicsPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGraphicsPlugin.m; sourceTree = "<group>"; };
+		C744E3DA14B8468F00078FBB /* TPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPlugin.h; sourceTree = "<group>"; };
+		C744E3E114B847AD00078FBB /* TPluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPluginManager.h; sourceTree = "<group>"; };
+		C744E3E214B847AD00078FBB /* TPluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPluginManager.m; sourceTree = "<group>"; };
 		C74B3A9714B7E280006741C4 /* TScriptContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TScriptContext.h; sourceTree = "<group>"; };
 		C74B3A9814B7E280006741C4 /* TScriptContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TScriptContext.m; sourceTree = "<group>"; };
 		C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -86,6 +118,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C744E3C514B8464E00078FBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7E2EF1A14B78D4C0000884E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -99,6 +139,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C744E3CA14B8464E00078FBB /* TranquilGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				C744E3CB14B8464E00078FBB /* Supporting Files */,
+			);
+			path = TranquilGraphics;
+			sourceTree = "<group>";
+		};
+		C744E3CB14B8464E00078FBB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C744E3CC14B8464E00078FBB /* TranquilGraphics-Info.plist */,
+				C744E3CD14B8464E00078FBB /* InfoPlist.strings */,
+				C744E3D014B8464E00078FBB /* TranquilGraphics-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C744E3D614B8466500078FBB /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				C744E3D714B8467200078FBB /* TGraphicsPlugin.h */,
+				C744E3D814B8467200078FBB /* TGraphicsPlugin.m */,
+			);
+			name = Graphics;
+			path = Plugins/Graphics;
+			sourceTree = "<group>";
+		};
 		C7AA4F4814B7BBE5008577CD /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +180,7 @@
 			children = (
 				C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */,
 				C7E2EF2714B78D4C0000884E /* Tranquil */,
+				C744E3CA14B8464E00078FBB /* TranquilGraphics */,
 				C7E2EF2014B78D4C0000884E /* Frameworks */,
 				C7E2EF1E14B78D4C0000884E /* Products */,
 			);
@@ -121,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				C7E2EF1D14B78D4C0000884E /* Tranquil.app */,
+				C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,6 +219,7 @@
 		C7E2EF2714B78D4C0000884E /* Tranquil */ = {
 			isa = PBXGroup;
 			children = (
+				C744E3D614B8466500078FBB /* Graphics */,
 				C7E2EF9E14B78E010000884E /* Core */,
 				C7E2EF3314B78D4C0000884E /* TAppDelegate.h */,
 				C7E2EF3414B78D4D0000884E /* TAppDelegate.m */,
@@ -184,6 +255,9 @@
 				C74B3A9814B7E280006741C4 /* TScriptContext.m */,
 				C744E3A114B834EF00078FBB /* TScene.h */,
 				C744E3A214B834EF00078FBB /* TScene.m */,
+				C744E3DA14B8468F00078FBB /* TPlugin.h */,
+				C744E3E114B847AD00078FBB /* TPluginManager.h */,
+				C744E3E214B847AD00078FBB /* TPluginManager.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -191,6 +265,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C744E3C714B8464E00078FBB /* TranquilGraphics */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C744E3D114B8464E00078FBB /* Build configuration list for PBXNativeTarget "TranquilGraphics" */;
+			buildPhases = (
+				C744E3C414B8464E00078FBB /* Sources */,
+				C744E3C514B8464E00078FBB /* Frameworks */,
+				C744E3C614B8464E00078FBB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TranquilGraphics;
+			productName = TranquilGraphics;
+			productReference = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		C7E2EF1C14B78D4C0000884E /* Tranquil */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7E2EF3B14B78D4D0000884E /* Build configuration list for PBXNativeTarget "Tranquil" */;
@@ -199,11 +290,13 @@
 				C7E2EF1A14B78D4C0000884E /* Frameworks */,
 				C7E2EF1B14B78D4C0000884E /* Resources */,
 				C7E2F0D714B798740000884E /* Copy Frameworks */,
+				C744E3DF14B846BC00078FBB /* Copy Plugins */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				C7AA4F5914B7BEAF008577CD /* PBXTargetDependency */,
+				C744E3DE14B846B200078FBB /* PBXTargetDependency */,
 			);
 			name = Tranquil;
 			productName = Tranquil;
@@ -237,6 +330,7 @@
 			projectRoot = "";
 			targets = (
 				C7E2EF1C14B78D4C0000884E /* Tranquil */,
+				C744E3C714B8464E00078FBB /* TranquilGraphics */,
 			);
 		};
 /* End PBXProject section */
@@ -252,6 +346,14 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C744E3C614B8464E00078FBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C744E3CF14B8464E00078FBB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7E2EF1B14B78D4C0000884E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,6 +368,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C744E3C414B8464E00078FBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C744E3D914B8467200078FBB /* TGraphicsPlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7E2EF1914B78D4C0000884E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,12 +387,18 @@
 				C7AA4F5C14B7BFF6008577CD /* TOverlayTextView.m in Sources */,
 				C74B3A9914B7E280006741C4 /* TScriptContext.m in Sources */,
 				C744E3A314B834EF00078FBB /* TScene.m in Sources */,
+				C744E3E314B847AE00078FBB /* TPluginManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C744E3DE14B846B200078FBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C744E3C714B8464E00078FBB /* TranquilGraphics */;
+			targetProxy = C744E3DD14B846B200078FBB /* PBXContainerItemProxy */;
+		};
 		C7AA4F5914B7BEAF008577CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Lua;
@@ -291,6 +407,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C744E3CD14B8464E00078FBB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C744E3CE14B8464E00078FBB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -318,6 +442,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C744E3D214B8464E00078FBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TranquilGraphics/TranquilGraphics-Prefix.pch";
+				INFOPLIST_FILE = "TranquilGraphics/TranquilGraphics-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		C744E3D314B8464E00078FBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TranquilGraphics/TranquilGraphics-Prefix.pch";
+				INFOPLIST_FILE = "TranquilGraphics/TranquilGraphics-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		C7E2EF3914B78D4D0000884E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -390,6 +538,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C744E3D114B8464E00078FBB /* Build configuration list for PBXNativeTarget "TranquilGraphics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C744E3D214B8464E00078FBB /* Debug */,
+				C744E3D314B8464E00078FBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C7E2EF1714B78D4C0000884E /* Build configuration list for PBXProject "Tranquil" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
