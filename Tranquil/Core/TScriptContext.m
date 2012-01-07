@@ -6,6 +6,12 @@ static TScriptContext *sharedContext;
 - (void)_reportError:(TScriptError *)aError;
 @end
 
+// TODO: Throws an error if the app has been unresponsive for too long (usually because of out of control recursion)
+static void escapeHook(lua_State *state, lua_Debug *ar)
+{
+	NSLog(@"1000 instr");
+}
+
 @implementation TScriptContext
 @synthesize delegate=_delegate;
 
@@ -25,7 +31,8 @@ static TScriptContext *sharedContext;
 	
 	_state = luaL_newstate();
 	luaL_openlibs(_state);
-	
+	//lua_sethook(_state, escapeHook, LUA_MASKCOUNT, 1000);
+
 	return self;
 }
 
