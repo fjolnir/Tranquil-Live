@@ -14,6 +14,10 @@
 		C744E3D914B8467200078FBB /* TGraphicsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3D814B8467200078FBB /* TGraphicsPlugin.m */; };
 		C744E3E014B846CC00078FBB /* TranquilGraphics.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */; };
 		C744E3E314B847AE00078FBB /* TPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3E214B847AD00078FBB /* TPluginManager.m */; };
+		C744E3EA14B84CB400078FBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
+		C744E3F014B84CB400078FBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C744E3EE14B84CB400078FBB /* InfoPlist.strings */; };
+		C744E3F714B84CCD00078FBB /* TAudioPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3F614B84CCD00078FBB /* TAudioPlugin.m */; };
+		C744E3F814B84D2500078FBB /* TranquilAudio.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
 		C74B3A9914B7E280006741C4 /* TScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C74B3A9814B7E280006741C4 /* TScriptContext.m */; };
 		C74B3A9A14B7E628006741C4 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
 		C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
@@ -36,6 +40,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C744E3C714B8464E00078FBB;
 			remoteInfo = TranquilGraphics;
+		};
+		C744E3F914B84D2D00078FBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C744E3E814B84CB400078FBB;
+			remoteInfo = TranquilAudio;
 		};
 		C7AA4F4E14B7BBE5008577CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -60,6 +71,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				C744E3F814B84D2500078FBB /* TranquilAudio.bundle in Copy Plugins */,
 				C744E3E014B846CC00078FBB /* TranquilGraphics.bundle in Copy Plugins */,
 			);
 			name = "Copy Plugins";
@@ -91,6 +103,12 @@
 		C744E3DA14B8468F00078FBB /* TPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPlugin.h; sourceTree = "<group>"; };
 		C744E3E114B847AD00078FBB /* TPluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPluginManager.h; sourceTree = "<group>"; };
 		C744E3E214B847AD00078FBB /* TPluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPluginManager.m; sourceTree = "<group>"; };
+		C744E3E914B84CB400078FBB /* TranquilAudio.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranquilAudio.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		C744E3ED14B84CB400078FBB /* TranquilAudio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TranquilAudio-Info.plist"; sourceTree = "<group>"; };
+		C744E3EF14B84CB400078FBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C744E3F114B84CB400078FBB /* TranquilAudio-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TranquilAudio-Prefix.pch"; sourceTree = "<group>"; };
+		C744E3F514B84CCD00078FBB /* TAudioPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAudioPlugin.h; sourceTree = "<group>"; };
+		C744E3F614B84CCD00078FBB /* TAudioPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAudioPlugin.m; sourceTree = "<group>"; };
 		C74B3A9714B7E280006741C4 /* TScriptContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TScriptContext.h; sourceTree = "<group>"; };
 		C74B3A9814B7E280006741C4 /* TScriptContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TScriptContext.m; sourceTree = "<group>"; };
 		C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -126,6 +144,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C744E3E614B84CB400078FBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C744E3EA14B84CB400078FBB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7E2EF1A14B78D4C0000884E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -142,7 +168,6 @@
 		C744E3CA14B8464E00078FBB /* TranquilGraphics */ = {
 			isa = PBXGroup;
 			children = (
-				C744E3CB14B8464E00078FBB /* Supporting Files */,
 			);
 			path = TranquilGraphics;
 			sourceTree = "<group>";
@@ -154,7 +179,7 @@
 				C744E3CD14B8464E00078FBB /* InfoPlist.strings */,
 				C744E3D014B8464E00078FBB /* TranquilGraphics-Prefix.pch */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C744E3D614B8466500078FBB /* Graphics */ = {
@@ -162,9 +187,38 @@
 			children = (
 				C744E3D714B8467200078FBB /* TGraphicsPlugin.h */,
 				C744E3D814B8467200078FBB /* TGraphicsPlugin.m */,
+				C744E3CB14B8464E00078FBB /* Supporting Files */,
 			);
 			name = Graphics;
 			path = Plugins/Graphics;
+			sourceTree = "<group>";
+		};
+		C744E3E414B84C9C00078FBB /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				C744E3F514B84CCD00078FBB /* TAudioPlugin.h */,
+				C744E3F614B84CCD00078FBB /* TAudioPlugin.m */,
+				C744E3EC14B84CB400078FBB /* Supporting Files */,
+			);
+			name = Audio;
+			path = Plugins/Audio;
+			sourceTree = "<group>";
+		};
+		C744E3EB14B84CB400078FBB /* TranquilAudio */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TranquilAudio;
+			sourceTree = "<group>";
+		};
+		C744E3EC14B84CB400078FBB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C744E3ED14B84CB400078FBB /* TranquilAudio-Info.plist */,
+				C744E3EE14B84CB400078FBB /* InfoPlist.strings */,
+				C744E3F114B84CB400078FBB /* TranquilAudio-Prefix.pch */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C7AA4F4814B7BBE5008577CD /* Products */ = {
@@ -181,6 +235,7 @@
 				C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */,
 				C7E2EF2714B78D4C0000884E /* Tranquil */,
 				C744E3CA14B8464E00078FBB /* TranquilGraphics */,
+				C744E3EB14B84CB400078FBB /* TranquilAudio */,
 				C7E2EF2014B78D4C0000884E /* Frameworks */,
 				C7E2EF1E14B78D4C0000884E /* Products */,
 			);
@@ -191,6 +246,7 @@
 			children = (
 				C7E2EF1D14B78D4C0000884E /* Tranquil.app */,
 				C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */,
+				C744E3E914B84CB400078FBB /* TranquilAudio.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,6 +275,7 @@
 		C7E2EF2714B78D4C0000884E /* Tranquil */ = {
 			isa = PBXGroup;
 			children = (
+				C744E3E414B84C9C00078FBB /* Audio */,
 				C744E3D614B8466500078FBB /* Graphics */,
 				C7E2EF9E14B78E010000884E /* Core */,
 				C7E2EF3314B78D4C0000884E /* TAppDelegate.h */,
@@ -282,6 +339,23 @@
 			productReference = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
+		C744E3E814B84CB400078FBB /* TranquilAudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C744E3F214B84CB400078FBB /* Build configuration list for PBXNativeTarget "TranquilAudio" */;
+			buildPhases = (
+				C744E3E514B84CB400078FBB /* Sources */,
+				C744E3E614B84CB400078FBB /* Frameworks */,
+				C744E3E714B84CB400078FBB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TranquilAudio;
+			productName = TranquilAudio;
+			productReference = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		C7E2EF1C14B78D4C0000884E /* Tranquil */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7E2EF3B14B78D4D0000884E /* Build configuration list for PBXNativeTarget "Tranquil" */;
@@ -297,6 +371,7 @@
 			dependencies = (
 				C7AA4F5914B7BEAF008577CD /* PBXTargetDependency */,
 				C744E3DE14B846B200078FBB /* PBXTargetDependency */,
+				C744E3FA14B84D2D00078FBB /* PBXTargetDependency */,
 			);
 			name = Tranquil;
 			productName = Tranquil;
@@ -331,6 +406,7 @@
 			targets = (
 				C7E2EF1C14B78D4C0000884E /* Tranquil */,
 				C744E3C714B8464E00078FBB /* TranquilGraphics */,
+				C744E3E814B84CB400078FBB /* TranquilAudio */,
 			);
 		};
 /* End PBXProject section */
@@ -354,6 +430,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C744E3E714B84CB400078FBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C744E3F014B84CB400078FBB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7E2EF1B14B78D4C0000884E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,6 +457,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C744E3D914B8467200078FBB /* TGraphicsPlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C744E3E514B84CB400078FBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C744E3F714B84CCD00078FBB /* TAudioPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +491,11 @@
 			target = C744E3C714B8464E00078FBB /* TranquilGraphics */;
 			targetProxy = C744E3DD14B846B200078FBB /* PBXContainerItemProxy */;
 		};
+		C744E3FA14B84D2D00078FBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C744E3E814B84CB400078FBB /* TranquilAudio */;
+			targetProxy = C744E3F914B84D2D00078FBB /* PBXContainerItemProxy */;
+		};
 		C7AA4F5914B7BEAF008577CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Lua;
@@ -411,6 +508,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				C744E3CE14B8464E00078FBB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C744E3EE14B84CB400078FBB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C744E3EF14B84CB400078FBB /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -460,6 +565,30 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TranquilGraphics/TranquilGraphics-Prefix.pch";
 				INFOPLIST_FILE = "TranquilGraphics/TranquilGraphics-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		C744E3F314B84CB400078FBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TranquilAudio/TranquilAudio-Prefix.pch";
+				INFOPLIST_FILE = "TranquilAudio/TranquilAudio-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		C744E3F414B84CB400078FBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TranquilAudio/TranquilAudio-Prefix.pch";
+				INFOPLIST_FILE = "TranquilAudio/TranquilAudio-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
@@ -543,6 +672,14 @@
 			buildConfigurations = (
 				C744E3D214B8464E00078FBB /* Debug */,
 				C744E3D314B8464E00078FBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C744E3F214B84CB400078FBB /* Build configuration list for PBXNativeTarget "TranquilAudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C744E3F314B84CB400078FBB /* Debug */,
+				C744E3F414B84CB400078FBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
