@@ -2,17 +2,13 @@
 #import "TAudioProcessor.h"
 #include <portaudio.h>
 
+
 @implementation TAudioPlugin
 + (BOOL)loadPlugin
 {
-	PaError err = paNoError;
-	err = Pa_Initialize();
-	assert(err == paNoError);
-	
-	NSLog(@"Load audio");
-	NSLog(@"Devices: %d", Pa_GetDeviceCount());
-	//NSLog(@"%@", [TAudioDevice allDevicesOfType:kTAudioDeviceInput]);
-	TAudioProcessor *processor = [[TAudioProcessor alloc] initWithDevice:Pa_GetDefaultInputDevice()];
+	assert(Pa_Initialize() == paNoError);
+
+	TAudioProcessor *processor = [[TAudioProcessor alloc] initWithDevice:[TAudioProcessor deviceIndexForName:@"Built-in Input"]];
 	[processor start];
 	
 	return YES;

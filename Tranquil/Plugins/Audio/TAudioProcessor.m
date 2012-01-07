@@ -45,9 +45,20 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 
 @synthesize isRunning=_isRunning, frequencyBands=_frequencyBands, numberOfFrequencyBands=_numberOfFrequencyBands, gain=_gain, smoothingBias=_smoothingBias;
 
++ (PaDeviceIndex)deviceIndexForName:(NSString *)aName
+{
+	for(int i = 0; i < Pa_GetDeviceCount(); ++i) {
+		const PaDeviceInfo *info = Pa_GetDeviceInfo(i);
+		if([aName isEqualToString:[NSString stringWithUTF8String:info->name]])
+			return i;
+	}
+	return paNoDevice;
+}
 
 - (id)initWithDevice:(PaDeviceIndex)aDevice
 {
+	if(aDevice == paNoDevice) return nil;
+	
 	self = [super init];
 	if(!self) return nil;
 	

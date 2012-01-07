@@ -7,6 +7,8 @@
 @property(readwrite, assign, nonatomic) int numberOfFrequencyBands;
 @property(readwrite, assign) float gain, smoothingBias;
 
++ (PaDeviceIndex)deviceIndexForName:(NSString *)aName;
+
 - (id)initWithDevice:(PaDeviceIndex)aDevice;
 
 - (void)start;
