@@ -44,8 +44,6 @@ static TPluginManager *sharedInstance;
 		NSLog(@"Invalid plugin (%@)", [aPath lastPathComponent]);
 		return NO;
 	}
-	[pluginLoader loadPlugin];
-	
-	return YES;
+	return [pluginLoader loadPlugin];
 }
 @end

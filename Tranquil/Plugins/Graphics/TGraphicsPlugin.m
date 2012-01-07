@@ -5,5 +5,6 @@
 + (BOOL)loadPlugin
 {
 	NSLog(@"Load graphics");
+	return YES;
 }
 @end
