@@ -11,7 +11,6 @@
 		C744E3A314B834EF00078FBB /* TScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3A214B834EF00078FBB /* TScene.m */; };
 		C74B3A9914B7E280006741C4 /* TScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C74B3A9814B7E280006741C4 /* TScriptContext.m */; };
 		C74B3A9A14B7E628006741C4 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
-		C74B3A9C14B80AA1006741C4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */; };
 		C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
 		C7AA4F5414B7BC64008577CD /* Lua.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
 		C7AA4F5C14B7BFF6008577CD /* TOverlayTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */; };
@@ -91,7 +90,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C74B3A9C14B80AA1006741C4 /* CoreVideo.framework in Frameworks */,
 				C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */,
 				C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */,
 				C74B3A9A14B7E628006741C4 /* Lua.framework in Frameworks */,
