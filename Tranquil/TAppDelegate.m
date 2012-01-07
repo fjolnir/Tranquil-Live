@@ -1,6 +1,7 @@
 #import "TAppDelegate.h"
 #import "TMainWindowController.h"
 #import "TScriptContext.h"
+#import "TPluginManager.h"
 
 @implementation TAppDelegate
 
@@ -19,6 +20,8 @@
 		NSLog(@"Error executing startup script: %@", err);
 		[NSApp terminate:nil];
 	}
+	
+	[[TPluginManager sharedManager] loadAllPlugins];
 }
 
 @end
