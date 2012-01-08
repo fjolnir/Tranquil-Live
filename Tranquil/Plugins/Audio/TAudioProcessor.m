@@ -18,7 +18,7 @@
 	int _fftSize, _fftSizeOver2;
 	
 	// The output from the fft
-	float *_magnitutes;
+	float *_magnitudes;
 	// Averaged slices of _magnitudes corresponding to _numberOfFrequencyBands
 	float *_frequencyBands;
 	int _numberOfFrequencyBands;
@@ -41,6 +41,7 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 											 timeInfo:timeInfo
 										  statusFlags:statusFlags];
 }
+
 @implementation TAudioProcessor
 
 @synthesize isRunning=_isRunning, frequencyBands=_frequencyBands, numberOfFrequencyBands=_numberOfFrequencyBands, gain=_gain, smoothingBias=_smoothingBias;
@@ -78,7 +79,8 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	
 	float log2n = log2f(_fftSize);
 	_fftSetup = vDSP_create_fftsetup(log2n, FFT_RADIX2);
-	if(_fftSetup == NULL) NSLog(@"Couldn't allocate memory for FFT");
+	_magnitudes = calloc(_fftSizeOver2, sizeof(float));
+	assert(_fftSetup);
 	
 	
 	// Create the audio stream
@@ -88,7 +90,7 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	PaError err;
 	PaStreamParameters inputParameters;
 	inputParameters.device = _device;
-	inputParameters.channelCount = 1;
+	inputParameters.channelCount = 1; // We just need mono
 	inputParameters.sampleFormat = paFloat32;
 	inputParameters.suggestedLatency = Pa_GetDeviceInfo(_device)->defaultLowInputLatency;
 	inputParameters.hostApiSpecificStreamInfo = NULL;
@@ -97,25 +99,38 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	float framesPerBuffer = 1024;
 	pthread_mutex_init(&_sampleBufferMutex, NULL);
 	_sampleBuffer = (float *)malloc(sizeof(float)*framesPerBuffer);
-	err = Pa_OpenStream(&_inputStream, &inputParameters, NULL, sampleRate, framesPerBuffer, paClipOff, inputCallback, self);
+	err = Pa_OpenStream(&_inputStream, &inputParameters, NULL, sampleRate, framesPerBuffer, paNoFlag, inputCallback, self);
 	assert(err == paNoError);
 	
 	return self;
 }
 
+- (void)dealloc
+{
+	Pa_CloseStream(_inputStream);
+	free(_sampleBuffer);
+	pthread_mutex_destroy(&_sampleBufferMutex);
+	free(_hannWindow);
+	free(_hannWindowedBuffer);
+	vDSP_destroy_fftsetup(_fftSetup);
+	free(_magnitudes);
+	free(_frequencyBands);
+	
+	[super dealloc];
+}
+
 - (void)start
 {
 	if(!_isRunning) {
-		PaError err;
 		_isRunning = YES;
-		err = Pa_StartStream(_inputStream);
-		assert(err == paNoError);
+		assert(Pa_StartStream(_inputStream) == paNoError);
 	}
 }
 - (void)stop
 {
 	if(_isRunning) {
 		_isRunning = NO;
+		assert(Pa_StopStream(_inputStream) == paNoError);
 	}
 }
 
@@ -129,11 +144,11 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	[self _updateSpectrum];
 	
 	for(int i = 0; i < _numberOfFrequencyBands; ++i) {
-		int from = (int)( (i/_numberOfFrequencyBands) * _fftSize );
-		int to = (int)( ((i+1)/_numberOfFrequencyBands) * _fftSize );
+		int from = (int)( ((float)i/(float)_numberOfFrequencyBands) * _fftSize );
+		int to = (int)( ((float)(i+1)/(float)_numberOfFrequencyBands) * _fftSize );
 		float value = 0.0;
 		for(int j = from; j <= to && j < _fftSize; ++j) {
-			value += _magnitutes[j];
+			value += _magnitudes[j];
 		}
 		value *= _gain;
 		_frequencyBands[i] = (_smoothingBias * _frequencyBands[i]) + ((1.0 - _smoothingBias) * value);
@@ -146,6 +161,8 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	
 	// Apply hann window
 	vDSP_vmul(_sampleBuffer, 1, _hannWindow, 1, _hannWindowedBuffer, 1, _fftSize);
+	pthread_mutex_unlock(&_sampleBufferMutex);
+	
 	// Convert to split complex format with evens in real and odds in imaginary
 	vDSP_ctoz((COMPLEX *)_hannWindowedBuffer, 2, &_splitBuffer, 1, _fftSize/2);
 	
@@ -153,13 +170,9 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	vDSP_fft_zrip(_fftSetup, &_splitBuffer, 1, log2(_fftSize), FFT_FORWARD);
 	_splitBuffer.imagp[0] = 0.0;
 	
-	pthread_mutex_unlock(&_sampleBufferMutex);
-	
-	float magnitudes[_fftSizeOver2];
-	//float phases[_fftSizeOver2];;
 	for(int i = 0; i < _fftSizeOver2; ++i) {
 		float power = _splitBuffer.realp[i]*_splitBuffer.realp[i] + _splitBuffer.imagp[i]*_splitBuffer.imagp[i];
-		magnitudes[i] = sqrtf(power);
+		_magnitudes[i] = sqrtf(power);
 		// phases[i] = atan2f(_splitBuffer.imagp[i], _splitBuffer.realp[i]);
 	}
 }
@@ -170,7 +183,7 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 		 statusFlags:(PaStreamCallbackFlags)statusFlags
 {
 	// Update the buffer if it isn't being processed
-	if(pthread_mutex_trylock(&_sampleBufferMutex) == 0) {
+	if(_isRunning && pthread_mutex_trylock(&_sampleBufferMutex) == 0) {
 		memcpy(_sampleBuffer, buffer, sizeof(float)*framesPerBuffer);
 		pthread_mutex_unlock(&_sampleBufferMutex);
 	}
@@ -181,8 +194,10 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 {
 	_numberOfFrequencyBands = aNumberOfrequencyBands;
 	if(_frequencyBands)
-		_frequencyBands = malloc(sizeof(float)*_numberOfFrequencyBands);
-	else
+		_frequencyBands = calloc(_numberOfFrequencyBands, sizeof(float));
+	else {
 		_frequencyBands = realloc(_frequencyBands, sizeof(float)*_numberOfFrequencyBands);
+		memset(_frequencyBands, 0, sizeof(float)*_numberOfFrequencyBands);
+	}
 }
 @end

@@ -151,6 +151,7 @@
 		C74B3A9814B7E280006741C4 /* TScriptContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TScriptContext.m; sourceTree = "<group>"; };
 		C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		C760C4F514B7AE1700451951 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GLMath.xcodeproj; path = GLMath/GLMath.xcodeproj; sourceTree = "<group>"; };
 		C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lua.xcodeproj; path = Lua/Lua.xcodeproj; sourceTree = "<group>"; };
 		C7AA4F5A14B7BFF6008577CD /* TOverlayTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOverlayTextView.h; sourceTree = "<group>"; };
 		C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOverlayTextView.m; sourceTree = "<group>"; };
@@ -294,6 +295,7 @@
 		C7E2EF1214B78D4C0000884E = {
 			isa = PBXGroup;
 			children = (
+				C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */,
 				C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */,
 				C7E2EF2714B78D4C0000884E /* Tranquil */,
 				C744E3CA14B8464E00078FBB /* TranquilGraphics */,
@@ -636,6 +638,7 @@
 		C744E3D214B8464E00078FBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tranquil.app/Contents/MacOS/Tranquil";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Prefix.pch";
 				INFOPLIST_FILE = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Info.plist";
@@ -648,6 +651,7 @@
 		C744E3D314B8464E00078FBB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tranquil.app/Contents/MacOS/Tranquil";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Prefix.pch";
 				INFOPLIST_FILE = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Info.plist";
@@ -660,6 +664,7 @@
 		C744E3F314B84CB400078FBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tranquil.app/Contents/MacOS/Tranquil";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Plugins/Audio/Supporting Files/TranquilAudio-Prefix.pch";
 				HEADER_SEARCH_PATHS = PortAudio/include;
@@ -677,6 +682,7 @@
 		C744E3F414B84CB400078FBB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tranquil.app/Contents/MacOS/Tranquil";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Plugins/Audio/Supporting Files/TranquilAudio-Prefix.pch";
 				HEADER_SEARCH_PATHS = PortAudio/include;
