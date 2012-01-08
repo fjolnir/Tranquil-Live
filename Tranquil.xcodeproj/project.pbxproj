@@ -27,6 +27,10 @@
 		C74B3A9914B7E280006741C4 /* TScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C74B3A9814B7E280006741C4 /* TScriptContext.m */; };
 		C74B3A9A14B7E628006741C4 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
 		C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
+		C786047B14B97145006ED999 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
+		C786047C14B97149006ED999 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
+		C786048814BA5C5E006ED999 /* libglmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C786048514BA5C3C006ED999 /* libglmath.a */; };
+		C786048B14BA5C6E006ED999 /* libglmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C786048514BA5C3C006ED999 /* libglmath.a */; };
 		C7AA4F5414B7BC64008577CD /* Lua.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
 		C7AA4F5C14B7BFF6008577CD /* TOverlayTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */; };
 		C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
@@ -53,6 +57,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = C744E3E814B84CB400078FBB;
 			remoteInfo = TranquilAudio;
+		};
+		C786048414BA5C3C006ED999 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C70EA30314AC9780009D29C6;
+			remoteInfo = glmath;
+		};
+		C786048614BA5C57006ED999 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C70EA30214AC9780009D29C6;
+			remoteInfo = glmath;
+		};
+		C786048914BA5C6C006ED999 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C70EA30214AC9780009D29C6;
+			remoteInfo = glmath;
 		};
 		C7AA4F4E14B7BBE5008577CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -153,7 +178,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C786047C14B97149006ED999 /* Lua.framework in Frameworks */,
 				C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */,
+				C786048B14BA5C6E006ED999 /* libglmath.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C786047B14B97145006ED999 /* Lua.framework in Frameworks */,
 				C744E42A14B8A49200078FBB /* Accelerate.framework in Frameworks */,
 				C744E42614B8905A00078FBB /* AudioToolbox.framework in Frameworks */,
 				C744E40114B851CC00078FBB /* AudioUnit.framework in Frameworks */,
@@ -177,6 +205,7 @@
 				C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */,
 				C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */,
 				C74B3A9A14B7E628006741C4 /* Lua.framework in Frameworks */,
+				C786048814BA5C5E006ED999 /* libglmath.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +273,14 @@
 				C744E3F114B84CB400078FBB /* TranquilAudio-Prefix.pch */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C786047E14BA5C3B006ED999 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C786048514BA5C3C006ED999 /* libglmath.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		C7AA4F4814B7BBE5008577CD /* Products */ = {
@@ -358,6 +395,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C786048A14BA5C6C006ED999 /* PBXTargetDependency */,
 			);
 			name = TranquilGraphics;
 			productName = TranquilGraphics;
@@ -394,6 +432,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C786048714BA5C57006ED999 /* PBXTargetDependency */,
 				C7AA4F5914B7BEAF008577CD /* PBXTargetDependency */,
 				C744E3DE14B846B200078FBB /* PBXTargetDependency */,
 				C744E3FA14B84D2D00078FBB /* PBXTargetDependency */,
@@ -423,6 +462,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = C786047E14BA5C3B006ED999 /* Products */;
+					ProjectRef = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
+				},
+				{
 					ProductGroup = C7AA4F4814B7BBE5008577CD /* Products */;
 					ProjectRef = C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */;
 				},
@@ -437,6 +480,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		C786048514BA5C3C006ED999 /* libglmath.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libglmath.a;
+			remoteRef = C786048414BA5C3C006ED999 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C7AA4F4F14B7BBE5008577CD /* Lua.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -521,6 +571,16 @@
 			isa = PBXTargetDependency;
 			target = C744E3E814B84CB400078FBB /* TranquilAudio */;
 			targetProxy = C744E3F914B84D2D00078FBB /* PBXContainerItemProxy */;
+		};
+		C786048714BA5C57006ED999 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = glmath;
+			targetProxy = C786048614BA5C57006ED999 /* PBXContainerItemProxy */;
+		};
+		C786048A14BA5C6C006ED999 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = glmath;
+			targetProxy = C786048914BA5C6C006ED999 /* PBXContainerItemProxy */;
 		};
 		C7AA4F5914B7BEAF008577CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -651,6 +711,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = GLMath;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -671,6 +732,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = GLMath;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
