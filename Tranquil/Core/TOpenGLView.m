@@ -1,7 +1,7 @@
 #import "TOpenGLView.h"
 #import <OpenGL/gl.h>
 #import <OpenGL/OpenGL.h>
-#import <CoreVideo/CVDisplayLink.h>
+#import "TScene.h"
 
 @interface TOpenGLView () {
 	NSTimer *_renderTimer;
@@ -10,7 +10,7 @@
 @end
 
 @implementation TOpenGLView
-@synthesize renderables=_renderables;
+
 - (id)initWithFrame:(NSRect)frameRect
 {
 	NSOpenGLPixelFormatAttribute attrs[] = {
@@ -25,9 +25,6 @@
     NSOpenGLPixelFormat *pixelFormat = [[NSOpenGLPixelFormat alloc] initWithAttributes:attrs];
 	self = [super initWithFrame:frameRect pixelFormat:pixelFormat];
 	[pixelFormat release];
-	
-	if(self)
-		_renderables = [[NSMutableArray alloc] init];
 	
 	return self;
 }
@@ -59,8 +56,8 @@
 	double time = clock()/1000000.0;
 	glClearColor(sin(time), 0, cos(time), 1);
 	glClear(GL_COLOR_BUFFER_BIT);
-    for(id<TOpenGLRenderable> renderable in _renderables)
-		[renderable render];
+    
+	[[TScene globalScene] render:self];
 	
 	glFinish();
     [[self openGLContext] flushBuffer];
@@ -80,8 +77,4 @@
 	[super dealloc];
 }
 
-- (void)addRenderable:(id<TOpenGLRenderable>)aRenderable
-{
-	[_renderables addObject:aRenderable];
-}
 @end

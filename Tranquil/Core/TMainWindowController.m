@@ -2,19 +2,16 @@
 #import "TOpenGLView.h"
 #import "TOverlayTextView.h"
 #import "TScriptContext.h"
-#import "TSCene.h"
 
 @implementation TMainWindowController
 
-@synthesize mainView=_mainView, scriptView=_scriptView, scene=_scene;
+@synthesize mainView=_mainView, scriptView=_scriptView;
 
 
 - (void)awakeFromNib
 {
 	_scriptView.enclosingScrollView.frame = _mainView.bounds;
 	[_mainView addSubview:_scriptView.enclosingScrollView];
-	_scene = [[TScene alloc] init];
-	[_mainView addRenderable:_scene];
 }
 
 - (IBAction)runActiveScript:(id)sender
