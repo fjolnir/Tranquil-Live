@@ -16,6 +16,7 @@
 }
 
 @property(readwrite, assign) id<TScriptContextDelegate> delegate;
+@property(readonly) lua_State *luaState;
 + (TScriptContext *)sharedContext;
 
 - (BOOL)executeScript:(NSString *)source error:(TScriptError **)aoErr;

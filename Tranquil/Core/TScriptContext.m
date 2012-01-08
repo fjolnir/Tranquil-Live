@@ -13,7 +13,7 @@ static void escapeHook(lua_State *state, lua_Debug *ar)
 }
 
 @implementation TScriptContext
-@synthesize delegate=_delegate;
+@synthesize delegate=_delegate, luaState=_state;
 
 + (TScriptContext *)sharedContext
 {
@@ -77,10 +77,12 @@ static void escapeHook(lua_State *state, lua_Debug *ar)
 
 @implementation TScriptError
 @synthesize type=_type, message=_message;
+
 + (TScriptError *)errorWithType:(TScriptErrorType)aType message:(NSString *)aMessage
 {
 	return [[[self alloc] initWithType:aType message:aMessage] autorelease];
 }
+
 - (id)initWithType:(TScriptErrorType)aType message:(NSString *)aMessage
 {
 	if(!(self = [super init])) return nil;
@@ -88,9 +90,11 @@ static void escapeHook(lua_State *state, lua_Debug *ar)
 	_message = [aMessage copy];
 	return self;
 }
+
 - (NSString *)description {
 	return [NSString stringWithFormat:@"%@ <0x%x> %@", NSStringFromClass([self class]), self, _message];
 }
+
 - (void)dealloc
 {
 	[_message release];
