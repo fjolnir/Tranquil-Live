@@ -1,10 +1,22 @@
 -- Called at the end of each frame (beginning of the next)
-_frameCallbacks = {}
+
+_errorDuringUserCallback = false
+_prevUserFrameCallback = nil
+_userFrameCallback = nil
+
 function _frameCallback()
-	for i,callback in ipairs(_frameCallbacks) do
-		callback()
+	_audio_updateSpectrum()
+	if not pcall(_userFrameCallback) then
+		_errorDuringUserCallback = true
+		pcall(_prevUserFrameCallback)
+	else
+		_errorDuringUserCallback = false
 	end
 end
+
 function everyFrame(aCallback)
-	_frameCallbacks[#_frameCallbacks + 1] = aCallback
+	if not _errorDuringUserCallback then
+		_prevUserFrameCallback = _userFrameCallback
+	end
+	_userFrameCallback = aCallback
 end
