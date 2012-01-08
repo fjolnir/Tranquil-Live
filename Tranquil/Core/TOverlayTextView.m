@@ -15,9 +15,9 @@
 	self.insertionPointColor = [NSColor whiteColor];
 }
 
-- (id)initWithFrame:(NSRect)frame
+- (id)initWithFrame:(NSRect)aFrame
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:aFrame];
 	if(self) [self _init];
     return self;
 }
@@ -29,18 +29,36 @@
     return self;
 }
 
-- (void)viewWillMoveToSuperview:(NSView *)newSuperview
+- (void)viewWillMoveToSuperview:(NSView *)aSuperview
 {
-	((NSScrollView *)newSuperview).drawsBackground = NO;
+	((NSScrollView *)aSuperview).drawsBackground = NO;
 }
 
-- (BOOL)isOpaque
-{
-	return NO;
-}
+#pragma mark - Events
 
-- (void)scrollWheel:(NSEvent *)theEvent
+- (void)scrollWheel:(NSEvent *)aEvent
 {
 	// Do nothing, doesn't look good
+}
+
+- (void)mouseEntered:(NSEvent *)aEvent
+{
+	[NSCursor hide];
+	return;
+}
+
+- (void)mouseExited:(NSEvent *)aEvent
+{
+	[NSCursor unhide];
+	return;
+}
+
+- (void)mouseMoved:(NSEvent *)aEvent
+{
+	return; // Prevent the pointer from changing
+}
+- (NSView *)hitTest:(NSPoint)aPoint
+{
+	return nil; // We want the OpenGL view to get the event
 }
 @end
