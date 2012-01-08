@@ -1203,8 +1203,48 @@
 			<object class="NSCustomObject" id="755631768">
 				<string key="NSClassName">NSFontManager</string>
 			</object>
+			<object class="NSCustomObject" id="599007241">
+				<string key="NSClassName">TMainWindowController</string>
+			</object>
+			<object class="NSWindowTemplate" id="700558846">
+				<int key="NSWindowStyleMask">13</int>
+				<int key="NSWindowBacking">2</int>
+				<string key="NSWindowRect">{{169, 150}, {800, 600}}</string>
+				<int key="NSWTFlags">1618477056</int>
+				<string key="NSWindowTitle">Tranquil</string>
+				<string key="NSWindowClass">NSWindow</string>
+				<nil key="NSViewClass"/>
+				<nil key="NSUserInterfaceItemIdentifier"/>
+				<object class="NSView" key="NSWindowView" id="1042782396">
+					<reference key="NSNextResponder"/>
+					<int key="NSvFlags">256</int>
+					<array class="NSMutableArray" key="NSSubviews">
+						<object class="NSCustomView" id="371255274">
+							<reference key="NSNextResponder" ref="1042782396"/>
+							<int key="NSvFlags">18</int>
+							<string key="NSFrameSize">{800, 600}</string>
+							<reference key="NSSuperview" ref="1042782396"/>
+							<reference key="NSWindow"/>
+							<bool key="NSViewIsLayerTreeHost">YES</bool>
+							<int key="NSViewLayerContentsRedrawPolicy">2</int>
+							<string key="NSReuseIdentifierKey">_NS:1192</string>
+							<string key="NSClassName">TOpenGLView</string>
+						</object>
+					</array>
+					<string key="NSFrameSize">{800, 600}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
+					<reference key="NSNextKeyView" ref="371255274"/>
+					<int key="NSViewLayerContentsRedrawPolicy">2</int>
+				</object>
+				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
+				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
+				<string key="NSFrameAutosaveName">mainWindow</string>
+				<int key="NSWindowCollectionBehavior">128</int>
+				<bool key="NSWindowIsRestorable">YES</bool>
+			</object>
 			<object class="NSScrollView" id="891481298">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSClipView" id="904182919">
@@ -1235,8 +1275,7 @@
 								</set>
 								<string key="NSFrameSize">{800, 133}</string>
 								<reference key="NSSuperview" ref="904182919"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
+								<reference key="NSNextKeyView" ref="71098097"/>
 								<int key="NSViewLayerContentsRedrawPolicy">2</int>
 								<bool key="NSViewCanDrawConcurrently">YES</bool>
 								<string key="NSReuseIdentifierKey">_NS:1480</string>
@@ -1310,7 +1349,6 @@
 						</array>
 						<string key="NSFrameSize">{800, 600}</string>
 						<reference key="NSSuperview" ref="891481298"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="338971412"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<string key="NSReuseIdentifierKey">_NS:1478</string>
@@ -1346,7 +1384,6 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<int key="NSvFlags">-2147483392</int>
 						<string key="NSFrame">{{-100, -100}, {15, 600}}</string>
 						<reference key="NSSuperview" ref="891481298"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="932121384"/>
 						<string key="NSReuseIdentifierKey">_NS:1494</string>
 						<reference key="NSTarget" ref="891481298"/>
@@ -1360,7 +1397,6 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<int key="NSvFlags">-2147483392</int>
 						<string key="NSFrame">{{-100, -100}, {87, 18}}</string>
 						<reference key="NSSuperview" ref="891481298"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="904182919"/>
 						<string key="NSReuseIdentifierKey">_NS:1482</string>
 						<int key="NSsFlags">1</int>
@@ -1372,9 +1408,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					</object>
 				</array>
 				<string key="NSFrameSize">{800, 600}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="71098097"/>
+				<reference key="NSNextKeyView" ref="904182919"/>
 				<bool key="NSViewIsLayerTreeHost">YES</bool>
 				<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				<bool key="NSViewCanDrawConcurrently">YES</bool>
@@ -1385,47 +1419,6 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 				<reference key="NSContentView" ref="904182919"/>
 				<int key="NSScrollerKnobStyle">2</int>
 				<bytes key="NSScrollAmts">QSAAAEEgAAA/gAAAP4AAAA</bytes>
-			</object>
-			<object class="NSWindowTemplate" id="700558846">
-				<int key="NSWindowStyleMask">13</int>
-				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 240}, {800, 600}}</string>
-				<int key="NSWTFlags">1618477056</int>
-				<string key="NSWindowTitle">Tranquil</string>
-				<string key="NSWindowClass">NSWindow</string>
-				<nil key="NSViewClass"/>
-				<nil key="NSUserInterfaceItemIdentifier"/>
-				<object class="NSView" key="NSWindowView" id="1042782396">
-					<reference key="NSNextResponder"/>
-					<int key="NSvFlags">256</int>
-					<array class="NSMutableArray" key="NSSubviews">
-						<object class="NSCustomView" id="371255274">
-							<reference key="NSNextResponder" ref="1042782396"/>
-							<int key="NSvFlags">18</int>
-							<string key="NSFrameSize">{800, 600}</string>
-							<reference key="NSSuperview" ref="1042782396"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
-							<bool key="NSViewIsLayerTreeHost">YES</bool>
-							<int key="NSViewLayerContentsRedrawPolicy">2</int>
-							<string key="NSReuseIdentifierKey">_NS:1192</string>
-							<string key="NSClassName">TOpenGLView</string>
-						</object>
-					</array>
-					<string key="NSFrameSize">{800, 600}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView" ref="371255274"/>
-					<int key="NSViewLayerContentsRedrawPolicy">2</int>
-				</object>
-				<string key="NSScreenRect">{{0, 0}, {1920, 1058}}</string>
-				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
-				<string key="NSFrameAutosaveName">mainWindow</string>
-				<int key="NSWindowCollectionBehavior">128</int>
-				<bool key="NSWindowIsRestorable">YES</bool>
-			</object>
-			<object class="NSCustomObject" id="599007241">
-				<string key="NSClassName">TMainWindowController</string>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -3187,7 +3180,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">577</int>
+			<int key="maxID">582</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
