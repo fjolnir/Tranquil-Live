@@ -1,0 +1,3 @@
+[submodule "GLMath"]
+	path = GLMath
+	url = git://github.com/aptiva/GLMath.git
