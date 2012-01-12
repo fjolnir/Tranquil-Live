@@ -2,6 +2,9 @@
 #import <OpenGL/gl.h>
 #import <OpenGL/OpenGL.h>
 #import "TScene.h"
+#import "TAppDelegate.h"
+#import "TOpenGLLayer.h"
+#import "TCamera.h"
 
 @interface TOpenGLView () {
 	NSTimer *_renderTimer;
@@ -11,23 +14,11 @@
 
 @implementation TOpenGLView
 
-- (id)initWithFrame:(NSRect)frameRect
+- (CALayer *)makeBackingLayer
 {
-	NSOpenGLPixelFormatAttribute attrs[] = {
-        NSOpenGLPFANoRecovery,
-        NSOpenGLPFAColorSize, 24,
-        NSOpenGLPFAAlphaSize, 8,
-        NSOpenGLPFADepthSize, 16,
-        NSOpenGLPFADoubleBuffer,
-        NSOpenGLPFAAccelerated,
-        0
-    };
-    NSOpenGLPixelFormat *pixelFormat = [[NSOpenGLPixelFormat alloc] initWithAttributes:attrs];
-	self = [super initWithFrame:frameRect pixelFormat:pixelFormat];
-	[pixelFormat release];
-	
-	return self;
+	return [TOpenGLLayer layer];
 }
+
 - (void)awakeFromNib
 {
 	NSMethodSignature *signature = [self methodSignatureForSelector:@selector(setNeedsDisplay:)];
@@ -45,27 +36,27 @@
     [[NSRunLoop currentRunLoop] addTimer:_renderTimer 
 								 forMode:NSEventTrackingRunLoopMode];
 }
-- (void)prepareOpenGL
+/*- (void)prepareOpenGL
 {
-	GLint vSync = 1;
-    [[self openGLContext] setValues:&vSync forParameter:NSOpenGLCPSwapInterval];
+	
 }
-
-- (void)render
+*/
+/*- (void)render
 {
+	//	[[self openGLContext] makeCurrentContext];
 	double time = clock()/1000000.0;
 	glClearColor(sin(time), 0, cos(time), 1);
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     
 	[[TScene globalScene] render:self];
 	
 	glFinish();
     [[self openGLContext] flushBuffer];
 }
-
+*/
 - (void)drawRect:(NSRect)dirtyRect
 {
-	[self render];
+	//	[self render];
 }
 
 - (void)dealloc
@@ -75,6 +66,50 @@
 	[_renderables release];
 	
 	[super dealloc];
+}
+
+- (BOOL)canBecomeKeyView
+{
+	return YES;
+}
+- (BOOL)acceptsFirstResponder
+{
+	return YES;
+}
+- (void)keyDown:(NSEvent *)aEvent
+{
+	NSString *characters;
+    characters = [aEvent characters];
+	
+    unichar character;
+    character = [characters characterAtIndex: 0];
+	
+	vec4_t pos = [TScene globalScene].camera.position;
+    if (character == NSRightArrowFunctionKey) {
+		pos.x += 0.1;
+		
+    } else if (character == NSLeftArrowFunctionKey) {
+		pos.x -= 0.1;
+    } else if (character == NSUpArrowFunctionKey) {
+		pos.y += 0.1;
+    } else if (character == NSDownArrowFunctionKey) {
+		pos.y -= 0.1;
+    } else if (character == NSPageUpFunctionKey) {
+		pos.z += 0.1;
+	} else if (character == NSPageDownFunctionKey) {
+		pos.z -= 0.1;
+	}
+		 [TScene globalScene].camera.position = pos; 
+	[[TScene globalScene].camera updateMatrix];
+}
+
+- (void)mouseDragged:(NSEvent *)theEvent
+{
+	quat_t xQuat = quat_createf(1, 0, 0, -[theEvent deltaY]/70.0);
+	quat_t yQuat = quat_createf(0, 1, 0, -[theEvent deltaX]/70.0);
+	quat_t deltaQuat = quat_multQuat(xQuat, yQuat);
+	[TScene globalScene].camera.orientation = quat_multQuat(deltaQuat, [TScene globalScene].camera.orientation);
+	[[TScene globalScene].camera updateMatrix];
 }
 
 @end

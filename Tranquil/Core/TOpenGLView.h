@@ -1,2 +1,2 @@
-@interface TOpenGLView : NSOpenGLView
+@interface TOpenGLView : NSView //NSOpenGLView
 @end
