@@ -144,14 +144,17 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	[self _updateSpectrum];
 	
 	for(int i = 0; i < _numberOfFrequencyBands; ++i) {
-		int from = (int)( ((float)i/(float)_numberOfFrequencyBands) * _fftSize );
-		int to = (int)( ((float)(i+1)/(float)_numberOfFrequencyBands) * _fftSize );
+		int from = (int)( ((float)i/(float)_numberOfFrequencyBands) * _fftSizeOver2 );
+		int to = (int)( ((float)(i+1)/(float)_numberOfFrequencyBands) * _fftSizeOver2 );
 		float value = 0.0;
-		for(int j = from; j <= to && j < _fftSize; ++j) {
+		for(int j = from; j <= to && j < _fftSizeOver2; ++j) {
 			value += _magnitudes[j];
 		}
-		value *= _gain;
-		_frequencyBands[i] = (_smoothingBias * _frequencyBands[i]) + ((1.0 - _smoothingBias) * value);
+		if(value != NAN && value != INFINITY && value != negativeInfinity) { // These values would kill all future ones
+			value *= _gain;
+			//_frequencyBands[i] = value;
+			_frequencyBands[i] = (_smoothingBias * _frequencyBands[i]) + ((1.0 - _smoothingBias) * value);
+		}
 	}
 }
 
@@ -164,17 +167,16 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	pthread_mutex_unlock(&_sampleBufferMutex);
 	
 	// Convert to split complex format with evens in real and odds in imaginary
-	vDSP_ctoz((COMPLEX *)_hannWindowedBuffer, 2, &_splitBuffer, 1, _fftSize/2);
+	vDSP_ctoz((COMPLEX *)_hannWindowedBuffer, 2, &_splitBuffer, 1, _fftSizeOver2);
 	
 	// Calculate the fft
 	vDSP_fft_zrip(_fftSetup, &_splitBuffer, 1, log2(_fftSize), FFT_FORWARD);
-	_splitBuffer.imagp[0] = 0.0;
 	
-	for(int i = 0; i < _fftSizeOver2; ++i) {
-		float power = _splitBuffer.realp[i]*_splitBuffer.realp[i] + _splitBuffer.imagp[i]*_splitBuffer.imagp[i];
-		_magnitudes[i] = sqrtf(power);
-		// phases[i] = atan2f(_splitBuffer.imagp[i], _splitBuffer.realp[i]);
-	}
+	// Convert to decibels
+	float mags[_fftSizeOver2];
+	vDSP_zvmags(&_splitBuffer, 1, mags, 1, _fftSizeOver2);
+	float zero = 1.0;
+	vDSP_vdbcon(mags, 1, &zero, _magnitudes, 1, _fftSizeOver2, 0);
 }
 
 - (int)_processInput:(const void *)buffer
