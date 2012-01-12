@@ -1,8 +1,12 @@
 // A Lua context
 
-#include <Lua/lua.h>
+/*#include <Lua/lua.h>
 #include <Lua/lauxlib.h>
-#include <Lua/lualib.h>
+#include <Lua/lualib.h>*/
+#include <lua.h>
+#include <luajit.h>
+#include <lauxlib.h>
+#include <lualib.h>
 
 @class TScriptContext, TScriptError;
 
