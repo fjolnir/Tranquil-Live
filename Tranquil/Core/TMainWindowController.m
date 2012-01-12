@@ -11,7 +11,8 @@
 - (void)awakeFromNib
 {
 	_scriptView.enclosingScrollView.frame = _mainView.bounds;
-	[_mainView addSubview:_scriptView.enclosingScrollView];
+	//[_mainView addSubview:_scriptView.enclosingScrollView];
+	self.window.aspectRatio = NSMakeSize(1.65, 1);//[[NSScreen mainScreen] frame].size;// NSMakeSize(4, 3);
 }
 
 - (IBAction)runActiveScript:(id)sender
@@ -21,4 +22,6 @@
 	if(err)
 		NSLog(@"%@", err);
 }
+
+
 @end
