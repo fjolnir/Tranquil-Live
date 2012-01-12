@@ -6,18 +6,36 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		C701C3D614BBDA9F00DD9C0C /* App&Plugins */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C701C3D714BBDA9F00DD9C0C /* Build configuration list for PBXAggregateTarget "App&Plugins" */;
+			buildPhases = (
+			);
+			dependencies = (
+				C701C3EA14BBDB7A00DD9C0C /* PBXTargetDependency */,
+				C701C3EE14BBDBCA00DD9C0C /* PBXTargetDependency */,
+				C701C3EC14BBDBC300DD9C0C /* PBXTargetDependency */,
+			);
+			name = "App&Plugins";
+			productName = "App&Plugins";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		C701C3C414BAFAA600DD9C0C /* libluajit-5.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C701C3C314BAFAA600DD9C0C /* libluajit-5.1.a */; };
+		C701C3C514BAFB2F00DD9C0C /* libluajit-5.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C701C3C314BAFAA600DD9C0C /* libluajit-5.1.a */; };
+		C701C3C614BAFB3D00DD9C0C /* libluajit-5.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C701C3C314BAFAA600DD9C0C /* libluajit-5.1.a */; };
+		C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
 		C744E3A014B8337D00078FBB /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C744E39F14B8337D00078FBB /* Scripts */; };
 		C744E3A314B834EF00078FBB /* TScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3A214B834EF00078FBB /* TScene.m */; };
 		C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C744E3CF14B8464E00078FBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C744E3CD14B8464E00078FBB /* InfoPlist.strings */; };
 		C744E3D914B8467200078FBB /* TGraphicsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3D814B8467200078FBB /* TGraphicsPlugin.m */; };
-		C744E3E014B846CC00078FBB /* TranquilGraphics.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */; };
 		C744E3E314B847AE00078FBB /* TPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3E214B847AD00078FBB /* TPluginManager.m */; };
 		C744E3EA14B84CB400078FBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C744E3F014B84CB400078FBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C744E3EE14B84CB400078FBB /* InfoPlist.strings */; };
 		C744E3F714B84CCD00078FBB /* TAudioPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3F614B84CCD00078FBB /* TAudioPlugin.m */; };
-		C744E3F814B84D2500078FBB /* TranquilAudio.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
 		C744E3FD14B84ECD00078FBB /* TAudioProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3FC14B84ECD00078FBB /* TAudioProcessor.m */; };
 		C744E3FF14B8502500078FBB /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E3FE14B8502500078FBB /* CoreAudio.framework */; };
 		C744E40114B851CC00078FBB /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E40014B851CB00078FBB /* AudioUnit.framework */; };
@@ -25,13 +43,22 @@
 		C744E42614B8905A00078FBB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42514B8905A00078FBB /* AudioToolbox.framework */; };
 		C744E42A14B8A49200078FBB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
 		C74B3A9914B7E280006741C4 /* TScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C74B3A9814B7E280006741C4 /* TScriptContext.m */; };
-		C74B3A9A14B7E628006741C4 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
 		C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
-		C786047B14B97145006ED999 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
-		C786047C14B97149006ED999 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
+		C773FEB014BC0EA3003338FE /* TPrimitive.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEAF14BC0EA3003338FE /* TPrimitive.m */; };
+		C773FEB114BC11A9003338FE /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
+		C773FEB414BC122D003338FE /* TCube.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB314BC122D003338FE /* TCube.m */; };
+		C773FEB714BC1F00003338FE /* TShader.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB614BC1F00003338FE /* TShader.m */; };
+		C773FEBA14BC21D2003338FE /* TState.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB914BC21D2003338FE /* TState.m */; };
+		C773FEBD14BC27D7003338FE /* TLight.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEBC14BC27D7003338FE /* TLight.m */; };
+		C773FEC314BC39C7003338FE /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = C773FEBE14BC397A003338FE /* Shaders */; };
+		C773FED314BD440B003338FE /* TOpenGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED214BD440A003338FE /* TOpenGLLayer.m */; };
+		C773FED414BD50B8003338FE /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
+		C773FED714BD7C18003338FE /* TSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED614BD7C18003338FE /* TSphere.m */; };
+		C773FEDA14BE7318003338FE /* TCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED914BE7316003338FE /* TCamera.m */; };
+		C773FEDC14BEA0D5003338FE /* TranquilGraphics.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */; };
+		C773FEDD14BEA0DA003338FE /* TranquilAudio.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
 		C786048814BA5C5E006ED999 /* libglmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C786048514BA5C3C006ED999 /* libglmath.a */; };
 		C786048B14BA5C6E006ED999 /* libglmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C786048514BA5C3C006ED999 /* libglmath.a */; };
-		C7AA4F5414B7BC64008577CD /* Lua.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7AA4F4F14B7BBE5008577CD /* Lua.framework */; };
 		C7AA4F5C14B7BFF6008577CD /* TOverlayTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */; };
 		C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */; };
@@ -44,14 +71,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C744E3DD14B846B200078FBB /* PBXContainerItemProxy */ = {
+		C701C3E914BBDB7A00DD9C0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7E2EF1C14B78D4C0000884E;
+			remoteInfo = Tranquil;
+		};
+		C701C3EB14BBDBC300DD9C0C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C744E3C714B8464E00078FBB;
 			remoteInfo = TranquilGraphics;
 		};
-		C744E3F914B84D2D00078FBB /* PBXContainerItemProxy */ = {
+		C701C3ED14BBDBCA00DD9C0C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
 			proxyType = 1;
@@ -79,31 +113,17 @@
 			remoteGlobalIDString = C70EA30214AC9780009D29C6;
 			remoteInfo = glmath;
 		};
-		C7AA4F4E14B7BBE5008577CD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C7E2EFB114B793750000884E;
-			remoteInfo = Lua;
-		};
-		C7AA4F5814B7BEAF008577CD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C7E2EFB014B793750000884E;
-			remoteInfo = Lua;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C744E3DF14B846BC00078FBB /* Copy Plugins */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				C744E3F814B84D2500078FBB /* TranquilAudio.bundle in Copy Plugins */,
-				C744E3E014B846CC00078FBB /* TranquilGraphics.bundle in Copy Plugins */,
+				C773FEDD14BEA0DA003338FE /* TranquilAudio.bundle in Copy Plugins */,
+				C773FEDC14BEA0D5003338FE /* TranquilGraphics.bundle in Copy Plugins */,
 			);
 			name = "Copy Plugins";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,7 +134,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C7AA4F5414B7BC64008577CD /* Lua.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +141,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C701C3C314BAFAA600DD9C0C /* libluajit-5.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libluajit-5.1.a"; path = "LuaJIT-2.0.0-beta9/build/lib/libluajit-5.1.a"; sourceTree = "<group>"; };
+		C701C3C714BBBF4000DD9C0C /* ExportedSymbols.exp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.exports; path = ExportedSymbols.exp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		C744E39F14B8337D00078FBB /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		C744E3A114B834EF00078FBB /* TScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TScene.h; sourceTree = "<group>"; };
 		C744E3A214B834EF00078FBB /* TScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TScene.m; sourceTree = "<group>"; };
@@ -151,8 +172,25 @@
 		C74B3A9814B7E280006741C4 /* TScriptContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TScriptContext.m; sourceTree = "<group>"; };
 		C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		C760C4F514B7AE1700451951 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		C773FEAE14BC0EA3003338FE /* TPrimitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPrimitive.h; sourceTree = "<group>"; };
+		C773FEAF14BC0EA3003338FE /* TPrimitive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPrimitive.m; sourceTree = "<group>"; };
+		C773FEB214BC122D003338FE /* TCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCube.h; sourceTree = "<group>"; };
+		C773FEB314BC122D003338FE /* TCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCube.m; sourceTree = "<group>"; };
+		C773FEB514BC1F00003338FE /* TShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TShader.h; sourceTree = "<group>"; };
+		C773FEB614BC1F00003338FE /* TShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TShader.m; sourceTree = "<group>"; };
+		C773FEB814BC21D2003338FE /* TState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TState.h; sourceTree = "<group>"; };
+		C773FEB914BC21D2003338FE /* TState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TState.m; sourceTree = "<group>"; };
+		C773FEBB14BC27D7003338FE /* TLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLight.h; sourceTree = "<group>"; };
+		C773FEBC14BC27D7003338FE /* TLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLight.m; sourceTree = "<group>"; };
+		C773FEBE14BC397A003338FE /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
+		C773FECC14BD11D6003338FE /* TGLErrorChecking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TGLErrorChecking.h; sourceTree = "<group>"; };
+		C773FED114BD440A003338FE /* TOpenGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOpenGLLayer.h; sourceTree = "<group>"; };
+		C773FED214BD440A003338FE /* TOpenGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOpenGLLayer.m; sourceTree = "<group>"; };
+		C773FED514BD7C18003338FE /* TSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSphere.h; sourceTree = "<group>"; };
+		C773FED614BD7C18003338FE /* TSphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSphere.m; sourceTree = "<group>"; };
+		C773FED814BE7315003338FE /* TCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCamera.h; sourceTree = "<group>"; };
+		C773FED914BE7316003338FE /* TCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCamera.m; sourceTree = "<group>"; };
 		C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GLMath.xcodeproj; path = GLMath/GLMath.xcodeproj; sourceTree = "<group>"; };
-		C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lua.xcodeproj; path = Lua/Lua.xcodeproj; sourceTree = "<group>"; };
 		C7AA4F5A14B7BFF6008577CD /* TOverlayTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOverlayTextView.h; sourceTree = "<group>"; };
 		C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOverlayTextView.m; sourceTree = "<group>"; };
 		C7E2EF1D14B78D4C0000884E /* Tranquil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tranquil.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,7 +217,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C786047C14B97149006ED999 /* Lua.framework in Frameworks */,
+				C773FED414BD50B8003338FE /* Accelerate.framework in Frameworks */,
+				C773FEB114BC11A9003338FE /* OpenGL.framework in Frameworks */,
+				C701C3C514BAFB2F00DD9C0C /* libluajit-5.1.a in Frameworks */,
 				C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */,
 				C786048B14BA5C6E006ED999 /* libglmath.a in Frameworks */,
 			);
@@ -189,7 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C786047B14B97145006ED999 /* Lua.framework in Frameworks */,
+				C701C3C614BAFB3D00DD9C0C /* libluajit-5.1.a in Frameworks */,
 				C744E42A14B8A49200078FBB /* Accelerate.framework in Frameworks */,
 				C744E42614B8905A00078FBB /* AudioToolbox.framework in Frameworks */,
 				C744E40114B851CC00078FBB /* AudioUnit.framework in Frameworks */,
@@ -203,9 +243,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */,
+				C701C3C414BAFAA600DD9C0C /* libluajit-5.1.a in Frameworks */,
 				C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */,
 				C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */,
-				C74B3A9A14B7E628006741C4 /* Lua.framework in Frameworks */,
 				C786048814BA5C5E006ED999 /* libglmath.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +276,12 @@
 			children = (
 				C744E3D714B8467200078FBB /* TGraphicsPlugin.h */,
 				C744E3D814B8467200078FBB /* TGraphicsPlugin.m */,
+				C773FEAE14BC0EA3003338FE /* TPrimitive.h */,
+				C773FEAF14BC0EA3003338FE /* TPrimitive.m */,
+				C773FEB214BC122D003338FE /* TCube.h */,
+				C773FEB314BC122D003338FE /* TCube.m */,
+				C773FED514BD7C18003338FE /* TSphere.h */,
+				C773FED614BD7C18003338FE /* TSphere.m */,
 				C744E3CB14B8464E00078FBB /* Supporting Files */,
 			);
 			name = Graphics;
@@ -284,19 +331,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C7AA4F4814B7BBE5008577CD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C7AA4F4F14B7BBE5008577CD /* Lua.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		C7E2EF1214B78D4C0000884E = {
 			isa = PBXGroup;
 			children = (
 				C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */,
-				C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */,
 				C7E2EF2714B78D4C0000884E /* Tranquil */,
 				C744E3CA14B8464E00078FBB /* TranquilGraphics */,
 				C744E3EB14B84CB400078FBB /* TranquilAudio */,
@@ -318,6 +356,7 @@
 		C7E2EF2014B78D4C0000884E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C701C3C314BAFAA600DD9C0C /* libluajit-5.1.a */,
 				C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */,
 				C760C4F514B7AE1700451951 /* OpenGL.framework */,
 				C7E2EF2114B78D4C0000884E /* Cocoa.framework */,
@@ -344,6 +383,7 @@
 				C7E2EF9E14B78E010000884E /* Core */,
 				C7E2EF3314B78D4C0000884E /* TAppDelegate.h */,
 				C7E2EF3414B78D4D0000884E /* TAppDelegate.m */,
+				C773FEBE14BC397A003338FE /* Shaders */,
 				C744E39F14B8337D00078FBB /* Scripts */,
 				C7E2EF3614B78D4D0000884E /* MainMenu.xib */,
 				C7E2EF2814B78D4C0000884E /* Supporting Files */,
@@ -354,6 +394,7 @@
 		C7E2EF2814B78D4C0000884E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C701C3C714BBBF4000DD9C0C /* ExportedSymbols.exp */,
 				C7E2EF2914B78D4C0000884E /* Tranquil-Info.plist */,
 				C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */,
 				C7E2EF2D14B78D4C0000884E /* main.m */,
@@ -370,15 +411,26 @@
 				C7E2EFA014B78EC80000884E /* TMainWindowController.m */,
 				C7E2EFA214B78F7D0000884E /* TOpenGLView.h */,
 				C7E2EFA314B78F7D0000884E /* TOpenGLView.m */,
+				C773FED114BD440A003338FE /* TOpenGLLayer.h */,
+				C773FED214BD440A003338FE /* TOpenGLLayer.m */,
 				C7AA4F5A14B7BFF6008577CD /* TOverlayTextView.h */,
 				C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */,
 				C74B3A9714B7E280006741C4 /* TScriptContext.h */,
 				C74B3A9814B7E280006741C4 /* TScriptContext.m */,
 				C744E3A114B834EF00078FBB /* TScene.h */,
 				C744E3A214B834EF00078FBB /* TScene.m */,
+				C773FEB814BC21D2003338FE /* TState.h */,
+				C773FEB914BC21D2003338FE /* TState.m */,
+				C773FEB514BC1F00003338FE /* TShader.h */,
+				C773FEB614BC1F00003338FE /* TShader.m */,
+				C773FEBB14BC27D7003338FE /* TLight.h */,
+				C773FEBC14BC27D7003338FE /* TLight.m */,
+				C773FED814BE7315003338FE /* TCamera.h */,
+				C773FED914BE7316003338FE /* TCamera.m */,
 				C744E3DA14B8468F00078FBB /* TPlugin.h */,
 				C744E3E114B847AD00078FBB /* TPluginManager.h */,
 				C744E3E214B847AD00078FBB /* TPluginManager.m */,
+				C773FECC14BD11D6003338FE /* TGLErrorChecking.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -435,9 +487,6 @@
 			);
 			dependencies = (
 				C786048714BA5C57006ED999 /* PBXTargetDependency */,
-				C7AA4F5914B7BEAF008577CD /* PBXTargetDependency */,
-				C744E3DE14B846B200078FBB /* PBXTargetDependency */,
-				C744E3FA14B84D2D00078FBB /* PBXTargetDependency */,
 			);
 			name = Tranquil;
 			productName = Tranquil;
@@ -467,16 +516,13 @@
 					ProductGroup = C786047E14BA5C3B006ED999 /* Products */;
 					ProjectRef = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
 				},
-				{
-					ProductGroup = C7AA4F4814B7BBE5008577CD /* Products */;
-					ProjectRef = C7AA4F4714B7BBE5008577CD /* Lua.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
 				C7E2EF1C14B78D4C0000884E /* Tranquil */,
-				C744E3C714B8464E00078FBB /* TranquilGraphics */,
 				C744E3E814B84CB400078FBB /* TranquilAudio */,
+				C744E3C714B8464E00078FBB /* TranquilGraphics */,
+				C701C3D614BBDA9F00DD9C0C /* App&Plugins */,
 			);
 		};
 /* End PBXProject section */
@@ -487,13 +533,6 @@
 			fileType = archive.ar;
 			path = libglmath.a;
 			remoteRef = C786048414BA5C3C006ED999 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C7AA4F4F14B7BBE5008577CD /* Lua.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Lua.framework;
-			remoteRef = C7AA4F4E14B7BBE5008577CD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -523,6 +562,7 @@
 				C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */,
 				C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */,
 				C744E3A014B8337D00078FBB /* Scripts in Resources */,
+				C773FEC314BC39C7003338FE /* Shaders in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +574,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C744E3D914B8467200078FBB /* TGraphicsPlugin.m in Sources */,
+				C773FEB014BC0EA3003338FE /* TPrimitive.m in Sources */,
+				C773FEB414BC122D003338FE /* TCube.m in Sources */,
+				C773FED714BD7C18003338FE /* TSphere.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,21 +601,31 @@
 				C74B3A9914B7E280006741C4 /* TScriptContext.m in Sources */,
 				C744E3A314B834EF00078FBB /* TScene.m in Sources */,
 				C744E3E314B847AE00078FBB /* TPluginManager.m in Sources */,
+				C773FEB714BC1F00003338FE /* TShader.m in Sources */,
+				C773FEBA14BC21D2003338FE /* TState.m in Sources */,
+				C773FEBD14BC27D7003338FE /* TLight.m in Sources */,
+				C773FED314BD440B003338FE /* TOpenGLLayer.m in Sources */,
+				C773FEDA14BE7318003338FE /* TCamera.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C744E3DE14B846B200078FBB /* PBXTargetDependency */ = {
+		C701C3EA14BBDB7A00DD9C0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7E2EF1C14B78D4C0000884E /* Tranquil */;
+			targetProxy = C701C3E914BBDB7A00DD9C0C /* PBXContainerItemProxy */;
+		};
+		C701C3EC14BBDBC300DD9C0C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C744E3C714B8464E00078FBB /* TranquilGraphics */;
-			targetProxy = C744E3DD14B846B200078FBB /* PBXContainerItemProxy */;
+			targetProxy = C701C3EB14BBDBC300DD9C0C /* PBXContainerItemProxy */;
 		};
-		C744E3FA14B84D2D00078FBB /* PBXTargetDependency */ = {
+		C701C3EE14BBDBCA00DD9C0C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C744E3E814B84CB400078FBB /* TranquilAudio */;
-			targetProxy = C744E3F914B84D2D00078FBB /* PBXContainerItemProxy */;
+			targetProxy = C701C3ED14BBDBCA00DD9C0C /* PBXContainerItemProxy */;
 		};
 		C786048714BA5C57006ED999 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -583,11 +636,6 @@
 			isa = PBXTargetDependency;
 			name = glmath;
 			targetProxy = C786048914BA5C6C006ED999 /* PBXContainerItemProxy */;
-		};
-		C7AA4F5914B7BEAF008577CD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Lua;
-			targetProxy = C7AA4F5814B7BEAF008577CD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -635,14 +683,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C701C3D814BBDA9F00DD9C0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C701C3D914BBDA9F00DD9C0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		C744E3D214B8464E00078FBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tranquil.app/Contents/MacOS/Tranquil";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/usr/local/Cellar/luajit/2.0.0-beta9/lib\"",
+					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/build/lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -654,8 +722,14 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tranquil.app/Contents/MacOS/Tranquil";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/usr/local/Cellar/luajit/2.0.0-beta9/lib\"",
+					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/build/lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -667,13 +741,19 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tranquil.app/Contents/MacOS/Tranquil";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Plugins/Audio/Supporting Files/TranquilAudio-Prefix.pch";
-				HEADER_SEARCH_PATHS = PortAudio/include;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					PortAudio/include,
+				);
 				INFOPLIST_FILE = "Tranquil/Plugins/Audio/Supporting Files/TranquilAudio-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/PortAudio/lib\"",
+					"\"/usr/local/Cellar/luajit/2.0.0-beta9/lib\"",
+					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/build/lib\"",
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -685,13 +765,19 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tranquil.app/Contents/MacOS/Tranquil";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Plugins/Audio/Supporting Files/TranquilAudio-Prefix.pch";
-				HEADER_SEARCH_PATHS = PortAudio/include;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					PortAudio/include,
+				);
 				INFOPLIST_FILE = "Tranquil/Plugins/Audio/Supporting Files/TranquilAudio-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/PortAudio/lib\"",
+					"\"/usr/local/Cellar/luajit/2.0.0-beta9/lib\"",
+					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/build/lib\"",
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -717,7 +803,10 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = GLMath;
+				HEADER_SEARCH_PATHS = (
+					"LuaJIT-2.0.0-beta9/build/include/luajit-2.0",
+					GLMath,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -738,7 +827,10 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = GLMath;
+				HEADER_SEARCH_PATHS = (
+					"LuaJIT-2.0.0-beta9/build/include/luajit-2.0",
+					GLMath,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
@@ -747,10 +839,24 @@
 		C7E2EF3C14B78D4D0000884E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EXPORTED_SYMBOLS_FILE = Tranquil/ExportedSymbols.exp;
 				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Tranquil-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tranquil/Tranquil-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/usr/local/Cellar/luajit/2.0.0-beta9/lib\"",
+					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/build/lib\"",
+				);
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-pagezero_size",
+					10000,
+					"-image_base",
+					100000000,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -759,10 +865,24 @@
 		C7E2EF3D14B78D4D0000884E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EXPORTED_SYMBOLS_FILE = Tranquil/ExportedSymbols.exp;
 				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Tranquil-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tranquil/Tranquil-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/usr/local/Cellar/luajit/2.0.0-beta9/lib\"",
+					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/build/lib\"",
+				);
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-pagezero_size",
+					10000,
+					"-image_base",
+					100000000,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -771,6 +891,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C701C3D714BBDA9F00DD9C0C /* Build configuration list for PBXAggregateTarget "App&Plugins" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C701C3D814BBDA9F00DD9C0C /* Debug */,
+				C701C3D914BBDA9F00DD9C0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C744E3D114B8464E00078FBB /* Build configuration list for PBXNativeTarget "TranquilGraphics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
