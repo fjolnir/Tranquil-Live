@@ -1,13 +1,5 @@
-//
-//  TLight.h
-//  Tranquil
-//
-//  Created by Fjölnir Ásgeirsson on 1/10/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
-#import <Foundation/Foundation.h>
+#import <GLMath.h>
 
 @interface TLight : NSObject
-
+@property vec4_t position, ambientColor, diffuseColor, specularColor;
 @end
