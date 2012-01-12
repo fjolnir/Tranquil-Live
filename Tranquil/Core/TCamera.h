@@ -1,13 +1,9 @@
-//
-//  TCamera.h
-//  Tranquil
-//
-//  Created by Fjölnir Ásgeirsson on 1/12/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
-#import <Foundation/Foundation.h>
-
+#include <GLMath.h>
 @interface TCamera : NSObject
+@property(readwrite, assign) vec4_t position;
+@property(readwrite, assign) quat_t orientation;
+@property(readwrite, assign) float fov, zoom, aspectRatio;
+@property(readonly) mat4_t matrix;
 
+- (void)updateMatrix;
 @end
