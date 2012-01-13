@@ -132,10 +132,16 @@ static TScene *_GlobalScene = nil;
 }
 - (void)pushState
 {
-	[_stateStack addObject:[[self currentState] copy]];
+	[_stateStack addObject:[[[self currentState] copy] autorelease]];
 }
 - (void)popState
 {
 	[_stateStack removeLastObject];
+}
+- (void)withState:(void (^)(TState *))block
+{
+	[self pushState];
+	block([self currentState]);
+	[self popState];
 }
 @end

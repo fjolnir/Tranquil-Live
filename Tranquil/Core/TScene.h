@@ -1,6 +1,5 @@
 // Manages the graphics state
 
-#import "TOpenGLView.h"
 #import <GLMath.h>
 #import "TCamera.h"
 
@@ -29,4 +28,6 @@ __attribute__((visibility("default"))) @interface TScene : NSObject
 - (TState *)currentState;
 - (void)pushState;
 - (void)popState;
+// Executes a block with a copy of the current state as it's argument
+- (void)withState:(void (^)(TState *))block;
 @end
