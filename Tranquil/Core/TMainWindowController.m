@@ -20,7 +20,7 @@
 	TScriptError *err = nil;
 	[[TScriptContext sharedContext] executeScript:[[_scriptView textStorage] string] error:&err];
 	if(err)
-		NSLog(@"%@", err);
+		TLog(@"%@", err);
 }
 
 

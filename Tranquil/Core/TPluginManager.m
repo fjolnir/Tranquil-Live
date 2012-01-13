@@ -36,12 +36,12 @@ static TPluginManager *sharedInstance;
 	NSError *err = nil;
 	[bundle loadAndReturnError:&err];
 	if(err) {
-		NSLog(@"Error loading plugin %@: %@", [aPath lastPathComponent], err);
+		TLog(@"Error loading plugin %@: %@", [aPath lastPathComponent], err);
 		return NO;
 	}
 	Class pluginLoader = [bundle principalClass];
 	if(![pluginLoader conformsToProtocol:@protocol(TPlugin)]) {
-		NSLog(@"Invalid plugin (%@)", [aPath lastPathComponent]);
+		TLog(@"Invalid plugin (%@)", [aPath lastPathComponent]);
 		return NO;
 	}
 	return [pluginLoader loadPlugin];
