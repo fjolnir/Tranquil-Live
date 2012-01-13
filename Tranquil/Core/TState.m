@@ -21,8 +21,9 @@
 	_lineWidth = 1;
 	_shininess = 0;
 	_opacity = 1;
-	_renderHint = 0;
+	_renderHint = kTRenderHintNone;
 	_transform = kMat4_identity;
+	_shader = nil;
 		
 	return self;
 }
@@ -40,7 +41,7 @@
 	glLineWidth(_lineWidth);
 	glPointSize(_pointRadius);
 	
-	//glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+	//	glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
 
 	if(_renderHint & kTRenderHintNoZWrite)
 		glDepthMask(false);
@@ -50,9 +51,9 @@
 		glDisable(GL_CULL_FACE);
 	TCheckGLError();
 	
-	if(_shader) [_shader makeActive];
-	TShader *shader = [TShader activeShader];
+	TShader *shader = _shader;
 	if(shader) {
+		[_shader makeActive];
 		[shader withUniform:@"u_projMatrix" do:^(GLint loc) {
 			glUniformMatrix4fv(loc, 1, GL_FALSE, matrix_stack_get_mat4(aScene.projMatStack).f);
 		}];

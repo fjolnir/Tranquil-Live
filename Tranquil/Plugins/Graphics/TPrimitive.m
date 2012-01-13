@@ -18,7 +18,8 @@
 	self = [super init];
 	if(!self) return nil;
 
-	_state = [[TState alloc] init];
+	_state = [TGlobalState() copy];
+
 	_vertexCount = 0;
 	_indexCount = 0;
 	_vertices = NULL;
@@ -93,10 +94,14 @@
 	[_state applyToScene:aScene];
 	glBindBufferARB(GL_ARRAY_BUFFER, _vertexBuffer);	
 
-	//	TVertex_t *verts = glMapBuffer(GL_ARRAY_BUFFER, GL_READ_ONLY);
+	//TVertex_t *verts = glMapBuffer(GL_ARRAY_BUFFER, GL_READ_ONLY);
 	//glUnmapBuffer(GL_ARRAY_BUFFER);
 
-	TShader *shader = _state.shader ? _state.shader : [aScene currentState].shader;
+	TShader *shader = _state.shader;
+	if(!shader) {
+		TLog(@"No shader");
+		return;
+	}
 	[shader withAttribute:@"a_position" do:^(GLint loc) {
 		glEnableVertexAttribArray(loc);
 		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(TVertex_t), (void*)offsetof(TVertex_t, position));

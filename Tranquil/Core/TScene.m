@@ -99,18 +99,18 @@ static TScene *_GlobalScene = nil;
 
 - (void)render
 {
+	glClearColor(0.9, 0.1, 0.1, 1);
+	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+	
 	TLight *light = [_lights objectAtIndex:0];
 	static float foo=0.0f;
-	foo+=0.01;
+	foo+=0.04;
 	light.position = vec4_create(0, 3.0*sinf(foo), 5, 1);
 
 	matrix_stack_push_item(_projStack, _camera.matrix);
-	[[self currentState] applyToScene:self];
 	for(id<TSceneObject> obj in _objects) {
-		[[self currentState].shader makeActive];
 		[obj render:self];
 	}
-	[[self currentState] unapplyToScene:self];
 	matrix_stack_pop(_projStack);
 	// Notify the script
 	[[TScriptContext sharedContext] callGlobalFunction:@"_frameCallback" withArguments:nil];
