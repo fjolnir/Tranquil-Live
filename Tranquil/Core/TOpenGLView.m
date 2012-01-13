@@ -36,28 +36,6 @@
     [[NSRunLoop currentRunLoop] addTimer:_renderTimer 
 								 forMode:NSEventTrackingRunLoopMode];
 }
-/*- (void)prepareOpenGL
-{
-	
-}
-*/
-/*- (void)render
-{
-	//	[[self openGLContext] makeCurrentContext];
-	double time = clock()/1000000.0;
-	glClearColor(sin(time), 0, cos(time), 1);
-	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-    
-	[[TScene globalScene] render:self];
-	
-	glFinish();
-    [[self openGLContext] flushBuffer];
-}
-*/
-- (void)drawRect:(NSRect)dirtyRect
-{
-	//	[self render];
-}
 
 - (void)dealloc
 {

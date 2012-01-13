@@ -5,6 +5,7 @@
 #import <OpenGL/gl.h>
 #import "TCamera.h"
 #import "TShader.h"
+#import "TGLErrorChecking.h"
 
 static TScene *_GlobalScene = nil;
 
@@ -43,7 +44,7 @@ static TScene *_GlobalScene = nil;
 	
 	_ambientLight = vec4_create(0.0, 0.0, 0.0, 1);
 	TLight *light = [[[TLight alloc] init] autorelease];
-	light.position = vec4_create(0, 0, 10, 1);
+	light.position = vec4_create(0, 2, 0, 1);
 	light.ambientColor = vec4_create(0.2, 0.2, 0.2, 1);
 	light.specularColor = vec4_create(0.1, 0.1, 0.1, 1);
 	light.diffuseColor = vec4_create(0.7, 0.7, 0.7, 1);
@@ -71,9 +72,20 @@ static TScene *_GlobalScene = nil;
 
 	
 	_camera = [[TCamera alloc] init];
-	_camera.position = vec4_create(0, 0, 2, 1);
-	//_camera.orientation = quat_createf(0, 1, 0, degToRad(60));
+	_camera.position = vec4_create(0, 2, 5, 1);
+	_camera.orientation = quat_createf(1, 0, 0, degToRad(-10));
 	[_camera updateMatrix];
+	
+	[TGlobalGLContext() makeCurrentContext];
+	TCheckGLError();
+	NSString *fragSrc = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"simple" ofType:@"fsh" inDirectory:@"Shaders"]
+											  usedEncoding:NULL error:NULL];
+	NSString *vertSrc = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"simple" ofType:@"vsh" inDirectory:@"Shaders"]
+											  usedEncoding:NULL error:NULL];
+	
+	TShader *shader = [TShader shaderWithName:@"Simple" fragmentShader:fragSrc vertexShader:vertSrc];
+	TCheckGLError();
+	[self currentState].shader = shader;
 	
 	return self;
 }
