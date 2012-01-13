@@ -1,5 +1,8 @@
-#if !defined(_Tranquil_TGLErrorChecking_h) && defined(DEBUG)
+#ifndef _Tranquil_TGLErrorChecking_h
 #define _Tranquil_TGLErrorChecking_h
+
+#ifdef DEBUG
+
 #include <OpenGL/gl.h>
 
 #include <stdlib.h>
@@ -64,4 +67,6 @@
 #define TCheckFramebufferStatus( )
 #define TGetShaderInfoLog( Shader, Source )
 #define TClearGLErrors()
+
+#endif
 #endif
