@@ -7,7 +7,6 @@
 #import "TCamera.h"
 
 @interface TMainView () {
-	NSTimer *_renderTimer;
 	NSMutableArray *_renderables;
 }
 @end
@@ -16,7 +15,9 @@
 
 - (CALayer *)makeBackingLayer
 {
-	return [TOpenGLLayer layer];
+	TOpenGLLayer *layer = [TOpenGLLayer layer];
+	layer.asynchronous = YES;
+	return layer;
 }
 
 - (void)awakeFromNib
@@ -27,20 +28,10 @@
 	invocation.target = self;
 	BOOL arg = YES;
 	[invocation setArgument:&arg atIndex:2];
-	
-	_renderTimer = [[NSTimer timerWithTimeInterval:0.001
-										invocation:invocation
-										   repeats:YES] retain];
-	[[NSRunLoop currentRunLoop] addTimer:_renderTimer 
-								 forMode:NSDefaultRunLoopMode];
-    [[NSRunLoop currentRunLoop] addTimer:_renderTimer 
-								 forMode:NSEventTrackingRunLoopMode];
 }
 
 - (void)dealloc
 {
-	[_renderTimer invalidate];
-	[_renderTimer release];
 	[_renderables release];
 	
 	[super dealloc];
@@ -54,11 +45,6 @@
 - (BOOL)acceptsFirstResponder
 {
 	return YES;
-}
-
-- (void)drawRect:(NSRect)dirtyRect
-{
-	// Required to get the layer to update
 }
 
 - (void)keyDown:(NSEvent *)aEvent

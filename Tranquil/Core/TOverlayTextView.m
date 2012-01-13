@@ -13,6 +13,11 @@
 	self.textColor = [NSColor whiteColor];
 	self.font = [NSFont fontWithName:@"Monaco" size:16];
 	self.insertionPointColor = [NSColor whiteColor];
+	NSShadow *shadow = [[NSShadow alloc] init];
+	shadow.shadowBlurRadius = 2.0;
+	shadow.shadowOffset = NSMakeSize(0, -1);
+	shadow.shadowColor = [NSColor colorWithDeviceRed:0 green:0 blue:0 alpha:0.7];
+	self.shadow = shadow;
 }
 
 - (id)initWithFrame:(NSRect)aFrame
