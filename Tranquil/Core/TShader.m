@@ -112,7 +112,7 @@ static TShader *_ActiveShader = nil;
 		location = glGetUniformLocation(_program, (const GLchar*)[aUniformName UTF8String]);
 		[_unifCache setObject:[NSNumber numberWithInt:location] forKey:aUniformName];
 		if(location == -1)
-			NSLog(@"Uniform lookup error: No such uniform (%@)", aUniformName);
+			TLog(@"Uniform lookup error: No such uniform (%@)", aUniformName);
 	} else
 		location = [cached intValue];
 	
@@ -128,7 +128,7 @@ static TShader *_ActiveShader = nil;
 		location = glGetAttribLocation(_program, (const GLchar*)[aAttribName UTF8String]);
 		[_attribCache setObject:[NSNumber numberWithInt:location] forKey:aAttribName];
 		if(location == -1)
-			NSLog(@"Attribute lookup error: No such attribute (%@)", aAttribName);
+			TLog(@"Attribute lookup error: No such attribute (%@)", aAttribName);
 	} else
 		location = [cached intValue];
 	
@@ -207,14 +207,14 @@ static TShader *_ActiveShader = nil;
 	if (temp > 0) {
 		GLchar *log = (GLchar *)malloc(temp);
 		glGetShaderInfoLog(shaderObject, temp, &temp, log);
-		NSLog(@">> %@ shader compile log:\n %s", aShaderType == GL_FRAGMENT_SHADER ? @"Fragment" : @"Vertex", log);
+		TLog(@">> %@ shader compile log:\n %s", aShaderType == GL_FRAGMENT_SHADER ? @"Fragment" : @"Vertex", log);
 		free(log);
 	}
 	
 	glGetShaderiv(shaderObject, GL_COMPILE_STATUS, &temp);
 	if(temp == GL_FALSE) {
 		*aoSucceeded = NO;
-		NSLog(@">> Failed to compile shader %@", aSourceStr);
+		TLog(@">> Failed to compile shader %@", aSourceStr);
 	}
 	if(aoSucceeded) *aoSucceeded = YES;
 	free(source);
@@ -229,13 +229,13 @@ static TShader *_ActiveShader = nil;
 	if(logLength > 0) {
 		GLchar *log = (GLchar *)malloc(logLength);
 		glGetProgramInfoLog(programObject, logLength, &logLength, log);
-		NSLog(@">> Program link log:\n%s", log);
+		TLog(@">> Program link log:\n%s", log);
 		free(log);
 	}
 
 	glGetProgramiv(programObject, GL_LINK_STATUS, (GLint *)succeeded);
 	if(*succeeded == 0)
-		NSLog(@"Failed to link shader program");
+		TLog(@"Failed to link shader program");
 	
 	TCheckGLError();
 }
