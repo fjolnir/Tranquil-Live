@@ -1,7 +1,4 @@
-//
-// Prefix header for all source files of the 'Transitive' target in the 'Transitive' project
-//
-
 #ifdef __OBJC__
 	#import <Cocoa/Cocoa.h>
+	#import "TShared.h"
 #endif

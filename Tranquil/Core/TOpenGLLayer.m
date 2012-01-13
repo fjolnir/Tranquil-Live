@@ -43,7 +43,7 @@
 
 - (NSOpenGLContext *)openGLContextForPixelFormat:(NSOpenGLPixelFormat *)pixelFormat {
 	
-	NSOpenGLContext *ctx = [[NSOpenGLContext alloc] initWithFormat:pixelFormat shareContext:TGlobalGLContext()];
+	NSOpenGLContext *ctx = TGlobalGLContext();//[[NSOpenGLContext alloc] initWithFormat:pixelFormat shareContext:TGlobalGLContext()];
 	assert(ctx != nil);
 	
 	[ctx makeCurrentContext];
@@ -67,11 +67,6 @@
 			   forLayerTime:(CFTimeInterval)timeInterval 
 				displayTime:(const CVTimeStamp *)timeStamp
 {		
-	//	double time = clock()/1000000.0;
-	//glClearColor(sin(time), 0, cos(time), 1);
-	glClearColor(0.1, 0.1, 0.1, 1);
-	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-    
 	[[TScene globalScene] render];
 	
 	glFinish();

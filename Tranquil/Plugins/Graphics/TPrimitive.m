@@ -134,11 +134,6 @@
 	[_state unapplyToScene:aScene];
 }
 
-- (void)drawInScene:(TScene *)aScene
-{
-	
-}
-
 #pragma mark -
 
 - (void)setVertexCapacity:(int)aVertexCapacity

@@ -39,10 +39,6 @@ typedef enum {
 
 - (id)initWithVertexCapacity:(int)aVertexCapacity indexCapacity:(int)aIndexCapacity;
 
-// You should never call this method directly, only override it in subclasses.
-// It will be called automatically when the primitive needs to be rendered.
-- (void)drawInScene:(TScene *)aScene;
-
 - (void)addVertex:(TVertex_t)aVertex;
 - (void)clear;
 
