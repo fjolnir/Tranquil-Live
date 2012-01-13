@@ -1,7 +1,4 @@
-//
-// Prefix header for all source files of the 'TranquilAudio' target in the 'TranquilAudio' project
-//
-
 #ifdef __OBJC__
 	#import <Cocoa/Cocoa.h>
+	#import "TShared.h"
 #endif

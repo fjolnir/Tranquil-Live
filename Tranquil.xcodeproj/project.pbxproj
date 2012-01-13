@@ -11,11 +11,12 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = C701C3D714BBDA9F00DD9C0C /* Build configuration list for PBXAggregateTarget "App&Plugins" */;
 			buildPhases = (
+				C773FEF314BFD31C003338FE /* CopyFiles */,
 			);
 			dependencies = (
 				C701C3EA14BBDB7A00DD9C0C /* PBXTargetDependency */,
-				C701C3EE14BBDBCA00DD9C0C /* PBXTargetDependency */,
-				C701C3EC14BBDBC300DD9C0C /* PBXTargetDependency */,
+				C773FEFE14BFD445003338FE /* PBXTargetDependency */,
+				C773FF0014BFD44A003338FE /* PBXTargetDependency */,
 			);
 			name = "App&Plugins";
 			productName = "App&Plugins";
@@ -55,8 +56,11 @@
 		C773FED414BD50B8003338FE /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
 		C773FED714BD7C18003338FE /* TSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED614BD7C18003338FE /* TSphere.m */; };
 		C773FEDA14BE7318003338FE /* TCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED914BE7316003338FE /* TCamera.m */; };
-		C773FEDC14BEA0D5003338FE /* TranquilGraphics.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */; };
-		C773FEDD14BEA0DA003338FE /* TranquilAudio.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
+		C773FEE914BFB11D003338FE /* TShared.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEE814BFB11D003338FE /* TShared.m */; };
+		C773FF0114BFD450003338FE /* TranquilAudio.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
+		C773FF0214BFD451003338FE /* TranquilGraphics.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */; };
+		C773FF0514BFDDB7003338FE /* libglmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C786048514BA5C3C006ED999 /* libglmath.a */; };
+		C773FF0814BFE5D8003338FE /* TPlane.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FF0714BFE5D8003338FE /* TPlane.m */; };
 		C786048814BA5C5E006ED999 /* libglmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C786048514BA5C3C006ED999 /* libglmath.a */; };
 		C786048B14BA5C6E006ED999 /* libglmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C786048514BA5C3C006ED999 /* libglmath.a */; };
 		C7AA4F5C14B7BFF6008577CD /* TOverlayTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */; };
@@ -78,19 +82,40 @@
 			remoteGlobalIDString = C7E2EF1C14B78D4C0000884E;
 			remoteInfo = Tranquil;
 		};
-		C701C3EB14BBDBC300DD9C0C /* PBXContainerItemProxy */ = {
+		C773FEF914BFD435003338FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7E2EF1C14B78D4C0000884E;
+			remoteInfo = Tranquil;
+		};
+		C773FEFB14BFD438003338FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7E2EF1C14B78D4C0000884E;
+			remoteInfo = Tranquil;
+		};
+		C773FEFD14BFD445003338FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C744E3E814B84CB400078FBB;
+			remoteInfo = TranquilAudio;
+		};
+		C773FEFF14BFD44A003338FE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C744E3C714B8464E00078FBB;
 			remoteInfo = TranquilGraphics;
 		};
-		C701C3ED14BBDBCA00DD9C0C /* PBXContainerItemProxy */ = {
+		C773FF0314BFDDAE003338FE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = C744E3E814B84CB400078FBB;
-			remoteInfo = TranquilAudio;
+			remoteGlobalIDString = C70EA30214AC9780009D29C6;
+			remoteInfo = glmath;
 		};
 		C786048414BA5C3C006ED999 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -116,16 +141,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C744E3DF14B846BC00078FBB /* Copy Plugins */ = {
+		C773FEF314BFD31C003338FE /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 13;
+			dstPath = Tranquil.app/Contents/Plugins;
+			dstSubfolderSpec = 16;
 			files = (
-				C773FEDD14BEA0DA003338FE /* TranquilAudio.bundle in Copy Plugins */,
-				C773FEDC14BEA0D5003338FE /* TranquilGraphics.bundle in Copy Plugins */,
+				C773FF0114BFD450003338FE /* TranquilAudio.bundle in CopyFiles */,
+				C773FF0214BFD451003338FE /* TranquilGraphics.bundle in CopyFiles */,
 			);
-			name = "Copy Plugins";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C7E2F0D714B798740000884E /* Copy Frameworks */ = {
@@ -190,6 +214,10 @@
 		C773FED614BD7C18003338FE /* TSphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSphere.m; sourceTree = "<group>"; };
 		C773FED814BE7315003338FE /* TCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCamera.h; sourceTree = "<group>"; };
 		C773FED914BE7316003338FE /* TCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCamera.m; sourceTree = "<group>"; };
+		C773FEE714BFB0E3003338FE /* TShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TShared.h; sourceTree = "<group>"; };
+		C773FEE814BFB11D003338FE /* TShared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TShared.m; sourceTree = "<group>"; };
+		C773FF0614BFE5D7003338FE /* TPlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPlane.h; sourceTree = "<group>"; };
+		C773FF0714BFE5D8003338FE /* TPlane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPlane.m; sourceTree = "<group>"; };
 		C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GLMath.xcodeproj; path = GLMath/GLMath.xcodeproj; sourceTree = "<group>"; };
 		C7AA4F5A14B7BFF6008577CD /* TOverlayTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOverlayTextView.h; sourceTree = "<group>"; };
 		C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOverlayTextView.m; sourceTree = "<group>"; };
@@ -229,6 +257,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C773FF0514BFDDB7003338FE /* libglmath.a in Frameworks */,
 				C701C3C614BAFB3D00DD9C0C /* libluajit-5.1.a in Frameworks */,
 				C744E42A14B8A49200078FBB /* Accelerate.framework in Frameworks */,
 				C744E42614B8905A00078FBB /* AudioToolbox.framework in Frameworks */,
@@ -282,6 +311,8 @@
 				C773FEB314BC122D003338FE /* TCube.m */,
 				C773FED514BD7C18003338FE /* TSphere.h */,
 				C773FED614BD7C18003338FE /* TSphere.m */,
+				C773FF0614BFE5D7003338FE /* TPlane.h */,
+				C773FF0714BFE5D8003338FE /* TPlane.m */,
 				C744E3CB14B8464E00078FBB /* Supporting Files */,
 			);
 			name = Graphics;
@@ -407,6 +438,8 @@
 		C7E2EF9E14B78E010000884E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C773FEE714BFB0E3003338FE /* TShared.h */,
+				C773FEE814BFB11D003338FE /* TShared.m */,
 				C7E2EF9F14B78EC80000884E /* TMainWindowController.h */,
 				C7E2EFA014B78EC80000884E /* TMainWindowController.m */,
 				C7E2EFA214B78F7D0000884E /* TOpenGLView.h */,
@@ -449,6 +482,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C773FEFC14BFD438003338FE /* PBXTargetDependency */,
 				C786048A14BA5C6C006ED999 /* PBXTargetDependency */,
 			);
 			name = TranquilGraphics;
@@ -467,6 +501,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				C773FF0414BFDDAE003338FE /* PBXTargetDependency */,
+				C773FEFA14BFD435003338FE /* PBXTargetDependency */,
 			);
 			name = TranquilAudio;
 			productName = TranquilAudio;
@@ -481,7 +517,6 @@
 				C7E2EF1A14B78D4C0000884E /* Frameworks */,
 				C7E2EF1B14B78D4C0000884E /* Resources */,
 				C7E2F0D714B798740000884E /* Copy Frameworks */,
-				C744E3DF14B846BC00078FBB /* Copy Plugins */,
 			);
 			buildRules = (
 			);
@@ -577,6 +612,7 @@
 				C773FEB014BC0EA3003338FE /* TPrimitive.m in Sources */,
 				C773FEB414BC122D003338FE /* TCube.m in Sources */,
 				C773FED714BD7C18003338FE /* TSphere.m in Sources */,
+				C773FF0814BFE5D8003338FE /* TPlane.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +642,7 @@
 				C773FEBD14BC27D7003338FE /* TLight.m in Sources */,
 				C773FED314BD440B003338FE /* TOpenGLLayer.m in Sources */,
 				C773FEDA14BE7318003338FE /* TCamera.m in Sources */,
+				C773FEE914BFB11D003338FE /* TShared.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,15 +654,30 @@
 			target = C7E2EF1C14B78D4C0000884E /* Tranquil */;
 			targetProxy = C701C3E914BBDB7A00DD9C0C /* PBXContainerItemProxy */;
 		};
-		C701C3EC14BBDBC300DD9C0C /* PBXTargetDependency */ = {
+		C773FEFA14BFD435003338FE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C744E3C714B8464E00078FBB /* TranquilGraphics */;
-			targetProxy = C701C3EB14BBDBC300DD9C0C /* PBXContainerItemProxy */;
+			target = C7E2EF1C14B78D4C0000884E /* Tranquil */;
+			targetProxy = C773FEF914BFD435003338FE /* PBXContainerItemProxy */;
 		};
-		C701C3EE14BBDBCA00DD9C0C /* PBXTargetDependency */ = {
+		C773FEFC14BFD438003338FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7E2EF1C14B78D4C0000884E /* Tranquil */;
+			targetProxy = C773FEFB14BFD438003338FE /* PBXContainerItemProxy */;
+		};
+		C773FEFE14BFD445003338FE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C744E3E814B84CB400078FBB /* TranquilAudio */;
-			targetProxy = C701C3ED14BBDBCA00DD9C0C /* PBXContainerItemProxy */;
+			targetProxy = C773FEFD14BFD445003338FE /* PBXContainerItemProxy */;
+		};
+		C773FF0014BFD44A003338FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C744E3C714B8464E00078FBB /* TranquilGraphics */;
+			targetProxy = C773FEFF14BFD44A003338FE /* PBXContainerItemProxy */;
+		};
+		C773FF0414BFDDAE003338FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = glmath;
+			targetProxy = C773FF0314BFDDAE003338FE /* PBXContainerItemProxy */;
 		};
 		C786048714BA5C57006ED999 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
