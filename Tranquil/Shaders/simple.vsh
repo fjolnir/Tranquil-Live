@@ -39,7 +39,7 @@ void main()
 		vec4 diffuse = lambert * u_diffuseColors[i];
 		
 		// Specular component		
-		vec3 eyeDir = normalize(projectedPos.xyz - u_cameraPosition.xyz);
+		vec3 eyeDir = normalize(worldPos.xyz - u_cameraPosition.xyz);
 		vec3 reflected = reflect(lightDir, normal.xyz);
 		float specular = pow( max(dot(reflected, eyeDir), 0.0), a_shininess);
 		
