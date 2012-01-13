@@ -1,5 +1,5 @@
 #import "TMainWindowController.h"
-#import "TOpenGLView.h"
+#import "TMainView.h"
 #import "TOverlayTextView.h"
 #import "TScriptContext.h"
 
@@ -11,8 +11,8 @@
 - (void)awakeFromNib
 {
 	_scriptView.enclosingScrollView.frame = _mainView.bounds;
-	//[_mainView addSubview:_scriptView.enclosingScrollView];
-	self.window.aspectRatio = NSMakeSize(1.65, 1);//[[NSScreen mainScreen] frame].size;// NSMakeSize(4, 3);
+	[_mainView addSubview:_scriptView.enclosingScrollView];
+	self.window.aspectRatio = NSMakeSize(1.65, 1);
 }
 
 - (IBAction)runActiveScript:(id)sender

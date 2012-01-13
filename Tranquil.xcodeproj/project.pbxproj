@@ -71,7 +71,7 @@
 		C7E2EF3514B78D4D0000884E /* TAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EF3414B78D4D0000884E /* TAppDelegate.m */; };
 		C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3614B78D4D0000884E /* MainMenu.xib */; };
 		C7E2EFA114B78EC80000884E /* TMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EFA014B78EC80000884E /* TMainWindowController.m */; };
-		C7E2EFA414B78F7D0000884E /* TOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EFA314B78F7D0000884E /* TOpenGLView.m */; };
+		C7E2EFA414B78F7D0000884E /* TMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EFA314B78F7D0000884E /* TMainView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,13 +231,13 @@
 		C7E2EF2D14B78D4C0000884E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C7E2EF2F14B78D4C0000884E /* Tranquil-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tranquil-Prefix.pch"; sourceTree = "<group>"; };
 		C7E2EF3114B78D4C0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		C7E2EF3314B78D4C0000884E /* TAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TAppDelegate.h; sourceTree = "<group>"; };
+		C7E2EF3314B78D4C0000884E /* TAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TAppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C7E2EF3414B78D4D0000884E /* TAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TAppDelegate.m; sourceTree = "<group>"; };
 		C7E2EF3714B78D4D0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		C7E2EF9F14B78EC80000884E /* TMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMainWindowController.h; sourceTree = "<group>"; };
-		C7E2EFA014B78EC80000884E /* TMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMainWindowController.m; sourceTree = "<group>"; };
-		C7E2EFA214B78F7D0000884E /* TOpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOpenGLView.h; sourceTree = "<group>"; };
-		C7E2EFA314B78F7D0000884E /* TOpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOpenGLView.m; sourceTree = "<group>"; };
+		C7E2EF9F14B78EC80000884E /* TMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TMainWindowController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C7E2EFA014B78EC80000884E /* TMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TMainWindowController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C7E2EFA214B78F7D0000884E /* TMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMainView.h; sourceTree = "<group>"; };
+		C7E2EFA314B78F7D0000884E /* TMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMainView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,8 +442,8 @@
 				C773FEE814BFB11D003338FE /* TShared.m */,
 				C7E2EF9F14B78EC80000884E /* TMainWindowController.h */,
 				C7E2EFA014B78EC80000884E /* TMainWindowController.m */,
-				C7E2EFA214B78F7D0000884E /* TOpenGLView.h */,
-				C7E2EFA314B78F7D0000884E /* TOpenGLView.m */,
+				C7E2EFA214B78F7D0000884E /* TMainView.h */,
+				C7E2EFA314B78F7D0000884E /* TMainView.m */,
 				C773FED114BD440A003338FE /* TOpenGLLayer.h */,
 				C773FED214BD440A003338FE /* TOpenGLLayer.m */,
 				C7AA4F5A14B7BFF6008577CD /* TOverlayTextView.h */,
@@ -632,7 +632,7 @@
 				C7E2EF2E14B78D4C0000884E /* main.m in Sources */,
 				C7E2EF3514B78D4D0000884E /* TAppDelegate.m in Sources */,
 				C7E2EFA114B78EC80000884E /* TMainWindowController.m in Sources */,
-				C7E2EFA414B78F7D0000884E /* TOpenGLView.m in Sources */,
+				C7E2EFA414B78F7D0000884E /* TMainView.m in Sources */,
 				C7AA4F5C14B7BFF6008577CD /* TOverlayTextView.m in Sources */,
 				C74B3A9914B7E280006741C4 /* TScriptContext.m in Sources */,
 				C744E3A314B834EF00078FBB /* TScene.m in Sources */,

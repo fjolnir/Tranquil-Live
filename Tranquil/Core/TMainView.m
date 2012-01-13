@@ -1,4 +1,4 @@
-#import "TOpenGLView.h"
+#import "TMainView.h"
 #import <OpenGL/gl.h>
 #import <OpenGL/OpenGL.h>
 #import "TScene.h"
@@ -6,13 +6,13 @@
 #import "TOpenGLLayer.h"
 #import "TCamera.h"
 
-@interface TOpenGLView () {
+@interface TMainView () {
 	NSTimer *_renderTimer;
 	NSMutableArray *_renderables;
 }
 @end
 
-@implementation TOpenGLView
+@implementation TMainView
 
 - (CALayer *)makeBackingLayer
 {
@@ -48,12 +48,19 @@
 
 - (BOOL)canBecomeKeyView
 {
-	return YES;
+	return NO;
 }
+
 - (BOOL)acceptsFirstResponder
 {
 	return YES;
 }
+
+- (void)drawRect:(NSRect)dirtyRect
+{
+	// Required to get the layer to update
+}
+
 - (void)keyDown:(NSEvent *)aEvent
 {
 	NSString *characters;
@@ -77,7 +84,7 @@
 	} else if (character == NSPageDownFunctionKey) {
 		pos.z -= 0.1;
 	}
-		 [TScene globalScene].camera.position = pos; 
+	[TScene globalScene].camera.position = pos; 
 	[[TScene globalScene].camera updateMatrix];
 }
 

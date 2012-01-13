@@ -1,5 +1,5 @@
-@class TOpenGLView;
+@class TMainView;
 
 @interface TAppDelegate : NSObject <NSApplicationDelegate>
-@property(readonly) IBOutlet TOpenGLView *glView;
+@property(readonly) IBOutlet TMainView *glView;
 @end
