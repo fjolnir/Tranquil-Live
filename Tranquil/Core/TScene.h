@@ -10,7 +10,7 @@
 - (void)render:(TScene *)aScene;
 @end
 
-@interface TScene : NSObject
+__attribute__((visibility("default"))) @interface TScene : NSObject
 @property(readonly) NSArray *objects;
 @property(readonly) NSArray *lights;
 @property(readwrite, assign) vec4_t ambientLight;

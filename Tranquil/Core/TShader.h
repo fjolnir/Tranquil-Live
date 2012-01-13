@@ -20,7 +20,7 @@
 
 #define TShaderLoadError @"shader.loaderror"
 
-@interface TShader : NSObject
+__attribute__((visibility("default"))) @interface TShader : NSObject
 @property(readonly, nonatomic) GLuint program;
 @property(retain, nonatomic) NSString *name;
 

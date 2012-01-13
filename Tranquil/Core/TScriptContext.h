@@ -14,7 +14,7 @@
 - (void)scriptContext:(TScriptContext *)aContext encounteredError:(TScriptError *)aError;
 @end
 
-@interface TScriptContext : NSObject {
+__attribute__((visibility("default"))) @interface TScriptContext : NSObject {
 	lua_State *_state;
 	id<TScriptContextDelegate> _delegate;
 }
@@ -34,7 +34,7 @@ typedef enum {
 	kTScriptUnknownError = LUA_ERRERR
 } TScriptErrorType;
 
-@interface TScriptError : NSObject
+__attribute__((visibility("default"))) @interface TScriptError : NSObject
 @property(readonly) TScriptErrorType type;
 @property(readonly) NSString *message;
 

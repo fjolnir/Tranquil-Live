@@ -1,5 +1,5 @@
 #import <GLMath.h>
 
-@interface TLight : NSObject
+__attribute__((visibility("default"))) @interface TLight : NSObject
 @property vec4_t position, ambientColor, diffuseColor, specularColor;
 @end

@@ -114,6 +114,9 @@ __vec4_scalarDiv
 __vec4_scalarMul
 __vec4_sub
 
-_OBJC_CLASS_$_TScene
-_OBJC_CLASS_$_TState
-_OBJC_CLASS_$_TScriptContext
+.objc_class_name_TScene
+.objc_class_name_TState
+.objc_class_name_TCamera
+.objc_class_name_TScriptContext
+.objc_class_name_TShader
+.objc_class_name_TLight
