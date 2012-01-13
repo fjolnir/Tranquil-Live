@@ -27,18 +27,18 @@
 	vec4_t normal;
 	normal = vec4_create(0, 0, -1, 0);
 	[self addVertex:TVertexCreate(lbb, normal, t_lb, white, 1, 1)];
-	[self addVertex:TVertexCreate(rbb, normal, t_rb, white, 1, 1)];
-	[self addVertex:TVertexCreate(rtb, normal, t_rt, white, 1, 1)];
-	[self addVertex:TVertexCreate(rtb, normal, t_rt, white, 1, 1)];
 	[self addVertex:TVertexCreate(ltb, normal, t_lt, white, 1, 1)];
+	[self addVertex:TVertexCreate(rtb, normal, t_rt, white, 1, 1)];
+	[self addVertex:TVertexCreate(rtb, normal, t_rt, white, 1, 1)];
+	[self addVertex:TVertexCreate(rbb, normal, t_rb, white, 1, 1)];
 	[self addVertex:TVertexCreate(lbb, normal, t_lb, white, 1, 1)];
 
 	normal = vec4_create(0, -1, 0, 0);
 	[self addVertex:TVertexCreate(lbf, normal, t_lt, white, 1, 1)];
-	[self addVertex:TVertexCreate(rbf, normal, t_rt, white, 1, 1)];
-	[self addVertex:TVertexCreate(rbb, normal, t_rb, white, 1, 1)];
-	[self addVertex:TVertexCreate(rbb, normal, t_rb, white, 1, 1)];
 	[self addVertex:TVertexCreate(lbb, normal, t_lb, white, 1, 1)];
+	[self addVertex:TVertexCreate(rbb, normal, t_rb, white, 1, 1)];
+	[self addVertex:TVertexCreate(rbb, normal, t_rb, white, 1, 1)];
+	[self addVertex:TVertexCreate(rbf, normal, t_rt, white, 1, 1)];
 	[self addVertex:TVertexCreate(lbf, normal, t_lt, white, 1, 1)];
 
 	normal = vec4_create(-1, 0, 0, 0);
@@ -67,10 +67,10 @@
 
 	normal = vec4_create(1, 0, 0, 0);
 	[self addVertex:TVertexCreate(rbf, normal, t_lb, white, 1, 1)];
-	[self addVertex:TVertexCreate(rtf, normal, t_lt, white, 1, 1)];
-	[self addVertex:TVertexCreate(rtb, normal, t_rt, white, 1, 1)];
-	[self addVertex:TVertexCreate(rtb, normal, t_rt, white, 1, 1)];
 	[self addVertex:TVertexCreate(rbb, normal, t_rb, white, 1, 1)];
+	[self addVertex:TVertexCreate(rtb, normal, t_rt, white, 1, 1)];
+	[self addVertex:TVertexCreate(rtb, normal, t_rt, white, 1, 1)];
+	[self addVertex:TVertexCreate(rtf, normal, t_lt, white, 1, 1)];
 	[self addVertex:TVertexCreate(rbf, normal, t_lb, white, 1, 1)];
 	
 	return self;
