@@ -2,6 +2,7 @@
 #import "TScene.h"
 #import "TAppDelegate.h"
 #import <OpenGL/gl.h>
+#import "TGLErrorChecking.h"
 
 @implementation TOpenGLLayer
 
@@ -62,11 +63,17 @@
 	return YES;
 }
 
+// Keeps the viewport size up to date
+- (BOOL)needsDisplayOnBoundsChange
+{
+	return YES;
+}
+
 - (void)drawInOpenGLContext:(NSOpenGLContext *)context 
 				pixelFormat:(NSOpenGLPixelFormat *)pixelFormat 
 			   forLayerTime:(CFTimeInterval)timeInterval 
 				displayTime:(const CVTimeStamp *)timeStamp
-{		
+{
 	[[TScene globalScene] render];
 	
 	glFinish();
