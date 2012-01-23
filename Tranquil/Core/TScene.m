@@ -72,8 +72,8 @@ static TScene *_GlobalScene = nil;
 
 	
 	_camera = [[TCamera alloc] init];
-	_camera.position = vec4_create(0, 2, 5, 1);
-	_camera.orientation = quat_createf(1, 0, 0, degToRad(-10));
+	_camera.position = vec4_create(0, 0, 10, 1);
+	_camera.orientation = quat_createf(1, 0, 0, degToRad(0));
 	[_camera updateMatrix];
 	
 	[TGlobalGLContext() makeCurrentContext];
