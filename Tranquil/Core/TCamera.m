@@ -37,4 +37,13 @@
 	//_matrix = mat4_mul(translation, rotation);
 	//_matrix = mat4_mul(mat4_create_scale(0.5*1/aspect, 0.5, 0.5), mat4_mul(translation, mat4_create_rotation(45, 0, 1, 0)));
 }
+
+- (vec4_t)unProjectPoint:(vec4_t)aPoint
+{
+	bool succ = NO;
+	aPoint = vec4_mul_mat4(aPoint, mat4_inverse(_matrix, &succ));
+	assert(succ);
+	aPoint = vec4_scalarDiv(aPoint, aPoint.w);
+	return aPoint;
+}
 @end
