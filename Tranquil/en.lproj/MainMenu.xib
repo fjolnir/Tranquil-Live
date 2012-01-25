@@ -1224,7 +1224,6 @@
 							<int key="NSvFlags">18</int>
 							<string key="NSFrameSize">{800, 600}</string>
 							<reference key="NSSuperview" ref="1042782396"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<bool key="NSViewIsLayerTreeHost">YES</bool>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
@@ -1234,7 +1233,6 @@
 					</array>
 					<string key="NSFrameSize">{800, 600}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="371255274"/>
 					<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				</object>
@@ -1245,7 +1243,7 @@
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSScrollView" id="891481298">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSClipView" id="904182919">
@@ -1276,7 +1274,9 @@
 								</set>
 								<string key="NSFrameSize">{800, 133}</string>
 								<reference key="NSSuperview" ref="904182919"/>
-								<reference key="NSNextKeyView" ref="71098097"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
+								<bool key="NSViewIsLayerTreeHost">YES</bool>
 								<int key="NSViewLayerContentsRedrawPolicy">2</int>
 								<bool key="NSViewCanDrawConcurrently">YES</bool>
 								<string key="NSReuseIdentifierKey">_NS:1480</string>
@@ -1350,6 +1350,7 @@
 						</array>
 						<string key="NSFrameSize">{800, 600}</string>
 						<reference key="NSSuperview" ref="891481298"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="338971412"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<string key="NSReuseIdentifierKey">_NS:1478</string>
@@ -1385,6 +1386,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<int key="NSvFlags">-2147483392</int>
 						<string key="NSFrame">{{-100, -100}, {15, 600}}</string>
 						<reference key="NSSuperview" ref="891481298"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="932121384"/>
 						<string key="NSReuseIdentifierKey">_NS:1494</string>
 						<reference key="NSTarget" ref="891481298"/>
@@ -1398,6 +1400,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<int key="NSvFlags">-2147483392</int>
 						<string key="NSFrame">{{-100, -100}, {87, 18}}</string>
 						<reference key="NSSuperview" ref="891481298"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="904182919"/>
 						<string key="NSReuseIdentifierKey">_NS:1482</string>
 						<int key="NSsFlags">1</int>
@@ -1409,7 +1412,9 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					</object>
 				</array>
 				<string key="NSFrameSize">{800, 600}</string>
-				<reference key="NSNextKeyView" ref="904182919"/>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView" ref="71098097"/>
 				<bool key="NSViewIsLayerTreeHost">YES</bool>
 				<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				<bool key="NSViewCanDrawConcurrently">YES</bool>
