@@ -17,7 +17,7 @@
 	TCube *cube = [[TCube alloc] initWithSize:1];
 	cube.state.transform = mat4_mul(mat4_create_translation(1, 0, 0), mat4_create_rotation(degToRad(0), 1, 1, 0));
 	//cube.state.transform = mat4_create_translation(3, -1, 0);
-	cube.state.transform = mat4_mul(cube.state.transform, mat4_create_rotation(45, 1, 1, 0));
+	//cube.state.transform = mat4_mul(cube.state.transform, mat4_create_rotation(45, 1, 1, 0));
 	
 	TSphere *sphere = [[TSphere alloc] initWithRadius:1 stacks:64 slices:64];
 	sphere.state.transform = mat4_create_translation(-1, 0, 0);
