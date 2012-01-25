@@ -1,12 +1,5 @@
 // A Lua context
 
-/*#include <Lua/lua.h>
-#include <Lua/lauxlib.h>
-#include <Lua/lualib.h>*/
-#include <lua.h>
-#include <luajit.h>
-#include <lauxlib.h>
-#include <lualib.h>
 
 @class TScriptContext, TScriptError;
 
@@ -15,12 +8,10 @@
 @end
 
 __attribute__((visibility("default"))) @interface TScriptContext : NSObject {
-	lua_State *_state;
 	id<TScriptContextDelegate> _delegate;
 }
 
 @property(readwrite, assign) id<TScriptContextDelegate> delegate;
-@property(readonly) lua_State *luaState;
 + (TScriptContext *)sharedContext;
 
 - (BOOL)executeScript:(NSString *)source error:(TScriptError **)aoErr;
@@ -28,10 +19,10 @@ __attribute__((visibility("default"))) @interface TScriptContext : NSObject {
 @end
 
 typedef enum {
-	kTScriptSyntaxError = LUA_ERRSYNTAX,
-	kTScriptRuntimeError = LUA_ERRRUN,
-	kTScriptAllocationError = LUA_ERRMEM,
-	kTScriptUnknownError = LUA_ERRERR
+	kTScriptSyntaxError = 1,
+	kTScriptRuntimeError = 2,
+	kTScriptAllocationError = 3,
+	kTScriptUnknownError = 4
 } TScriptErrorType;
 
 __attribute__((visibility("default"))) @interface TScriptError : NSObject

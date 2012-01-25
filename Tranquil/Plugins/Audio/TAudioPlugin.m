@@ -2,7 +2,7 @@
 #import "TAudioProcessor.h"
 #import "TScriptContext.h"
 #include <portaudio.h>
-#include <lua.h>
+/*#include <lua.h>
 #include <lauxlib.h>
 
 // The script can only access a single processor at a time
@@ -60,20 +60,20 @@ static int lua__audio_updateSpectrum(lua_State *aState)
 	if(_GlobalProcessor)
 		[_GlobalProcessor update];
 	return 0;
-}
+}*/
 
 @implementation TAudioPlugin
 + (BOOL)loadPlugin
 {
 	assert(Pa_Initialize() == paNoError);
 	Class TScriptContext = NSClassFromString(@"TScriptContext");
-	lua_State *state = [TScriptContext sharedContext].luaState;
+/*	lua_State *state = [TScriptContext sharedContext].luaState;
 	lua_register(state, "audio_start", &lua_audio_start);
 	lua_register(state, "audio_stop", &lua_audio_stop);
 	lua_register(state, "audio_setNumberOfBands", &lua_audio_setNumberOfBands);
 	lua_register(state, "audio_getBand", &lua_audio_getBand);
 	lua_register(state, "_audio_updateSpectrum", &lua__audio_updateSpectrum);
-	
+	*/
 	return YES;
 }
 @end

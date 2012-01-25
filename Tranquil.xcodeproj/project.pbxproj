@@ -24,9 +24,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		C701C3C414BAFAA600DD9C0C /* libluajit-5.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C701C3C314BAFAA600DD9C0C /* libluajit-5.1.a */; };
-		C701C3C514BAFB2F00DD9C0C /* libluajit-5.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C701C3C314BAFAA600DD9C0C /* libluajit-5.1.a */; };
-		C701C3C614BAFB3D00DD9C0C /* libluajit-5.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C701C3C314BAFAA600DD9C0C /* libluajit-5.1.a */; };
 		C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
 		C744E3A014B8337D00078FBB /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C744E39F14B8337D00078FBB /* Scripts */; };
 		C744E3A314B834EF00078FBB /* TScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3A214B834EF00078FBB /* TScene.m */; };
@@ -64,7 +61,6 @@
 		C786048814BA5C5E006ED999 /* libglmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C786048514BA5C3C006ED999 /* libglmath.a */; };
 		C786048B14BA5C6E006ED999 /* libglmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C786048514BA5C3C006ED999 /* libglmath.a */; };
 		C7AA4F5C14B7BFF6008577CD /* TOverlayTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */; };
-		C7C016E114CEBE80008588C4 /* TLuaBridgeFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C016E014CEBE80008588C4 /* TLuaBridgeFunctions.m */; };
 		C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */; };
 		C7E2EF2E14B78D4C0000884E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EF2D14B78D4C0000884E /* main.m */; };
@@ -166,7 +162,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C701C3C314BAFAA600DD9C0C /* libluajit-5.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libluajit-5.1.a"; path = "LuaJIT-2.0.0-beta9/build/lib/libluajit-5.1.a"; sourceTree = "<group>"; };
 		C701C3C714BBBF4000DD9C0C /* ExportedSymbols.exp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.exports; path = ExportedSymbols.exp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		C744E39F14B8337D00078FBB /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		C744E3A114B834EF00078FBB /* TScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TScene.h; sourceTree = "<group>"; };
@@ -222,8 +217,6 @@
 		C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GLMath.xcodeproj; path = GLMath/GLMath.xcodeproj; sourceTree = "<group>"; };
 		C7AA4F5A14B7BFF6008577CD /* TOverlayTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOverlayTextView.h; sourceTree = "<group>"; };
 		C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOverlayTextView.m; sourceTree = "<group>"; };
-		C7C016DF14CEBE80008588C4 /* TLuaBridgeFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLuaBridgeFunctions.h; sourceTree = "<group>"; };
-		C7C016E014CEBE80008588C4 /* TLuaBridgeFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLuaBridgeFunctions.m; sourceTree = "<group>"; };
 		C7E2EF1D14B78D4C0000884E /* Tranquil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tranquil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E2EF2114B78D4C0000884E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C7E2EF2414B78D4C0000884E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -250,7 +243,6 @@
 			files = (
 				C773FED414BD50B8003338FE /* Accelerate.framework in Frameworks */,
 				C773FEB114BC11A9003338FE /* OpenGL.framework in Frameworks */,
-				C701C3C514BAFB2F00DD9C0C /* libluajit-5.1.a in Frameworks */,
 				C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */,
 				C786048B14BA5C6E006ED999 /* libglmath.a in Frameworks */,
 			);
@@ -261,7 +253,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C773FF0514BFDDB7003338FE /* libglmath.a in Frameworks */,
-				C701C3C614BAFB3D00DD9C0C /* libluajit-5.1.a in Frameworks */,
 				C744E42A14B8A49200078FBB /* Accelerate.framework in Frameworks */,
 				C744E42614B8905A00078FBB /* AudioToolbox.framework in Frameworks */,
 				C744E40114B851CC00078FBB /* AudioUnit.framework in Frameworks */,
@@ -276,7 +267,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */,
-				C701C3C414BAFAA600DD9C0C /* libluajit-5.1.a in Frameworks */,
 				C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */,
 				C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */,
 				C786048814BA5C5E006ED999 /* libglmath.a in Frameworks */,
@@ -390,7 +380,6 @@
 		C7E2EF2014B78D4C0000884E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C701C3C314BAFAA600DD9C0C /* libluajit-5.1.a */,
 				C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */,
 				C760C4F514B7AE1700451951 /* OpenGL.framework */,
 				C7E2EF2114B78D4C0000884E /* Cocoa.framework */,
@@ -467,8 +456,6 @@
 				C744E3E114B847AD00078FBB /* TPluginManager.h */,
 				C744E3E214B847AD00078FBB /* TPluginManager.m */,
 				C773FECC14BD11D6003338FE /* TGLErrorChecking.h */,
-				C7C016DF14CEBE80008588C4 /* TLuaBridgeFunctions.h */,
-				C7C016E014CEBE80008588C4 /* TLuaBridgeFunctions.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -648,7 +635,6 @@
 				C773FED314BD440B003338FE /* TOpenGLLayer.m in Sources */,
 				C773FEDA14BE7318003338FE /* TCamera.m in Sources */,
 				C773FEE914BFB11D003338FE /* TShared.m in Sources */,
-				C7C016E114CEBE80008588C4 /* TLuaBridgeFunctions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,11 +750,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/usr/local/Cellar/luajit/2.0.0-beta9/lib\"",
-					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/build/lib\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -783,11 +765,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/usr/local/Cellar/luajit/2.0.0-beta9/lib\"",
-					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/build/lib\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -808,8 +786,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/PortAudio/lib\"",
-					"\"/usr/local/Cellar/luajit/2.0.0-beta9/lib\"",
-					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/build/lib\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -832,8 +808,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/PortAudio/lib\"",
-					"\"/usr/local/Cellar/luajit/2.0.0-beta9/lib\"",
-					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/build/lib\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -861,10 +835,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"LuaJIT-2.0.0-beta9/build/include/luajit-2.0",
-					GLMath,
-				);
+				HEADER_SEARCH_PATHS = GLMath;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -885,10 +856,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"LuaJIT-2.0.0-beta9/build/include/luajit-2.0",
-					GLMath,
-				);
+				HEADER_SEARCH_PATHS = GLMath;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
@@ -903,11 +871,7 @@
 				GCC_PREFIX_HEADER = "Tranquil/Tranquil-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tranquil/Tranquil-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/usr/local/Cellar/luajit/2.0.0-beta9/lib\"",
-					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/build/lib\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-pagezero_size",
@@ -929,11 +893,7 @@
 				GCC_PREFIX_HEADER = "Tranquil/Tranquil-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tranquil/Tranquil-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/usr/local/Cellar/luajit/2.0.0-beta9/lib\"",
-					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/build/lib\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-pagezero_size",
