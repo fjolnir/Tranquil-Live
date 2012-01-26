@@ -11,14 +11,9 @@
 @implementation TAppDelegate
 @synthesize glView;
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
 - (void)applicationWillFinishLaunching:(NSNotification *)notification
 {
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"startup" ofType:@"lua" inDirectory:@"Scripts"];
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"startup" ofType:@"rb" inDirectory:@"Scripts"];
 	NSString *bootScript = [NSString stringWithContentsOfFile:path usedEncoding:NULL error:nil];
 	TScriptError *err = nil;
 	[[TScriptContext sharedContext] executeScript:bootScript error:&err];
