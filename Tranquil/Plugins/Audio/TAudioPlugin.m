@@ -66,7 +66,7 @@ static int lua__audio_updateSpectrum(lua_State *aState)
 + (BOOL)loadPlugin
 {
 	assert(Pa_Initialize() == paNoError);
-	Class TScriptContext = NSClassFromString(@"TScriptContext");
+//	Class TScriptContext = NSClassFromString(@"TScriptContext");
 /*	lua_State *state = [TScriptContext sharedContext].luaState;
 	lua_register(state, "audio_start", &lua_audio_start);
 	lua_register(state, "audio_stop", &lua_audio_stop);
