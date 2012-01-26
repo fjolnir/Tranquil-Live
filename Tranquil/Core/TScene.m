@@ -40,30 +40,29 @@ static TScene *_GlobalScene = nil;
 	_stateStack = [[NSMutableArray alloc] init];
 	TState *rootState = [[TState alloc] init];
 	[_stateStack addObject:rootState];
-	[rootState release];
 	
 	_ambientLight = vec4_create(0.0, 0.0, 0.0, 1);
-	TLight *light = [[[TLight alloc] init] autorelease];
+	TLight *light = [[TLight alloc] init];
 	light.position = vec4_create(0, 2, 0, 1);
 	light.ambientColor = vec4_create(0.2, 0.2, 0.2, 1);
 	light.specularColor = vec4_create(0.1, 0.1, 0.1, 1);
 	light.diffuseColor = vec4_create(0.7, 0.7, 0.7, 1);
 	[_lights addObject:light];
-	light = [[[TLight alloc] init] autorelease]; 
+	light = [[TLight alloc] init]; 
 	light.position = vec4_create(-5, 0, 0, 1);
 	light.ambientColor = vec4_create(0.2, 0.0, 0.0, 1);
 	light.specularColor = vec4_create(0.1, 0.1, 0.1, 1);
 	light.diffuseColor = vec4_create(1.0, 0.0, 0.0, 1);
 	[_lights addObject:light];
 	
-	light = [[[TLight alloc] init] autorelease]; 
+	light = [[TLight alloc] init]; 
 	light.position = vec4_create(1, 2, 0, 1);
 	light.ambientColor = vec4_create(0.0, 0.0, 0.2, 1);
 	light.specularColor = vec4_create(0.1, 0.1, 0.1, 1);
 	light.diffuseColor = vec4_create(0.0, 0.0, 1.0, 1);
 	[_lights addObject:light];
 	
-	light = [[[TLight alloc] init] autorelease]; 
+	light = [[TLight alloc] init]; 
 	light.position = vec4_create(-0.5, 2, 0, 1);
 	light.ambientColor = vec4_create(0.0, 0.2, 0.0, 1);
 	light.specularColor = vec4_create(0.1, 0.1, 0.1, 1);
@@ -90,16 +89,12 @@ static TScene *_GlobalScene = nil;
 	return self;
 }
 
-- (void)dealloc
+- (void)finalize
 {
 	matrix_stack_destroy(_projStack);
 	matrix_stack_destroy(_worldStack);
-	[_objects release];
-	[_lights release];
-	[_stateStack release];
-	[_camera release];
 	
-	[super dealloc];
+	[super finalize];
 }
 
 - (void)initializeGLState
@@ -144,7 +139,7 @@ static TScene *_GlobalScene = nil;
 }
 - (void)pushState
 {
-	[_stateStack addObject:[[[self currentState] copy] autorelease]];
+	[_stateStack addObject:[[self currentState] copy]];
 }
 - (void)popState
 {

@@ -27,11 +27,6 @@
 		
 	return self;
 }
-- (void)dealloc
-{
-	[_shader release];
-	[super dealloc];
-}
 
 - (void)applyToScene:(TScene *)aScene
 {

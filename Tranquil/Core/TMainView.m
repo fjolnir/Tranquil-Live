@@ -30,13 +30,6 @@
 	[invocation setArgument:&arg atIndex:2];
 }
 
-- (void)dealloc
-{
-	[_renderables release];
-	
-	[super dealloc];
-}
-
 - (BOOL)canBecomeKeyView
 {
 	return NO;

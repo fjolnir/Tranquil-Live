@@ -1,4 +1,5 @@
 #import "TScriptContext.h"
+#import <MacRuby/MacRuby.h>
 
 static TScriptContext *sharedContext;
 
@@ -30,7 +31,11 @@ static TScriptContext *sharedContext;
 
 - (BOOL)executeScript:(NSString *)aSource error:(TScriptError **)aoErr
 {
-
+	@try {
+		[[MacRuby sharedRuntime] evaluateString:aSource];
+	} @catch (NSException *e) {
+		TLog(@"Ruby error: %@", e);
+	}
 	return YES;
 }
 
@@ -67,9 +72,4 @@ static TScriptContext *sharedContext;
 	return [NSString stringWithFormat:@"%@ <0x%x> %@", NSStringFromClass([self class]), self, _message];
 }
 
-- (void)dealloc
-{
-	[_message release];
-	[super dealloc];
-}
 @end

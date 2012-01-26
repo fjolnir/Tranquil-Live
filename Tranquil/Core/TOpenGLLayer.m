@@ -20,7 +20,7 @@
 		NSOpenGLPFASamples, (NSOpenGLPixelFormatAttribute)4,
         0
     };
-	return [[[NSOpenGLPixelFormat alloc] initWithAttributes:attrs] autorelease];
+	return [[NSOpenGLPixelFormat alloc] initWithAttributes:attrs];
 
 }
 - (NSOpenGLPixelFormat *)openGLPixelFormatForDisplayMask:(uint32_t)mask
@@ -38,7 +38,7 @@
     [ctx setValues:&vSync forParameter:NSOpenGLCPSwapInterval];
 	[[TScene globalScene] initializeGLState];
 	
-	return [ctx autorelease];
+	return ctx;
 }
 
 - (BOOL)canDrawInOpenGLContext:(NSOpenGLContext *)context

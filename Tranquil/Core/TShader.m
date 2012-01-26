@@ -24,7 +24,7 @@ static TShader *_ActiveShader = nil;
 {
 	TShader *shader = [[self alloc] initWithWithFragmentShader:aFragSrc vertexShader:aVertSrc];
 	shader.name = aName;
-	return [shader autorelease];
+	return shader;
 }
 
 - (id)initWithWithFragmentShader:(NSString *)aFragSrc vertexShader:(NSString *)aVertSrc
@@ -150,17 +150,14 @@ static TShader *_ActiveShader = nil;
 		block(loc);
 }
 
-- (void)dealloc
+- (void)finalize
 {
 	if(_program) {
 		glDeleteProgram(_program);
 		_program = 0;
 	}
-	[_name release];
-	[_unifCache release];
-	[_attribCache release];
 	
-	[super dealloc];
+	[super finalize];
 }
 
 - (NSString *)description
