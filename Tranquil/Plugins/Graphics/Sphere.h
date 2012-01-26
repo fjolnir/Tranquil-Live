@@ -1,5 +1,5 @@
-#import "TPrimitive.h"
+#import "PolyPrimitive.h"
 
-@interface TSphere : TPrimitive
+@interface Sphere : PolyPrimitive
 - (id)initWithRadius:(float)aRadius stacks:(int)aStacks slices:(int)aSlices;
 @end

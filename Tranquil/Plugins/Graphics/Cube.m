@@ -1,13 +1,13 @@
-#import "TCube.h"
+#import "Cube.h"
 
-@implementation TCube
+@implementation Cube
 - (id)initWithSize:(float)size
 {
 	self = [super initWithVertexCapacity:6*2*3 indexCapacity:0];
 	if(!self) return nil;
 	
 
-	self.renderMode = kTPrimitiveRenderModeTriList;
+	self.renderMode = kPolyPrimitiveRenderModeTriList;
 	
 	// Initialize with a white cube extending 1 unit on each axis	
 	vec4_t rbb = {  size, -size, -size, 1 };

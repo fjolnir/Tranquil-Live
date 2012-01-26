@@ -1,6 +1,6 @@
-#import "TPlane.h"
+#import "Plane.h"
 
-@implementation TPlane
+@implementation Plane
 - (id)initWithSubdivisions:(vec2_t)aSubdivs
 {
 	assert(aSubdivs.x>0 && aSubdivs.y>0);
@@ -11,7 +11,7 @@
 	self = [super initWithVertexCapacity:(uDiv*vDiv) + (uDiv-1)*(vDiv-1) indexCapacity:0];
 	if(!self) return nil;
 	
-	self.renderMode = kTPrimitiveRenderModeTriStrip;
+	self.renderMode = kPolyPrimitiveRenderModeTriStrip;
 	
 	// Build the vertex list
 	TVertex_t verts[uDiv*vDiv];

@@ -1,6 +1,6 @@
-#import "TSphere.h"
+#import "Sphere.h"
 
-@implementation TSphere
+@implementation Sphere
 - (id)initWithRadius:(float)aRadius stacks:(int)aStacks slices:(int)aSlices
 {
 	assert(aRadius>0);
@@ -9,7 +9,7 @@
 	self = [super initWithVertexCapacity:aSlices*aStacks*6 indexCapacity:0];
 	if(!self) return nil;
 	
-	self.renderMode = kTPrimitiveRenderModeTriList;
+	self.renderMode = kPolyPrimitiveRenderModeTriList;
 
 	float radsPerSeg = degToRad(360.0/(float)aStacks);
 	vec4_t white = vec4_create(1, 1, 1, 1);

@@ -1,14 +1,14 @@
-#import "TPrimitive.h"
+#import "PolyPrimitive.h"
 #import "TState.h"
 #import "TShader.h"
 #import "TGLErrorChecking.h"
 
-@interface TPrimitive () {
+@interface PolyPrimitive () {
 	int _vertexCapacity, _indexCapacity;
 }
 @end
 
-@implementation TPrimitive
+@implementation PolyPrimitive
 @synthesize vertexBuffer=_vertexBuffer, indexBuffer=_indexBuffer, vertices=_vertices, vertexCapacity=_vertexCapacity,
 	indices=_indices, indexCapacity=_indexCapacity, vertexCount=_vertexCount, indexCount=_indexCount,
 	usesIndices=_usesIndices, renderMode=_renderMode, state=_state;

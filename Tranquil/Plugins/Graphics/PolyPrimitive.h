@@ -22,19 +22,19 @@ static __inline__ TVertex_t TVertexCreate(vec4_t aPos, vec4_t aNormal, vec2_t aT
 }
 
 typedef enum {
-	kTPrimitiveRenderModeTriStrip = GL_TRIANGLE_STRIP,
-	kTPrimitiveRenderModeTriFan = GL_TRIANGLE_FAN,
-	kTPrimitiveRenderModeTriList = GL_TRIANGLES,
-	kTPrimitiveRenderModePoints = GL_POINTS
-} TPrimitiveRenderMode;
+	kPolyPrimitiveRenderModeTriStrip = GL_TRIANGLE_STRIP,
+	kPolyPrimitiveRenderModeTriFan = GL_TRIANGLE_FAN,
+	kPolyPrimitiveRenderModeTriList = GL_TRIANGLES,
+	kPolyPrimitiveRenderModePoints = GL_POINTS
+} PolyPrimitiveRenderMode;
 
-@interface TPrimitive : NSObject <TSceneObject>
+@interface PolyPrimitive : NSObject <TSceneObject>
 @property(readonly) GLuint vertexBuffer, indexBuffer;
 @property(readwrite, assign, nonatomic) TVertex_t *vertices;
 @property(readwrite, assign, nonatomic) GLuint *indices;
 @property(readwrite, assign, nonatomic) int vertexCount, vertexCapacity, indexCount, indexCapacity;
 @property(readwrite, assign, nonatomic) BOOL usesIndices;
-@property(readwrite, assign, nonatomic) TPrimitiveRenderMode renderMode;
+@property(readwrite, assign, nonatomic) PolyPrimitiveRenderMode renderMode;
 @property(readwrite, retain, nonatomic) TState *state;
 
 - (id)initWithVertexCapacity:(int)aVertexCapacity indexCapacity:(int)aIndexCapacity;
