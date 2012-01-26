@@ -42,24 +42,26 @@
 		C744E42A14B8A49200078FBB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
 		C74B3A9914B7E280006741C4 /* TScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C74B3A9814B7E280006741C4 /* TScriptContext.m */; };
 		C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
-		C773FEB014BC0EA3003338FE /* TPrimitive.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEAF14BC0EA3003338FE /* TPrimitive.m */; };
+		C7622B2014D0879A0093DDD0 /* GLMath.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
+		C7622B2114D087AA0093DDD0 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
+		C7622B2214D087CD0093DDD0 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
+		C7622B2714D087E40093DDD0 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
+		C7622B3414D0AFA00093DDD0 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B3314D0AFA00093DDD0 /* MacRuby.framework */; };
+		C773FEB014BC0EA3003338FE /* PolyPrimitive.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEAF14BC0EA3003338FE /* PolyPrimitive.m */; };
 		C773FEB114BC11A9003338FE /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
-		C773FEB414BC122D003338FE /* TCube.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB314BC122D003338FE /* TCube.m */; };
+		C773FEB414BC122D003338FE /* Cube.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB314BC122D003338FE /* Cube.m */; };
 		C773FEB714BC1F00003338FE /* TShader.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB614BC1F00003338FE /* TShader.m */; };
 		C773FEBA14BC21D2003338FE /* TState.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB914BC21D2003338FE /* TState.m */; };
 		C773FEBD14BC27D7003338FE /* TLight.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEBC14BC27D7003338FE /* TLight.m */; };
 		C773FEC314BC39C7003338FE /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = C773FEBE14BC397A003338FE /* Shaders */; };
 		C773FED314BD440B003338FE /* TOpenGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED214BD440A003338FE /* TOpenGLLayer.m */; };
 		C773FED414BD50B8003338FE /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
-		C773FED714BD7C18003338FE /* TSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED614BD7C18003338FE /* TSphere.m */; };
+		C773FED714BD7C18003338FE /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED614BD7C18003338FE /* Sphere.m */; };
 		C773FEDA14BE7318003338FE /* TCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED914BE7316003338FE /* TCamera.m */; };
 		C773FEE914BFB11D003338FE /* TShared.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEE814BFB11D003338FE /* TShared.m */; };
 		C773FF0114BFD450003338FE /* TranquilAudio.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
 		C773FF0214BFD451003338FE /* TranquilGraphics.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */; };
-		C773FF0514BFDDB7003338FE /* libglmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C786048514BA5C3C006ED999 /* libglmath.a */; };
-		C773FF0814BFE5D8003338FE /* TPlane.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FF0714BFE5D8003338FE /* TPlane.m */; };
-		C786048814BA5C5E006ED999 /* libglmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C786048514BA5C3C006ED999 /* libglmath.a */; };
-		C786048B14BA5C6E006ED999 /* libglmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C786048514BA5C3C006ED999 /* libglmath.a */; };
+		C773FF0814BFE5D8003338FE /* Plane.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FF0714BFE5D8003338FE /* Plane.m */; };
 		C7AA4F5C14B7BFF6008577CD /* TOverlayTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */; };
 		C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */; };
@@ -78,6 +80,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = C7E2EF1C14B78D4C0000884E;
 			remoteInfo = Tranquil;
+		};
+		C7622B1E14D0866E0093DDD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C7622AF714D085B60093DDD0;
+			remoteInfo = Framework;
+		};
+		C7622B2314D087D30093DDD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C7622AF614D085B60093DDD0;
+			remoteInfo = Framework;
+		};
+		C7622B2514D087DD0093DDD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C7622AF614D085B60093DDD0;
+			remoteInfo = Framework;
+		};
+		C7622B6114D1187A0093DDD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C7622AF614D085B60093DDD0;
+			remoteInfo = Framework;
 		};
 		C773FEF914BFD435003338FE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -107,32 +137,11 @@
 			remoteGlobalIDString = C744E3C714B8464E00078FBB;
 			remoteInfo = TranquilGraphics;
 		};
-		C773FF0314BFDDAE003338FE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C70EA30214AC9780009D29C6;
-			remoteInfo = glmath;
-		};
 		C786048414BA5C3C006ED999 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C70EA30314AC9780009D29C6;
-			remoteInfo = glmath;
-		};
-		C786048614BA5C57006ED999 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C70EA30214AC9780009D29C6;
-			remoteInfo = glmath;
-		};
-		C786048914BA5C6C006ED999 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C70EA30214AC9780009D29C6;
 			remoteInfo = glmath;
 		};
 /* End PBXContainerItemProxy section */
@@ -155,6 +164,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C7622B2014D0879A0093DDD0 /* GLMath.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,10 +202,11 @@
 		C74B3A9814B7E280006741C4 /* TScriptContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TScriptContext.m; sourceTree = "<group>"; };
 		C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		C760C4F514B7AE1700451951 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		C773FEAE14BC0EA3003338FE /* TPrimitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPrimitive.h; sourceTree = "<group>"; };
-		C773FEAF14BC0EA3003338FE /* TPrimitive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPrimitive.m; sourceTree = "<group>"; };
-		C773FEB214BC122D003338FE /* TCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCube.h; sourceTree = "<group>"; };
-		C773FEB314BC122D003338FE /* TCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCube.m; sourceTree = "<group>"; };
+		C7622B3314D0AFA00093DDD0 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = SDKROOT; };
+		C773FEAE14BC0EA3003338FE /* PolyPrimitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolyPrimitive.h; sourceTree = "<group>"; };
+		C773FEAF14BC0EA3003338FE /* PolyPrimitive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolyPrimitive.m; sourceTree = "<group>"; };
+		C773FEB214BC122D003338FE /* Cube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cube.h; sourceTree = "<group>"; };
+		C773FEB314BC122D003338FE /* Cube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cube.m; sourceTree = "<group>"; };
 		C773FEB514BC1F00003338FE /* TShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TShader.h; sourceTree = "<group>"; };
 		C773FEB614BC1F00003338FE /* TShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TShader.m; sourceTree = "<group>"; };
 		C773FEB814BC21D2003338FE /* TState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TState.h; sourceTree = "<group>"; };
@@ -206,14 +217,14 @@
 		C773FECC14BD11D6003338FE /* TGLErrorChecking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TGLErrorChecking.h; sourceTree = "<group>"; };
 		C773FED114BD440A003338FE /* TOpenGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOpenGLLayer.h; sourceTree = "<group>"; };
 		C773FED214BD440A003338FE /* TOpenGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOpenGLLayer.m; sourceTree = "<group>"; };
-		C773FED514BD7C18003338FE /* TSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSphere.h; sourceTree = "<group>"; };
-		C773FED614BD7C18003338FE /* TSphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSphere.m; sourceTree = "<group>"; };
+		C773FED514BD7C18003338FE /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
+		C773FED614BD7C18003338FE /* Sphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sphere.m; sourceTree = "<group>"; };
 		C773FED814BE7315003338FE /* TCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCamera.h; sourceTree = "<group>"; };
 		C773FED914BE7316003338FE /* TCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCamera.m; sourceTree = "<group>"; };
 		C773FEE714BFB0E3003338FE /* TShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TShared.h; sourceTree = "<group>"; };
 		C773FEE814BFB11D003338FE /* TShared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TShared.m; sourceTree = "<group>"; };
-		C773FF0614BFE5D7003338FE /* TPlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPlane.h; sourceTree = "<group>"; };
-		C773FF0714BFE5D8003338FE /* TPlane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPlane.m; sourceTree = "<group>"; };
+		C773FF0614BFE5D7003338FE /* Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plane.h; sourceTree = "<group>"; };
+		C773FF0714BFE5D8003338FE /* Plane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plane.m; sourceTree = "<group>"; };
 		C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GLMath.xcodeproj; path = GLMath/GLMath.xcodeproj; sourceTree = "<group>"; };
 		C7AA4F5A14B7BFF6008577CD /* TOverlayTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOverlayTextView.h; sourceTree = "<group>"; };
 		C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOverlayTextView.m; sourceTree = "<group>"; };
@@ -241,10 +252,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7622B2714D087E40093DDD0 /* GLMath.framework in Frameworks */,
 				C773FED414BD50B8003338FE /* Accelerate.framework in Frameworks */,
 				C773FEB114BC11A9003338FE /* OpenGL.framework in Frameworks */,
 				C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */,
-				C786048B14BA5C6E006ED999 /* libglmath.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C773FF0514BFDDB7003338FE /* libglmath.a in Frameworks */,
+				C7622B2214D087CD0093DDD0 /* GLMath.framework in Frameworks */,
 				C744E42A14B8A49200078FBB /* Accelerate.framework in Frameworks */,
 				C744E42614B8905A00078FBB /* AudioToolbox.framework in Frameworks */,
 				C744E40114B851CC00078FBB /* AudioUnit.framework in Frameworks */,
@@ -266,10 +277,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7622B3414D0AFA00093DDD0 /* MacRuby.framework in Frameworks */,
 				C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */,
 				C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */,
+				C7622B2114D087AA0093DDD0 /* GLMath.framework in Frameworks */,
 				C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */,
-				C786048814BA5C5E006ED999 /* libglmath.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,14 +310,14 @@
 			children = (
 				C744E3D714B8467200078FBB /* TGraphicsPlugin.h */,
 				C744E3D814B8467200078FBB /* TGraphicsPlugin.m */,
-				C773FEAE14BC0EA3003338FE /* TPrimitive.h */,
-				C773FEAF14BC0EA3003338FE /* TPrimitive.m */,
-				C773FEB214BC122D003338FE /* TCube.h */,
-				C773FEB314BC122D003338FE /* TCube.m */,
-				C773FED514BD7C18003338FE /* TSphere.h */,
-				C773FED614BD7C18003338FE /* TSphere.m */,
-				C773FF0614BFE5D7003338FE /* TPlane.h */,
-				C773FF0714BFE5D8003338FE /* TPlane.m */,
+				C773FEAE14BC0EA3003338FE /* PolyPrimitive.h */,
+				C773FEAF14BC0EA3003338FE /* PolyPrimitive.m */,
+				C773FEB214BC122D003338FE /* Cube.h */,
+				C773FEB314BC122D003338FE /* Cube.m */,
+				C773FED514BD7C18003338FE /* Sphere.h */,
+				C773FED614BD7C18003338FE /* Sphere.m */,
+				C773FF0614BFE5D7003338FE /* Plane.h */,
+				C773FF0714BFE5D8003338FE /* Plane.m */,
 				C744E3CB14B8464E00078FBB /* Supporting Files */,
 			);
 			name = Graphics;
@@ -351,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				C786048514BA5C3C006ED999 /* libglmath.a */,
+				C7622B1F14D0866E0093DDD0 /* GLMath.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -380,6 +393,7 @@
 		C7E2EF2014B78D4C0000884E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7622B3314D0AFA00093DDD0 /* MacRuby.framework */,
 				C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */,
 				C760C4F514B7AE1700451951 /* OpenGL.framework */,
 				C7E2EF2114B78D4C0000884E /* Cocoa.framework */,
@@ -474,8 +488,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				C7622B2614D087DD0093DDD0 /* PBXTargetDependency */,
 				C773FEFC14BFD438003338FE /* PBXTargetDependency */,
-				C786048A14BA5C6C006ED999 /* PBXTargetDependency */,
 			);
 			name = TranquilGraphics;
 			productName = TranquilGraphics;
@@ -493,7 +507,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				C773FF0414BFDDAE003338FE /* PBXTargetDependency */,
+				C7622B2414D087D30093DDD0 /* PBXTargetDependency */,
 				C773FEFA14BFD435003338FE /* PBXTargetDependency */,
 			);
 			name = TranquilAudio;
@@ -509,11 +523,12 @@
 				C7E2EF1A14B78D4C0000884E /* Frameworks */,
 				C7E2EF1B14B78D4C0000884E /* Resources */,
 				C7E2F0D714B798740000884E /* Copy Frameworks */,
+				C7622AEE14D07DF00093DDD0 /* Generate bridgesupport metadata */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C786048714BA5C57006ED999 /* PBXTargetDependency */,
+				C7622B6214D1187A0093DDD0 /* PBXTargetDependency */,
 			);
 			name = Tranquil;
 			productName = Tranquil;
@@ -555,6 +570,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		C7622B1F14D0866E0093DDD0 /* GLMath.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GLMath.framework;
+			remoteRef = C7622B1E14D0866E0093DDD0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C786048514BA5C3C006ED999 /* libglmath.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -595,16 +617,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C7622AEE14D07DF00093DDD0 /* Generate bridgesupport metadata */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate bridgesupport metadata";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#mkdir -p $TARGET_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Resources/BridgeSupport\n#gen_bridge_metadata -c '-framework Accelerate' $PROJECT_DIR/GLMath/GLMath.h > $TARGET_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Resources/BridgeSupport/GLMath.bridgesupport";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C744E3C414B8464E00078FBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C744E3D914B8467200078FBB /* TGraphicsPlugin.m in Sources */,
-				C773FEB014BC0EA3003338FE /* TPrimitive.m in Sources */,
-				C773FEB414BC122D003338FE /* TCube.m in Sources */,
-				C773FED714BD7C18003338FE /* TSphere.m in Sources */,
-				C773FF0814BFE5D8003338FE /* TPlane.m in Sources */,
+				C773FEB014BC0EA3003338FE /* PolyPrimitive.m in Sources */,
+				C773FEB414BC122D003338FE /* Cube.m in Sources */,
+				C773FED714BD7C18003338FE /* Sphere.m in Sources */,
+				C773FF0814BFE5D8003338FE /* Plane.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +686,21 @@
 			target = C7E2EF1C14B78D4C0000884E /* Tranquil */;
 			targetProxy = C701C3E914BBDB7A00DD9C0C /* PBXContainerItemProxy */;
 		};
+		C7622B2414D087D30093DDD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Framework;
+			targetProxy = C7622B2314D087D30093DDD0 /* PBXContainerItemProxy */;
+		};
+		C7622B2614D087DD0093DDD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Framework;
+			targetProxy = C7622B2514D087DD0093DDD0 /* PBXContainerItemProxy */;
+		};
+		C7622B6214D1187A0093DDD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Framework;
+			targetProxy = C7622B6114D1187A0093DDD0 /* PBXContainerItemProxy */;
+		};
 		C773FEFA14BFD435003338FE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C7E2EF1C14B78D4C0000884E /* Tranquil */;
@@ -665,21 +720,6 @@
 			isa = PBXTargetDependency;
 			target = C744E3C714B8464E00078FBB /* TranquilGraphics */;
 			targetProxy = C773FEFF14BFD44A003338FE /* PBXContainerItemProxy */;
-		};
-		C773FF0414BFDDAE003338FE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = glmath;
-			targetProxy = C773FF0314BFDDAE003338FE /* PBXContainerItemProxy */;
-		};
-		C786048714BA5C57006ED999 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = glmath;
-			targetProxy = C786048614BA5C57006ED999 /* PBXContainerItemProxy */;
-		};
-		C786048A14BA5C6C006ED999 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = glmath;
-			targetProxy = C786048914BA5C6C006ED999 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -796,6 +836,7 @@
 		C744E3F414B84CB400078FBB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tranquil.app/Contents/MacOS/Tranquil";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Plugins/Audio/Supporting Files/TranquilAudio-Prefix.pch";
@@ -824,6 +865,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -851,6 +893,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -887,6 +930,7 @@
 		C7E2EF3D14B78D4D0000884E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				EXPORTED_SYMBOLS_FILE = Tranquil/ExportedSymbols.exp;
 				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
