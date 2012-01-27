@@ -15,7 +15,7 @@
 {
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"startup" ofType:@"rb" inDirectory:@"Scripts"];
 	NSString *bootScript = [NSString stringWithContentsOfFile:path usedEncoding:NULL error:nil];
-	TScriptError *err = nil;
+	NSError *err = nil;
 	[[TScriptContext sharedContext] executeScript:bootScript error:&err];
 	if(err) {
 		TLog(@"Error executing startup script: %@", err);
