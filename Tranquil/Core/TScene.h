@@ -1,9 +1,9 @@
 // Manages the graphics state
 
-#import <GLMath.h>
+#import "GLMathWrapper.h"
 #import "TCamera.h"
 
-@class TScene, TState;
+@class TScene, TState, Light;
 
 @protocol TSceneObject <NSObject>
 - (void)render:(TScene *)aScene;
@@ -11,19 +11,27 @@
 
 __attribute__((visibility("default"))) @interface TScene : NSObject
 @property(readonly) NSArray *objects;
+@property(readonly) NSArray *immediateModeObjects;
 @property(readonly) NSArray *lights;
-@property(readwrite, assign) vec4_t ambientLight;
+@property(readwrite) Vector4 *clearColor;
+@property(readwrite) Vector4 *ambientLight;
 @property(readonly) NSArray *stateStack;
-@property(readonly) matrix_stack_t *projMatStack;
-@property(readonly) matrix_stack_t *worldMatStack;
+@property(readonly) MatrixStack *projMatStack;
+@property(readonly) MatrixStack *worldMatStack;
 @property(readwrite, retain) TCamera *camera;
 
 - (void)initializeGLState;
 
 + (TScene *)globalScene;
+
+- (void)clear;
 - (void)render;
 - (void)addObject:(id<TSceneObject>)aObject;
 - (void)removeObject:(id<TSceneObject>)aObject;
+- (void)addImmediateModeObject:(id<TSceneObject>)aObject;
+
+- (void)addLight:(Light *)aLight;
+- (void)removeLight:(Light *)aLight;
 
 - (TState *)currentState;
 - (void)pushState;

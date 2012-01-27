@@ -21,8 +21,9 @@
 		TLog(@"Error executing startup script: %@", err);
 		[NSApp terminate:nil];
 	}
-
 	[[TPluginManager sharedManager] loadAllPlugins];
+	
+	[[TScriptContext sharedContext] executeScript:@"_setup" error:nil];
 }
 
 @end

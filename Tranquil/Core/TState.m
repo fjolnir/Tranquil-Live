@@ -1,7 +1,7 @@
 #import "TState.h"
 #import "TScene.h"
 #import "TShader.h"
-#import "TLight.h"
+#import "Light.h"
 #import <OpenGL/gl.h>
 #import "TGLErrorChecking.h"
 
@@ -22,7 +22,7 @@
 	_shininess = 0;
 	_opacity = 1;
 	_renderHint = kTRenderHintNone;
-	_transform = kMat4_identity;
+	_transform = [Matrix4 identity];
 	_shader = nil;
 		
 	return self;
@@ -30,8 +30,9 @@
 
 - (void)applyToScene:(TScene *)aScene
 {
-	matrix_stack_push(aScene.worldMatStack);
-	matrix_stack_mul_mat4(aScene.worldMatStack, _transform);
+	[aScene.projMatStack push];
+	[aScene.worldMatStack push];
+	[aScene.worldMatStack mul:_transform];
 	
 	glLineWidth(_lineWidth);
 	glPointSize(_pointRadius);
@@ -50,35 +51,35 @@
 	if(shader) {
 		[_shader makeActive];
 		[shader withUniform:@"u_projMatrix" do:^(GLint loc) {
-			glUniformMatrix4fv(loc, 1, GL_FALSE, matrix_stack_get_mat4(aScene.projMatStack).f);
+			glUniformMatrix4fv(loc, 1, GL_FALSE, aScene.projMatStack.top.mat.f);
 		}];
 		[shader withUniform:@"u_worldMatrix" do:^(GLint loc) {
-			glUniformMatrix4fv(loc, 1, GL_FALSE, matrix_stack_get_mat4(aScene.worldMatStack).f);
+			glUniformMatrix4fv(loc, 1, GL_FALSE, aScene.worldMatStack.top.mat.f);
 		}];
 		[shader withUniform:@"u_cameraPosition" do:^(GLint loc) {
-			glUniform4fv(loc, 1, aScene.camera.position.f);
+			glUniform4fv(loc, 1, aScene.camera.position.vec.f);
 		}];
 		[shader withUniform:@"u_globalAmbientColor" do:^(GLint loc) {
-			glUniform4fv(loc, 1, aScene.ambientLight.f);
+			glUniform4fv(loc, 1, aScene.ambientLight.vec.f);
 		}];
 		[shader withUniform:@"u_lightPositions" do:^(GLint loc) {
 			vec4_t positions[[aScene.lights count]];
-			for(int i = 0; i < [aScene.lights count]; ++i) positions[i] = [(TLight*)[aScene.lights objectAtIndex:i] position];
+			for(int i = 0; i < [aScene.lights count]; ++i) positions[i] = [(Light*)[aScene.lights objectAtIndex:i] position].vec;
 			glUniform4fv(loc, (int)[aScene.lights count], (float*)positions);
 		}];
 		[shader withUniform:@"u_ambientColors" do:^(GLint loc) {
 			vec4_t colors[[aScene.lights count]];
-			for(int i = 0; i < [aScene.lights count]; ++i) colors[i] = [(TLight*)[aScene.lights objectAtIndex:i] ambientColor];
+			for(int i = 0; i < [aScene.lights count]; ++i) colors[i] = [(Light*)[aScene.lights objectAtIndex:i] ambientColor].vec;
 			glUniform4fv(loc, (int)[aScene.lights count], (float*)colors);
 		}];
 		[shader withUniform:@"u_diffuseColors" do:^(GLint loc) {
 			vec4_t colors[[aScene.lights count]];
-			for(int i = 0; i < [aScene.lights count]; ++i) colors[i] = [(TLight*)[aScene.lights objectAtIndex:i] diffuseColor];
+			for(int i = 0; i < [aScene.lights count]; ++i) colors[i] = [(Light*)[aScene.lights objectAtIndex:i] diffuseColor].vec;
 			glUniform4fv(loc, (int)[aScene.lights count], (float*)colors);
 		}];
 		[shader withUniform:@"u_specularColors" do:^(GLint loc) {
 			vec4_t colors[[aScene.lights count]];
-			for(int i = 0; i < [aScene.lights count]; ++i) colors[i] = [(TLight*)[aScene.lights objectAtIndex:i] specularColor];
+			for(int i = 0; i < [aScene.lights count]; ++i) colors[i] = [(Light*)[aScene.lights objectAtIndex:i] specularColor].vec;
 			glUniform4fv(loc, (int)[aScene.lights count], (float*)colors);
 		}];
 		[shader withUniform:@"u_lightCount" do:^(GLint loc) {
@@ -95,7 +96,8 @@
 	if(_renderHint & kTRenderHintNoZWrite)
 		glDepthMask(true);
 	if(_shader) [_shader makeInactive];
-	matrix_stack_pop(aScene.worldMatStack);
+	[aScene.worldMatStack pop];
+	[aScene.projMatStack pop];
 }
 
 

@@ -48,7 +48,7 @@
 	unichar character;
 	character = [characters characterAtIndex: 0];
 
-	vec4_t pos = [TScene globalScene].camera.position;
+	vec4_t pos = [TScene globalScene].camera.position.vec;
 	if(character == NSRightArrowFunctionKey)
 		pos.x += 0.1;
 	else if (character == NSLeftArrowFunctionKey)
@@ -61,7 +61,7 @@
 		pos.z += 0.1;
 	else if (character == NSPageDownFunctionKey)
 		pos.z -= 0.1;
-	TGlobalScene().camera.position = pos; 
+	TGlobalScene().camera.position.vec = pos; 
 	[TGlobalScene().camera updateMatrix];
 }
 
@@ -103,8 +103,8 @@ static vec4_t lastMouseLoc;
 	rotation.scalar = vec3_dot(lastMouseLoc.xyz, mouseLoc.xyz);
 	rotation = quat_normalize(rotation);
 	
-	cam.orientation = quat_multQuat(rotation, cam.orientation);
-	cam.position = quat_rotatePoint(rotation, cam.position);
+	cam.orientation.quat = quat_multQuat(rotation, cam.orientation.quat);
+	cam.position.vec = quat_rotatePoint(rotation, cam.position.vec);
 
 	[cam updateMatrix];
 	lastMouseLoc = mouseLoc;

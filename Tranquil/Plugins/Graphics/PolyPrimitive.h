@@ -33,7 +33,7 @@ typedef enum {
 @property(readwrite, assign, nonatomic) TVertex_t *vertices;
 @property(readwrite, assign, nonatomic) GLuint *indices;
 @property(readwrite, assign, nonatomic) int vertexCount, vertexCapacity, indexCount, indexCapacity;
-@property(readwrite, assign, nonatomic) BOOL usesIndices;
+@property(readonly) BOOL usesIndices;
 @property(readwrite, assign, nonatomic) PolyPrimitiveRenderMode renderMode;
 @property(readwrite, retain, nonatomic) TState *state;
 

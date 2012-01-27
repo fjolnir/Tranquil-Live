@@ -77,3 +77,14 @@
 }
 
 @end
+
+@implementation TScene (CubePrimitive)
+- (Cube *)buildCube {
+	Cube *cube = [[Cube alloc] initWithSize:1];
+	[TGlobalScene() addObject:cube];
+	return cube;
+}
+- (void)drawCube {
+	[TGlobalScene() addImmediateModeObject:[[Cube alloc] initWithSize:1]];
+}
+@end

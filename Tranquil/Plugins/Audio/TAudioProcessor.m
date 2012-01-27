@@ -105,7 +105,7 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	return self;
 }
 
-- (void)dealloc
+- (void)finalize
 {
 	Pa_CloseStream(_inputStream);
 	free(_sampleBuffer);
@@ -116,7 +116,7 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	free(_magnitudes);
 	free(_frequencyBands);
 	
-	[super dealloc];
+	[super finalize];
 }
 
 - (void)start

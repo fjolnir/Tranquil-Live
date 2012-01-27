@@ -20,8 +20,8 @@ typedef enum {
 } TRenderHint;
 
 __attribute__((visibility("default"))) @interface TState : NSObject
-@property(readwrite, assign) mat4_t transform;
-@property(readwrite, assign) vec4_t ambientLight;
+@property(readwrite, assign) Matrix4 *transform;
+@property(readwrite, assign) Vector4 *ambientLight;
 @property(readwrite, assign) float shininess;
 @property(readwrite, assign) float opacity;
 @property(readwrite, assign) float lineWidth;

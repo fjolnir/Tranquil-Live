@@ -30,28 +30,32 @@
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	TCheckGLError();
 
-	glGenBuffers(1, &_indexBuffer);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vertexBuffer);
-	[self setIndexCapacity:aIndexCapacity];
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-	TCheckGLError();
-	
-	self.usesIndices = aIndexCapacity > 0;
+	_usesIndices = aIndexCapacity > 0;
+	if(_usesIndices) {
+		glGenBuffers(1, &_indexBuffer);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vertexBuffer);
+		[self setIndexCapacity:aIndexCapacity];
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+		TCheckGLError();
+	}
 	
 	_vertexCount = _indexCount = 0;
 
 	return self;
 }
 
-- (void)dealloc
+- (void)finalize
 {
-	GLuint buffers[] = { _indexBuffer, _vertexBuffer };
-	glDeleteBuffers(2, buffers);
+	[TGlobalGLContext() makeCurrentContext];
+	if(_usesIndices)
+		glDeleteBuffers(1, &_indexBuffer);
+	glDeleteBuffers(1, &_vertexBuffer);
+//	GLuint buffers[] = { _indexBuffer, _vertexBuffer };
+//	glDeleteBuffers(2, buffers);
 	free(_vertices);
 	free(_indices);
-	[_state release];
 	
-	[super dealloc];
+	[super finalize];
 }
 
 - (void)drawNormals:(TScene *)aScene

@@ -1,5 +1,5 @@
-#import "TLight.h"
+#import "Light.h"
 
-@implementation TLight
+@implementation Light
 @synthesize position, ambientColor, diffuseColor, specularColor;
 @end

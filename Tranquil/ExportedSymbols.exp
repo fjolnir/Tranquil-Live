@@ -4,7 +4,7 @@
 .objc_class_name_TCamera
 .objc_class_name_TScriptContext
 .objc_class_name_TShader
-.objc_class_name_TLight
+.objc_class_name_Light
 
 # GLMath
 #__bezier_create
