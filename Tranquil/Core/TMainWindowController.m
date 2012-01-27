@@ -17,11 +17,20 @@
 
 - (IBAction)runActiveScript:(id)sender
 {
-	TScriptError *err = nil;
+	NSError *err = nil;
 	[[TScriptContext sharedContext] executeScript:[[_scriptView textStorage] string] error:&err];
 	if(err)
-		TLog(@"%@", err);
+		TLog(@"%@", [err.userInfo objectForKey:@"description"]);
 }
 
-
+- (IBAction)runSelection:(id)sender
+{
+	NSRange range = [_scriptView selectedRange];
+	if(range.length <= 0) return;
+	NSString *script = [[[_scriptView textStorage] string] substringWithRange:range];
+	NSError *err = nil;
+	[[TScriptContext sharedContext] executeScript:script error:&err];
+	if(err)
+		TLog(@"%@", [err.userInfo objectForKey:@"description"]);
+}
 @end

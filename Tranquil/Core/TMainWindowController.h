@@ -5,4 +5,5 @@
 @property(readwrite, retain) IBOutlet TOverlayTextView *scriptView;
 
 - (IBAction)runActiveScript:(id)sender;
+- (IBAction)runSelection:(id)sender;
 @end
