@@ -14,7 +14,6 @@
 - (void)applicationWillFinishLaunching:(NSNotification *)notification
 {
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"startup" ofType:@"rb" inDirectory:@"Scripts"];
-	NSString *bootScript = [NSString stringWithContentsOfFile:path usedEncoding:NULL error:nil];
 	NSError *err = nil;
 	[[ScriptContext sharedContext] executeFile:path error:&err];
 	if(err) {
