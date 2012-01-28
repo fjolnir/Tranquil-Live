@@ -14,5 +14,6 @@ __attribute__((visibility("default"))) @interface ScriptContext : NSObject {
 @property(readwrite, assign) id<ScriptContextDelegate> delegate;
 + (ScriptContext *)sharedContext;
 
-- (BOOL)executeScript:(NSString *)source error:(NSError **)aoErr;
+- (id)executeScript:(NSString *)aSource error:(NSError **)aoErr;
+- (id)executeFile:(NSString *)aPath error:(NSError **)aoErr;
 @end

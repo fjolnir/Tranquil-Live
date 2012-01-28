@@ -20,10 +20,10 @@ static ScriptContext *sharedContext;
 	return sharedContext;
 }
 
-- (BOOL)executeScript:(NSString *)aSource error:(NSError **)aoErr
+- (id)executeFile:(NSString *)aPath error:(NSError **)aoErr
 {
 	@try {
-		[[MacRuby sharedRuntime] evaluateString:aSource];
+		return [[MacRuby sharedRuntime] evaluateFileAtPath:aPath];
 	} @catch (NSException *e) {
 		NSError *err = [NSError errorWithDomain:@"ScriptError" 
 										   code:0 
@@ -32,7 +32,21 @@ static ScriptContext *sharedContext;
 		[self _reportError:err];
 		if(aoErr) *aoErr = err;
 	}
-	return YES;
+	return nil;
+}
+- (id)executeScript:(NSString *)aSource error:(NSError **)aoErr
+{
+	@try {
+		return [[MacRuby sharedRuntime] evaluateString:aSource];
+	} @catch (NSException *e) {
+		NSError *err = [NSError errorWithDomain:@"ScriptError" 
+										   code:0 
+									   userInfo:[NSDictionary dictionaryWithObject:[e description] 
+																			forKey:@"description"]];
+		[self _reportError:err];
+		if(aoErr) *aoErr = err;
+	}
+	return nil;
 }
 
 #pragma mark - Delegate
