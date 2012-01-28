@@ -25,6 +25,7 @@
 
 /* Begin PBXBuildFile section */
 		C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
+		C70E8A6014D46AD4000DAF2F /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C70E8A5F14D46ACD000DAF2F /* Scripts */; };
 		C744E3A014B8337D00078FBB /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C744E39F14B8337D00078FBB /* Scripts */; };
 		C744E3A314B834EF00078FBB /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3A214B834EF00078FBB /* Scene.m */; };
 		C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
@@ -175,6 +176,7 @@
 
 /* Begin PBXFileReference section */
 		C701C3C714BBBF4000DD9C0C /* ExportedSymbols.exp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.exports; path = ExportedSymbols.exp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
+		C70E8A5F14D46ACD000DAF2F /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		C744E39F14B8337D00078FBB /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		C744E3A114B834EF00078FBB /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		C744E3A214B834EF00078FBB /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				C744E3F614B84CCD00078FBB /* TranquilAudioPlugin.m */,
 				C744E3FB14B84ECD00078FBB /* AudioProcessor.h */,
 				C744E3FC14B84ECD00078FBB /* AudioProcessor.m */,
+				C70E8A5F14D46ACD000DAF2F /* Scripts */,
 				C744E3EC14B84CB400078FBB /* Supporting Files */,
 			);
 			name = Audio;
@@ -609,6 +612,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C744E3F014B84CB400078FBB /* InfoPlist.strings in Resources */,
+				C70E8A6014D46AD4000DAF2F /* Scripts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
