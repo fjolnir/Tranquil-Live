@@ -22,6 +22,7 @@ typedef enum {
 __attribute__((visibility("default"))) @interface State : NSObject
 @property(readwrite, assign) Matrix4 *transform;
 @property(readwrite, assign) Vector4 *ambientLight;
+@property(readwrite, assign) Vector4 *color;
 @property(readwrite, assign) float shininess;
 @property(readwrite, assign) float opacity;
 @property(readwrite, assign) float lineWidth;

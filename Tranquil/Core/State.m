@@ -10,7 +10,7 @@
 @end
 
 @implementation State
-@synthesize transform=_transform, ambientLight=_ambientLight, shininess=_shininess, opacity=_opacity, lineWidth=_lineWidth, pointRadius=_pointRadius, shader=_shader, renderHint=_renderHint;
+@synthesize transform=_transform, ambientLight=_ambientLight, color=_color, shininess=_shininess, opacity=_opacity, lineWidth=_lineWidth, pointRadius=_pointRadius, shader=_shader, renderHint=_renderHint;
 
 - (id)init
 {
@@ -21,6 +21,7 @@
 	_lineWidth = 1;
 	_shininess = 0;
 	_opacity = 1;
+	_color = [Vector4 vectorWithX:1 y:1 z:1 w:1];
 	_renderHint = kTRenderHintNone;
 	_transform = [Matrix4 identity];
 	_shader = nil;
