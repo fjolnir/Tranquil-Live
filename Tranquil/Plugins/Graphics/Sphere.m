@@ -1,4 +1,5 @@
 #import "Sphere.h"
+#import "State.h"
 
 @implementation Sphere
 - (id)initWithRadius:(float)aRadius stacks:(int)aStacks slices:(int)aSlices
@@ -12,7 +13,7 @@
 	self.renderMode = kPolyPrimitiveRenderModeTriList;
 
 	float radsPerSeg = degToRad(360.0/(float)aStacks);
-	vec4_t white = vec4_create(1, 1, 1, 1);
+	vec4_t color = self.state.color.vec;
 	for(int j = 0; j < aSlices; ++j) {
 		float scale[2],height[2],nheight[2];
 		scale[0] = sin(degToRad((j/(float)aSlices)*180));
@@ -47,13 +48,13 @@
 			texCoords[2] = vec2_create(i/(float)aStacks, j/(float)aSlices);
 			texCoords[3] = vec2_create((i+1)/(float)aStacks, (j+1)/(float)aSlices);
 
-			[self addVertex:TVertexCreate(vertices[2], normals[2], texCoords[2], white, 1, 1)];
-			[self addVertex:TVertexCreate(vertices[1], normals[1], texCoords[1], white, 1, 1)];
-			[self addVertex:TVertexCreate(vertices[0], normals[0], texCoords[0], white, 1, 1)];
+			[self addVertex:TVertexCreate(vertices[2], normals[2], texCoords[2], color, 1, 1)];
+			[self addVertex:TVertexCreate(vertices[1], normals[1], texCoords[1], color, 1, 1)];
+			[self addVertex:TVertexCreate(vertices[0], normals[0], texCoords[0], color, 1, 1)];
 			
-			[self addVertex:TVertexCreate(vertices[0], normals[0], texCoords[0], white, 1, 1)];
-			[self addVertex:TVertexCreate(vertices[1], normals[1], texCoords[1], white, 1, 1)];
-			[self addVertex:TVertexCreate(vertices[3], normals[3], texCoords[3], white, 1, 1)];
+			[self addVertex:TVertexCreate(vertices[0], normals[0], texCoords[0], color, 1, 1)];
+			[self addVertex:TVertexCreate(vertices[1], normals[1], texCoords[1], color, 1, 1)];
+			[self addVertex:TVertexCreate(vertices[3], normals[3], texCoords[3], color, 1, 1)];
 		}
 	}
 	
