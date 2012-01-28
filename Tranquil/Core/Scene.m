@@ -90,9 +90,10 @@ static Scene *_GlobalScene = nil;
 {
 	[_objects removeAllObjects];
 }
-- (void)addObject:(id<SceneObject>)aObject
+- (id<SceneObject>)addObject:(id<SceneObject>)aObject
 {
 	[_objects addObject:aObject];
+	return aObject;
 }
 - (void)removeObject:(id<SceneObject>)aObject
 {

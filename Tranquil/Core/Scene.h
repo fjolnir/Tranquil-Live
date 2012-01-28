@@ -26,7 +26,7 @@ __attribute__((visibility("default"))) @interface Scene : NSObject
 
 - (void)clear;
 - (void)render;
-- (void)addObject:(id<SceneObject>)aObject;
+- (id<SceneObject>)addObject:(id<SceneObject>)aObject;
 - (void)removeObject:(id<SceneObject>)aObject;
 - (void)addImmediateModeObject:(id<SceneObject>)aObject;
 
