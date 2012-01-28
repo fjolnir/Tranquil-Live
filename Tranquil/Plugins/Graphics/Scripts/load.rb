@@ -1,8 +1,8 @@
-def buildCube
-	@scene.addObject Cube.new
+def buildCube(size=1)
+	@scene.addObject Cube.alloc.initWithSize(size)
 end
-def drawCube
-	@scene.addImmediateModeObject Cube.new
+def drawCube(size=1)
+	@scene.addImmediateModeObject Cube.alloc.initWithSize(size)
 end
 def buildSphere(radius=1, stacks=10, slices=10)
 	@scene.addObject Sphere.alloc.initWithRadius(radius, stacks:stacks, slices:slices)
