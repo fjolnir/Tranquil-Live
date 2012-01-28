@@ -1,28 +1,28 @@
-#import "TShader.h"
+#import "Shader.h"
 #import <OpenGL/gl.h>
-#import "TGLErrorChecking.h"
+#import "GLErrorChecking.h"
 #import "TAppDelegate.h"
 
-static TShader *_ActiveShader = nil;
+static Shader *_ActiveShader = nil;
 
-@interface TShader () {
+@interface Shader () {
 	NSMutableDictionary *_unifCache, *_attribCache;
 }
 - (GLuint)_loadShader:(NSString *)sourceStr type:(GLenum)shaderType compiled:(BOOL *)succeeded;
 - (void)_linkProgram:(GLuint)programObject success:(BOOL *)success;
 @end
 
-@implementation TShader
+@implementation Shader
 @synthesize program=_program, name=_name;
 
-+ (TShader *)activeShader
++ (Shader *)activeShader
 {
 	return _ActiveShader;
 }
 
-+ (TShader *)shaderWithName:(NSString *)aName fragmentShader:(NSString *)aFragSrc vertexShader:(NSString *)aVertSrc
++ (Shader *)shaderWithName:(NSString *)aName fragmentShader:(NSString *)aFragSrc vertexShader:(NSString *)aVertSrc
 {
-	TShader *shader = [[self alloc] initWithWithFragmentShader:aFragSrc vertexShader:aVertSrc];
+	Shader *shader = [[self alloc] initWithWithFragmentShader:aFragSrc vertexShader:aVertSrc];
 	shader.name = aName;
 	return shader;
 }

@@ -1,7 +1,7 @@
 #import "PolyPrimitive.h"
-#import "TState.h"
-#import "TShader.h"
-#import "TGLErrorChecking.h"
+#import "State.h"
+#import "Shader.h"
+#import "GLErrorChecking.h"
 
 @interface PolyPrimitive () {
 	int _vertexCapacity, _indexCapacity;
@@ -18,7 +18,7 @@
 	self = [super init];
 	if(!self) return nil;
 
-	_state = [TGlobalState() copy];
+	_state = [GlobalState() copy];
 
 	_vertexCount = 0;
 	_indexCount = 0;
@@ -46,7 +46,7 @@
 
 - (void)finalize
 {
-	[TGlobalGLContext() makeCurrentContext];
+	[GlobalGLContext() makeCurrentContext];
 	if(_usesIndices)
 		glDeleteBuffers(1, &_indexBuffer);
 	glDeleteBuffers(1, &_vertexBuffer);
@@ -58,10 +58,10 @@
 	[super finalize];
 }
 
-- (void)drawNormals:(TScene *)aScene
+- (void)drawNormals:(Scene *)aScene
 {
 	//glLineWidth(3);
-	TShader *shader = [aScene currentState].shader;
+	Shader *shader = [aScene currentState].shader;
 	[shader withUniform:@"u_ambientColor" do:^(GLint loc) {
 		vec4_t white = { 1, 1, 1, 1 };
 		glUniform4fv(loc, 1, white.f);
@@ -93,7 +93,7 @@
 	free(points);
 	free(colors);
 }
-- (void)render:(TScene *)aScene
+- (void)render:(Scene *)aScene
 {
 	[_state applyToScene:aScene];
 	glBindBufferARB(GL_ARRAY_BUFFER, _vertexBuffer);	
@@ -101,7 +101,7 @@
 	//TVertex_t *verts = glMapBuffer(GL_ARRAY_BUFFER, GL_READ_ONLY);
 	//glUnmapBuffer(GL_ARRAY_BUFFER);
 
-	TShader *shader = _state.shader;
+	Shader *shader = _state.shader;
 	if(!shader) {
 		TLog(@"No shader");
 		return;

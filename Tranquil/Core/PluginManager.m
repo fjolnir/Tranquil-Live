@@ -1,10 +1,10 @@
-#import "TPluginManager.h"
-#import "TPlugin.h"
+#import "PluginManager.h"
+#import "TranquilPlugin.h"
 
-static TPluginManager *sharedInstance;
+static PluginManager *sharedInstance;
 
-@implementation TPluginManager
-+ (TPluginManager *)sharedManager
+@implementation PluginManager
++ (PluginManager *)sharedManager
 {
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
@@ -40,7 +40,7 @@ static TPluginManager *sharedInstance;
 		return NO;
 	}
 	Class pluginLoader = [bundle principalClass];
-	if(![pluginLoader conformsToProtocol:@protocol(TPlugin)]) {
+	if(![pluginLoader conformsToProtocol:@protocol(TranquilPlugin)]) {
 		TLog(@"Invalid plugin (%@)", [aPath lastPathComponent]);
 		return NO;
 	}

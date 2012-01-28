@@ -1,12 +1,12 @@
-#import "TAudioPlugin.h"
-#import "TAudioProcessor.h"
-#import "TScriptContext.h"
+#import "TranquilAudioPlugin.h"
+#import "AudioProcessor.h"
+#import "ScriptContext.h"
 #include <portaudio.h>
 /*#include <lua.h>
 #include <lauxlib.h>
 
 // The script can only access a single processor at a time
-static TAudioProcessor *_GlobalProcessor = nil;
+static AudioProcessor *_GlobalProcessor = nil;
 
 static int lua_audio_stop(lua_State *aState)
 {
@@ -24,7 +24,7 @@ static int lua_audio_start(lua_State *aState)
 	int deviceId = luaL_checkint(aState, 1);
 	
 	if(!_GlobalProcessor) {
-		_GlobalProcessor = [[TAudioProcessor alloc] initWithDevice:deviceId];
+		_GlobalProcessor = [[AudioProcessor alloc] initWithDevice:deviceId];
 		if(!_GlobalProcessor)
 			luaL_error(aState, "Couldn't open audio device (id: %d)", deviceId);
 		[_GlobalProcessor start];
@@ -62,12 +62,12 @@ static int lua__audio_updateSpectrum(lua_State *aState)
 	return 0;
 }*/
 
-@implementation TAudioPlugin
+@implementation TranquilAudioPlugin
 + (BOOL)loadPlugin
 {
 	assert(Pa_Initialize() == paNoError);
-//	Class TScriptContext = NSClassFromString(@"TScriptContext");
-/*	lua_State *state = [TScriptContext sharedContext].luaState;
+//	Class ScriptContext = NSClassFromString(@"ScriptContext");
+/*	lua_State *state = [ScriptContext sharedContext].luaState;
 	lua_register(state, "audio_start", &lua_audio_start);
 	lua_register(state, "audio_stop", &lua_audio_stop);
 	lua_register(state, "audio_setNumberOfBands", &lua_audio_setNumberOfBands);

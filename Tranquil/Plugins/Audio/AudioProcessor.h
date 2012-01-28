@@ -1,7 +1,7 @@
 // Processes audio from a specified input device
 #import <portaudio.h>
 
-@interface TAudioProcessor : NSObject 
+@interface AudioProcessor : NSObject 
 @property(readonly) BOOL isRunning;
 @property(readonly) float *frequencyBands;
 @property(readwrite, assign, nonatomic) int numberOfFrequencyBands;

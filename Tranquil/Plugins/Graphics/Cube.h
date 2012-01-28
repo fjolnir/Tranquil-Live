@@ -4,7 +4,3 @@
 - (id)initWithSize:(float)size;
 @end
 
-@interface TScene (CubePrimitive)
-- (Cube *)buildCube;
-- (void)drawCube;
-@end

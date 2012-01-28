@@ -1,9 +1,9 @@
 # Classes
-.objc_class_name_TScene
-.objc_class_name_TState
-.objc_class_name_TCamera
-.objc_class_name_TScriptContext
-.objc_class_name_TShader
+.objc_class_name_Scene
+.objc_class_name_State
+.objc_class_name_Camera
+.objc_class_name_ScriptContext
+.objc_class_name_Shader
 .objc_class_name_Light
 
 # GLMath

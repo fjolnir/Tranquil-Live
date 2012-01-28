@@ -1,12 +1,12 @@
 #import "TAppDelegate.h"
-#import "TMainWindowController.h"
-#import "TScriptContext.h"
-#import "TPluginManager.h"
-#import "TScene.h"
-#import "TShader.h"
-#import "TState.h"
-#import "TGLErrorChecking.h"
-#import "TOpenGLLayer.h"
+#import "MainWindowController.h"
+#import "ScriptContext.h"
+#import "PluginManager.h"
+#import "Scene.h"
+#import "Shader.h"
+#import "State.h"
+#import "GLErrorChecking.h"
+#import "OpenGLLayer.h"
 
 @implementation TAppDelegate
 @synthesize glView;
@@ -16,14 +16,14 @@
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"startup" ofType:@"rb" inDirectory:@"Scripts"];
 	NSString *bootScript = [NSString stringWithContentsOfFile:path usedEncoding:NULL error:nil];
 	NSError *err = nil;
-	[[TScriptContext sharedContext] executeScript:bootScript error:&err];
+	[[ScriptContext sharedContext] executeScript:bootScript error:&err];
 	if(err) {
 		TLog(@"Error executing startup script: %@", err);
 		[NSApp terminate:nil];
 	}
-	[[TPluginManager sharedManager] loadAllPlugins];
+	[[PluginManager sharedManager] loadAllPlugins];
 	
-	[[TScriptContext sharedContext] executeScript:@"_setup" error:nil];
+	[[ScriptContext sharedContext] executeScript:@"_setup" error:nil];
 }
 
 @end

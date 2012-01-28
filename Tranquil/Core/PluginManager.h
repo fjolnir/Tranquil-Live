@@ -1,5 +1,5 @@
-@interface TPluginManager : NSObject
-+ (TPluginManager *)sharedManager;
+@interface PluginManager : NSObject
++ (PluginManager *)sharedManager;
 
 - (void)loadAllPlugins;
 - (void)loadPluginInDirectory:(NSString *)aPath;

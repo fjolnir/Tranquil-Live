@@ -1,11 +1,11 @@
-#include "TOverlayTextView.h"
+#include "OverlayTextView.h"
 
-@interface TOverlayTextView () {
+@interface OverlayTextView () {
 	NSRect _insertionPointRect;
 }
 @end
 
-@implementation TOverlayTextView
+@implementation OverlayTextView
 
 - (void)_init
 {

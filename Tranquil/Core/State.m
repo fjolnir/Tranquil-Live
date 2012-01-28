@@ -1,15 +1,15 @@
-#import "TState.h"
-#import "TScene.h"
-#import "TShader.h"
+#import "State.h"
+#import "Scene.h"
+#import "Shader.h"
 #import "Light.h"
 #import <OpenGL/gl.h>
-#import "TGLErrorChecking.h"
+#import "GLErrorChecking.h"
 
-@interface TState () {
+@interface State () {
 }
 @end
 
-@implementation TState
+@implementation State
 @synthesize transform=_transform, ambientLight=_ambientLight, shininess=_shininess, opacity=_opacity, lineWidth=_lineWidth, pointRadius=_pointRadius, shader=_shader, renderHint=_renderHint;
 
 - (id)init
@@ -28,7 +28,7 @@
 	return self;
 }
 
-- (void)applyToScene:(TScene *)aScene
+- (void)applyToScene:(Scene *)aScene
 {
 	[aScene.projMatStack push];
 	[aScene.worldMatStack push];
@@ -47,7 +47,7 @@
 		glDisable(GL_CULL_FACE);
 	TCheckGLError();
 	
-	TShader *shader = _shader;
+	Shader *shader = _shader;
 	if(shader) {
 		[_shader makeActive];
 		[shader withUniform:@"u_projMatrix" do:^(GLint loc) {
@@ -88,7 +88,7 @@
 	}
 	TCheckGLError();
 }
-- (void)unapplyToScene:(TScene *)aScene
+- (void)unapplyToScene:(Scene *)aScene
 {	
 	glLineWidth(_lineWidth);
 	glPointSize(_pointRadius);
@@ -106,7 +106,7 @@
 - (id)copyWithZone:(NSZone *)aZone
 {
 	NSZone *zone = aZone ? aZone : NSDefaultMallocZone();
-	TState *copy = [[[self class] allocWithZone:zone] init];
+	State *copy = [[[self class] allocWithZone:zone] init];
 	copy.transform = _transform;
 	copy.shininess = _shininess;
 	copy.opacity = _opacity;

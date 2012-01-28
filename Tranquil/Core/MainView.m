@@ -1,21 +1,21 @@
-#import "TMainView.h"
+#import "MainView.h"
 #import <OpenGL/gl.h>
 #import <OpenGL/OpenGL.h>
-#import "TScene.h"
+#import "Scene.h"
 #import "TAppDelegate.h"
-#import "TOpenGLLayer.h"
-#import "TCamera.h"
+#import "OpenGLLayer.h"
+#import "Camera.h"
 
-@interface TMainView () {
+@interface MainView () {
 	NSMutableArray *_renderables;
 }
 @end
 
-@implementation TMainView
+@implementation MainView
 
 - (CALayer *)makeBackingLayer
 {
-	TOpenGLLayer *layer = [TOpenGLLayer layer];
+	OpenGLLayer *layer = [OpenGLLayer layer];
 	layer.asynchronous = YES;
 	return layer;
 }
@@ -48,7 +48,7 @@
 	unichar character;
 	character = [characters characterAtIndex: 0];
 
-	vec4_t pos = [TScene globalScene].camera.position.vec;
+	vec4_t pos = [Scene globalScene].camera.position.vec;
 	if(character == NSRightArrowFunctionKey)
 		pos.x += 0.1;
 	else if (character == NSLeftArrowFunctionKey)
@@ -61,8 +61,8 @@
 		pos.z += 0.1;
 	else if (character == NSPageDownFunctionKey)
 		pos.z -= 0.1;
-	TGlobalScene().camera.position.vec = pos; 
-	[TGlobalScene().camera updateMatrix];
+	GlobalScene().camera.position.vec = pos; 
+	[GlobalScene().camera updateMatrix];
 }
 
 
@@ -96,7 +96,7 @@ static vec4_t lastMouseLoc;
 {
 	vec4_t mouseLoc = [self mapToSphere:vec2_create(aEvent.locationInWindow.x, aEvent.locationInWindow.y)];
 	
-	TCamera *cam = [TScene globalScene].camera;
+	Camera *cam = [Scene globalScene].camera;
 
 	quat_t rotation;
 	rotation.vec = vec3_cross(lastMouseLoc.xyz, mouseLoc.xyz);

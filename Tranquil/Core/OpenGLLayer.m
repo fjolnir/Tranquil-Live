@@ -1,10 +1,10 @@
-#import "TOpenGLLayer.h"
-#import "TScene.h"
+#import "OpenGLLayer.h"
+#import "Scene.h"
 #import "TAppDelegate.h"
 #import <OpenGL/gl.h>
-#import "TGLErrorChecking.h"
+#import "GLErrorChecking.h"
 
-@implementation TOpenGLLayer
+@implementation OpenGLLayer
 
 + (NSOpenGLPixelFormat *)pixelFormat
 {
@@ -30,13 +30,13 @@
 
 - (NSOpenGLContext *)openGLContextForPixelFormat:(NSOpenGLPixelFormat *)pixelFormat {
 	
-	NSOpenGLContext *ctx = TGlobalGLContext();
+	NSOpenGLContext *ctx = GlobalGLContext();
 	assert(ctx != nil);
 	
 	[ctx makeCurrentContext];
 	GLint vSync = 1;
     [ctx setValues:&vSync forParameter:NSOpenGLCPSwapInterval];
-	[[TScene globalScene] initializeGLState];
+	[[Scene globalScene] initializeGLState];
 	
 	return ctx;
 }
@@ -60,7 +60,7 @@
 			   forLayerTime:(CFTimeInterval)timeInterval 
 				displayTime:(const CVTimeStamp *)timeStamp
 {
-	[[TScene globalScene] render];
+	[[Scene globalScene] render];
 	
 	glFinish();
 	[context flushBuffer];

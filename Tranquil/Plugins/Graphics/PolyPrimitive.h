@@ -1,8 +1,8 @@
 #import <OpenGL/gl.h>
 #import <GLMath.h>
-#import "TScene.h"
+#import "Scene.h"
 
-@class TState;
+@class State;
 
 typedef union {
 	float f[16];
@@ -28,14 +28,14 @@ typedef enum {
 	kPolyPrimitiveRenderModePoints = GL_POINTS
 } PolyPrimitiveRenderMode;
 
-@interface PolyPrimitive : NSObject <TSceneObject>
+@interface PolyPrimitive : NSObject <SceneObject>
 @property(readonly) GLuint vertexBuffer, indexBuffer;
 @property(readwrite, assign, nonatomic) TVertex_t *vertices;
 @property(readwrite, assign, nonatomic) GLuint *indices;
 @property(readwrite, assign, nonatomic) int vertexCount, vertexCapacity, indexCount, indexCapacity;
 @property(readonly) BOOL usesIndices;
 @property(readwrite, assign, nonatomic) PolyPrimitiveRenderMode renderMode;
-@property(readwrite, retain, nonatomic) TState *state;
+@property(readwrite, retain, nonatomic) State *state;
 
 - (id)initWithVertexCapacity:(int)aVertexCapacity indexCapacity:(int)aIndexCapacity;
 

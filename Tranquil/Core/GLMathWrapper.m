@@ -2,7 +2,7 @@
 
 @implementation Vector2
 @synthesize vec=_vec;
-@dynamic x, y;
+@dynamic x, y, u, v;
 
 + (Vector2 *)vectorWithX:(float)aX y:(float)aY {
 	Vector2 *out = [[self alloc] init];
@@ -19,6 +19,10 @@
 - (float)y { return _vec.y; }
 - (void)setX:(float)n { _vec.x = n; }
 - (void)setY:(float)n { _vec.y = n; }
+- (float)u { return _vec.u; }
+- (float)v { return _vec.v; }
+- (void)setU:(float)n { _vec.u = n; }
+- (void)setV:(float)n { _vec.v = n; }
 
 - (Vector2 *)add:(Vector2 *)aOther {
 	return [Vector2 vectorWithVec:vec2_add(_vec, aOther->_vec)];

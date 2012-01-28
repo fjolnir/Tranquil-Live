@@ -1,9 +1,9 @@
-#import "TMainWindowController.h"
-#import "TMainView.h"
-#import "TOverlayTextView.h"
-#import "TScriptContext.h"
+#import "MainWindowController.h"
+#import "MainView.h"
+#import "OverlayTextView.h"
+#import "ScriptContext.h"
 
-@implementation TMainWindowController
+@implementation MainWindowController
 
 @synthesize mainView=_mainView, scriptView=_scriptView;
 
@@ -18,7 +18,7 @@
 - (IBAction)runActiveScript:(id)sender
 {
 	NSError *err = nil;
-	[[TScriptContext sharedContext] executeScript:[[_scriptView textStorage] string] error:&err];
+	[[ScriptContext sharedContext] executeScript:[[_scriptView textStorage] string] error:&err];
 	if(err)
 		TLog(@"%@", [err.userInfo objectForKey:@"description"]);
 }
@@ -29,7 +29,7 @@
 	if(range.length <= 0) return;
 	NSString *script = [[[_scriptView textStorage] string] substringWithRange:range];
 	NSError *err = nil;
-	[[TScriptContext sharedContext] executeScript:script error:&err];
+	[[ScriptContext sharedContext] executeScript:script error:&err];
 	if(err)
 		TLog(@"%@", [err.userInfo objectForKey:@"description"]);
 }

@@ -1,0 +1,2 @@
+@interface MainView : NSView
+@end

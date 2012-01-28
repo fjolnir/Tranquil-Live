@@ -18,15 +18,15 @@
 #import <OpenGL/gl.h>
 #import <OpenGL/glext.h>
 
-#define TShaderLoadError @"shader.loaderror"
+#define ShaderLoadError @"shader.loaderror"
 
-__attribute__((visibility("default"))) @interface TShader : NSObject
+__attribute__((visibility("default"))) @interface Shader : NSObject
 @property(readonly, nonatomic) GLuint program;
 @property(retain, nonatomic) NSString *name;
 
-+ (TShader *)activeShader;
++ (Shader *)activeShader;
 
-+ (TShader *)shaderWithName:(NSString *)aName fragmentShader:(NSString *)aFragSrc vertexShader:(NSString *)aVertSrc;
++ (Shader *)shaderWithName:(NSString *)aName fragmentShader:(NSString *)aFragSrc vertexShader:(NSString *)aVertSrc;
 - (id)initWithWithFragmentShader:(NSString *)aFragSrc vertexShader:(NSString *)aVertSrc;
 
 - (NSArray *)getUniforms;

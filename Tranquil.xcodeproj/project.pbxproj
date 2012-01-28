@@ -26,21 +26,21 @@
 /* Begin PBXBuildFile section */
 		C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
 		C744E3A014B8337D00078FBB /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C744E39F14B8337D00078FBB /* Scripts */; };
-		C744E3A314B834EF00078FBB /* TScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3A214B834EF00078FBB /* TScene.m */; };
+		C744E3A314B834EF00078FBB /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3A214B834EF00078FBB /* Scene.m */; };
 		C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C744E3CF14B8464E00078FBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C744E3CD14B8464E00078FBB /* InfoPlist.strings */; };
-		C744E3D914B8467200078FBB /* TGraphicsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3D814B8467200078FBB /* TGraphicsPlugin.m */; };
-		C744E3E314B847AE00078FBB /* TPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3E214B847AD00078FBB /* TPluginManager.m */; };
+		C744E3D914B8467200078FBB /* TranquilGraphicsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3D814B8467200078FBB /* TranquilGraphicsPlugin.m */; };
+		C744E3E314B847AE00078FBB /* PluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3E214B847AD00078FBB /* PluginManager.m */; };
 		C744E3EA14B84CB400078FBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C744E3F014B84CB400078FBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C744E3EE14B84CB400078FBB /* InfoPlist.strings */; };
-		C744E3F714B84CCD00078FBB /* TAudioPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3F614B84CCD00078FBB /* TAudioPlugin.m */; };
-		C744E3FD14B84ECD00078FBB /* TAudioProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3FC14B84ECD00078FBB /* TAudioProcessor.m */; };
+		C744E3F714B84CCD00078FBB /* TranquilAudioPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3F614B84CCD00078FBB /* TranquilAudioPlugin.m */; };
+		C744E3FD14B84ECD00078FBB /* AudioProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3FC14B84ECD00078FBB /* AudioProcessor.m */; };
 		C744E3FF14B8502500078FBB /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E3FE14B8502500078FBB /* CoreAudio.framework */; };
 		C744E40114B851CC00078FBB /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E40014B851CB00078FBB /* AudioUnit.framework */; };
 		C744E42414B8903500078FBB /* libportaudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42314B8903500078FBB /* libportaudio.a */; };
 		C744E42614B8905A00078FBB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42514B8905A00078FBB /* AudioToolbox.framework */; };
 		C744E42A14B8A49200078FBB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
-		C74B3A9914B7E280006741C4 /* TScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C74B3A9814B7E280006741C4 /* TScriptContext.m */; };
+		C74B3A9914B7E280006741C4 /* ScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C74B3A9814B7E280006741C4 /* ScriptContext.m */; };
 		C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
 		C7622B2014D0879A0093DDD0 /* GLMath.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
 		C7622B2114D087AA0093DDD0 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
@@ -51,27 +51,27 @@
 		C773FEB014BC0EA3003338FE /* PolyPrimitive.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEAF14BC0EA3003338FE /* PolyPrimitive.m */; };
 		C773FEB114BC11A9003338FE /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
 		C773FEB414BC122D003338FE /* Cube.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB314BC122D003338FE /* Cube.m */; };
-		C773FEB714BC1F00003338FE /* TShader.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB614BC1F00003338FE /* TShader.m */; };
-		C773FEBA14BC21D2003338FE /* TState.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB914BC21D2003338FE /* TState.m */; };
+		C773FEB714BC1F00003338FE /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB614BC1F00003338FE /* Shader.m */; };
+		C773FEBA14BC21D2003338FE /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB914BC21D2003338FE /* State.m */; };
 		C773FEBD14BC27D7003338FE /* Light.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEBC14BC27D7003338FE /* Light.m */; };
 		C773FEC314BC39C7003338FE /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = C773FEBE14BC397A003338FE /* Shaders */; };
-		C773FED314BD440B003338FE /* TOpenGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED214BD440A003338FE /* TOpenGLLayer.m */; };
+		C773FED314BD440B003338FE /* OpenGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED214BD440A003338FE /* OpenGLLayer.m */; };
 		C773FED414BD50B8003338FE /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
 		C773FED714BD7C18003338FE /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED614BD7C18003338FE /* Sphere.m */; };
-		C773FEDA14BE7318003338FE /* TCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED914BE7316003338FE /* TCamera.m */; };
-		C773FEE914BFB11D003338FE /* TShared.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEE814BFB11D003338FE /* TShared.m */; };
+		C773FEDA14BE7318003338FE /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED914BE7316003338FE /* Camera.m */; };
+		C773FEE914BFB11D003338FE /* Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEE814BFB11D003338FE /* Shared.m */; };
 		C773FF0114BFD450003338FE /* TranquilAudio.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
 		C773FF0214BFD451003338FE /* TranquilGraphics.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */; };
 		C773FF0814BFE5D8003338FE /* Plane.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FF0714BFE5D8003338FE /* Plane.m */; };
-		C7AA4F5C14B7BFF6008577CD /* TOverlayTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */; };
+		C7AA4F5C14B7BFF6008577CD /* OverlayTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AA4F5B14B7BFF6008577CD /* OverlayTextView.m */; };
 		C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */; };
 		C7E2EF2E14B78D4C0000884E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EF2D14B78D4C0000884E /* main.m */; };
 		C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3014B78D4C0000884E /* Credits.rtf */; };
 		C7E2EF3514B78D4D0000884E /* TAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EF3414B78D4D0000884E /* TAppDelegate.m */; };
 		C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3614B78D4D0000884E /* MainMenu.xib */; };
-		C7E2EFA114B78EC80000884E /* TMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EFA014B78EC80000884E /* TMainWindowController.m */; };
-		C7E2EFA414B78F7D0000884E /* TMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EFA314B78F7D0000884E /* TMainView.m */; };
+		C7E2EFA114B78EC80000884E /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EFA014B78EC80000884E /* MainWindowController.m */; };
+		C7E2EFA414B78F7D0000884E /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EFA314B78F7D0000884E /* MainView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,32 +175,32 @@
 /* Begin PBXFileReference section */
 		C701C3C714BBBF4000DD9C0C /* ExportedSymbols.exp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.exports; path = ExportedSymbols.exp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		C744E39F14B8337D00078FBB /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
-		C744E3A114B834EF00078FBB /* TScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TScene.h; sourceTree = "<group>"; };
-		C744E3A214B834EF00078FBB /* TScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TScene.m; sourceTree = "<group>"; };
+		C744E3A114B834EF00078FBB /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Scene.h; sourceTree = "<group>"; };
+		C744E3A214B834EF00078FBB /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
 		C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranquilGraphics.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C744E3CC14B8464E00078FBB /* TranquilGraphics-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TranquilGraphics-Info.plist"; sourceTree = "<group>"; };
 		C744E3CE14B8464E00078FBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C744E3D014B8464E00078FBB /* TranquilGraphics-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TranquilGraphics-Prefix.pch"; sourceTree = "<group>"; };
-		C744E3D714B8467200078FBB /* TGraphicsPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGraphicsPlugin.h; sourceTree = "<group>"; };
-		C744E3D814B8467200078FBB /* TGraphicsPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGraphicsPlugin.m; sourceTree = "<group>"; };
-		C744E3DA14B8468F00078FBB /* TPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPlugin.h; sourceTree = "<group>"; };
-		C744E3E114B847AD00078FBB /* TPluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPluginManager.h; sourceTree = "<group>"; };
-		C744E3E214B847AD00078FBB /* TPluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPluginManager.m; sourceTree = "<group>"; };
+		C744E3D714B8467200078FBB /* TranquilGraphicsPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TranquilGraphicsPlugin.h; sourceTree = "<group>"; };
+		C744E3D814B8467200078FBB /* TranquilGraphicsPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranquilGraphicsPlugin.m; sourceTree = "<group>"; };
+		C744E3DA14B8468F00078FBB /* TranquilPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TranquilPlugin.h; sourceTree = "<group>"; };
+		C744E3E114B847AD00078FBB /* PluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PluginManager.h; sourceTree = "<group>"; };
+		C744E3E214B847AD00078FBB /* PluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginManager.m; sourceTree = "<group>"; };
 		C744E3E914B84CB400078FBB /* TranquilAudio.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranquilAudio.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C744E3ED14B84CB400078FBB /* TranquilAudio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TranquilAudio-Info.plist"; sourceTree = "<group>"; };
 		C744E3EF14B84CB400078FBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C744E3F114B84CB400078FBB /* TranquilAudio-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TranquilAudio-Prefix.pch"; sourceTree = "<group>"; };
-		C744E3F514B84CCD00078FBB /* TAudioPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAudioPlugin.h; sourceTree = "<group>"; };
-		C744E3F614B84CCD00078FBB /* TAudioPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAudioPlugin.m; sourceTree = "<group>"; };
-		C744E3FB14B84ECD00078FBB /* TAudioProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAudioProcessor.h; sourceTree = "<group>"; };
-		C744E3FC14B84ECD00078FBB /* TAudioProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAudioProcessor.m; sourceTree = "<group>"; };
+		C744E3F514B84CCD00078FBB /* TranquilAudioPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TranquilAudioPlugin.h; sourceTree = "<group>"; };
+		C744E3F614B84CCD00078FBB /* TranquilAudioPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranquilAudioPlugin.m; sourceTree = "<group>"; };
+		C744E3FB14B84ECD00078FBB /* AudioProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; path = AudioProcessor.h; sourceTree = "<group>"; };
+		C744E3FC14B84ECD00078FBB /* AudioProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioProcessor.m; sourceTree = "<group>"; };
 		C744E3FE14B8502500078FBB /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		C744E40014B851CB00078FBB /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		C744E42314B8903500078FBB /* libportaudio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libportaudio.a; path = PortAudio/lib/libportaudio.a; sourceTree = SOURCE_ROOT; };
 		C744E42514B8905A00078FBB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C744E42714B8A26D00078FBB /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		C74B3A9714B7E280006741C4 /* TScriptContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TScriptContext.h; sourceTree = "<group>"; };
-		C74B3A9814B7E280006741C4 /* TScriptContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TScriptContext.m; sourceTree = "<group>"; };
+		C74B3A9714B7E280006741C4 /* ScriptContext.h */ = {isa = PBXFileReference; fileEncoding = 4; path = ScriptContext.h; sourceTree = "<group>"; };
+		C74B3A9814B7E280006741C4 /* ScriptContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptContext.m; sourceTree = "<group>"; };
 		C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		C760C4F514B7AE1700451951 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C7622B3314D0AFA00093DDD0 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = SDKROOT; };
@@ -210,27 +210,27 @@
 		C773FEAF14BC0EA3003338FE /* PolyPrimitive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolyPrimitive.m; sourceTree = "<group>"; };
 		C773FEB214BC122D003338FE /* Cube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cube.h; sourceTree = "<group>"; };
 		C773FEB314BC122D003338FE /* Cube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cube.m; sourceTree = "<group>"; };
-		C773FEB514BC1F00003338FE /* TShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TShader.h; sourceTree = "<group>"; };
-		C773FEB614BC1F00003338FE /* TShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TShader.m; sourceTree = "<group>"; };
-		C773FEB814BC21D2003338FE /* TState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TState.h; sourceTree = "<group>"; };
-		C773FEB914BC21D2003338FE /* TState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TState.m; sourceTree = "<group>"; };
-		C773FEBB14BC27D7003338FE /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Light.h; sourceTree = "<group>"; };
+		C773FEB514BC1F00003338FE /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Shader.h; sourceTree = "<group>"; };
+		C773FEB614BC1F00003338FE /* Shader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
+		C773FEB814BC21D2003338FE /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; path = State.h; sourceTree = "<group>"; };
+		C773FEB914BC21D2003338FE /* State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = State.m; sourceTree = "<group>"; };
+		C773FEBB14BC27D7003338FE /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
 		C773FEBC14BC27D7003338FE /* Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Light.m; sourceTree = "<group>"; };
 		C773FEBE14BC397A003338FE /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
-		C773FECC14BD11D6003338FE /* TGLErrorChecking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TGLErrorChecking.h; sourceTree = "<group>"; };
-		C773FED114BD440A003338FE /* TOpenGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOpenGLLayer.h; sourceTree = "<group>"; };
-		C773FED214BD440A003338FE /* TOpenGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOpenGLLayer.m; sourceTree = "<group>"; };
+		C773FECC14BD11D6003338FE /* GLErrorChecking.h */ = {isa = PBXFileReference; path = GLErrorChecking.h; sourceTree = "<group>"; };
+		C773FED114BD440A003338FE /* OpenGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; path = OpenGLLayer.h; sourceTree = "<group>"; };
+		C773FED214BD440A003338FE /* OpenGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLLayer.m; sourceTree = "<group>"; };
 		C773FED514BD7C18003338FE /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
 		C773FED614BD7C18003338FE /* Sphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sphere.m; sourceTree = "<group>"; };
-		C773FED814BE7315003338FE /* TCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCamera.h; sourceTree = "<group>"; };
-		C773FED914BE7316003338FE /* TCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCamera.m; sourceTree = "<group>"; };
-		C773FEE714BFB0E3003338FE /* TShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TShared.h; sourceTree = "<group>"; };
-		C773FEE814BFB11D003338FE /* TShared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TShared.m; sourceTree = "<group>"; };
+		C773FED814BE7315003338FE /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Camera.h; sourceTree = "<group>"; };
+		C773FED914BE7316003338FE /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
+		C773FEE714BFB0E3003338FE /* Shared.h */ = {isa = PBXFileReference; path = Shared.h; sourceTree = "<group>"; };
+		C773FEE814BFB11D003338FE /* Shared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shared.m; sourceTree = "<group>"; };
 		C773FF0614BFE5D7003338FE /* Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plane.h; sourceTree = "<group>"; };
 		C773FF0714BFE5D8003338FE /* Plane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plane.m; sourceTree = "<group>"; };
 		C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GLMath.xcodeproj; path = GLMath/GLMath.xcodeproj; sourceTree = "<group>"; };
-		C7AA4F5A14B7BFF6008577CD /* TOverlayTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOverlayTextView.h; sourceTree = "<group>"; };
-		C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOverlayTextView.m; sourceTree = "<group>"; };
+		C7AA4F5A14B7BFF6008577CD /* OverlayTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = OverlayTextView.h; sourceTree = "<group>"; };
+		C7AA4F5B14B7BFF6008577CD /* OverlayTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayTextView.m; sourceTree = "<group>"; };
 		C7E2EF1D14B78D4C0000884E /* Tranquil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tranquil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E2EF2114B78D4C0000884E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C7E2EF2414B78D4C0000884E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -244,10 +244,10 @@
 		C7E2EF3314B78D4C0000884E /* TAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TAppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C7E2EF3414B78D4D0000884E /* TAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TAppDelegate.m; sourceTree = "<group>"; };
 		C7E2EF3714B78D4D0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		C7E2EF9F14B78EC80000884E /* TMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TMainWindowController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		C7E2EFA014B78EC80000884E /* TMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TMainWindowController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		C7E2EFA214B78F7D0000884E /* TMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMainView.h; sourceTree = "<group>"; };
-		C7E2EFA314B78F7D0000884E /* TMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMainView.m; sourceTree = "<group>"; };
+		C7E2EF9F14B78EC80000884E /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lineEnding = 0; path = MainWindowController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C7E2EFA014B78EC80000884E /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MainWindowController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C7E2EFA214B78F7D0000884E /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MainView.h; sourceTree = "<group>"; };
+		C7E2EFA314B78F7D0000884E /* MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,8 +311,8 @@
 		C744E3D614B8466500078FBB /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				C744E3D714B8467200078FBB /* TGraphicsPlugin.h */,
-				C744E3D814B8467200078FBB /* TGraphicsPlugin.m */,
+				C744E3D714B8467200078FBB /* TranquilGraphicsPlugin.h */,
+				C744E3D814B8467200078FBB /* TranquilGraphicsPlugin.m */,
 				C773FEAE14BC0EA3003338FE /* PolyPrimitive.h */,
 				C773FEAF14BC0EA3003338FE /* PolyPrimitive.m */,
 				C773FEB214BC122D003338FE /* Cube.h */,
@@ -330,10 +330,10 @@
 		C744E3E414B84C9C00078FBB /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				C744E3F514B84CCD00078FBB /* TAudioPlugin.h */,
-				C744E3F614B84CCD00078FBB /* TAudioPlugin.m */,
-				C744E3FB14B84ECD00078FBB /* TAudioProcessor.h */,
-				C744E3FC14B84ECD00078FBB /* TAudioProcessor.m */,
+				C744E3F514B84CCD00078FBB /* TranquilAudioPlugin.h */,
+				C744E3F614B84CCD00078FBB /* TranquilAudioPlugin.m */,
+				C744E3FB14B84ECD00078FBB /* AudioProcessor.h */,
+				C744E3FC14B84ECD00078FBB /* AudioProcessor.m */,
 				C744E3EC14B84CB400078FBB /* Supporting Files */,
 			);
 			name = Audio;
@@ -447,32 +447,32 @@
 		C7E2EF9E14B78E010000884E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				C773FEE714BFB0E3003338FE /* TShared.h */,
-				C773FEE814BFB11D003338FE /* TShared.m */,
-				C7E2EF9F14B78EC80000884E /* TMainWindowController.h */,
-				C7E2EFA014B78EC80000884E /* TMainWindowController.m */,
-				C7E2EFA214B78F7D0000884E /* TMainView.h */,
-				C7E2EFA314B78F7D0000884E /* TMainView.m */,
-				C773FED114BD440A003338FE /* TOpenGLLayer.h */,
-				C773FED214BD440A003338FE /* TOpenGLLayer.m */,
-				C7AA4F5A14B7BFF6008577CD /* TOverlayTextView.h */,
-				C7AA4F5B14B7BFF6008577CD /* TOverlayTextView.m */,
-				C74B3A9714B7E280006741C4 /* TScriptContext.h */,
-				C74B3A9814B7E280006741C4 /* TScriptContext.m */,
-				C744E3A114B834EF00078FBB /* TScene.h */,
-				C744E3A214B834EF00078FBB /* TScene.m */,
-				C773FEB814BC21D2003338FE /* TState.h */,
-				C773FEB914BC21D2003338FE /* TState.m */,
-				C773FEB514BC1F00003338FE /* TShader.h */,
-				C773FEB614BC1F00003338FE /* TShader.m */,
+				C773FEE714BFB0E3003338FE /* Shared.h */,
+				C773FEE814BFB11D003338FE /* Shared.m */,
+				C7E2EF9F14B78EC80000884E /* MainWindowController.h */,
+				C7E2EFA014B78EC80000884E /* MainWindowController.m */,
+				C7E2EFA214B78F7D0000884E /* MainView.h */,
+				C7E2EFA314B78F7D0000884E /* MainView.m */,
+				C773FED114BD440A003338FE /* OpenGLLayer.h */,
+				C773FED214BD440A003338FE /* OpenGLLayer.m */,
+				C7AA4F5A14B7BFF6008577CD /* OverlayTextView.h */,
+				C7AA4F5B14B7BFF6008577CD /* OverlayTextView.m */,
+				C74B3A9714B7E280006741C4 /* ScriptContext.h */,
+				C74B3A9814B7E280006741C4 /* ScriptContext.m */,
+				C744E3A114B834EF00078FBB /* Scene.h */,
+				C744E3A214B834EF00078FBB /* Scene.m */,
+				C773FEB814BC21D2003338FE /* State.h */,
+				C773FEB914BC21D2003338FE /* State.m */,
+				C773FEB514BC1F00003338FE /* Shader.h */,
+				C773FEB614BC1F00003338FE /* Shader.m */,
 				C773FEBB14BC27D7003338FE /* Light.h */,
 				C773FEBC14BC27D7003338FE /* Light.m */,
-				C773FED814BE7315003338FE /* TCamera.h */,
-				C773FED914BE7316003338FE /* TCamera.m */,
-				C744E3DA14B8468F00078FBB /* TPlugin.h */,
-				C744E3E114B847AD00078FBB /* TPluginManager.h */,
-				C744E3E214B847AD00078FBB /* TPluginManager.m */,
-				C773FECC14BD11D6003338FE /* TGLErrorChecking.h */,
+				C773FED814BE7315003338FE /* Camera.h */,
+				C773FED914BE7316003338FE /* Camera.m */,
+				C744E3DA14B8468F00078FBB /* TranquilPlugin.h */,
+				C744E3E114B847AD00078FBB /* PluginManager.h */,
+				C744E3E214B847AD00078FBB /* PluginManager.m */,
+				C773FECC14BD11D6003338FE /* GLErrorChecking.h */,
 				C7622B8E14D1CE460093DDD0 /* GLMathWrapper.h */,
 				C7622B8F14D1CE460093DDD0 /* GLMathWrapper.m */,
 			);
@@ -645,7 +645,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C744E3D914B8467200078FBB /* TGraphicsPlugin.m in Sources */,
+				C744E3D914B8467200078FBB /* TranquilGraphicsPlugin.m in Sources */,
 				C773FEB014BC0EA3003338FE /* PolyPrimitive.m in Sources */,
 				C773FEB414BC122D003338FE /* Cube.m in Sources */,
 				C773FED714BD7C18003338FE /* Sphere.m in Sources */,
@@ -657,8 +657,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C744E3F714B84CCD00078FBB /* TAudioPlugin.m in Sources */,
-				C744E3FD14B84ECD00078FBB /* TAudioProcessor.m in Sources */,
+				C744E3F714B84CCD00078FBB /* TranquilAudioPlugin.m in Sources */,
+				C744E3FD14B84ECD00078FBB /* AudioProcessor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,18 +668,18 @@
 			files = (
 				C7E2EF2E14B78D4C0000884E /* main.m in Sources */,
 				C7E2EF3514B78D4D0000884E /* TAppDelegate.m in Sources */,
-				C7E2EFA114B78EC80000884E /* TMainWindowController.m in Sources */,
-				C7E2EFA414B78F7D0000884E /* TMainView.m in Sources */,
-				C7AA4F5C14B7BFF6008577CD /* TOverlayTextView.m in Sources */,
-				C74B3A9914B7E280006741C4 /* TScriptContext.m in Sources */,
-				C744E3A314B834EF00078FBB /* TScene.m in Sources */,
-				C744E3E314B847AE00078FBB /* TPluginManager.m in Sources */,
-				C773FEB714BC1F00003338FE /* TShader.m in Sources */,
-				C773FEBA14BC21D2003338FE /* TState.m in Sources */,
+				C7E2EFA114B78EC80000884E /* MainWindowController.m in Sources */,
+				C7E2EFA414B78F7D0000884E /* MainView.m in Sources */,
+				C7AA4F5C14B7BFF6008577CD /* OverlayTextView.m in Sources */,
+				C74B3A9914B7E280006741C4 /* ScriptContext.m in Sources */,
+				C744E3A314B834EF00078FBB /* Scene.m in Sources */,
+				C744E3E314B847AE00078FBB /* PluginManager.m in Sources */,
+				C773FEB714BC1F00003338FE /* Shader.m in Sources */,
+				C773FEBA14BC21D2003338FE /* State.m in Sources */,
 				C773FEBD14BC27D7003338FE /* Light.m in Sources */,
-				C773FED314BD440B003338FE /* TOpenGLLayer.m in Sources */,
-				C773FEDA14BE7318003338FE /* TCamera.m in Sources */,
-				C773FEE914BFB11D003338FE /* TShared.m in Sources */,
+				C773FED314BD440B003338FE /* OpenGLLayer.m in Sources */,
+				C773FEDA14BE7318003338FE /* Camera.m in Sources */,
+				C773FEE914BFB11D003338FE /* Shared.m in Sources */,
 				C7622B9014D1CE460093DDD0 /* GLMathWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

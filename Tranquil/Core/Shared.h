@@ -1,9 +1,9 @@
-#import "TScene.h"
-#import "TGLErrorChecking.h"
+#import "Scene.h"
+#import "GLErrorChecking.h"
 
-extern NSOpenGLContext *TGlobalGLContext(void);
-#define TGlobalScene() [TScene globalScene]
-#define TGlobalState() [[TScene globalScene] currentState]
+extern NSOpenGLContext *GlobalGLContext(void);
+#define GlobalScene() [Scene globalScene]
+#define GlobalState() [[Scene globalScene] currentState]
 
 #pragma mark - Debug logging
 

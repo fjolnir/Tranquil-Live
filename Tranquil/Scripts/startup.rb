@@ -1,5 +1,5 @@
 # Shorthands
-@scene = TScene.globalScene
+@scene = Scene.globalScene
 
 def vec2(aX,aY)
 	Vector2.vectorWithX(aX, y:aY)
@@ -14,8 +14,28 @@ def quat(aAngle,aX,aY,aZ)
 	Quaternion.quaternionWithAngle(aAngle, x:aX, y:aY, z:aZ)
 end
 
+def buildCube
+	@scene.addObject Cube.new
+end
+def drawCube
+	@scene.addImmediateModeObject Cube.new
+end
+def buildSphere(radius=1, stacks=10, slices=10)
+	@scene.addObject Sphere.alloc.initWithRadius(radius, stacks:stacks, slices:slices)
+end
+def drawSphere(radius=1, stacks=10, slices=10)
+	@scene.addImmediateModeObject Sphere.alloc.initWithRadius(radius, stacks:stacks, slices:slices)
+end
+def buildPlane(subdivs=vec2(4,4))
+	@scene.addObject Plane.alloc.initWithSubdivisions(subdivs)
+end
+def drawPlane(subdivs=vec2(4,4))
+	@scene.addImmediateModeObject Plane.alloc.initWithSubdivisions(subdivs)
+end
+
 # Setup
 def _setup
+	buildPlane
 	@scene.clearColor = vec4(0,0,0,1)
 	
 	@scene.camera.position = vec4(0, 0, 10, 1)
@@ -34,12 +54,12 @@ end
 @audio = nil
 def startAudio(deviceName)
 	return unless @audio.nil?
-	deviceId = TAudioProcessor.deviceIndexForName(deviceName)
+	deviceId = AudioProcessor.deviceIndexForName(deviceName)
 	if deviceId == -1
 		p "No such device"
 		return
 	end
-	@audio = TAudioProcessor.alloc.initWithDevice(deviceId)
+	@audio = AudioProcessor.alloc.initWithDevice(deviceId)
 	unless @audio.nil?
 		@audio.start
 	else

@@ -1,5 +1,6 @@
+#import "GLMathWrapper.h"
 #import "PolyPrimitive.h"
 
 @interface Plane : PolyPrimitive
-- (id)initWithSubdivisions:(vec2_t)aSubdivs;
+- (id)initWithSubdivisions:(Vector2 *)aSubdivs;
 @end

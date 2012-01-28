@@ -1,6 +1,6 @@
-#import "TCamera.h"
+#import "Camera.h"
 
-@implementation TCamera
+@implementation Camera
 @synthesize position=_position, orientation=_orientation, matrix=_matrix, fov=_fov, zoom=_zoom, aspectRatio=_aspectRatio;
 - (id)init
 {

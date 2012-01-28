@@ -1,3 +1,3 @@
-@interface TOpenGLLayer : NSOpenGLLayer
+@interface OpenGLLayer : NSOpenGLLayer
 + (NSOpenGLPixelFormat *)pixelFormat;
 @end

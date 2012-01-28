@@ -1,7 +1,7 @@
 // Just a container for the render state of an object
 #import <GLMath.h>
 
-@class TScene, TShader;
+@class Scene, Shader;
 
 typedef enum {
 	kTRenderHintNone         = 0x00000000,
@@ -19,16 +19,16 @@ typedef enum {
 	kTRenderHintCullBack     = 0x00000800
 } TRenderHint;
 
-__attribute__((visibility("default"))) @interface TState : NSObject
+__attribute__((visibility("default"))) @interface State : NSObject
 @property(readwrite, assign) Matrix4 *transform;
 @property(readwrite, assign) Vector4 *ambientLight;
 @property(readwrite, assign) float shininess;
 @property(readwrite, assign) float opacity;
 @property(readwrite, assign) float lineWidth;
 @property(readwrite, assign) float pointRadius;
-@property(readwrite, retain) TShader *shader;
+@property(readwrite, retain) Shader *shader;
 @property(readwrite, assign) TRenderHint renderHint;
 
-- (void)applyToScene:(TScene *)aScene;
-- (void)unapplyToScene:(TScene *)aScene;
+- (void)applyToScene:(Scene *)aScene;
+- (void)unapplyToScene:(Scene *)aScene;
 @end

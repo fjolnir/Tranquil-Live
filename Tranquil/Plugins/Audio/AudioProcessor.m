@@ -1,8 +1,8 @@
-#import "TAudioProcessor.h"
+#import "AudioProcessor.h"
 #import <Accelerate/Accelerate.h>
 #import <pthread.h>
 
-@interface TAudioProcessor () {
+@interface AudioProcessor () {
 	PaDeviceIndex _device;
 	PaStream *_inputStream;
 	
@@ -36,13 +36,13 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 						 PaStreamCallbackFlags statusFlags,
 						 void *userData )
 {
-	return [(TAudioProcessor *)userData _processInput:inputBuffer
+	return [(AudioProcessor *)userData _processInput:inputBuffer
 									  framesPerBuffer:framesPerBuffer
 											 timeInfo:timeInfo
 										  statusFlags:statusFlags];
 }
 
-@implementation TAudioProcessor
+@implementation AudioProcessor
 
 @synthesize isRunning=_isRunning, frequencyBands=_frequencyBands, numberOfFrequencyBands=_numberOfFrequencyBands, gain=_gain, smoothingBias=_smoothingBias;
 

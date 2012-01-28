@@ -1,17 +1,17 @@
-#import "TScriptContext.h"
+#import "ScriptContext.h"
 #import <MacRuby/MacRuby.h>
 
-static TScriptContext *sharedContext;
+static ScriptContext *sharedContext;
 
-@interface TScriptContext ()
+@interface ScriptContext ()
 - (void)_reportError:(NSError *)aError;
 @end
 
 
-@implementation TScriptContext
+@implementation ScriptContext
 @synthesize delegate=_delegate;
 
-+ (TScriptContext *)sharedContext
++ (ScriptContext *)sharedContext
 {
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{

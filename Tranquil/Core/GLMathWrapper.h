@@ -3,6 +3,7 @@
 @interface Vector2 : NSObject { @public vec2_t _vec; }
 @property(readwrite, assign) vec2_t vec;
 @property(readwrite, assign) float x, y;
+@property(readwrite, assign) float u, v;
 
 + (Vector2 *)vectorWithX:(float)aX y:(float)aY;
 + (Vector2 *)vectorWithVec:(vec2_t)aVec;

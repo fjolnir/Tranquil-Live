@@ -1,5 +1,5 @@
-#ifndef _Tranquil_TGLErrorChecking_h
-#define _Tranquil_TGLErrorChecking_h
+#ifndef _Tranquil_GLErrorChecking_h
+#define _Tranquil_GLErrorChecking_h
 
 #ifdef DEBUG
 
