@@ -31,13 +31,11 @@
 	TCheckGLError();
 
 	_usesIndices = aIndexCapacity > 0;
-	if(_usesIndices) {
-		glGenBuffers(1, &_indexBuffer);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vertexBuffer);
-		[self setIndexCapacity:aIndexCapacity];
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-		TCheckGLError();
-	}
+	glGenBuffers(1, &_indexBuffer);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vertexBuffer);
+	[self setIndexCapacity:aIndexCapacity];
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	TCheckGLError();
 	
 	_vertexCount = _indexCount = 0;
 
@@ -47,11 +45,8 @@
 - (void)finalize
 {
 	[GlobalGLContext() makeCurrentContext];
-	if(_usesIndices)
-		glDeleteBuffers(1, &_indexBuffer);
-	glDeleteBuffers(1, &_vertexBuffer);
-//	GLuint buffers[] = { _indexBuffer, _vertexBuffer };
-//	glDeleteBuffers(2, buffers);
+	GLuint buffers[] = { _indexBuffer, _vertexBuffer };
+	glDeleteBuffers(2, buffers);
 	free(_vertices);
 	free(_indices);
 	
@@ -97,9 +92,6 @@
 {
 	[_state applyToScene:aScene];
 	glBindBufferARB(GL_ARRAY_BUFFER, _vertexBuffer);	
-
-	//TVertex_t *verts = glMapBuffer(GL_ARRAY_BUFFER, GL_READ_ONLY);
-	//glUnmapBuffer(GL_ARRAY_BUFFER);
 
 	Shader *shader = _state.shader;
 	if(!shader) {
