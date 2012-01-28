@@ -48,7 +48,7 @@
 
 - (void)mouseEntered:(NSEvent *)aEvent
 {
-	[NSCursor hide];
+	//[NSCursor hide];
 	return;
 }
 
