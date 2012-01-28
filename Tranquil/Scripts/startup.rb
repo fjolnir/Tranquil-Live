@@ -1,41 +1,38 @@
+$LOAD_PATH.push File.dirname(__FILE__)
+require "glmath"
+
 # Shorthands
 @scene = Scene.globalScene
 
-def vec2(aX,aY)
-	Vector2.vectorWithX(aX, y:aY)
+
+@currentState = nil
+def currentState
+	@currentState || @scene.currentState
 end
-def vec3(aX,aY,aZ)
-	Vector3.vectorWithX(aX, y:aY, z:aZ)
-end
-def vec4(aX,aY,aZ,aW)
-	Vector4.vectorWithX(aX, y:aY, z:aZ, w:aW)
-end
-def quat(aAngle,aX,aY,aZ)
-	Quaternion.quaternionWithAngle(aAngle, x:aX, y:aY, z:aZ)
+def pushState
+	@scene.pushState
+	yield
+	@scene.popState
 end
 
-def buildCube
-	@scene.addObject Cube.new
+def withState(state)
+	@currentState = state
+	yield
+	@currentState = nil
 end
-def drawCube
-	@scene.addImmediateModeObject Cube.new
+
+def scale(vec)
+	currentState.transform *= Matrix4.scaleWithX(vec.x, y:vec.y, z:vec.z)
 end
-def buildSphere(radius=1, stacks=10, slices=10)
-	@scene.addObject Sphere.alloc.initWithRadius(radius, stacks:stacks, slices:slices)
+def translate(vec)
+	currentState.transform *= Matrix4.translationWithX(vec.x, y:vec.y, z:vec.z)
 end
-def drawSphere(radius=1, stacks=10, slices=10)
-	@scene.addImmediateModeObject Sphere.alloc.initWithRadius(radius, stacks:stacks, slices:slices)
-end
-def buildPlane(subdivs=vec2(4,4))
-	@scene.addObject Plane.alloc.initWithSubdivisions(subdivs)
-end
-def drawPlane(subdivs=vec2(4,4))
-	@scene.addImmediateModeObject Plane.alloc.initWithSubdivisions(subdivs)
+def rotate(angle, vec)
+	currentState.transform *= Matrix4.rotationWithAngle(angle, x:vec.x, y:vec.y, z:vec.z)
 end
 
 # Setup
 def _setup
-	buildPlane
 	@scene.clearColor = vec4(0,0,0,1)
 	
 	@scene.camera.position = vec4(0, 0, 10, 1)
