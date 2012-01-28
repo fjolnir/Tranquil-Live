@@ -14,6 +14,13 @@
 	out->_vec = aVec;
 	return out;
 }
+- (id)copyWithZone:(NSZone *)aZone
+{
+	NSZone *zone = aZone ? aZone : NSDefaultMallocZone();
+	Vector2 *copy = [[[self class] allocWithZone:zone] init];
+	copy->_vec = _vec;
+	return copy;
+}
 
 - (float)x { return _vec.x; }
 - (float)y { return _vec.y; }
@@ -84,7 +91,13 @@
 	out->_vec = aVec;
 	return out;
 }
-
+- (id)copyWithZone:(NSZone *)aZone
+{
+	NSZone *zone = aZone ? aZone : NSDefaultMallocZone();
+	Vector3 *copy = [[[self class] allocWithZone:zone] init];
+	copy->_vec = _vec;
+	return copy;
+}
 - (float)x { return _vec.x; }
 - (float)y { return _vec.y; }
 - (float)z { return _vec.z; }
@@ -154,7 +167,13 @@
 	out->_vec = aVec;
 	return out;
 }
-
+- (id)copyWithZone:(NSZone *)aZone
+{
+	NSZone *zone = aZone ? aZone : NSDefaultMallocZone();
+	Vector4 *copy = [[[self class] allocWithZone:zone] init];
+	copy->_vec = _vec;
+	return copy;
+}
 - (float)x { return _vec.x; }
 - (float)y { return _vec.y; }
 - (float)z { return _vec.z; }
@@ -225,7 +244,13 @@
 	out->_mat = aMat;
 	return out;
 }
-
+- (id)copyWithZone:(NSZone *)aZone
+{
+	NSZone *zone = aZone ? aZone : NSDefaultMallocZone();
+	Matrix3 *copy = [[[self class] allocWithZone:zone] init];
+	copy->_mat = _mat;
+	return copy;
+}
 - (Matrix3 *)mul:(Matrix3 *)aOther {
 	return [Matrix3 matrixWithMat:mat3_mul(_mat, aOther->_mat)];
 }
@@ -251,12 +276,18 @@
 	out->_mat = aMat;
 	return out;
 }
-
 + (Matrix4 *)identity {
 	return [Matrix4 matrixWithMat:kMat4_identity];
 }
 + (Matrix4 *)zero {
 	return [Matrix4 matrixWithMat:kMat4_zero];
+}
+- (id)copyWithZone:(NSZone *)aZone
+{
+	NSZone *zone = aZone ? aZone : NSDefaultMallocZone();
+	Matrix4 *copy = [[[self class] allocWithZone:zone] init];
+	copy->_mat = _mat;
+	return copy;
 }
 
 // Viewing matrices
@@ -345,6 +376,16 @@
 	out.stack = matrix_stack_create(aCapacity);
 	return out;
 }
+- (id)copyWithZone:(NSZone *)aZone
+{
+	NSZone *zone = aZone ? aZone : NSDefaultMallocZone();
+	MatrixStack *copy = [[[self class] allocWithZone:zone] init];
+	copy->_stack = matrix_stack_create(_stack->capacity);
+	memcpy(copy->_stack->items, _stack->items, _stack->count*sizeof(mat4_t));
+	copy->_stack->count = _stack->count;
+	return copy;
+}
+
 - (void)finalize {
 	matrix_stack_destroy(_stack);
 	[super finalize];
@@ -400,6 +441,13 @@
 	Quaternion *out = [[self alloc] init];
 	out->_quat = mat4_to_quat(aMat->_mat);
 	return out;
+}
+- (id)copyWithZone:(NSZone *)aZone
+{
+	NSZone *zone = aZone ? aZone : NSDefaultMallocZone();
+	Quaternion *copy = [[[self class] allocWithZone:zone] init];
+	copy->_quat = _quat;
+	return copy;
 }
 
 - (Matrix4 *)toMatrix4 {

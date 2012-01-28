@@ -2,6 +2,7 @@
 
 $LOAD_PATH.push File.dirname(__FILE__)
 require "glmath"
+require "state"
 
 # Setup
 def _setup

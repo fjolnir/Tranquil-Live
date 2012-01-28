@@ -101,14 +101,12 @@
 	[aScene.projMatStack pop];
 }
 
-
-
 #pragma mark -
 - (id)copyWithZone:(NSZone *)aZone
 {
 	NSZone *zone = aZone ? aZone : NSDefaultMallocZone();
 	State *copy = [[[self class] allocWithZone:zone] init];
-	copy.transform = _transform;
+	copy.transform = [_transform copy];
 	copy.shininess = _shininess;
 	copy.opacity = _opacity;
 	copy.lineWidth = _lineWidth;
@@ -116,7 +114,7 @@
 	copy.pointRadius = _pointRadius;
 	copy.shader = _shader;
 	copy.renderHint = _renderHint;
-	
+	copy.color = [_color copy];
 	return copy;
 }
 @end

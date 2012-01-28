@@ -24,15 +24,6 @@ end
 def rotate(angle, vec)
 	currentState.transform *= Matrix4.rotationWithAngle(angle, x:vec.x, y:vec.y, z:vec.z)
 end
-
-# Frame callback
-@userFrameCallback = nil
-@internalFrameCallbacks = []
-def _frameCallback
-	@audio.update unless @audio.nil?
-	@userFrameCallback.call unless @userFrameCallback.nil?
-end
-
-def everyFrame(&callback)
-	@userFrameCallback = callback
+def color(color)
+	currentState.color = color
 end
