@@ -8,7 +8,7 @@ If you want to try it out you can test the following code:
 @scene.clear # Deletes all objects in the scene when the script is run
 b = buildCube # Creates a cube primitive and adds it to the scene
 everyFrame do # Runs the passed block after redraw
-  withState b.state do # Sets the block's state object as the current on
+  withPrimitive b do # Sets the active primitive to b
     rotate(0.05, vec3(0,1,0)) # Applies a rotation to the transform of the current state
   end
 end
