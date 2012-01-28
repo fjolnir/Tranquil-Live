@@ -36,7 +36,7 @@
 	[self setIndexCapacity:aIndexCapacity];
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	TCheckGLError();
-	
+
 	_vertexCount = _indexCount = 0;
 
 	return self;
@@ -49,7 +49,7 @@
 	glDeleteBuffers(2, buffers);
 	free(_vertices);
 	free(_indices);
-	
+
 	[super finalize];
 }
 
@@ -91,7 +91,7 @@
 - (void)render:(Scene *)aScene
 {
 	[_state applyToScene:aScene];
-	glBindBufferARB(GL_ARRAY_BUFFER, _vertexBuffer);	
+	glBindBufferARB(GL_ARRAY_BUFFER, _vertexBuffer);
 
 	Shader *shader = _state.shader;
 	if(!shader) {
@@ -122,7 +122,7 @@
 		glEnableVertexAttribArray(loc);
 		glVertexAttribPointer(loc, 1, GL_FLOAT, GL_FALSE, sizeof(TVertex_t), (void*)offsetof(TVertex_t, shininess));
 	}];
-	
+
 	if(_usesIndices) {
 		glBindBufferARB(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
 		glIndexPointer(GL_UNSIGNED_INT, 0, 0);
@@ -130,7 +130,7 @@
 		glBindBufferARB(GL_ELEMENT_ARRAY_BUFFER, 0);
 	} else
 		glDrawArrays(_renderMode, 0, _vertexCount);
-	
+
 	glBindBufferARB(GL_ARRAY_BUFFER, 0);
 	[_state unapplyToScene:aScene];
 }
@@ -148,7 +148,7 @@
 
 	glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
 	glBufferData(GL_ARRAY_BUFFER, _vertexCapacity*sizeof(TVertex_t), _vertices, GL_DYNAMIC_DRAW);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);	
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	TCheckGLError();
 }
 - (void)setIndexCapacity:(int)aIndexCapacity
@@ -169,7 +169,7 @@
 	if(_vertexCount+1 > _vertexCapacity)
 		[self setVertexCapacity:(_vertexCapacity>0 ? _vertexCapacity : 4) * 2];
 	_vertices[_vertexCount] = aVertex;
-	
+
 	glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
 	glBufferSubData(GL_ARRAY_BUFFER, _vertexCount*sizeof(TVertex_t), sizeof(TVertex_t), _vertices[_vertexCount].f);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
