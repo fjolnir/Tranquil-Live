@@ -1,5 +1,6 @@
 #import "PluginManager.h"
 #import "TranquilPlugin.h"
+#import "ScriptContext.h"
 
 static PluginManager *sharedInstance;
 
@@ -44,6 +45,13 @@ static PluginManager *sharedInstance;
 		TLog(@"Invalid plugin (%@)", [aPath lastPathComponent]);
 		return NO;
 	}
-	return [pluginLoader loadPlugin];
+	BOOL result = [pluginLoader loadPlugin];
+	if(result) {
+		NSString *loadScriptPath = [[NSBundle bundleForClass:pluginLoader] pathForResource:@"load" 
+																					ofType:@"rb" 
+																			   inDirectory:@"Scripts"];
+		[[ScriptContext sharedContext] executeFile:loadScriptPath error:nil];
+	}
+	return YES;
 }
 @end
