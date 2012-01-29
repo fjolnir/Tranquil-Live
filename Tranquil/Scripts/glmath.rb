@@ -40,6 +40,15 @@ class Matrix3
 end
 class Matrix4
 	include GLMathOperators
+	def self.scale(vec)
+		scaleWithX(vec.x, y:vec.y, z:vec.z)
+	end
+	def self.translation(vec)
+		translationWithX(vec.x, y:vec.y, z:vec.z)
+	end
+	def self.rotation (vec)
+		rotationWithAngle(angle, x:vec.x, y:vec.y, z:vec.z)
+	end
 end
 class Quaternion
 	include GLMathOperators

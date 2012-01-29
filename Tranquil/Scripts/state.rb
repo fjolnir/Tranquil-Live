@@ -16,13 +16,13 @@ def withPrimitive(primitive)
 end
 
 def scale(vec)
-	currentState.transform *= Matrix4.scaleWithX(vec.x, y:vec.y, z:vec.z)
+	currentState.transform *= Matrix4.scale(vec)
 end
 def translate(vec)
-	currentState.transform *= Matrix4.translationWithX(vec.x, y:vec.y, z:vec.z)
+	currentState.transform *= Matrix4.translation(vec)
 end
 def rotate(angle, vec)
-	currentState.transform *= Matrix4.rotationWithAngle(angle, x:vec.x, y:vec.y, z:vec.z)
+	currentState.transform *= Matrix4.rotation(vec)
 end
 def color(color)
 	currentState.color = color
