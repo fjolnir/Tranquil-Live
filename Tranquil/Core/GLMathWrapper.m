@@ -104,6 +104,12 @@
 - (void)setX:(float)n { _vec.x = n; }
 - (void)setY:(float)n { _vec.y = n; }
 - (void)setZ:(float)n { _vec.z = n; }
+- (float)r { return _vec.r; }
+- (float)g { return _vec.g; }
+- (float)b { return _vec.b; }
+- (void)setR:(float)n { _vec.r = n; }
+- (void)setG:(float)n { _vec.g = n; }
+- (void)setB:(float)n { _vec.b = n; }
 
 - (Vector3 *)add:(Vector3 *)aOther {
 	return [Vector3 vectorWithVec:vec3_add(_vec, aOther->_vec)];
@@ -422,6 +428,8 @@
 
 @implementation Quaternion
 @synthesize quat=_quat;
+@dynamic vec, scalar;
+
 + (Quaternion *)quaternionWithAngle:(float)aAngle x:(float)aX y:(float)aY z:(float)aZ {
 	Quaternion *out = [[self alloc] init];
 	out->_quat = quat_createf(aAngle, aX, aY, aZ);
@@ -450,6 +458,12 @@
 	return copy;
 }
 
+- (Vector3 *)vec { return [Vector3 vectorWithVec:_quat.vec]; }
+- (float)scalar { return _quat.scalar; }
+
+- (void)setVec:(Vector3 *)n { _quat.vec = n.vec; }
+- (void)setScalar:(float)n { _quat.scalar = n; }
+
 - (Matrix4 *)toMatrix4 {
 	return [Matrix4 matrixWithMat:quat_to_mat4(_quat)];
 }
@@ -467,7 +481,7 @@
 	return [Quaternion quaternionWithQuat:quat_computeW(_quat)];
 }
 - (Quaternion *)mul:(Quaternion *)aOther {
-	return [Quaternion quaternionWithQuat:quat_computeW(_quat)];
+	return [Quaternion quaternionWithQuat:quat_multQuat(_quat, aOther->_quat)];
 }
 - (Vector4 *)rotatePoint:(Vector4 *)aPoint {
 	return [Vector4 vectorWithVec:quat_rotatePoint(_quat, aPoint->_vec)];

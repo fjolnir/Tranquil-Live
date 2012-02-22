@@ -28,6 +28,7 @@
 @interface Vector3 : NSObject { @public vec3_t _vec; }
 @property(readwrite, assign) vec3_t vec;
 @property(readwrite, assign) float x, y, z;
+@property(readwrite, assign) float r, g, b;
 
 + (Vector3 *)vectorWithX:(float)aX y:(float)aY z:(float)aZ;
 + (Vector3 *)vectorWithVec:(vec3_t)aVec;
@@ -133,6 +134,10 @@
 
 @interface Quaternion : NSObject { @public quat_t _quat; }
 @property(readwrite, assign) quat_t quat;
+@property(readwrite, assign) Vector3 *vec;
+@property(readwrite, assign) float scalar;
+
+
 + (Quaternion *)quaternionWithAngle:(float)aAngle x:(float)aX y:(float)aY z:(float)aZ;
 + (Quaternion *)quaternionWithQuat:(quat_t)aQuat;
 + (Quaternion *)quaternionFromMatrix4:(Matrix4 *)aMat;
