@@ -1,7 +1,15 @@
 #import "Camera.h"
+#import <OpenGL/gl.h>
 
 @implementation Camera
 @synthesize position=_position, orientation=_orientation, matrix=_matrix, fov=_fov, zoom=_zoom, aspectRatio=_aspectRatio;
++ (Vector4 *)viewportSize
+{
+	vec4_t viewport;
+	glGetFloatv(GL_VIEWPORT, viewport.f);
+	return [Vector4 vectorWithVec:viewport];
+}
+
 - (id)init
 {
 	self = [super init];
@@ -43,4 +51,5 @@
 	p = vec4_scalarDiv(p, p.w);
 	return [Vector4 vectorWithVec:p];
 }
+
 @end
