@@ -1,5 +1,4 @@
 #import "Plane.h"
-#import "State.h"
 
 @implementation Plane
 - (id)initWithSubdivisions:(Vector2 *)aSubdivs

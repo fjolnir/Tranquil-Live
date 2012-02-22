@@ -10,6 +10,8 @@
 + (PaDeviceIndex)deviceIndexForName:(NSString *)aName;
 
 - (id)initWithDevice:(PaDeviceIndex)aDevice;
+- (BOOL)openDevice:(PaDeviceIndex)aDevice;
+- (void)close;
 
 - (void)start;
 - (void)stop;

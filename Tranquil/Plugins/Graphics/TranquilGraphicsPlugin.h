@@ -1,5 +1,5 @@
 // Provides graphics & math functionality related to it
-#import "TranquilPlugin.h"
+#import <TranquilCore/TranquilCore.h>
 
 @interface TranquilGraphicsPlugin : NSObject <TranquilPlugin>
 

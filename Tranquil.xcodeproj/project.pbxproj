@@ -6,32 +6,15 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		C701C3D614BBDA9F00DD9C0C /* App&Plugins */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = C701C3D714BBDA9F00DD9C0C /* Build configuration list for PBXAggregateTarget "App&Plugins" */;
-			buildPhases = (
-				C773FEF314BFD31C003338FE /* CopyFiles */,
-			);
-			dependencies = (
-				C701C3EA14BBDB7A00DD9C0C /* PBXTargetDependency */,
-				C773FEFE14BFD445003338FE /* PBXTargetDependency */,
-				C773FF0014BFD44A003338FE /* PBXTargetDependency */,
-			);
-			name = "App&Plugins";
-			productName = "App&Plugins";
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
 		C70E8A6014D46AD4000DAF2F /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C70E8A5F14D46ACD000DAF2F /* Scripts */; };
+		C729B47214F554F100CDEEE4 /* TAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7906D6F14F554CE0070AA7E /* TAppDelegate.m */; };
+		C729B47314F555FA00CDEEE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EF2D14B78D4C0000884E /* main.m */; };
 		C744E3A014B8337D00078FBB /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C744E39F14B8337D00078FBB /* Scripts */; };
-		C744E3A314B834EF00078FBB /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3A214B834EF00078FBB /* Scene.m */; };
 		C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C744E3CF14B8464E00078FBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C744E3CD14B8464E00078FBB /* InfoPlist.strings */; };
 		C744E3D914B8467200078FBB /* TranquilGraphicsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3D814B8467200078FBB /* TranquilGraphicsPlugin.m */; };
-		C744E3E314B847AE00078FBB /* PluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3E214B847AD00078FBB /* PluginManager.m */; };
 		C744E3EA14B84CB400078FBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C744E3F014B84CB400078FBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C744E3EE14B84CB400078FBB /* InfoPlist.strings */; };
 		C744E3F714B84CCD00078FBB /* TranquilAudioPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3F614B84CCD00078FBB /* TranquilAudioPlugin.m */; };
@@ -41,104 +24,67 @@
 		C744E42414B8903500078FBB /* libportaudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42314B8903500078FBB /* libportaudio.a */; };
 		C744E42614B8905A00078FBB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42514B8905A00078FBB /* AudioToolbox.framework */; };
 		C744E42A14B8A49200078FBB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
-		C74B3A9914B7E280006741C4 /* ScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C74B3A9814B7E280006741C4 /* ScriptContext.m */; };
 		C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
 		C7622B2014D0879A0093DDD0 /* GLMath.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
 		C7622B2114D087AA0093DDD0 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
 		C7622B2214D087CD0093DDD0 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
 		C7622B2714D087E40093DDD0 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
 		C7622B3414D0AFA00093DDD0 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B3314D0AFA00093DDD0 /* MacRuby.framework */; };
-		C7622B9014D1CE460093DDD0 /* GLMathWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C7622B8F14D1CE460093DDD0 /* GLMathWrapper.m */; };
 		C76B70B614D40C59004E6CCE /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C76B70B514D409FA004E6CCE /* Scripts */; };
 		C773FEB014BC0EA3003338FE /* PolyPrimitive.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEAF14BC0EA3003338FE /* PolyPrimitive.m */; };
 		C773FEB114BC11A9003338FE /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
 		C773FEB414BC122D003338FE /* Cube.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB314BC122D003338FE /* Cube.m */; };
-		C773FEB714BC1F00003338FE /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB614BC1F00003338FE /* Shader.m */; };
-		C773FEBA14BC21D2003338FE /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB914BC21D2003338FE /* State.m */; };
-		C773FEBD14BC27D7003338FE /* Light.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEBC14BC27D7003338FE /* Light.m */; };
 		C773FEC314BC39C7003338FE /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = C773FEBE14BC397A003338FE /* Shaders */; };
-		C773FED314BD440B003338FE /* OpenGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED214BD440A003338FE /* OpenGLLayer.m */; };
 		C773FED414BD50B8003338FE /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
 		C773FED714BD7C18003338FE /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED614BD7C18003338FE /* Sphere.m */; };
-		C773FEDA14BE7318003338FE /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED914BE7316003338FE /* Camera.m */; };
-		C773FEE914BFB11D003338FE /* Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEE814BFB11D003338FE /* Shared.m */; };
-		C773FF0114BFD450003338FE /* TranquilAudio.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
-		C773FF0214BFD451003338FE /* TranquilGraphics.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */; };
 		C773FF0814BFE5D8003338FE /* Plane.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FF0714BFE5D8003338FE /* Plane.m */; };
-		C7AA4F5C14B7BFF6008577CD /* OverlayTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AA4F5B14B7BFF6008577CD /* OverlayTextView.m */; };
+		C79EF1B814F5277000570FB6 /* TranquilGraphics.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */; };
+		C79EF1C114F530E000570FB6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
+		C79EF1C714F530E000570FB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C79EF1C514F530E000570FB6 /* InfoPlist.strings */; };
+		C79EF1CF14F5319A00570FB6 /* ScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C74B3A9814B7E280006741C4 /* ScriptContext.m */; };
+		C79EF1D014F5319C00570FB6 /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = C744E3A214B834EF00078FBB /* Scene.m */; };
+		C79EF1D114F5319E00570FB6 /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB914BC21D2003338FE /* State.m */; };
+		C79EF1D214F531A100570FB6 /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB614BC1F00003338FE /* Shader.m */; };
+		C79EF1D314F531A300570FB6 /* Light.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEBC14BC27D7003338FE /* Light.m */; };
+		C79EF1D414F531A500570FB6 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED914BE7316003338FE /* Camera.m */; };
+		C79EF1D514F531AE00570FB6 /* GLMathWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C7622B8F14D1CE460093DDD0 /* GLMathWrapper.m */; };
+		C79EF1D614F531CB00570FB6 /* ScriptContext.h in Headers */ = {isa = PBXBuildFile; fileRef = C74B3A9714B7E280006741C4 /* ScriptContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C79EF1D714F531CB00570FB6 /* Scene.h in Headers */ = {isa = PBXBuildFile; fileRef = C744E3A114B834EF00078FBB /* Scene.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C79EF1D814F531CB00570FB6 /* State.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FEB814BC21D2003338FE /* State.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C79EF1D914F531CB00570FB6 /* Shader.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FEB514BC1F00003338FE /* Shader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C79EF1DA14F531CB00570FB6 /* Light.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FEBB14BC27D7003338FE /* Light.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C79EF1DB14F531CB00570FB6 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FED814BE7315003338FE /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C79EF1DC14F531CB00570FB6 /* GLMathWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = C7622B8E14D1CE460093DDD0 /* GLMathWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C79EF1DD14F531D500570FB6 /* GLErrorChecking.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FECC14BD11D6003338FE /* GLErrorChecking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C79EF1E014F5321300570FB6 /* libglmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C786048514BA5C3C006ED999 /* libglmath.a */; };
+		C79EF1E314F5327400570FB6 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B3314D0AFA00093DDD0 /* MacRuby.framework */; };
+		C79EF1E414F5327E00570FB6 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
+		C79EF1E514F5328500570FB6 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
+		C79EF1E614F532E500570FB6 /* Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FEE714BFB0E3003338FE /* Debug.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C79EF1F814F5342900570FB6 /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = C79EF1EF14F5342900570FB6 /* MainView.m */; };
+		C79EF1F914F5342900570FB6 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C79EF1F114F5342900570FB6 /* MainWindowController.m */; };
+		C79EF1FA14F5342900570FB6 /* OpenGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C79EF1F314F5342900570FB6 /* OpenGLLayer.m */; };
+		C79EF1FB14F5342900570FB6 /* OverlayTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C79EF1F514F5342900570FB6 /* OverlayTextView.m */; };
+		C79EF1FC14F5342900570FB6 /* PluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C79EF1F714F5342900570FB6 /* PluginManager.m */; };
+		C79EF1FE14F5345300570FB6 /* TranquilCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C79EF1FD14F5345300570FB6 /* TranquilCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C79EF1FF14F534E700570FB6 /* TranquilPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = C744E3DA14B8468F00078FBB /* TranquilPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C79EF20014F5354900570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
+		C79EF20114F5354D00570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
+		C79EF20214F535AA00570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
+		C79EF20314F5368800570FB6 /* TranquilAudio.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
 		C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */; };
-		C7E2EF2E14B78D4C0000884E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EF2D14B78D4C0000884E /* main.m */; };
 		C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3014B78D4C0000884E /* Credits.rtf */; };
-		C7E2EF3514B78D4D0000884E /* TAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EF3414B78D4D0000884E /* TAppDelegate.m */; };
 		C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3614B78D4D0000884E /* MainMenu.xib */; };
-		C7E2EFA114B78EC80000884E /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EFA014B78EC80000884E /* MainWindowController.m */; };
-		C7E2EFA414B78F7D0000884E /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EFA314B78F7D0000884E /* MainView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C701C3E914BBDB7A00DD9C0C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C7E2EF1C14B78D4C0000884E;
-			remoteInfo = Tranquil;
-		};
 		C7622B1E14D0866E0093DDD0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C7622AF714D085B60093DDD0;
 			remoteInfo = Framework;
-		};
-		C7622B2314D087D30093DDD0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C7622AF614D085B60093DDD0;
-			remoteInfo = Framework;
-		};
-		C7622B2514D087DD0093DDD0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C7622AF614D085B60093DDD0;
-			remoteInfo = Framework;
-		};
-		C7622B6114D1187A0093DDD0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C7622AF614D085B60093DDD0;
-			remoteInfo = Framework;
-		};
-		C773FEF914BFD435003338FE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C7E2EF1C14B78D4C0000884E;
-			remoteInfo = Tranquil;
-		};
-		C773FEFB14BFD438003338FE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C7E2EF1C14B78D4C0000884E;
-			remoteInfo = Tranquil;
-		};
-		C773FEFD14BFD445003338FE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C744E3E814B84CB400078FBB;
-			remoteInfo = TranquilAudio;
-		};
-		C773FEFF14BFD44A003338FE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C744E3C714B8464E00078FBB;
-			remoteInfo = TranquilGraphics;
 		};
 		C786048414BA5C3C006ED999 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -147,17 +93,45 @@
 			remoteGlobalIDString = C70EA30314AC9780009D29C6;
 			remoteInfo = glmath;
 		};
+		C79EF1E114F5321F00570FB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C70EA30214AC9780009D29C6;
+			remoteInfo = "Static Library";
+		};
+		C79EF1E714F533B900570FB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C79EF1BF14F530DF00570FB6;
+			remoteInfo = TranquilCore;
+		};
+		C79EF1E914F533C400570FB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C79EF1BF14F530DF00570FB6;
+			remoteInfo = TranquilCore;
+		};
+		C79EF1EB14F533CC00570FB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C79EF1BF14F530DF00570FB6;
+			remoteInfo = TranquilCore;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C773FEF314BFD31C003338FE /* CopyFiles */ = {
+		C79EF1B514F5270A00570FB6 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = Tranquil.app/Contents/Plugins;
-			dstSubfolderSpec = 16;
+			dstPath = "";
+			dstSubfolderSpec = 13;
 			files = (
-				C773FF0114BFD450003338FE /* TranquilAudio.bundle in CopyFiles */,
-				C773FF0214BFD451003338FE /* TranquilGraphics.bundle in CopyFiles */,
+				C79EF20314F5368800570FB6 /* TranquilAudio.bundle in CopyFiles */,
+				C79EF1B814F5277000570FB6 /* TranquilGraphics.bundle in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +149,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C701C3C714BBBF4000DD9C0C /* ExportedSymbols.exp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.exports; path = ExportedSymbols.exp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		C70E8A5F14D46ACD000DAF2F /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		C744E39F14B8337D00078FBB /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		C744E3A114B834EF00078FBB /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
@@ -187,8 +160,6 @@
 		C744E3D714B8467200078FBB /* TranquilGraphicsPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranquilGraphicsPlugin.h; sourceTree = "<group>"; };
 		C744E3D814B8467200078FBB /* TranquilGraphicsPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranquilGraphicsPlugin.m; sourceTree = "<group>"; };
 		C744E3DA14B8468F00078FBB /* TranquilPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranquilPlugin.h; sourceTree = "<group>"; };
-		C744E3E114B847AD00078FBB /* PluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginManager.h; sourceTree = "<group>"; };
-		C744E3E214B847AD00078FBB /* PluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginManager.m; sourceTree = "<group>"; };
 		C744E3E914B84CB400078FBB /* TranquilAudio.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranquilAudio.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C744E3ED14B84CB400078FBB /* TranquilAudio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TranquilAudio-Info.plist"; sourceTree = "<group>"; };
 		C744E3EF14B84CB400078FBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -222,19 +193,31 @@
 		C773FEBC14BC27D7003338FE /* Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Light.m; sourceTree = "<group>"; };
 		C773FEBE14BC397A003338FE /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
 		C773FECC14BD11D6003338FE /* GLErrorChecking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLErrorChecking.h; sourceTree = "<group>"; };
-		C773FED114BD440A003338FE /* OpenGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLLayer.h; sourceTree = "<group>"; };
-		C773FED214BD440A003338FE /* OpenGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLLayer.m; sourceTree = "<group>"; };
 		C773FED514BD7C18003338FE /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
 		C773FED614BD7C18003338FE /* Sphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sphere.m; sourceTree = "<group>"; };
 		C773FED814BE7315003338FE /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		C773FED914BE7316003338FE /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
-		C773FEE714BFB0E3003338FE /* Shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shared.h; sourceTree = "<group>"; };
-		C773FEE814BFB11D003338FE /* Shared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shared.m; sourceTree = "<group>"; };
+		C773FEE714BFB0E3003338FE /* Debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
 		C773FF0614BFE5D7003338FE /* Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plane.h; sourceTree = "<group>"; };
 		C773FF0714BFE5D8003338FE /* Plane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plane.m; sourceTree = "<group>"; };
 		C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GLMath.xcodeproj; path = GLMath/GLMath.xcodeproj; sourceTree = "<group>"; };
-		C7AA4F5A14B7BFF6008577CD /* OverlayTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayTextView.h; sourceTree = "<group>"; };
-		C7AA4F5B14B7BFF6008577CD /* OverlayTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayTextView.m; sourceTree = "<group>"; };
+		C7906D6E14F554CE0070AA7E /* TAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAppDelegate.h; sourceTree = "<group>"; };
+		C7906D6F14F554CE0070AA7E /* TAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAppDelegate.m; sourceTree = "<group>"; };
+		C79EF1C014F530DF00570FB6 /* TranquilCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TranquilCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C79EF1C414F530E000570FB6 /* TranquilCore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TranquilCore-Info.plist"; sourceTree = "<group>"; };
+		C79EF1C614F530E000570FB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C79EF1C814F530E000570FB6 /* TranquilCore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TranquilCore-Prefix.pch"; sourceTree = "<group>"; };
+		C79EF1EE14F5342900570FB6 /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
+		C79EF1EF14F5342900570FB6 /* MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
+		C79EF1F014F5342900570FB6 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		C79EF1F114F5342900570FB6 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		C79EF1F214F5342900570FB6 /* OpenGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLLayer.h; sourceTree = "<group>"; };
+		C79EF1F314F5342900570FB6 /* OpenGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLLayer.m; sourceTree = "<group>"; };
+		C79EF1F414F5342900570FB6 /* OverlayTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayTextView.h; sourceTree = "<group>"; };
+		C79EF1F514F5342900570FB6 /* OverlayTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayTextView.m; sourceTree = "<group>"; };
+		C79EF1F614F5342900570FB6 /* PluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginManager.h; sourceTree = "<group>"; };
+		C79EF1F714F5342900570FB6 /* PluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginManager.m; sourceTree = "<group>"; };
+		C79EF1FD14F5345300570FB6 /* TranquilCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranquilCore.h; sourceTree = "<group>"; };
 		C7E2EF1D14B78D4C0000884E /* Tranquil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tranquil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E2EF2114B78D4C0000884E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C7E2EF2414B78D4C0000884E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -245,13 +228,7 @@
 		C7E2EF2D14B78D4C0000884E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C7E2EF2F14B78D4C0000884E /* Tranquil-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tranquil-Prefix.pch"; sourceTree = "<group>"; };
 		C7E2EF3114B78D4C0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		C7E2EF3314B78D4C0000884E /* TAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TAppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		C7E2EF3414B78D4D0000884E /* TAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TAppDelegate.m; sourceTree = "<group>"; };
 		C7E2EF3714B78D4D0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		C7E2EF9F14B78EC80000884E /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MainWindowController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		C7E2EFA014B78EC80000884E /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MainWindowController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		C7E2EFA214B78F7D0000884E /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
-		C7E2EFA314B78F7D0000884E /* MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C79EF20014F5354900570FB6 /* TranquilCore.framework in Frameworks */,
 				C7622B2714D087E40093DDD0 /* GLMath.framework in Frameworks */,
 				C773FED414BD50B8003338FE /* Accelerate.framework in Frameworks */,
 				C773FEB114BC11A9003338FE /* OpenGL.framework in Frameworks */,
@@ -270,6 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C79EF20114F5354D00570FB6 /* TranquilCore.framework in Frameworks */,
 				C7622B2214D087CD0093DDD0 /* GLMath.framework in Frameworks */,
 				C744E42A14B8A49200078FBB /* Accelerate.framework in Frameworks */,
 				C744E42614B8905A00078FBB /* AudioToolbox.framework in Frameworks */,
@@ -280,10 +259,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C79EF1BC14F530DF00570FB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C79EF1E514F5328500570FB6 /* Accelerate.framework in Frameworks */,
+				C79EF1E414F5327E00570FB6 /* OpenGL.framework in Frameworks */,
+				C79EF1E314F5327400570FB6 /* MacRuby.framework in Frameworks */,
+				C79EF1E014F5321300570FB6 /* libglmath.a in Frameworks */,
+				C79EF1C114F530E000570FB6 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7E2EF1A14B78D4C0000884E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C79EF20214F535AA00570FB6 /* TranquilCore.framework in Frameworks */,
 				C7622B3414D0AFA00093DDD0 /* MacRuby.framework in Frameworks */,
 				C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */,
 				C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */,
@@ -295,13 +287,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C744E3CA14B8464E00078FBB /* TranquilGraphics */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TranquilGraphics;
-			sourceTree = "<group>";
-		};
 		C744E3CB14B8464E00078FBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,13 +331,6 @@
 			path = Plugins/Audio;
 			sourceTree = "<group>";
 		};
-		C744E3EB14B84CB400078FBB /* TranquilAudio */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TranquilAudio;
-			sourceTree = "<group>";
-		};
 		C744E3EC14B84CB400078FBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,13 +355,43 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C79EF1C314F530E000570FB6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C79EF1C414F530E000570FB6 /* TranquilCore-Info.plist */,
+				C79EF1C514F530E000570FB6 /* InfoPlist.strings */,
+				C79EF1C814F530E000570FB6 /* TranquilCore-Prefix.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C79EF1ED14F5342900570FB6 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C7906D6E14F554CE0070AA7E /* TAppDelegate.h */,
+				C7906D6F14F554CE0070AA7E /* TAppDelegate.m */,
+				C79EF1EE14F5342900570FB6 /* MainView.h */,
+				C79EF1EF14F5342900570FB6 /* MainView.m */,
+				C79EF1F014F5342900570FB6 /* MainWindowController.h */,
+				C79EF1F114F5342900570FB6 /* MainWindowController.m */,
+				C79EF1F214F5342900570FB6 /* OpenGLLayer.h */,
+				C79EF1F314F5342900570FB6 /* OpenGLLayer.m */,
+				C79EF1F414F5342900570FB6 /* OverlayTextView.h */,
+				C79EF1F514F5342900570FB6 /* OverlayTextView.m */,
+				C79EF1F614F5342900570FB6 /* PluginManager.h */,
+				C79EF1F714F5342900570FB6 /* PluginManager.m */,
+				C7E2EF2D14B78D4C0000884E /* main.m */,
+				C7E2EF3614B78D4D0000884E /* MainMenu.xib */,
+				C7E2EF2814B78D4C0000884E /* Supporting Files */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		C7E2EF1214B78D4C0000884E = {
 			isa = PBXGroup;
 			children = (
 				C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */,
 				C7E2EF2714B78D4C0000884E /* Tranquil */,
-				C744E3CA14B8464E00078FBB /* TranquilGraphics */,
-				C744E3EB14B84CB400078FBB /* TranquilAudio */,
 				C7E2EF2014B78D4C0000884E /* Frameworks */,
 				C7E2EF1E14B78D4C0000884E /* Products */,
 			);
@@ -395,6 +403,7 @@
 				C7E2EF1D14B78D4C0000884E /* Tranquil.app */,
 				C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */,
 				C744E3E914B84CB400078FBB /* TranquilAudio.bundle */,
+				C79EF1C014F530DF00570FB6 /* TranquilCore.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -424,15 +433,12 @@
 		C7E2EF2714B78D4C0000884E /* Tranquil */ = {
 			isa = PBXGroup;
 			children = (
+				C79EF1ED14F5342900570FB6 /* Application */,
+				C7E2EF9E14B78E010000884E /* Core */,
 				C744E3E414B84C9C00078FBB /* Audio */,
 				C744E3D614B8466500078FBB /* Graphics */,
-				C7E2EF9E14B78E010000884E /* Core */,
-				C7E2EF3314B78D4C0000884E /* TAppDelegate.h */,
-				C7E2EF3414B78D4D0000884E /* TAppDelegate.m */,
 				C773FEBE14BC397A003338FE /* Shaders */,
 				C744E39F14B8337D00078FBB /* Scripts */,
-				C7E2EF3614B78D4D0000884E /* MainMenu.xib */,
-				C7E2EF2814B78D4C0000884E /* Supporting Files */,
 			);
 			path = Tranquil;
 			sourceTree = "<group>";
@@ -440,29 +446,19 @@
 		C7E2EF2814B78D4C0000884E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C701C3C714BBBF4000DD9C0C /* ExportedSymbols.exp */,
 				C7E2EF2914B78D4C0000884E /* Tranquil-Info.plist */,
 				C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */,
-				C7E2EF2D14B78D4C0000884E /* main.m */,
 				C7E2EF2F14B78D4C0000884E /* Tranquil-Prefix.pch */,
 				C7E2EF3014B78D4C0000884E /* Credits.rtf */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C7E2EF9E14B78E010000884E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				C773FEE714BFB0E3003338FE /* Shared.h */,
-				C773FEE814BFB11D003338FE /* Shared.m */,
-				C7E2EF9F14B78EC80000884E /* MainWindowController.h */,
-				C7E2EFA014B78EC80000884E /* MainWindowController.m */,
-				C7E2EFA214B78F7D0000884E /* MainView.h */,
-				C7E2EFA314B78F7D0000884E /* MainView.m */,
-				C773FED114BD440A003338FE /* OpenGLLayer.h */,
-				C773FED214BD440A003338FE /* OpenGLLayer.m */,
-				C7AA4F5A14B7BFF6008577CD /* OverlayTextView.h */,
-				C7AA4F5B14B7BFF6008577CD /* OverlayTextView.m */,
+				C79EF1FD14F5345300570FB6 /* TranquilCore.h */,
+				C773FEE714BFB0E3003338FE /* Debug.h */,
 				C74B3A9714B7E280006741C4 /* ScriptContext.h */,
 				C74B3A9814B7E280006741C4 /* ScriptContext.m */,
 				C744E3A114B834EF00078FBB /* Scene.h */,
@@ -476,16 +472,36 @@
 				C773FED814BE7315003338FE /* Camera.h */,
 				C773FED914BE7316003338FE /* Camera.m */,
 				C744E3DA14B8468F00078FBB /* TranquilPlugin.h */,
-				C744E3E114B847AD00078FBB /* PluginManager.h */,
-				C744E3E214B847AD00078FBB /* PluginManager.m */,
 				C773FECC14BD11D6003338FE /* GLErrorChecking.h */,
 				C7622B8E14D1CE460093DDD0 /* GLMathWrapper.h */,
 				C7622B8F14D1CE460093DDD0 /* GLMathWrapper.m */,
+				C79EF1C314F530E000570FB6 /* Supporting Files */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C79EF1BD14F530DF00570FB6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C79EF1FE14F5345300570FB6 /* TranquilCore.h in Headers */,
+				C79EF1DD14F531D500570FB6 /* GLErrorChecking.h in Headers */,
+				C79EF1D614F531CB00570FB6 /* ScriptContext.h in Headers */,
+				C79EF1E614F532E500570FB6 /* Debug.h in Headers */,
+				C79EF1D714F531CB00570FB6 /* Scene.h in Headers */,
+				C79EF1D814F531CB00570FB6 /* State.h in Headers */,
+				C79EF1D914F531CB00570FB6 /* Shader.h in Headers */,
+				C79EF1FF14F534E700570FB6 /* TranquilPlugin.h in Headers */,
+				C79EF1DA14F531CB00570FB6 /* Light.h in Headers */,
+				C79EF1DB14F531CB00570FB6 /* Camera.h in Headers */,
+				C79EF1DC14F531CB00570FB6 /* GLMathWrapper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		C744E3C714B8464E00078FBB /* TranquilGraphics */ = {
@@ -499,8 +515,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				C7622B2614D087DD0093DDD0 /* PBXTargetDependency */,
-				C773FEFC14BFD438003338FE /* PBXTargetDependency */,
+				C79EF1EA14F533C400570FB6 /* PBXTargetDependency */,
 			);
 			name = TranquilGraphics;
 			productName = TranquilGraphics;
@@ -518,13 +533,31 @@
 			buildRules = (
 			);
 			dependencies = (
-				C7622B2414D087D30093DDD0 /* PBXTargetDependency */,
-				C773FEFA14BFD435003338FE /* PBXTargetDependency */,
+				C79EF1EC14F533CC00570FB6 /* PBXTargetDependency */,
 			);
 			name = TranquilAudio;
 			productName = TranquilAudio;
 			productReference = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */;
 			productType = "com.apple.product-type.bundle";
+		};
+		C79EF1BF14F530DF00570FB6 /* TranquilCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C79EF1CC14F530E000570FB6 /* Build configuration list for PBXNativeTarget "TranquilCore" */;
+			buildPhases = (
+				C79EF1BB14F530DF00570FB6 /* Sources */,
+				C79EF1BC14F530DF00570FB6 /* Frameworks */,
+				C79EF1BD14F530DF00570FB6 /* Headers */,
+				C79EF1BE14F530DF00570FB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C79EF1E214F5321F00570FB6 /* PBXTargetDependency */,
+			);
+			name = TranquilCore;
+			productName = TranquilCore;
+			productReference = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		C7E2EF1C14B78D4C0000884E /* Tranquil */ = {
 			isa = PBXNativeTarget;
@@ -534,12 +567,12 @@
 				C7E2EF1A14B78D4C0000884E /* Frameworks */,
 				C7E2EF1B14B78D4C0000884E /* Resources */,
 				C7E2F0D714B798740000884E /* Copy Frameworks */,
-				C7622AEE14D07DF00093DDD0 /* Generate bridgesupport metadata */,
+				C79EF1B514F5270A00570FB6 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C7622B6214D1187A0093DDD0 /* PBXTargetDependency */,
+				C79EF1E814F533B900570FB6 /* PBXTargetDependency */,
 			);
 			name = Tranquil;
 			productName = Tranquil;
@@ -552,7 +585,7 @@
 		C7E2EF1414B78D4C0000884E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = C7E2EF1714B78D4C0000884E /* Build configuration list for PBXProject "Tranquil" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -575,7 +608,7 @@
 				C7E2EF1C14B78D4C0000884E /* Tranquil */,
 				C744E3E814B84CB400078FBB /* TranquilAudio */,
 				C744E3C714B8464E00078FBB /* TranquilGraphics */,
-				C701C3D614BBDA9F00DD9C0C /* App&Plugins */,
+				C79EF1BF14F530DF00570FB6 /* TranquilCore */,
 			);
 		};
 /* End PBXProject section */
@@ -616,6 +649,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C79EF1BE14F530DF00570FB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C79EF1C714F530E000570FB6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7E2EF1B14B78D4C0000884E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -629,24 +670,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		C7622AEE14D07DF00093DDD0 /* Generate bridgesupport metadata */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Generate bridgesupport metadata";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#mkdir -p $TARGET_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Resources/BridgeSupport\n#gen_bridge_metadata -c '-framework Accelerate' $PROJECT_DIR/GLMath/GLMath.h > $TARGET_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Resources/BridgeSupport/GLMath.bridgesupport";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C744E3C414B8464E00078FBB /* Sources */ = {
@@ -670,70 +693,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C79EF1BB14F530DF00570FB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C79EF1CF14F5319A00570FB6 /* ScriptContext.m in Sources */,
+				C79EF1D014F5319C00570FB6 /* Scene.m in Sources */,
+				C79EF1D114F5319E00570FB6 /* State.m in Sources */,
+				C79EF1D314F531A300570FB6 /* Light.m in Sources */,
+				C79EF1D414F531A500570FB6 /* Camera.m in Sources */,
+				C79EF1D214F531A100570FB6 /* Shader.m in Sources */,
+				C79EF1D514F531AE00570FB6 /* GLMathWrapper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7E2EF1914B78D4C0000884E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7E2EF2E14B78D4C0000884E /* main.m in Sources */,
-				C7E2EF3514B78D4D0000884E /* TAppDelegate.m in Sources */,
-				C7E2EFA114B78EC80000884E /* MainWindowController.m in Sources */,
-				C7E2EFA414B78F7D0000884E /* MainView.m in Sources */,
-				C7AA4F5C14B7BFF6008577CD /* OverlayTextView.m in Sources */,
-				C74B3A9914B7E280006741C4 /* ScriptContext.m in Sources */,
-				C744E3A314B834EF00078FBB /* Scene.m in Sources */,
-				C744E3E314B847AE00078FBB /* PluginManager.m in Sources */,
-				C773FEB714BC1F00003338FE /* Shader.m in Sources */,
-				C773FEBA14BC21D2003338FE /* State.m in Sources */,
-				C773FEBD14BC27D7003338FE /* Light.m in Sources */,
-				C773FED314BD440B003338FE /* OpenGLLayer.m in Sources */,
-				C773FEDA14BE7318003338FE /* Camera.m in Sources */,
-				C773FEE914BFB11D003338FE /* Shared.m in Sources */,
-				C7622B9014D1CE460093DDD0 /* GLMathWrapper.m in Sources */,
+				C79EF1F814F5342900570FB6 /* MainView.m in Sources */,
+				C79EF1F914F5342900570FB6 /* MainWindowController.m in Sources */,
+				C79EF1FA14F5342900570FB6 /* OpenGLLayer.m in Sources */,
+				C729B47214F554F100CDEEE4 /* TAppDelegate.m in Sources */,
+				C79EF1FB14F5342900570FB6 /* OverlayTextView.m in Sources */,
+				C79EF1FC14F5342900570FB6 /* PluginManager.m in Sources */,
+				C729B47314F555FA00CDEEE4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C701C3EA14BBDB7A00DD9C0C /* PBXTargetDependency */ = {
+		C79EF1E214F5321F00570FB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C7E2EF1C14B78D4C0000884E /* Tranquil */;
-			targetProxy = C701C3E914BBDB7A00DD9C0C /* PBXContainerItemProxy */;
+			name = "Static Library";
+			targetProxy = C79EF1E114F5321F00570FB6 /* PBXContainerItemProxy */;
 		};
-		C7622B2414D087D30093DDD0 /* PBXTargetDependency */ = {
+		C79EF1E814F533B900570FB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Framework;
-			targetProxy = C7622B2314D087D30093DDD0 /* PBXContainerItemProxy */;
+			target = C79EF1BF14F530DF00570FB6 /* TranquilCore */;
+			targetProxy = C79EF1E714F533B900570FB6 /* PBXContainerItemProxy */;
 		};
-		C7622B2614D087DD0093DDD0 /* PBXTargetDependency */ = {
+		C79EF1EA14F533C400570FB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Framework;
-			targetProxy = C7622B2514D087DD0093DDD0 /* PBXContainerItemProxy */;
+			target = C79EF1BF14F530DF00570FB6 /* TranquilCore */;
+			targetProxy = C79EF1E914F533C400570FB6 /* PBXContainerItemProxy */;
 		};
-		C7622B6214D1187A0093DDD0 /* PBXTargetDependency */ = {
+		C79EF1EC14F533CC00570FB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Framework;
-			targetProxy = C7622B6114D1187A0093DDD0 /* PBXContainerItemProxy */;
-		};
-		C773FEFA14BFD435003338FE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C7E2EF1C14B78D4C0000884E /* Tranquil */;
-			targetProxy = C773FEF914BFD435003338FE /* PBXContainerItemProxy */;
-		};
-		C773FEFC14BFD438003338FE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C7E2EF1C14B78D4C0000884E /* Tranquil */;
-			targetProxy = C773FEFB14BFD438003338FE /* PBXContainerItemProxy */;
-		};
-		C773FEFE14BFD445003338FE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C744E3E814B84CB400078FBB /* TranquilAudio */;
-			targetProxy = C773FEFD14BFD445003338FE /* PBXContainerItemProxy */;
-		};
-		C773FF0014BFD44A003338FE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C744E3C714B8464E00078FBB /* TranquilGraphics */;
-			targetProxy = C773FEFF14BFD44A003338FE /* PBXContainerItemProxy */;
+			target = C79EF1BF14F530DF00570FB6 /* TranquilCore */;
+			targetProxy = C79EF1EB14F533CC00570FB6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -750,6 +759,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				C744E3EF14B84CB400078FBB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C79EF1C514F530E000570FB6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C79EF1C614F530E000570FB6 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -776,29 +793,16 @@
 				C7E2EF3714B78D4D0000884E /* en */,
 			);
 			name = MainMenu.xib;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C701C3D814BBDA9F00DD9C0C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		C701C3D914BBDA9F00DD9C0C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		C744E3D214B8464E00078FBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tranquil.app/Contents/MacOS/Tranquil";
+				BUNDLE_LOADER = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -813,7 +817,7 @@
 		C744E3D314B8464E00078FBB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tranquil.app/Contents/MacOS/Tranquil";
+				BUNDLE_LOADER = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Plugins/Graphics/Supporting Files/TranquilGraphics-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -828,7 +832,7 @@
 		C744E3F314B84CB400078FBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tranquil.app/Contents/MacOS/Tranquil";
+				BUNDLE_LOADER = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Plugins/Audio/Supporting Files/TranquilAudio-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -851,7 +855,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tranquil.app/Contents/MacOS/Tranquil";
+				BUNDLE_LOADER = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Plugins/Audio/Supporting Files/TranquilAudio-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -867,6 +871,36 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		C79EF1CD14F530E000570FB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tranquil/Core/Supporting Files/TranquilCore-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Tranquil/Core/Supporting Files/TranquilCore-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		C79EF1CE14F530E000570FB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tranquil/Core/Supporting Files/TranquilCore-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Tranquil/Core/Supporting Files/TranquilCore-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
 		};
@@ -925,9 +959,9 @@
 				EXPORTED_SYMBOLS_FILE = "";
 				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tranquil/Tranquil-Prefix.pch";
+				GCC_PREFIX_HEADER = "Tranquil/Application/Supporting Files/Tranquil-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Tranquil/Tranquil-Info.plist";
+				INFOPLIST_FILE = "Tranquil/Application/Supporting Files/Tranquil-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -937,6 +971,7 @@
 					100000000,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_STYLE = all;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -948,9 +983,10 @@
 				EXPORTED_SYMBOLS_FILE = "";
 				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tranquil/Tranquil-Prefix.pch";
+				GCC_PREFIX_HEADER = "Tranquil/Application/Supporting Files/Tranquil-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Tranquil/Tranquil-Info.plist";
+				INFOPLIST_FILE = "Tranquil/Application/Supporting Files/Tranquil-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -960,6 +996,7 @@
 					100000000,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_STYLE = all;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -967,15 +1004,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C701C3D714BBDA9F00DD9C0C /* Build configuration list for PBXAggregateTarget "App&Plugins" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C701C3D814BBDA9F00DD9C0C /* Debug */,
-				C701C3D914BBDA9F00DD9C0C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		C744E3D114B8464E00078FBB /* Build configuration list for PBXNativeTarget "TranquilGraphics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -990,6 +1018,15 @@
 			buildConfigurations = (
 				C744E3F314B84CB400078FBB /* Debug */,
 				C744E3F414B84CB400078FBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C79EF1CC14F530E000570FB6 /* Build configuration list for PBXNativeTarget "TranquilCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C79EF1CD14F530E000570FB6 /* Debug */,
+				C79EF1CE14F530E000570FB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

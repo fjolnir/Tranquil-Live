@@ -1,5 +1,5 @@
 // Just a container for the render state of an object
-#import <GLMath.h>
+#import <TranquilCore/GLMathWrapper.h>
 
 @class Scene, Shader;
 
@@ -7,7 +7,7 @@ typedef enum {
 	kTRenderHintNone         = 0x00000000,
 	kTRenderHintWireframe    = 0x00000001,
 	kTRenderHintDrawNormals  = 0x00000002,
-	kTRenderHintPoint        = 0x00000004,
+	kTRenderHintPoint        = 0x00000004, // Overridden by wireframe
 	kTRenderHintAAlias       = 0x00000008,
 	kTRenderHintDrawBBox     = 0x00000010,
 	kTRenderHintUnlit        = 0x00000020,

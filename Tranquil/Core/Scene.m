@@ -1,13 +1,14 @@
+#import <OpenGL/gl.h>
 #import "Scene.h"
 #import "ScriptContext.h"
 #import "State.h"
 #import "Light.h"
-#import <OpenGL/gl.h>
 #import "Camera.h"
 #import "Shader.h"
 #import "GLErrorChecking.h"
 
 static Scene *_GlobalScene = nil;
+static NSOpenGLContext *_globalGlContext = nil;
 
 @interface Scene () {
 @private
@@ -17,6 +18,24 @@ static Scene *_GlobalScene = nil;
 @implementation Scene
 @synthesize projMatStack=_projStack, worldMatStack=_worldStack, objects=_objects, immediateModeObjects=_immediateModeObjects, stateStack=_stateStack, clearColor=_clearColor, ambientLight=_ambientLight, lights=_lights, camera=_camera;
 
++ (NSOpenGLPixelFormat *)pixelFormat
+{
+	NSOpenGLPixelFormatAttribute attrs[] = {
+        NSOpenGLPFANoRecovery,
+        NSOpenGLPFAColorSize, 24,
+        NSOpenGLPFAAlphaSize, 8,
+        NSOpenGLPFADepthSize, 24,
+        NSOpenGLPFADoubleBuffer,
+        NSOpenGLPFAAccelerated,
+		NSOpenGLPFAMultisample,
+		NSOpenGLPFASampleBuffers, (NSOpenGLPixelFormatAttribute)1,
+		NSOpenGLPFASamples, (NSOpenGLPixelFormatAttribute)4,
+        0
+    };
+	return [[NSOpenGLPixelFormat alloc] initWithAttributes:attrs];
+    
+}
+
 + (Scene *)globalScene
 {
 	static dispatch_once_t onceToken;
@@ -24,6 +43,15 @@ static Scene *_GlobalScene = nil;
 		_GlobalScene = [[self alloc] init];
 	});
 	return _GlobalScene;
+}
+
++ (NSOpenGLContext *)globalContext
+{	
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		_globalGlContext = [[NSOpenGLContext alloc] initWithFormat:[self pixelFormat] shareContext:nil];
+	});
+	return _globalGlContext;
 }
 
 - (id)init

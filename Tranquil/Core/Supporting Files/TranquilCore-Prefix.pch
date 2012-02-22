@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'TranquilCore' target in the 'TranquilCore' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+    #import <TranquilCore/Debug.h>
+#endif

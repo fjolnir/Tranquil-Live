@@ -1,4 +1,4 @@
-#import "TranquilPlugin.h"
+#import <TranquilCore/TranquilCore.h>
 
 @interface TranquilAudioPlugin : NSObject <TranquilPlugin>
 

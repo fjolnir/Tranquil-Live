@@ -1,7 +1,4 @@
 #import "PolyPrimitive.h"
-#import "State.h"
-#import "Shader.h"
-#import "GLErrorChecking.h"
 
 @interface PolyPrimitive () {
 	int _vertexCapacity, _indexCapacity;

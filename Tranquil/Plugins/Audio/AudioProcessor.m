@@ -1,10 +1,13 @@
 #import "AudioProcessor.h"
 #import <Accelerate/Accelerate.h>
 #import <pthread.h>
+#import <objc/objc-auto.h>
+#import <TranquilCore/TranquilCore.h>
 
 @interface AudioProcessor () {
 	PaDeviceIndex _device;
 	PaStream *_inputStream;
+	BOOL _streamOpen;
 	
 	// The audio sample buffer
 	void *_sampleBuffer;
@@ -48,7 +51,7 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 
 + (PaDeviceIndex)deviceIndexForName:(NSString *)aName
 {
-	for(int i = 0; i < Pa_GetDeviceCount(); ++i) {
+	for(PaDeviceIndex i = 0; i < Pa_GetDeviceCount(); ++i) {
 		const PaDeviceInfo *info = Pa_GetDeviceInfo(i);
 		if([aName isEqualToString:[NSString stringWithUTF8String:info->name]])
 			return i;
@@ -64,14 +67,16 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	if(!self) return nil;
 	
 	[self setNumberOfFrequencyBands:16];
-	_gain = 1.0;
+	_gain = 0.8;
 	_smoothingBias = 0.8;
 	
 	// Prepare the fourier transform
 	_fftSize = 1024;
 	_fftSizeOver2 = _fftSize/2;
 	_hannWindow = (float *)malloc(sizeof(float) * _fftSize);
-	vDSP_hann_window(_hannWindow, _fftSize, vDSP_HANN_DENORM);
+    //TODO: Decide on final window type
+//	vDSP_hann_window(_hannWindow, _fftSize, vDSP_HANN_NORM);
+    vDSP_hamm_window(_hannWindow, _fftSize, 0);
 	_hannWindowedBuffer = (float *)malloc(sizeof(float)*_fftSize);
 
 	_splitBuffer.realp = (float *)malloc(sizeof(float)*_fftSizeOver2);
@@ -82,7 +87,14 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	_magnitudes = calloc(_fftSizeOver2, sizeof(float));
 	assert(_fftSetup);
 	
+	// Open the device
+	[self openDevice:aDevice];
 	
+	return self;
+}
+
+- (BOOL)openDevice:(PaDeviceIndex)aDevice
+{
 	// Create the audio stream
 	_isRunning = NO;
 	_device = aDevice;
@@ -99,15 +111,27 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	float framesPerBuffer = 1024;
 	pthread_mutex_init(&_sampleBufferMutex, NULL);
 	_sampleBuffer = (float *)malloc(sizeof(float)*framesPerBuffer);
-	err = Pa_OpenStream(&_inputStream, &inputParameters, NULL, sampleRate, framesPerBuffer, paNoFlag, inputCallback, self);
-	assert(err == paNoError);
+	err = Pa_OpenStream(&_inputStream, &inputParameters, NULL, sampleRate, framesPerBuffer, paNoFlag, &inputCallback, self);
+	if(err != paNoError) {
+		TLog(@"Couldn't open audio device(%d)", aDevice);
+		return NO;
+	}
+	_streamOpen = YES;
 	
-	return self;
+	return YES;
+}
+
+- (void)close
+{
+	if(_streamOpen) {
+		Pa_CloseStream(_inputStream);
+		_streamOpen = NO;
+	}
 }
 
 - (void)finalize
 {
-	Pa_CloseStream(_inputStream);
+	[self close];
 	free(_sampleBuffer);
 	pthread_mutex_destroy(&_sampleBufferMutex);
 	free(_hannWindow);
@@ -126,6 +150,7 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 		assert(Pa_StartStream(_inputStream) == paNoError);
 	}
 }
+
 - (void)stop
 {
 	if(_isRunning) {
@@ -150,10 +175,19 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 		for(int j = from; j <= to && j < _fftSizeOver2; ++j) {
 			value += _magnitudes[j];
 		}
-		if(value != NAN && value != INFINITY && value != negativeInfinity) { // These values would kill all future ones
-			value *= _gain;
-			//_frequencyBands[i] = value;
-			_frequencyBands[i] = (_smoothingBias * _frequencyBands[i]) + ((1.0 - _smoothingBias) * value);
+
+        float minDb = -110.0f;
+        // Average the range
+        value /= to-from;
+        value = GLM_CLAMP(value, minDb, 0);
+
+		if(value != NAN && value != INFINITY && value != -INFINITY) { // These values would kill all future ones
+			_frequencyBands[i] = value;
+//			_frequencyBands[i] = (_smoothingBias * _frequencyBands[i]) + ((1.0 - _smoothingBias) * value);
+            float logFactor = 2.4f;
+            float normalizedValue = value / minDb;
+            normalizedValue = powf(normalizedValue, 0.416666667f);//1.0f/logFactor);
+            _frequencyBands[i] = 1.0f-normalizedValue;
 		}
 	}
 }
@@ -171,11 +205,19 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	
 	// Calculate the fft
 	vDSP_fft_zrip(_fftSetup, &_splitBuffer, 1, log2(_fftSize), FFT_FORWARD);
-	
-	// Convert to decibels
+    // Zero DC
+    *(_splitBuffer.realp) = 0;
+    *(_splitBuffer.imagp) = 0;
+
+	// Normalize & Convert to decibels
 	float mags[_fftSizeOver2];
-	vDSP_zvmags(&_splitBuffer, 1, mags, 1, _fftSizeOver2);
-	float zero = 1.0;
+    //vDSP_zvabs(&_splitBuffer, 1, mags, 1, _fftSizeOver2);
+    vDSP_zvmags(&_splitBuffer, 1, mags, 1, _fftSizeOver2);
+
+//    float fftSizeOver2AsFloat = (float)_fftSizeOver2;
+//    vDSP_vsdiv(mags, 1, &fftSizeOver2AsFloat, mags, 1, _fftSizeOver2);
+    float zero = 1.0;
+
 	vDSP_vdbcon(mags, 1, &zero, _magnitudes, 1, _fftSizeOver2, 0);
 }
 
@@ -184,12 +226,16 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 			timeInfo:(const PaStreamCallbackTimeInfo *)timeInfo
 		 statusFlags:(PaStreamCallbackFlags)statusFlags
 {
+	// Register the audio thread with the garbage collector
+	objc_registerThreadWithCollector();
+	
 	// Update the buffer if it isn't being processed
 	if(_isRunning && pthread_mutex_trylock(&_sampleBufferMutex) == 0) {
 		memcpy(_sampleBuffer, buffer, sizeof(float)*framesPerBuffer);
 		pthread_mutex_unlock(&_sampleBufferMutex);
 	}
-	return paContinue;
+	
+	return (_streamOpen && _isRunning) ? paContinue : paComplete;
 }
 
 - (void)setNumberOfFrequencyBands:(int)aNumberOfrequencyBands

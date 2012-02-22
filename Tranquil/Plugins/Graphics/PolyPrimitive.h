@@ -1,6 +1,5 @@
 #import <OpenGL/gl.h>
-#import <GLMath.h>
-#import "Scene.h"
+#import <TranquilCore/TranquilCore.h>
 
 @class State;
 

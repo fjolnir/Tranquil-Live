@@ -1,4 +1,4 @@
-#import "GLMathWrapper.h"
+#import <TranquilCore/TranquilCore.h>
 #import "PolyPrimitive.h"
 
 @interface Plane : PolyPrimitive

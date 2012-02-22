@@ -1,5 +1,5 @@
 #import "Sphere.h"
-#import "State.h"
+#import <TranquilCore/TranquilCore.h>
 
 @implementation Sphere
 - (id)initWithRadius:(float)aRadius stacks:(int)aStacks slices:(int)aSlices

@@ -23,6 +23,8 @@ __attribute__((visibility("default"))) @interface Scene : NSObject
 - (void)initializeGLState;
 
 + (Scene *)globalScene;
++ (NSOpenGLPixelFormat *)pixelFormat;
++ (NSOpenGLContext *)globalContext;
 
 - (void)clear;
 - (void)render;

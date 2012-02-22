@@ -16,7 +16,7 @@
 {
 	self = [super init];
 	if(!self) return nil;
-	
+
 	_pointRadius = 1;
 	_lineWidth = 1;
 	_shininess = 0;
@@ -25,7 +25,7 @@
 	_renderHint = kTRenderHintNone;
 	_transform = [Matrix4 identity];
 	_shader = nil;
-		
+
 	return self;
 }
 
@@ -34,11 +34,9 @@
 	[aScene.projMatStack push];
 	[aScene.worldMatStack push];
 	[aScene.worldMatStack mul:_transform];
-	
+
 	glLineWidth(_lineWidth);
 	glPointSize(_pointRadius);
-	
-	//	glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
 
 	if(_renderHint & kTRenderHintNoZWrite)
 		glDepthMask(false);
@@ -46,8 +44,24 @@
 		glEnable(GL_CULL_FACE);
 	else
 		glDisable(GL_CULL_FACE);
+	if(_renderHint & kTRenderHintWireframe)
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	else if(_renderHint & kTRenderHintPoint)
+		glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
+	if(_renderHint & kTRenderHintDrawBBox)
+		TLog(@"TODO: draw bbox");
+	if(_renderHint & kTRenderHintUnlit)
+		TLog(@"TODO: unlit");
+	if(_renderHint & kTRenderHintCastShadow)
+		TLog(@"TODO: shadows");
+	if(_renderHint & kTRenderHintIgnoreDepth)
+		TLog(@"TODO: ignoredepth");
+	if(_renderHint & kTRenderHintDrawOrigin)
+		TLog(@"TODO: draworigin");
+	if(_renderHint & kTRenderHintVertexColors)
+		TLog(@"TODO: vertcolors");
 	TCheckGLError();
-	
+
 	Shader *shader = _shader;
 	if(shader) {
 		[_shader makeActive];
@@ -90,10 +104,7 @@
 	TCheckGLError();
 }
 - (void)unapplyToScene:(Scene *)aScene
-{	
-	glLineWidth(_lineWidth);
-	glPointSize(_pointRadius);
-	
+{
 	if(_renderHint & kTRenderHintNoZWrite)
 		glDepthMask(true);
 	if(_shader) [_shader makeInactive];

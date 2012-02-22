@@ -3,6 +3,7 @@
 $LOAD_PATH.push File.dirname(__FILE__)
 require "glmath"
 require "state"
+require "mouse"
 
 # Setup
 def _setup

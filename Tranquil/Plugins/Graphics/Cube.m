@@ -1,5 +1,5 @@
 #import "Cube.h"
-#import "State.h"
+#import <TranquilCore/TranquilCore.h>
 
 @implementation Cube
 - (id)init

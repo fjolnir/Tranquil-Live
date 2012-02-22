@@ -1,6 +1,6 @@
 @objectStack = []
 def currentState
-	o = @objectStack.last 
+	o = @objectStack.last
 	o.nil? ? @scene.currentState : o.state
 end
 def pushState
