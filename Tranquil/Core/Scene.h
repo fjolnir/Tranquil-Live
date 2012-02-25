@@ -7,6 +7,10 @@
 
 @protocol SceneObject <NSObject>
 - (void)render:(Scene *)aScene;
+// Tells the object to delete all underlying resource (For example VBOs)
+// This is because GC may wait for a long time before calling finalize
+// even though the object isn't being used => constraining resources
+- (void)invalidate;
 @end
 
 __attribute__((visibility("default"))) @interface Scene : NSObject

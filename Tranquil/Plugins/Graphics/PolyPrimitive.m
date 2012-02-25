@@ -8,7 +8,7 @@
 @implementation PolyPrimitive
 @synthesize vertexBuffer=_vertexBuffer, indexBuffer=_indexBuffer, vertices=_vertices, vertexCapacity=_vertexCapacity,
 	indices=_indices, indexCapacity=_indexCapacity, vertexCount=_vertexCount, indexCount=_indexCount,
-	usesIndices=_usesIndices, renderMode=_renderMode, state=_state;
+	usesIndices=_usesIndices, renderMode=_renderMode, state=_state, isValid=_isValid;
 
 - (id)initWithVertexCapacity:(int)aVertexCapacity indexCapacity:(int)aIndexCapacity
 {
@@ -16,6 +16,7 @@
 	if(!self) return nil;
 
 	_state = [GlobalState() copy];
+    _isValid = YES;
 
 	_vertexCount = 0;
 	_indexCount = 0;
@@ -39,20 +40,28 @@
 	return self;
 }
 
-- (void)finalize
+- (void)invalidate
 {
+    if(!_isValid)
+        return;
+    _isValid = NO;
+    
 	[GlobalGLContext() makeCurrentContext];
 	GLuint buffers[] = { _indexBuffer, _vertexBuffer };
 	glDeleteBuffers(2, buffers);
 	free(_vertices);
 	free(_indices);
+}
+
+- (void)finalize
+{
+    [self invalidate];
 
 	[super finalize];
 }
 
 - (void)drawNormals:(Scene *)aScene
 {
-	//glLineWidth(3);
 	Shader *shader = [aScene currentState].shader;
 	[shader withUniform:@"u_ambientColor" do:^(GLint loc) {
 		vec4_t white = { 1, 1, 1, 1 };

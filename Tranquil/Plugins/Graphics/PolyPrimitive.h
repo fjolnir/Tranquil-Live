@@ -35,11 +35,15 @@ typedef enum {
 @property(readonly) BOOL usesIndices;
 @property(readwrite, assign, nonatomic) PolyPrimitiveRenderMode renderMode;
 @property(readwrite, retain, nonatomic) State *state;
+@property(readonly, nonatomic) BOOL isValid;
 
 - (id)initWithVertexCapacity:(int)aVertexCapacity indexCapacity:(int)aIndexCapacity;
 
 - (void)addVertex:(TVertex_t)aVertex;
 - (void)clear;
+
+// Frees the VBOs & data for this primitive. rendering it unusable
+- (void)invalidate;
 
 - (void)recomputeNormals:(BOOL)aSmooth;
 @end
