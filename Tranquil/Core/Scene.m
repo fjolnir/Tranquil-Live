@@ -3,7 +3,6 @@
 #import "ScriptContext.h"
 #import "State.h"
 #import "Light.h"
-#import "Camera.h"
 #import "Shader.h"
 #import "GLErrorChecking.h"
 
@@ -107,6 +106,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 	for(id<SceneObject> obj in _immediateModeObjects) {
 		[obj render:self];
 	}
+    [_immediateModeObjects makeObjectsPerformSelector:@selector(invalidate)];
 	[_immediateModeObjects removeAllObjects];
 	[_projStack pop];
 	// Notify the script
@@ -116,6 +116,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 #pragma - Accessors
 - (void)clear
 {
+	[_objects makeObjectsPerformSelector:@selector(invalidate)];
 	[_objects removeAllObjects];
 }
 - (id<SceneObject>)addObject:(id<SceneObject>)aObject
