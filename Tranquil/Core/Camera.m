@@ -32,14 +32,26 @@
 	vec4_t t = [_position negate].vec;
 	mat4_t translation = mat4_create_translation(t.x, t.y, t.z);
 	mat4_t rotation = quat_to_ortho(quat_inverse(_orientation.quat));
+    
+    // Implement zooming just by translating in the view direction
+    vec4_t p = (vec4_t){ 0,0,-_zoom,1 };
+    p = quat_rotatePoint(_orientation.quat, p);
+    translation = mat4_mul(translation, mat4_create_translation(p.x, p.y, p.z));
+    
 	// Then apply the projection
 	float near = 1;
-	float far = 10000;
+	float far = 1000;
 	float top = tanf(0.5*_fov/_aspectRatio)*near;
 	float bottom = -top;
 	float left = _aspectRatio*bottom;
 	float right = _aspectRatio*top;
-	mat4_t projection = mat4_frustum(left*_zoom, right*_zoom, bottom*_zoom, top*_zoom, near, far);
+//    float left = -1.0;
+//	float right = -left;
+//    float top = 1.0f/_aspectRatio;
+//	float bottom = -top;
+	
+//	mat4_t projection = mat4_frustum(left*_zoom, right*_zoom, bottom*_zoom, top*_zoom, near, far);
+	mat4_t projection = mat4_frustum(left, right, bottom, top, near, far);
 	_matrix = [Matrix4 matrixWithMat:mat4_mul(projection, mat4_mul(rotation,translation))];
 }
 
