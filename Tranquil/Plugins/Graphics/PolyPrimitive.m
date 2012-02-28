@@ -106,27 +106,27 @@
 	}
 	[shader withAttribute:@"a_position" do:^(GLint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(TVertex_t), (void*)offsetof(TVertex_t, position));
+		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, position)));
 	}];
 	[shader withAttribute:@"a_normal" do:^(GLint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(TVertex_t), (void*)offsetof(TVertex_t, normal));
+		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, normal)));
 	}];
 	[shader withAttribute:@"a_color" do:^(GLint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(TVertex_t), (void*)offsetof(TVertex_t, color));
+		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, color)));
 	}];
 	[shader withAttribute:@"a_texCoord" do:^(GLint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 2, GL_FLOAT, GL_FALSE, sizeof(TVertex_t), (void*)offsetof(TVertex_t, texCoord));
+		glVertexAttribPointer(loc, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, texCoord)));
 	}];
 	[shader withAttribute:@"a_size" do:^(GLint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 1, GL_FLOAT, GL_FALSE, sizeof(TVertex_t), (void*)offsetof(TVertex_t, size));
+		glVertexAttribPointer(loc, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, size)));
 	}];
 	[shader withAttribute:@"a_shininess" do:^(GLint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 1, GL_FLOAT, GL_FALSE, sizeof(TVertex_t), (void*)offsetof(TVertex_t, shininess));
+		glVertexAttribPointer(loc, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, shininess)));
 	}];
 
 	if(_usesIndices) {
@@ -148,12 +148,12 @@
 	if(_vertexCapacity == aVertexCapacity || aVertexCapacity == 0) return;
 	_vertexCapacity = aVertexCapacity;
 	if(_vertices)
-		_vertices = realloc(_vertices, _vertexCapacity*sizeof(TVertex_t));
+		_vertices = realloc(_vertices, _vertexCapacity*sizeof(Vertex_t));
 	else
-		_vertices = calloc(_vertexCapacity, sizeof(TVertex_t));
+		_vertices = calloc(_vertexCapacity, sizeof(Vertex_t));
 
-	glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-	glBufferData(GL_ARRAY_BUFFER, _vertexCapacity*sizeof(TVertex_t), _vertices, GL_DYNAMIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
+	glBufferData(GL_ARRAY_BUFFER, _vertexCapacity*sizeof(Vertex_t), _vertices, GL_DYNAMIC_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	TCheckGLError();
 }
@@ -186,20 +186,19 @@
 
 - (void)addIndex:(GLuint)aIndex
 {
-	if(_indexCount+1 >= _indexCapacity)
-		[self setIndexCapacity:(_indexCapacity>0 ? _indexCapacity : 4) * 2];
-	_indices[_indexCount] = aIndex;
+    ++_indexCount;
+	if(_indexCount >= _indexCapacity)
+		[self setIndexCapacity:(_indexCapacity>0 ? _indexCapacity : 64) * 2];
+	_indices[_indexCount-1] = aIndex;
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
-	glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, _indexCount*sizeof(GLuint), sizeof(GLuint), &_indices[_indexCount]);
+	glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, (_indexCount-1)*sizeof(GLuint), sizeof(GLuint), &_indices[_indexCount-1]);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	TCheckGLError();
-
-	++_indexCount;
 }
 
 - (void)clear
 {
-	memset(_vertices, 0, sizeof(TVertex_t)*_vertexCount);
+	memset(_vertices, 0, sizeof(Vertex_t)*_vertexCount);
 	_vertexCount = 0;
 	memset(_indices, 0, sizeof(GLuint)*_indexCount);
 	_indexCount = 0;

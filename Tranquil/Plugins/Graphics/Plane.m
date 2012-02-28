@@ -14,7 +14,7 @@
 	self.renderMode = kPolyPrimitiveRenderModeTriStrip;
 	
 	// Build the vertex list
-	TVertex_t verts[uDiv*vDiv];
+	Vertex_t verts[uDiv*vDiv];
 	vec4_t pos, color, normal;
 	color = self.state.color.vec;
 	normal = vec4_create(0, 1, 0, 0);
@@ -22,7 +22,7 @@
 	for(int v = 0; v < vDiv; ++v) {
 		for(int u = 0; u < uDiv; ++u) {
 			pos = vec4_create((2.0f*(float)u/(uDiv-1))-1.0f, 0.0, 2.0f*((float)v/(vDiv-1))-1.0, 1);
-			verts[i++] = TVertexCreate(pos, normal, vec2_create(pos.x, pos.y), color, 1, 1);
+			verts[i++] = VertexCreate(pos, normal, vec2_create(pos.x, pos.y), color, 1, 1);
 		}
 	}
 	// Build the triangle strip (We're not using indices because we want deforming to be easy)

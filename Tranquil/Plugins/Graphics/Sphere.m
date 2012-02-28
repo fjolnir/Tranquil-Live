@@ -1,5 +1,4 @@
 #import "Sphere.h"
-#import <TranquilCore/TranquilCore.h>
 
 @implementation Sphere
 - (id)initWithRadius:(float)aRadius stacks:(int)aStacks slices:(int)aSlices
@@ -16,12 +15,12 @@
 	vec4_t color = self.state.color.vec;
 	for(int j = 0; j < aSlices; ++j) {
 		float scale[2],height[2],nheight[2];
-		scale[0] = sin(degToRad((j/(float)aSlices)*180));
-		scale[1] = sin(degToRad(((j+1)/(float)aSlices)*180));
-		height[0] = cos(degToRad((j/(float)aSlices)*180)) * aRadius;
-		height[1] = cos(degToRad(((j+1)/(float)aSlices)*180)) * aRadius;
-		nheight[0] = cos(degToRad((j/(float)aSlices)*180)) * (aRadius+1.0f);
-		nheight[1] = cos(degToRad(((j+1)/(float)aSlices)*180)) * (aRadius+1.0f);
+		scale[0] = sinf(degToRad((j/(float)aSlices)*180));
+		scale[1] = sinf(degToRad(((j+1)/(float)aSlices)*180));
+		height[0] = cosf(degToRad((j/(float)aSlices)*180)) * aRadius;
+		height[1] = cosf(degToRad(((j+1)/(float)aSlices)*180)) * aRadius;
+		nheight[0] = cosf(degToRad((j/(float)aSlices)*180)) * (aRadius+1.0f);
+		nheight[1] = cosf(degToRad(((j+1)/(float)aSlices)*180)) * (aRadius+1.0f);
 		
 		for(int i = 0; i < aStacks; ++i) {
 			vec3_t point[2], npoint[2];
@@ -48,13 +47,13 @@
 			texCoords[2] = vec2_create(i/(float)aStacks, j/(float)aSlices);
 			texCoords[3] = vec2_create((i+1)/(float)aStacks, (j+1)/(float)aSlices);
 
-			[self addVertex:TVertexCreate(vertices[2], normals[2], texCoords[2], color, 1, 1)];
-			[self addVertex:TVertexCreate(vertices[1], normals[1], texCoords[1], color, 1, 1)];
-			[self addVertex:TVertexCreate(vertices[0], normals[0], texCoords[0], color, 1, 1)];
+			[self addVertex:VertexCreate(vertices[2], normals[2], texCoords[2], color, 1, 1)];
+			[self addVertex:VertexCreate(vertices[1], normals[1], texCoords[1], color, 1, 1)];
+			[self addVertex:VertexCreate(vertices[0], normals[0], texCoords[0], color, 1, 1)];
 			
-			[self addVertex:TVertexCreate(vertices[0], normals[0], texCoords[0], color, 1, 1)];
-			[self addVertex:TVertexCreate(vertices[1], normals[1], texCoords[1], color, 1, 1)];
-			[self addVertex:TVertexCreate(vertices[3], normals[3], texCoords[3], color, 1, 1)];
+			[self addVertex:VertexCreate(vertices[0], normals[0], texCoords[0], color, 1, 1)];
+			[self addVertex:VertexCreate(vertices[1], normals[1], texCoords[1], color, 1, 1)];
+			[self addVertex:VertexCreate(vertices[3], normals[3], texCoords[3], color, 1, 1)];
 		}
 	}
 	

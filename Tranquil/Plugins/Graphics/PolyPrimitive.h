@@ -13,10 +13,10 @@ typedef union {
 		float size;
 		float shininess;
 	};
-} TVertex_t;
+} Vertex_t;
 
-static __inline__ TVertex_t TVertexCreate(vec4_t aPos, vec4_t aNormal, vec2_t aTexCoord, vec4_t aColor, float aSize, float aShininess) {
-	TVertex_t out = { .position=aPos, .normal=aNormal, .color=aColor, .texCoord=aTexCoord, .size=aSize, .shininess=aShininess };
+static __inline__ Vertex_t VertexCreate(vec4_t aPos, vec4_t aNormal, vec2_t aTexCoord, vec4_t aColor, float aSize, float aShininess) {
+	Vertex_t out = { .position=aPos, .normal=aNormal, .color=aColor, .texCoord=aTexCoord, .size=aSize, .shininess=aShininess };
 	return out;
 }
 
@@ -27,9 +27,11 @@ typedef enum {
 	kPolyPrimitiveRenderModePoints = GL_POINTS
 } PolyPrimitiveRenderMode;
 
+typedef Vertex_t (^VertexMappingBlock)(NSUInteger aIndex, Vertex_t aVertex);
+
 @interface PolyPrimitive : NSObject <SceneObject>
 @property(readonly) GLuint vertexBuffer, indexBuffer;
-@property(readwrite, assign, nonatomic) TVertex_t *vertices;
+@property(readwrite, assign, nonatomic) Vertex_t *vertices;
 @property(readwrite, assign, nonatomic) GLuint *indices;
 @property(readwrite, assign, nonatomic) int vertexCount, vertexCapacity, indexCount, indexCapacity;
 @property(readonly) BOOL usesIndices;
@@ -39,7 +41,7 @@ typedef enum {
 
 - (id)initWithVertexCapacity:(int)aVertexCapacity indexCapacity:(int)aIndexCapacity;
 
-- (void)addVertex:(TVertex_t)aVertex;
+- (void)addVertex:(Vertex_t)aVertex;
 - (void)clear;
 
 // Frees the VBOs & data for this primitive. rendering it unusable
