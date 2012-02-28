@@ -76,6 +76,7 @@
 		C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */; };
 		C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3014B78D4C0000884E /* Credits.rtf */; };
 		C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3614B78D4D0000884E /* MainMenu.xib */; };
+		C7E6E19C14F60B7000215A8D /* TranquilCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,20 @@
 			remoteGlobalIDString = C79EF1BF14F530DF00570FB6;
 			remoteInfo = TranquilCore;
 		};
+		C7BD147014FBAE6200EFC94A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C744E3E814B84CB400078FBB;
+			remoteInfo = TranquilAudio;
+		};
+		C7BD147214FBAE6400EFC94A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C744E3C714B8464E00078FBB;
+			remoteInfo = TranquilGraphics;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -141,6 +156,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C7E6E19C14F60B7000215A8D /* TranquilCore.framework in Copy Frameworks */,
 				C7622B2014D0879A0093DDD0 /* GLMath.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -511,6 +527,7 @@
 				C744E3C414B8464E00078FBB /* Sources */,
 				C744E3C514B8464E00078FBB /* Frameworks */,
 				C744E3C614B8464E00078FBB /* Resources */,
+				C76B904D14FBC5090026A990 /* Generate Bridge Metadata */,
 			);
 			buildRules = (
 			);
@@ -573,6 +590,8 @@
 			);
 			dependencies = (
 				C79EF1E814F533B900570FB6 /* PBXTargetDependency */,
+				C7BD147114FBAE6200EFC94A /* PBXTargetDependency */,
+				C7BD147314FBAE6400EFC94A /* PBXTargetDependency */,
 			);
 			name = Tranquil;
 			productName = Tranquil;
@@ -671,6 +690,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C76B904D14FBC5090026A990 /* Generate Bridge Metadata */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Bridge Metadata";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C744E3C414B8464E00078FBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -743,6 +779,16 @@
 			isa = PBXTargetDependency;
 			target = C79EF1BF14F530DF00570FB6 /* TranquilCore */;
 			targetProxy = C79EF1EB14F533CC00570FB6 /* PBXContainerItemProxy */;
+		};
+		C7BD147114FBAE6200EFC94A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C744E3E814B84CB400078FBB /* TranquilAudio */;
+			targetProxy = C7BD147014FBAE6200EFC94A /* PBXContainerItemProxy */;
+		};
+		C7BD147314FBAE6400EFC94A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C744E3C714B8464E00078FBB /* TranquilGraphics */;
+			targetProxy = C7BD147214FBAE6400EFC94A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -884,6 +930,7 @@
 				GCC_PREFIX_HEADER = "Tranquil/Core/Supporting Files/TranquilCore-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				INFOPLIST_FILE = "Tranquil/Core/Supporting Files/TranquilCore-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -899,6 +946,7 @@
 				GCC_PREFIX_HEADER = "Tranquil/Core/Supporting Files/TranquilCore-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				INFOPLIST_FILE = "Tranquil/Core/Supporting Files/TranquilCore-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
