@@ -44,19 +44,10 @@ void main()
 		float specular = pow( max(dot(reflected, eyeDir), 0.0), a_shininess);
 		
 		vertColor += (u_ambientColors[i]+diffuse)*a_color + specular*u_specularColors[i];
-		//vertColor = vec4(reflected, 1.0);
-		//vertColor = vec4(specular);
-		//vertColor = vec4(reflected, 0.0);
-		/*vertColor = vec4(reflected, 1.0);
-		vertColor = vec4(max(dot(reflected, eyeVec), 0.0));*/
-		//vertColor = vec4(specular);
-									 //vertColor = vec4(lightDir, 1);
-									 //vertColor = normal;
 	}
 	v_color = vertColor;
-	//v_color = a_normal;
 	//v_color = (v_color + vec4(1.0, 1.0, 1.0, 1.0)) / 2.0;
-	v_color.a = 1.0;
+//	v_color.a = 1.0;
 
 	gl_Position = projectedPos;
 }
