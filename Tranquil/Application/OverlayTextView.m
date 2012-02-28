@@ -16,10 +16,11 @@
 	self.textColor = [NSColor whiteColor];
 	self.font = [NSFont fontWithName:@"Monaco" size:16];
 	self.insertionPointColor = [NSColor whiteColor];
+    self.alphaValue = 0.6;
 	NSShadow *shadow = [[NSShadow alloc] init];
-	shadow.shadowBlurRadius = 2.0;
+	shadow.shadowBlurRadius = 1;
 	shadow.shadowOffset = NSMakeSize(0, -1);
-	shadow.shadowColor = [NSColor colorWithDeviceRed:0 green:0 blue:0 alpha:0.7];
+	shadow.shadowColor = [NSColor colorWithDeviceRed:0 green:0 blue:0 alpha:1];
 	self.shadow = shadow;
 }
 
