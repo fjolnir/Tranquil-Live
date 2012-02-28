@@ -22,7 +22,7 @@ def translate(vec)
 	currentState.transform *= Matrix4.translation(vec)
 end
 def rotate(angle, vec)
-	currentState.transform *= Matrix4.rotation(vec)
+	currentState.transform *= Matrix4.rotation(angle, vec)
 end
 def color(color)
 	currentState.color = color

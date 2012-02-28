@@ -46,7 +46,7 @@ class Matrix4
 	def self.translation(vec)
 		translationWithX(vec.x, y:vec.y, z:vec.z)
 	end
-	def self.rotation (vec)
+	def self.rotation (angle, vec)
 		rotationWithAngle(angle, x:vec.x, y:vec.y, z:vec.z)
 	end
 end
