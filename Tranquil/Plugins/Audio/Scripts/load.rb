@@ -28,5 +28,5 @@ startAudio "Soundflower (2ch)"
 
 _registerFrameCallback do
 	@audio.update unless @audio.nil?
- #   printf "%+09.04f, %+09.04f, %+09.04f, %+09.04f\n", @audio.magnitudeForBand(1), @audio.magnitudeForBand(6), @audio.magnitudeForBand(10), @audio.magnitudeForBand(14)
+#    printf "%+09.04f, %+09.04f, %+09.04f, %+09.04f\n", @audio.magnitudeForBand(1), @audio.magnitudeForBand(6), @audio.magnitudeForBand(10), @audio.magnitudeForBand(14)
 end

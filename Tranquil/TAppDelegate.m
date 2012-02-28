@@ -21,7 +21,7 @@
 		[NSApp terminate:nil];
 	}
 	[[PluginManager sharedManager] loadAllPlugins];
-	
+
 	[[ScriptContext sharedContext] executeScript:@"_setup" error:nil];
 }
 
