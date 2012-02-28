@@ -31,10 +31,10 @@ static Shader *_ActiveShader = nil;
 {
 	if(!(self = [super init]))
 		return nil;
-	
+
 	_unifCache = [[NSMutableDictionary alloc] init];
 	_attribCache = [[NSMutableDictionary alloc] init];
-	
+
 	BOOL success;
 	GLuint fragmentShader = [self _loadShader:aFragSrc type:GL_FRAGMENT_SHADER compiled:&success];
 	assert(success);
@@ -115,7 +115,7 @@ static Shader *_ActiveShader = nil;
 			TLog(@"Uniform lookup error: No such uniform (%@)", aUniformName);
 	} else
 		location = [cached intValue];
-	
+
 	TCheckGLError();
 	return location;
 }
@@ -131,7 +131,7 @@ static Shader *_ActiveShader = nil;
 			TLog(@"Attribute lookup error: No such attribute (%@)", aAttribName);
 	} else
 		location = [cached intValue];
-	
+
 	TCheckGLError();
 	return location;
 }
