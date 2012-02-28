@@ -38,6 +38,7 @@ typedef Vertex_t (^VertexMappingBlock)(NSUInteger aIndex, Vertex_t aVertex);
 @property(readwrite, assign, nonatomic) PolyPrimitiveRenderMode renderMode;
 @property(readwrite, retain, nonatomic) State *state;
 @property(readonly, nonatomic) BOOL isValid;
+@property(readwrite, assign, nonatomic) BOOL useVBO;
 
 - (id)initWithVertexCapacity:(int)aVertexCapacity indexCapacity:(int)aIndexCapacity;
 

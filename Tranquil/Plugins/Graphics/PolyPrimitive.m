@@ -3,12 +3,19 @@
 @interface PolyPrimitive () {
 	int _vertexCapacity, _indexCapacity;
 }
+- (void)_deleteVBO;
 @end
 
-@implementation PolyPrimitive
+@implementation PolyPrimitive {
+@private
+    BOOL _useVBO;
+}
+
 @synthesize vertexBuffer=_vertexBuffer, indexBuffer=_indexBuffer, vertices=_vertices, vertexCapacity=_vertexCapacity,
 	indices=_indices, indexCapacity=_indexCapacity, vertexCount=_vertexCount, indexCount=_indexCount,
 	usesIndices=_usesIndices, renderMode=_renderMode, state=_state, isValid=_isValid;
+@synthesize useVBO = _useVBO;
+
 
 - (id)initWithVertexCapacity:(int)aVertexCapacity indexCapacity:(int)aIndexCapacity
 {
@@ -22,22 +29,30 @@
 	_indexCount = 0;
 	_vertices = NULL;
 	_indices = NULL;
-	glGenBuffers(1, &_vertexBuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-	[self setVertexCapacity:aVertexCapacity];
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	TCheckGLError();
 
-	_usesIndices = aIndexCapacity > 0;
-	glGenBuffers(1, &_indexBuffer);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vertexBuffer);
-	[self setIndexCapacity:aIndexCapacity];
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-	TCheckGLError();
-
-	_vertexCount = _indexCount = 0;
-
+    _vertexBuffer = 0;
+    _indexBuffer = 0;
+    _usesIndices = aIndexCapacity > 0;
+    _useVBO = NO;
+    [self setVertexCapacity:aVertexCapacity];
+    [self setIndexCapacity:aIndexCapacity];
 	return self;
+}
+
+- (void)_deleteVBO
+{
+    [GlobalGLContext() makeCurrentContext];
+	GLuint buffers[] = { _indexBuffer, _vertexBuffer };
+	glDeleteBuffers(2, buffers);
+    _indexBuffer = _vertexBuffer = 0;
+    TCheckGLError();
+}
+
+- (void)setUseVBO:(BOOL)aUseVBO
+{
+    _useVBO = aUseVBO;
+    if(!_useVBO)
+        [self _deleteVBO];
 }
 
 - (void)invalidate
@@ -45,10 +60,9 @@
     if(!_isValid)
         return;
     _isValid = NO;
-    
-	[GlobalGLContext() makeCurrentContext];
-	GLuint buffers[] = { _indexBuffer, _vertexBuffer };
-	glDeleteBuffers(2, buffers);
+
+    if(_useVBO)
+    	[self _deleteVBO];
 	free(_vertices);
 	free(_indices);
 }
@@ -59,6 +73,8 @@
 
 	[super finalize];
 }
+
+#pragma mark - Rendering
 
 - (void)drawNormals:(Scene *)aScene
 {
@@ -97,7 +113,11 @@
 - (void)render:(Scene *)aScene
 {
 	[_state applyToScene:aScene];
-	glBindBufferARB(GL_ARRAY_BUFFER, _vertexBuffer);
+    void *baseOffset = _vertices;
+    if(_useVBO) {
+        baseOffset = 0;
+    	glBindBufferARB(GL_ARRAY_BUFFER, _vertexBuffer);
+    }
 
 	Shader *shader = _state.shader;
 	if(!shader) {
@@ -137,7 +157,8 @@
 	} else
 		glDrawArrays(_renderMode, 0, _vertexCount);
 
-	glBindBufferARB(GL_ARRAY_BUFFER, 0);
+    if(_useVBO)
+    	glBindBufferARB(GL_ARRAY_BUFFER, 0);
 	[_state unapplyToScene:aScene];
 }
 
@@ -146,12 +167,16 @@
 - (void)setVertexCapacity:(int)aVertexCapacity
 {
 	if(_vertexCapacity == aVertexCapacity || aVertexCapacity == 0) return;
+
 	_vertexCapacity = aVertexCapacity;
 	if(_vertices)
 		_vertices = realloc(_vertices, _vertexCapacity*sizeof(Vertex_t));
 	else
 		_vertices = calloc(_vertexCapacity, sizeof(Vertex_t));
 
+    if(!_useVBO) return;
+    if(!_vertexBuffer)
+        glGenBuffers(1, &_vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
 	glBufferData(GL_ARRAY_BUFFER, _vertexCapacity*sizeof(Vertex_t), _vertices, GL_DYNAMIC_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -165,23 +190,28 @@
 		_indices = realloc(_indices, _indexCapacity*sizeof(GLuint));
 	else
 		_indices = calloc(_indexCapacity, sizeof(GLuint));
+
+    if(!_useVBO) return;
+    if(!_indexBuffer)
+        glGenBuffers(1, &_indexBuffer);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, _indexCapacity*sizeof(GLuint), _indices, GL_DYNAMIC_DRAW);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	TCheckGLError();
 }
-- (void)addVertex:(TVertex_t)aVertex
+- (void)addVertex:(Vertex_t)aVertex
 {
-	if(_vertexCount+1 > _vertexCapacity)
-		[self setVertexCapacity:(_vertexCapacity>0 ? _vertexCapacity : 4) * 2];
-	_vertices[_vertexCount] = aVertex;
+    ++_vertexCount;
+	if(_vertexCount > _vertexCapacity)
+		[self setVertexCapacity:(_vertexCapacity>0 ? _vertexCapacity : 64) * 2];
+	_vertices[_vertexCount-1] = aVertex;
 
+    if(!_useVBO) return;
 	glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-	glBufferSubData(GL_ARRAY_BUFFER, _vertexCount*sizeof(TVertex_t), sizeof(TVertex_t), _vertices[_vertexCount].f);
+	glBufferSubData(GL_ARRAY_BUFFER, (_vertexCount-1)*sizeof(Vertex_t), sizeof(Vertex_t), _vertices[_vertexCount-1].f);
+    TCheckGLError();
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	TCheckGLError();
-
-	++_vertexCount;
 }
 
 - (void)addIndex:(GLuint)aIndex
@@ -190,6 +220,8 @@
 	if(_indexCount >= _indexCapacity)
 		[self setIndexCapacity:(_indexCapacity>0 ? _indexCapacity : 64) * 2];
 	_indices[_indexCount-1] = aIndex;
+
+    if(!_useVBO) return;
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
 	glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, (_indexCount-1)*sizeof(GLuint), sizeof(GLuint), &_indices[_indexCount-1]);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
