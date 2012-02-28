@@ -7,6 +7,11 @@ end
 def vec4(aX,aY,aZ,aW)
 	Vector4.vectorWithX(aX, y:aY, z:aZ, w:aW)
 end
+
+def rgb(aR, aG, aB, aA=1.0)
+    Vector4.vectorWithX(aR, y:aG, z:aB, w:aA)
+end
+
 def quat(aAngle,aX,aY,aZ)
 	Quaternion.quaternionWithAngle(aAngle, x:aX, y:aY, z:aZ)
 end
