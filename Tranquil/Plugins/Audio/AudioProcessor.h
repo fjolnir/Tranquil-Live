@@ -5,7 +5,7 @@
 @property(readonly) BOOL isRunning;
 @property(readonly) float *frequencyBands;
 @property(readwrite, assign, nonatomic) int numberOfFrequencyBands;
-@property(readwrite, assign) float gain, smoothingBias;
+@property(readwrite, assign) float gain, smoothingFactor, minDb;
 
 + (PaDeviceIndex)deviceIndexForName:(NSString *)aName;
 

@@ -46,8 +46,7 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 }
 
 @implementation AudioProcessor
-
-@synthesize isRunning=_isRunning, frequencyBands=_frequencyBands, numberOfFrequencyBands=_numberOfFrequencyBands, gain=_gain, smoothingBias=_smoothingBias;
+@synthesize isRunning=_isRunning, frequencyBands=_frequencyBands, numberOfFrequencyBands=_numberOfFrequencyBands, gain=_gain, smoothingFactor=_smoothingFactor, minDb=_minDb;
 
 + (PaDeviceIndex)deviceIndexForName:(NSString *)aName
 {
@@ -66,17 +65,17 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	self = [super init];
 	if(!self) return nil;
 	
-	[self setNumberOfFrequencyBands:16];
+	[self setNumberOfFrequencyBands:32];
 	_gain = 0.8;
-	_smoothingBias = 0.8;
-	
+	_smoothingFactor = 0.2;
+    _minDb = -210.0f;
+
 	// Prepare the fourier transform
 	_fftSize = 1024;
 	_fftSizeOver2 = _fftSize/2;
 	_hannWindow = (float *)malloc(sizeof(float) * _fftSize);
     //TODO: Decide on final window type
-//	vDSP_hann_window(_hannWindow, _fftSize, vDSP_HANN_NORM);
-    vDSP_hamm_window(_hannWindow, _fftSize, 0);
+	vDSP_hann_window(_hannWindow, _fftSize, vDSP_HANN_NORM);
 	_hannWindowedBuffer = (float *)malloc(sizeof(float)*_fftSize);
 
 	_splitBuffer.realp = (float *)malloc(sizeof(float)*_fftSizeOver2);
@@ -176,19 +175,15 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 			value += _magnitudes[j];
 		}
 
-        float minDb = -110.0f;
-        // Average the range
+        // Average the signal
         value /= to-from;
-        value = GLM_CLAMP(value, minDb, 0);
+        value *= _gain;
+        value = GLM_CLAMP(value, _minDb, 0);
 
-		if(value != NAN && value != INFINITY && value != -INFINITY) { // These values would kill all future ones
-			_frequencyBands[i] = value;
-//			_frequencyBands[i] = (_smoothingBias * _frequencyBands[i]) + ((1.0 - _smoothingBias) * value);
-            float logFactor = 2.4f;
-            float normalizedValue = value / minDb;
-            normalizedValue = powf(normalizedValue, 0.416666667f);//1.0f/logFactor);
-            _frequencyBands[i] = 1.0f-normalizedValue;
-		}
+        float logFactor = 2.4f;
+        float normalizedValue = value / _minDb;
+        normalizedValue = powf(normalizedValue, 1.0f/logFactor);
+        _frequencyBands[i] = (_smoothingFactor * _frequencyBands[i]) + ((1.0 - _smoothingFactor) * (1.0 - normalizedValue));
 	}
 }
 
@@ -204,21 +199,24 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	vDSP_ctoz((COMPLEX *)_hannWindowedBuffer, 2, &_splitBuffer, 1, _fftSizeOver2);
 	
 	// Calculate the fft
-	vDSP_fft_zrip(_fftSetup, &_splitBuffer, 1, log2(_fftSize), FFT_FORWARD);
-    // Zero DC
-    *(_splitBuffer.realp) = 0;
-    *(_splitBuffer.imagp) = 0;
+	vDSP_fft_zrip(_fftSetup, &_splitBuffer, 1, (vDSP_Length)ceilf(log2f(_fftSize)), FFT_FORWARD);
+    // Zero the Nyquist value
+    _splitBuffer.imagp[0] = 0.0;
+
+    float scale=1.0/_fftSizeOver2;//0.5 ;
+    vDSP_vsmul(_splitBuffer.realp, 1, &scale, _splitBuffer.realp, 1, _fftSizeOver2);
+    vDSP_vsmul(_splitBuffer.imagp, 1, &scale, _splitBuffer.imagp, 1, _fftSizeOver2);
 
 	// Normalize & Convert to decibels
 	float mags[_fftSizeOver2];
-    //vDSP_zvabs(&_splitBuffer, 1, mags, 1, _fftSizeOver2);
     vDSP_zvmags(&_splitBuffer, 1, mags, 1, _fftSizeOver2);
 
-//    float fftSizeOver2AsFloat = (float)_fftSizeOver2;
-//    vDSP_vsdiv(mags, 1, &fftSizeOver2AsFloat, mags, 1, _fftSizeOver2);
     float zero = 1.0;
+	vDSP_vdbcon(mags, 1, &zero, _magnitudes, 1, _fftSizeOver2, 1);
 
-	vDSP_vdbcon(mags, 1, &zero, _magnitudes, 1, _fftSizeOver2, 0);
+    // Hann db offset
+    float hannGainOffset = -3.2;
+    vDSP_vsadd(mags, 1, &hannGainOffset, mags, 1, _fftSizeOver2);
 }
 
 - (int)_processInput:(const void *)buffer
@@ -226,8 +224,12 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 			timeInfo:(const PaStreamCallbackTimeInfo *)timeInfo
 		 statusFlags:(PaStreamCallbackFlags)statusFlags
 {
+    static BOOL didRegisterWithCollector = NO;
 	// Register the audio thread with the garbage collector
-	objc_registerThreadWithCollector();
+    if(!didRegisterWithCollector) {
+    	objc_registerThreadWithCollector();
+        didRegisterWithCollector = YES;
+    }
 	
 	// Update the buffer if it isn't being processed
 	if(_isRunning && pthread_mutex_trylock(&_sampleBufferMutex) == 0) {
