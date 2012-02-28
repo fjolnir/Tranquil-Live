@@ -39,28 +39,12 @@
 	return YES;
 }
 
-- (void)keyDown:(NSEvent *)aEvent
-{
-	NSString *characters;
-	characters = [aEvent characters];
-
-	unichar character;
-	character = [characters characterAtIndex: 0];
-
-	vec4_t pos = [Scene globalScene].camera.position.vec;
-	if(character == NSRightArrowFunctionKey)
-		pos.x += 0.1;
-	else if (character == NSLeftArrowFunctionKey)
-		pos.x -= 0.1;
-	else if (character == NSUpArrowFunctionKey)
-		pos.y += 0.1;
-	else if (character == NSDownArrowFunctionKey)
-		pos.y -= 0.1;
-	else if (character == NSPageUpFunctionKey)
-		pos.z += 0.1;
-	else if (character == NSPageDownFunctionKey)
-		pos.z -= 0.1;
-	GlobalScene().camera.position.vec = pos; 
-	[GlobalScene().camera updateMatrix];
-}
+//- (void)keyDown:(NSEvent *)aEvent
+//{
+//	NSString *characters;
+//	characters = [aEvent characters];
+//
+//	unichar character;
+//	character = [characters characterAtIndex:0];
+//}
 @end

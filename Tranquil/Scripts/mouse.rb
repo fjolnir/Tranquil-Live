@@ -27,7 +27,7 @@ class TranquilMouseObserver
 	def leftDrag(pos)
 		mouseLoc = mapToSphere(pos)
         
-		cam = Scene.globalScene.camera
+		cam = scene.camera
 		rotation = Quaternion.new
 		rotation.vec = @@lastMouseLoc.cross(mouseLoc) # Axis of rotation
 		rotation.scalar = @@lastMouseLoc.dot(mouseLoc) # Angle

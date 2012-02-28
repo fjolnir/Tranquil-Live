@@ -100,6 +100,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 	
 	[_projStack push:_camera.matrix];
+    
 	for(id<SceneObject> obj in _objects) {
 		[obj render:self];
 	}
