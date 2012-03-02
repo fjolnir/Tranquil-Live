@@ -3,4 +3,3 @@
 @interface Cube : PolyPrimitive
 - (id)initWithSize:(float)size;
 @end
-
