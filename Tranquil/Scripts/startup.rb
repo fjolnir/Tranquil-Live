@@ -11,7 +11,7 @@ require "mouse"
 def _setup
 	scene.clearColor = vec4(0,0,0,1)
 	
-	scene.camera.position = vec4(0, 0, 10, 1)
+	scene.camera.position = vec4(0, 0, 5, 1)
 	scene.camera.orientation = quat(0, 1, 0, 0)
     scene.camera.fov = Math::PI/2.0
 	scene.camera.updateMatrix
