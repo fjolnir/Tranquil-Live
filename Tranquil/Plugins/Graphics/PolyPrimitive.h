@@ -15,6 +15,15 @@ typedef union {
 	};
 } Vertex_t;
 
+// This class is necessary because it's currently unsupported to pass a struct directly
+// to MacRuby TODO: Fix! this is terrible.
+// ONLY FOR INTERNAL USE, WILL BE REMOVED AS SOON AS IT BECOMES UNNECESSARY
+@interface VertexWrapper : NSObject
+@property(readwrite, copy, nonatomic) Vector4 *pos, *normal, *color;
+@property(readwrite, copy, nonatomic) Vector2 *texCoord;
+@property(readwrite, assign, nonatomic) float size, shininess;
+@end
+
 static __inline__ Vertex_t VertexCreate(vec4_t aPos, vec4_t aNormal, vec2_t aTexCoord, vec4_t aColor, float aSize, float aShininess) {
 	Vertex_t out = { .position=aPos, .normal=aNormal, .color=aColor, .texCoord=aTexCoord, .size=aSize, .shininess=aShininess };
 	return out;
@@ -27,7 +36,7 @@ typedef enum {
 	kPolyPrimitiveRenderModePoints = GL_POINTS
 } PolyPrimitiveRenderMode;
 
-typedef Vertex_t (^VertexMappingBlock)(NSUInteger aIndex, Vertex_t aVertex);
+typedef void (^VertexMappingBlock)(NSUInteger aIndex, VertexWrapper *aVertex);
 
 @interface PolyPrimitive : NSObject <SceneObject>
 @property(readonly) GLuint vertexBuffer, indexBuffer;
@@ -49,5 +58,7 @@ typedef Vertex_t (^VertexMappingBlock)(NSUInteger aIndex, Vertex_t aVertex);
 - (void)invalidate;
 
 - (void)recomputeNormals:(BOOL)aSmooth;
+
+- (void)mapVertices:(VertexMappingBlock)aEnumBlock;
 @end
 

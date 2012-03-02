@@ -1,5 +1,10 @@
 #import "PolyPrimitive.h"
 
+@interface VertexWrapper ()
+@property(readwrite, assign, nonatomic) Vertex_t *vert;
+- (void)updateVert;
+@end
+
 @interface PolyPrimitive () {
 	int _vertexCapacity, _indexCapacity;
 }
@@ -240,4 +245,86 @@
 {
 	// TODO
 }
+
+- (void)mapVertices:(VertexMappingBlock)aEnumBlock
+{
+    VertexWrapper *wrapper = [[VertexWrapper alloc] init];
+    for(NSUInteger i = 0; i < _vertexCount; ++i) {
+        wrapper.vert = &_vertices[i];
+        aEnumBlock(i, wrapper);
+        [wrapper updateVert];
+    }
+    [wrapper release];
+    if(_useVBO) {
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
+        glBufferSubData(GL_ARRAY_BUFFER, 0, _vertexCount*sizeof(Vertex_t), _vertices);
+    }
+}
+
+@end
+
+@implementation VertexWrapper {
+@private
+    Vector4 *_pos;
+    Vector4 *_normal;
+    Vector4 *_color;
+    Vector2 *_texCoord;
+    float _size;
+    float _shininess;
+    Vertex_t *_vert;
+}
+
+@synthesize pos = _pos;
+@synthesize normal = _normal;
+@synthesize color = _color;
+@synthesize texCoord = _texCoord;
+@synthesize size = _size;
+@synthesize shininess = _shininess;
+@synthesize vert = _vert;
+
+- (id)init
+{
+    if(!(self = [super init]))
+        return nil;
+    _pos = [Vector4 vectorWithVec:kVec4_zero];
+    _normal = [Vector4 vectorWithVec:kVec4_zero];
+    _color = [Vector4 vectorWithVec:kVec4_zero];
+    _texCoord = [Vector2 vectorWithVec:kVec2_zero];
+    _size = 0.0f;
+    _shininess = 0.0f;
+
+    return self;
+}
+
+- (void)setVert:(Vertex_t *)aVert
+{
+    _vert = aVert;
+    _pos.vec = _vert->position;
+    _normal.vec = _vert->normal;
+    _color.vec = _vert->color;
+    _texCoord.vec = _vert->texCoord;
+    _size = _vert->size;
+    _shininess = _vert->shininess;
+}
+
+- (void)updateVert
+{
+    _vert->position = _pos.vec;
+    _vert->normal = _normal.vec;
+    _vert->color = _color.vec;
+    _vert->texCoord = _texCoord.vec;
+    _vert->size = _size;
+    _vert->shininess = _shininess;
+}
+
+- (void)dealloc
+{
+    [_pos release], _pos = nil;
+    [_normal release], _normal = nil;
+    [_color release], _color = nil;
+    [_texCoord release], _texCoord = nil;
+    [super dealloc];
+}
+
 @end
