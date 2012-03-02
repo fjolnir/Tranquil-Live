@@ -1,0 +1,48 @@
+<?xml version='1.0'?>
+<!DOCTYPE signatures SYSTEM "file://localhost/System/Library/DTDs/BridgeSupport.dtd">
+<signatures version='1.0'>
+<enum name='kPolyPrimitiveRenderModePoints' value='0'/>
+<enum name='kPolyPrimitiveRenderModeTriFan' value='6'/>
+<enum name='kPolyPrimitiveRenderModeTriList' value='4'/>
+<enum name='kPolyPrimitiveRenderModeTriStrip' value='5'/>
+<function name='VertexCreate' inline='true'>
+<arg type='i'/>
+<arg type='i'/>
+<arg type='i'/>
+<arg type='i'/>
+<arg type='f'/>
+<arg type='f'/>
+<retval type='(?=[16f])'/>
+</function>
+<class name='PolyPrimitive'>
+<method selector='asdf:'>
+<arg function_pointer='true' type='@?' index='0'>
+<arg type='i'/>
+<arg type='(?=[16f])'/>
+<retval type='v'/>
+</arg>
+</method>
+<method selector='isValid'>
+<retval type='B'/>
+</method>
+<method selector='mapVertices:'>
+<arg function_pointer='true' type='@?' index='0'>
+<arg type64='Q' type='I'/>
+<arg type='@'/>
+<retval type='v'/>
+</arg>
+</method>
+<method selector='recomputeNormals:'>
+<arg type='B' index='0'/>
+</method>
+<method selector='setUseVBO:'>
+<arg type='B' index='0'/>
+</method>
+<method selector='useVBO'>
+<retval type='B'/>
+</method>
+<method selector='usesIndices'>
+<retval type='B'/>
+</method>
+</class>
+</signatures>

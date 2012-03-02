@@ -24,6 +24,16 @@
 		C744E42414B8903500078FBB /* libportaudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42314B8903500078FBB /* libportaudio.a */; };
 		C744E42614B8905A00078FBB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42514B8905A00078FBB /* AudioToolbox.framework */; };
 		C744E42A14B8A49200078FBB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
+		C7520852150103C6008400C4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
+		C752086515010408008400C4 /* MIDIClock.m in Sources */ = {isa = PBXBuildFile; fileRef = C752085F15010408008400C4 /* MIDIClock.m */; };
+		C752086615010408008400C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C752086115010408008400C4 /* InfoPlist.strings */; };
+		C752086A15010423008400C4 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
+		C752086D1501043D008400C4 /* TranquilMIDI.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7520851150103C6008400C4 /* TranquilMIDI.bundle */; };
+		C752088215010754008400C4 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C752088115010754008400C4 /* CoreMIDI.framework */; };
+		C752088315010769008400C4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42514B8905A00078FBB /* AudioToolbox.framework */; };
+		C752088515010A09008400C4 /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C752088415010A09008400C4 /* Scripts */; };
+		C752088915010A60008400C4 /* TranquilMIDI.bridgesupport in Resources */ = {isa = PBXBuildFile; fileRef = C752088815010A60008400C4 /* TranquilMIDI.bridgesupport */; };
+		C752088C15010AD0008400C4 /* TranquilMIDIPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C752088B15010AD0008400C4 /* TranquilMIDIPlugin.m */; };
 		C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
 		C7622B2014D0879A0093DDD0 /* GLMath.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
 		C7622B2114D087AA0093DDD0 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
@@ -77,9 +87,24 @@
 		C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3014B78D4C0000884E /* Credits.rtf */; };
 		C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3614B78D4D0000884E /* MainMenu.xib */; };
 		C7E6E19C14F60B7000215A8D /* TranquilCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
+		C7E6E19C14F60B7000215A8F /* TranquilGraphics.bridgesupport in Resources */ = {isa = PBXBuildFile; fileRef = C7E6E19C14F60B7000215A8E /* TranquilGraphics.bridgesupport */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C75208681501041E008400C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C79EF1BF14F530DF00570FB6;
+			remoteInfo = TranquilCore;
+		};
+		C752086B1501042E008400C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7520850150103C6008400C4;
+			remoteInfo = TranquilMIDI;
+		};
 		C7622B1E14D0866E0093DDD0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
@@ -139,12 +164,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C752087A15010502008400C4 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C79EF1B514F5270A00570FB6 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				C752086D1501043D008400C4 /* TranquilMIDI.bundle in CopyFiles */,
 				C79EF20314F5368800570FB6 /* TranquilAudio.bundle in CopyFiles */,
 				C79EF1B814F5277000570FB6 /* TranquilGraphics.bundle in CopyFiles */,
 			);
@@ -192,6 +228,17 @@
 		C74B3A9714B7E280006741C4 /* ScriptContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptContext.h; sourceTree = "<group>"; };
 		C74B3A9814B7E280006741C4 /* ScriptContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptContext.m; sourceTree = "<group>"; };
 		C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		C7520851150103C6008400C4 /* TranquilMIDI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranquilMIDI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		C752085E15010408008400C4 /* MIDIClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDIClock.h; sourceTree = "<group>"; };
+		C752085F15010408008400C4 /* MIDIClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDIClock.m; sourceTree = "<group>"; };
+		C752086215010408008400C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C752086315010408008400C4 /* TranquilMIDI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TranquilMIDI-Info.plist"; sourceTree = "<group>"; };
+		C752086415010408008400C4 /* TranquilMIDI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TranquilMIDI-Prefix.pch"; sourceTree = "<group>"; };
+		C752088115010754008400C4 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		C752088415010A09008400C4 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
+		C752088815010A60008400C4 /* TranquilMIDI.bridgesupport */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TranquilMIDI.bridgesupport; sourceTree = "<group>"; };
+		C752088A15010AD0008400C4 /* TranquilMIDIPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranquilMIDIPlugin.h; sourceTree = "<group>"; };
+		C752088B15010AD0008400C4 /* TranquilMIDIPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranquilMIDIPlugin.m; sourceTree = "<group>"; };
 		C760C4F514B7AE1700451951 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C7622B3314D0AFA00093DDD0 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = SDKROOT; };
 		C7622B8E14D1CE460093DDD0 /* GLMathWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMathWrapper.h; sourceTree = "<group>"; };
@@ -245,6 +292,7 @@
 		C7E2EF2F14B78D4C0000884E /* Tranquil-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tranquil-Prefix.pch"; sourceTree = "<group>"; };
 		C7E2EF3114B78D4C0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		C7E2EF3714B78D4D0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C7E6E19C14F60B7000215A8E /* TranquilGraphics.bridgesupport */ = {isa = PBXFileReference; lastKnownFileType = file.bridgesupport; path = TranquilGraphics.bridgesupport; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +320,17 @@
 				C744E3FF14B8502500078FBB /* CoreAudio.framework in Frameworks */,
 				C744E3EA14B84CB400078FBB /* Cocoa.framework in Frameworks */,
 				C744E42414B8903500078FBB /* libportaudio.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C752084E150103C6008400C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C752088315010769008400C4 /* AudioToolbox.framework in Frameworks */,
+				C752088215010754008400C4 /* CoreMIDI.framework in Frameworks */,
+				C752086A15010423008400C4 /* TranquilCore.framework in Frameworks */,
+				C7520852150103C6008400C4 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +365,7 @@
 		C744E3CB14B8464E00078FBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C7E6E19C14F60B7000215A8E /* TranquilGraphics.bridgesupport */,
 				C744E3CC14B8464E00078FBB /* TranquilGraphics-Info.plist */,
 				C744E3CD14B8464E00078FBB /* InfoPlist.strings */,
 				C744E3D014B8464E00078FBB /* TranquilGraphics-Prefix.pch */,
@@ -358,6 +418,32 @@
 				C744E3ED14B84CB400078FBB /* TranquilAudio-Info.plist */,
 				C744E3EE14B84CB400078FBB /* InfoPlist.strings */,
 				C744E3F114B84CB400078FBB /* TranquilAudio-Prefix.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C752085D15010408008400C4 /* MIDI */ = {
+			isa = PBXGroup;
+			children = (
+				C752085E15010408008400C4 /* MIDIClock.h */,
+				C752085F15010408008400C4 /* MIDIClock.m */,
+				C752088A15010AD0008400C4 /* TranquilMIDIPlugin.h */,
+				C752088B15010AD0008400C4 /* TranquilMIDIPlugin.m */,
+				C752088415010A09008400C4 /* Scripts */,
+				C752086015010408008400C4 /* Supporting Files */,
+				C752088115010754008400C4 /* CoreMIDI.framework */,
+			);
+			name = MIDI;
+			path = Plugins/MIDI;
+			sourceTree = "<group>";
+		};
+		C752086015010408008400C4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C752088815010A60008400C4 /* TranquilMIDI.bridgesupport */,
+				C752086115010408008400C4 /* InfoPlist.strings */,
+				C752086315010408008400C4 /* TranquilMIDI-Info.plist */,
+				C752086415010408008400C4 /* TranquilMIDI-Prefix.pch */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -420,6 +506,7 @@
 				C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */,
 				C744E3E914B84CB400078FBB /* TranquilAudio.bundle */,
 				C79EF1C014F530DF00570FB6 /* TranquilCore.framework */,
+				C7520851150103C6008400C4 /* TranquilMIDI.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -449,6 +536,7 @@
 		C7E2EF2714B78D4C0000884E /* Tranquil */ = {
 			isa = PBXGroup;
 			children = (
+				C752085D15010408008400C4 /* MIDI */,
 				C79EF1ED14F5342900570FB6 /* Application */,
 				C7E2EF9E14B78E010000884E /* Core */,
 				C744E3E414B84C9C00078FBB /* Audio */,
@@ -557,6 +645,25 @@
 			productReference = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
+		C7520850150103C6008400C4 /* TranquilMIDI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C752085A150103C6008400C4 /* Build configuration list for PBXNativeTarget "TranquilMIDI" */;
+			buildPhases = (
+				C752084D150103C6008400C4 /* Sources */,
+				C752084E150103C6008400C4 /* Frameworks */,
+				C752084F150103C6008400C4 /* Resources */,
+				C752087A15010502008400C4 /* Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C75208691501041E008400C4 /* PBXTargetDependency */,
+			);
+			name = TranquilMIDI;
+			productName = TranquilMIDI;
+			productReference = C7520851150103C6008400C4 /* TranquilMIDI.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		C79EF1BF14F530DF00570FB6 /* TranquilCore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C79EF1CC14F530E000570FB6 /* Build configuration list for PBXNativeTarget "TranquilCore" */;
@@ -592,6 +699,7 @@
 				C79EF1E814F533B900570FB6 /* PBXTargetDependency */,
 				C7BD147114FBAE6200EFC94A /* PBXTargetDependency */,
 				C7BD147314FBAE6400EFC94A /* PBXTargetDependency */,
+				C752086C1501042E008400C4 /* PBXTargetDependency */,
 			);
 			name = Tranquil;
 			productName = Tranquil;
@@ -627,6 +735,7 @@
 				C7E2EF1C14B78D4C0000884E /* Tranquil */,
 				C744E3E814B84CB400078FBB /* TranquilAudio */,
 				C744E3C714B8464E00078FBB /* TranquilGraphics */,
+				C7520850150103C6008400C4 /* TranquilMIDI */,
 				C79EF1BF14F530DF00570FB6 /* TranquilCore */,
 			);
 		};
@@ -656,6 +765,7 @@
 			files = (
 				C744E3CF14B8464E00078FBB /* InfoPlist.strings in Resources */,
 				C76B70B614D40C59004E6CCE /* Scripts in Resources */,
+				C7E6E19C14F60B7000215A8F /* TranquilGraphics.bridgesupport in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,6 +775,16 @@
 			files = (
 				C744E3F014B84CB400078FBB /* InfoPlist.strings in Resources */,
 				C70E8A6014D46AD4000DAF2F /* Scripts in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C752084F150103C6008400C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C752086615010408008400C4 /* InfoPlist.strings in Resources */,
+				C752088515010A09008400C4 /* Scripts in Resources */,
+				C752088915010A60008400C4 /* TranquilMIDI.bridgesupport in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +849,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C752084D150103C6008400C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C752086515010408008400C4 /* MIDIClock.m in Sources */,
+				C752088C15010AD0008400C4 /* TranquilMIDIPlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C79EF1BB14F530DF00570FB6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -760,6 +889,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C75208691501041E008400C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C79EF1BF14F530DF00570FB6 /* TranquilCore */;
+			targetProxy = C75208681501041E008400C4 /* PBXContainerItemProxy */;
+		};
+		C752086C1501042E008400C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7520850150103C6008400C4 /* TranquilMIDI */;
+			targetProxy = C752086B1501042E008400C4 /* PBXContainerItemProxy */;
+		};
 		C79EF1E214F5321F00570FB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Static Library";
@@ -805,6 +944,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				C744E3EF14B84CB400078FBB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C752086115010408008400C4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C752086215010408008400C4 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -915,6 +1062,32 @@
 					"\"$(SRCROOT)/PortAudio/lib\"",
 				);
 				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		C752085B150103C6008400C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tranquil/Plugins/MIDI/Supporting Files/TranquilMIDI-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Tranquil/Plugins/MIDI/Supporting Files/TranquilMIDI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		C752085C150103C6008400C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tranquil/Plugins/MIDI/Supporting Files/TranquilMIDI-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Tranquil/Plugins/MIDI/Supporting Files/TranquilMIDI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -1069,6 +1242,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		C752085A150103C6008400C4 /* Build configuration list for PBXNativeTarget "TranquilMIDI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C752085B150103C6008400C4 /* Debug */,
+				C752085C150103C6008400C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		C79EF1CC14F530E000570FB6 /* Build configuration list for PBXNativeTarget "TranquilCore" */ = {
 			isa = XCConfigurationList;
