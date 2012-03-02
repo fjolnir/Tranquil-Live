@@ -14,10 +14,6 @@ typedef void (^MIDIClockCallback)(void);
 	MIDIPortRef _inputPortRef;
 	MIDIEndpointRef _srcPointRef;
 	
-	// the internal bpm, only accurate if internal syncing is used
-	// Otherwise it has to be multiplied by the playrate (handled by -currentBPM)
-	CAClockTempo _internalBPM;
-	
 	// The interval between clock pulses. Specified in beats (Default: 0.25 => 4 times per beat)
 	CAClockBeats _pulseInterval;
 	
@@ -33,11 +29,6 @@ typedef void (^MIDIClockCallback)(void);
 
 - (void)arm;
 - (void)disarm;
-
-// Sets the internal bpm, will be overridden by midi sync
-- (void)setInternalBPM:(CAClockTempo)inTempo;
-// In most cases you'll want to call -currentBPM instead, as that will give you the actual playback BPM
-- (CAClockTempo)internalBPM;
 
 // See CoreAudioClock.h for syncmodes
 - (void)setSyncMode:(CAClockSyncMode)syncMode;

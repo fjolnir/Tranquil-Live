@@ -23,7 +23,6 @@ static void clockListener(void *userData, CAClockMessage message, const void *pa
 	return sharedInstance;
 }
 
-
 - (id)init
 {
 	if(!(self = [super init]))
@@ -98,22 +97,6 @@ static void clockListener(void *userData, CAClockMessage message, const void *pa
 		NSLog(@"Couldn't disarm clock!");
 }
 
-- (void)setInternalBPM:(CAClockTempo)inTempo
-{
-	OSErr err;
-	_internalBPM = inTempo;
-	
-	// Create a 4/4 tempo map with the passed bpm
-	CATempoMapEntry tempoMap;
-	tempoMap.beats = 4.0;
-	tempoMap.tempoBPM = _internalBPM;
-	err = CAClockSetProperty(_caClock, kCAClockProperty_TempoMap, sizeof(CATempoMapEntry), &tempoMap);
-	if(err)
-		NSLog(@"Error setting clock tempomap (in %f err %d)", _internalBPM, err);
-}
-- (CAClockTempo)internalBPM {
-	return _internalBPM;
-}
 - (void)setSyncMode:(CAClockSyncMode)syncMode
 {
 	OSErr err;
