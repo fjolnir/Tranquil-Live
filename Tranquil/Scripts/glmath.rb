@@ -4,7 +4,7 @@ end
 def vec3(aX,aY,aZ)
 	Vector3.vectorWithX(aX, y:aY, z:aZ)
 end
-def vec4(aX,aY,aZ,aW)
+def vec4(aX,aY,aZ,aW=1.0)
 	Vector4.vectorWithX(aX, y:aY, z:aZ, w:aW)
 end
 
@@ -19,16 +19,40 @@ end
 # Generic operators
 module GLMathOperators
 	def *(other)
-		mul(other)
+	    if other.is_a? self.class
+		    mul(other)
+		elsif other.is_a?(Numeric)
+		    scalarMul(other)
+		else
+		    raise TypeError
+		end
 	end
 	def +(other)
-		add(other)
+	    if other.is_a?(self.class)
+            add(other)
+        elsif other.is_a?(Numeric)
+            scalarAdd(other)
+		else
+		    raise TypeError
+        end
 	end
 	def -(other)
-		sub(other)
+		if other.is_a?(self.class)
+            sub(other)
+        elsif other.is_a?(Numeric)
+            scalarSub(other)
+		else
+		    raise TypeError
+        end
 	end
 	def /(other)
-		div(other)
+	    if other.is_a?(self.class)
+            div(other)
+        elsif other.is_a?(Numeric)
+            scalarDiv(other)
+		else
+		    raise TypeError
+        end
 	end
 end
 class Vector2

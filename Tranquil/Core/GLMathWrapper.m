@@ -67,8 +67,16 @@
 - (Vector2 *)scalarMul:(float)aScalar {
 	return [Vector2 vectorWithVec:vec2_scalarMul(_vec, aScalar)];
 }
-- (Vector2 *)vec2_scalarDiv:(float)aScalar {
+- (Vector2 *)scalarDiv:(float)aScalar {
 	return [Vector2 vectorWithVec:vec2_scalarDiv(_vec, aScalar)];
+}
+- (Vector2 *)scalarAdd:(float)aScalar
+{
+    return [Vector2 vectorWithVec:vec2_scalarAdd(_vec, aScalar)];
+}
+- (Vector2 *)scalarSub:(float)aScalar
+{
+    return [Vector2 vectorWithVec:vec2_scalarAdd(_vec, aScalar)];
 }
 
 - (NSString *)description {
@@ -150,8 +158,16 @@
 - (Vector3 *)scalarMul:(float)aScalar {
 	return [Vector3 vectorWithVec:vec3_scalarMul(_vec, aScalar)];
 }
-- (Vector3 *)vec3_scalarDiv:(float)aScalar {
+- (Vector3 *)scalarDiv:(float)aScalar {
 	return [Vector3 vectorWithVec:vec3_scalarDiv(_vec, aScalar)];
+}
+- (Vector3 *)scalarAdd:(float)aScalar
+{
+    return [Vector3 vectorWithVec:vec3_scalarAdd(_vec, aScalar)];
+}
+- (Vector3 *)scalarSub:(float)aScalar
+{
+    return [Vector3 vectorWithVec:vec3_scalarAdd(_vec, aScalar)];
 }
 
 - (NSString *)description {
@@ -194,6 +210,11 @@
 - (void)setZ:(float)n { _vec.z = n; }
 - (void)setW:(float)n { _vec.w = n; }
 
+- (void)setR:(float)n { _vec.r = n; }
+- (void)setG:(float)n { _vec.g = n; }
+- (void)setB:(float)n { _vec.b = n; }
+- (void)setA:(float)n { _vec.a = n; }
+
 - (Vector4 *)add:(Vector4 *)aOther {
 	return [Vector4 vectorWithVec:vec4_add(_vec, aOther->_vec)];
 }
@@ -233,8 +254,16 @@
 - (Vector4 *)scalarMul:(float)aScalar {
 	return [Vector4 vectorWithVec:vec4_scalarMul(_vec, aScalar)];
 }
-- (Vector4 *)vec4_scalarDiv:(float)aScalar {
+- (Vector4 *)scalarDiv:(float)aScalar {
 	return [Vector4 vectorWithVec:vec4_scalarDiv(_vec, aScalar)];
+}
+- (Vector4 *)scalarAdd:(float)aScalar
+{
+    return [Vector4 vectorWithVec:vec4_scalarAdd(_vec, aScalar)];
+}
+- (Vector4 *)scalarSub:(float)aScalar
+{
+    return [Vector4 vectorWithVec:vec4_scalarAdd(_vec, aScalar)];
 }
 
 - (NSString *)description {

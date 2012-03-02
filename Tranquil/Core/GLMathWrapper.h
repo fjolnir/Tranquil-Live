@@ -22,7 +22,9 @@
 - (Vector2 *)floor;
 
 - (Vector2 *)scalarMul:(float)aScalar;
-- (Vector2 *)vec2_scalarDiv:(float)aScalar;
+- (Vector2 *)scalarDiv:(float)aScalar;
+- (Vector2 *)scalarAdd:(float)aScalar;
+- (Vector2 *)scalarSub:(float)aScalar;
 @end
 
 @interface Vector3 : NSObject { @public vec3_t _vec; }
@@ -48,7 +50,9 @@
 - (Vector3 *)floor;
 
 - (Vector3 *)scalarMul:(float)aScalar;
-- (Vector3 *)vec3_scalarDiv:(float)aScalar;
+- (Vector3 *)scalarDiv:(float)aScalar;
+- (Vector3 *)scalarAdd:(float)aScalar;
+- (Vector3 *)scalarSub:(float)aScalar;
 @end
 
 @interface Vector4 : NSObject { @public vec4_t _vec; }
@@ -74,7 +78,9 @@
 - (Vector4 *)floor;
 
 - (Vector4 *)scalarMul:(float)aScalar;
-- (Vector4 *)vec4_scalarDiv:(float)aScalar;
+- (Vector4 *)scalarDiv:(float)aScalar;
+- (Vector4 *)scalarAdd:(float)aScalar;
+- (Vector4 *)scalarSub:(float)aScalar;
 @end
 
 @interface Matrix3 : NSObject { @public mat3_t _mat; }
