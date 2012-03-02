@@ -1,5 +1,6 @@
 #import "PluginManager.h"
 #import <TranquilCore/TranquilCore.h>
+#import <MacRuby/MacRuby.h>
 #import "ScriptContext.h"
 
 static PluginManager *sharedInstance;
@@ -45,6 +46,13 @@ static PluginManager *sharedInstance;
 		TLog(@"Invalid plugin (%@)", [aPath lastPathComponent]);
 		return NO;
 	}
+
+    // Load a bridge support file if one is supplied
+    NSString *path = [bundle pathForResource:[[aPath lastPathComponent] stringByDeletingPathExtension]
+                                      ofType:@"bridgesupport"];
+    if(path)
+        [[MacRuby sharedRuntime] loadBridgeSupportFileAtPath:path];
+
 	BOOL result = [pluginLoader loadPlugin];
 	if(result) {
 		NSString *loadScriptPath = [[NSBundle bundleForClass:pluginLoader] pathForResource:@"load" 
