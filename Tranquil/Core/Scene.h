@@ -13,7 +13,7 @@
 - (void)invalidate;
 @end
 
-__attribute__((visibility("default"))) @interface Scene : NSObject
+@interface Scene : NSObject
 @property(readonly) NSArray *objects;
 @property(readonly) NSArray *immediateModeObjects;
 @property(readonly) NSArray *lights;

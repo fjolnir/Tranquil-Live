@@ -1,6 +1,6 @@
 #import "GLMathWrapper.h"
 
-__attribute__((visibility("default"))) @interface Camera : NSObject
+@interface Camera : NSObject
 @property(readwrite, assign) Vector4 *position;
 @property(readwrite, assign) Quaternion *orientation;
 @property(readwrite, assign) float fov, zoom, aspectRatio;

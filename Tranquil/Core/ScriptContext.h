@@ -7,7 +7,7 @@
 - (void)scriptContext:(ScriptContext *)aContext encounteredError:(NSError *)aError;
 @end
 
-__attribute__((visibility("default"))) @interface ScriptContext : NSObject {
+@interface ScriptContext : NSObject {
 	id<ScriptContextDelegate> _delegate;
 }
 

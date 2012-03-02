@@ -19,7 +19,7 @@ typedef enum {
 	kTRenderHintCullBack     = 0x00000800
 } TRenderHint;
 
-__attribute__((visibility("default"))) @interface State : NSObject
+@interface State : NSObject
 @property(readwrite, assign) Matrix4 *transform;
 @property(readwrite, assign) Vector4 *ambientLight;
 @property(readwrite, assign) Vector4 *color;
