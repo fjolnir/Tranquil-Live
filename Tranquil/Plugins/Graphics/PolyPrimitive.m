@@ -300,20 +300,20 @@
 - (void)setVert:(Vertex_t *)aVert
 {
     _vert = aVert;
-    _pos.vec = _vert->position;
-    _normal.vec = _vert->normal;
-    _color.vec = _vert->color;
-    _texCoord.vec = _vert->texCoord;
+    _pos->_vec = _vert->position;
+    _normal->_vec = _vert->normal;
+    _color->_vec = _vert->color;
+    _texCoord->_vec = _vert->texCoord;
     _size = _vert->size;
     _shininess = _vert->shininess;
 }
 
 - (void)updateVert
 {
-    _vert->position = _pos.vec;
-    _vert->normal = _normal.vec;
-    _vert->color = _color.vec;
-    _vert->texCoord = _texCoord.vec;
+    _vert->position = _pos->_vec;
+    _vert->normal = _normal->_vec;
+    _vert->color = _color->_vec;
+    _vert->texCoord = _texCoord->_vec;
     _vert->size = _size;
     _vert->shininess = _shininess;
 }
