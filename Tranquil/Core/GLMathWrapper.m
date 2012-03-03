@@ -521,4 +521,8 @@
 - (Quaternion *)slerpWithDest:(Quaternion *)aDest t:(float)aT {
 	return [Quaternion quaternionWithQuat:quat_slerp(_quat, aDest->_quat, aT)];
 }
+
+- (NSString *)description {
+	return [[super description] stringByAppendingFormat:@" [%.2f, %.2f, %.2f, %.2f]", _quat.x, _quat.y, _quat.z, _quat.w];
+}
 @end
