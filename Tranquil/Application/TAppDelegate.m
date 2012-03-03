@@ -18,6 +18,8 @@
 	[[PluginManager sharedManager] loadAllPlugins];
 	
 	[[ScriptContext sharedContext] executeScript:@"_setup" error:nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTranquilFinishedLaunching object:nil];
 }
 
 @end

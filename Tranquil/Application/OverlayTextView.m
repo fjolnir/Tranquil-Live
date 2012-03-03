@@ -2,9 +2,12 @@
 #include "OverlayTextView.h"
 #import <OpenGL/gl.h>
 #import <OpenGL/OpenGL.h>
+#import <MacRuby/MacRuby.h>
+#import "TAppDelegate.h"
 
 @interface OverlayTextView () {
 	NSRect _insertionPointRect;
+    id _rubyMouseObserver;
 }
 @end
 
@@ -22,6 +25,10 @@
 	shadow.shadowOffset = NSMakeSize(0, -1);
 	shadow.shadowColor = [NSColor colorWithDeviceRed:0 green:0 blue:0 alpha:1];
 	self.shadow = shadow;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(finishedLaunching:)
+                                                 name:kTranquilFinishedLaunching
+                                               object:nil];
 }
 
 - (id)initWithFrame:(NSRect)aFrame
@@ -38,6 +45,11 @@
     return self;
 }
 
+- (void)finishedLaunching:(NSNotification *)aNotification
+{
+    _rubyMouseObserver = [[MacRuby sharedRuntime] evaluateString:@"TranquilMouseObserver.new"];
+}
+
 - (void)viewWillMoveToSuperview:(NSView *)aSuperview
 {
 	((NSScrollView *)aSuperview).drawsBackground = NO;
@@ -47,8 +59,8 @@
 
 - (void)scrollWheel:(NSEvent *)aEvent
 {
-	Class obsClass = NSClassFromString(@"TranquilMouseObserver");
-	[[obsClass instance] performRubySelector:@selector(scroll:) withArguments:[Vector2 vectorWithX:aEvent.scrollingDeltaX y:aEvent.scrollingDeltaY], NULL];
+    [_rubyMouseObserver performRubySelector:@selector(scroll:) 
+                              withArguments:[Vector2 vectorWithX:aEvent.scrollingDeltaX y:aEvent.scrollingDeltaY], NULL];
 }
 
 - (void)mouseEntered:(NSEvent *)aEvent
@@ -70,14 +82,14 @@
 
 - (void)mouseDown:(NSEvent *)aEvent
 {
-	Class obsClass = NSClassFromString(@"TranquilMouseObserver");
-	[[obsClass instance] performRubySelector:@selector(leftClick:) withArguments:[Vector2 vectorWithX:aEvent.locationInWindow.x y:aEvent.locationInWindow.y], NULL];
+	[_rubyMouseObserver performRubySelector:@selector(leftClick:)
+                              withArguments:[Vector2 vectorWithX:aEvent.locationInWindow.x y:aEvent.locationInWindow.y], NULL];
 }
 
 - (void)mouseDragged:(NSEvent *)aEvent
 {
-	Class obsClass = NSClassFromString(@"TranquilMouseObserver");
-	[[obsClass instance] performRubySelector:@selector(leftDrag:) withArguments:[Vector2 vectorWithX:aEvent.locationInWindow.x y:aEvent.locationInWindow.y], NULL];
+	[_rubyMouseObserver performRubySelector:@selector(leftDrag:)
+                              withArguments:[Vector2 vectorWithX:aEvent.locationInWindow.x y:aEvent.locationInWindow.y], NULL];
 }
 
 @end

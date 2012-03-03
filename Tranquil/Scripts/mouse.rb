@@ -1,6 +1,3 @@
-require "singleton"
-
-
 def mapToSphere(windowCoord)
 	viewport = Camera.viewportSize
 	p = vec3(2.0*windowCoord.x/viewport.z - 1.0, 2.0*windowCoord.y/viewport.w - 1.0, 0)
@@ -18,7 +15,6 @@ def mapToSphere(windowCoord)
 end
 
 class TranquilMouseObserver
-	include Singleton
 	@@lastMouseLoc = vec2(0,0)
 	def leftClick(pos)
 		@@lastMouseLoc = mapToSphere(pos)

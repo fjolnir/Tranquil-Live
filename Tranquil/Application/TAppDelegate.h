@@ -1,3 +1,5 @@
+#define kTranquilFinishedLaunching @"kTranquilFinishedLaunching"
+
 @class MainView;
 
 @interface TAppDelegate : NSObject <NSApplicationDelegate>
