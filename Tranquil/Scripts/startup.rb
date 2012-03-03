@@ -25,17 +25,20 @@ def _setup
 end
 
 # Frame callback
-@userFrameCallback = nil
-@internalFrameCallbacks = []
+@@userFrameCallback = nil
+@@internalFrameCallbacks = []
 # This is meant for use by plugins that need to perform operations on each frame
 def _registerFrameCallback(&callback)
-	@internalFrameCallbacks.push callback
+	@@internalFrameCallbacks.push callback
 end
-def _frameCallback
-	@internalFrameCallbacks.each { |c| c.call }
-	@userFrameCallback.call unless @userFrameCallback.nil?
+
+class TranquilFrameHandler
+    def handleFrame
+        @@internalFrameCallbacks.each { |c| c.call }
+        @@userFrameCallback.call unless @@userFrameCallback.nil?
+    end
 end
 
 def everyFrame(&callback)
-	@userFrameCallback = callback
+	@@userFrameCallback = callback
 end

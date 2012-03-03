@@ -5,6 +5,8 @@
 #import "Light.h"
 #import "Shader.h"
 #import "GLErrorChecking.h"
+#import <MacRuby/MacRuby.h>
+#import <TranquilCore/TranquilCore.h>
 
 static Scene *_GlobalScene = nil;
 static NSOpenGLContext *_globalGlContext = nil;
@@ -12,6 +14,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 @interface Scene () {
 @private
 	NSMutableArray *_objects, *_immediateModeObjects, *_stateStack, *_lights;
+    id _rubyFrameHandler;
 }
 @end
 @implementation Scene
@@ -57,6 +60,13 @@ static NSOpenGLContext *_globalGlContext = nil;
 {
 	self = [super init];
 	if(!self) return nil;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(finishedLaunching:)
+                                                 name:kTranquilFinishedLaunching
+                                               object:nil];
+
+    
 	_projStack = [MatrixStack stackWithCapacity:8];
 	[_projStack push:[Matrix4 identity]];
 	 _worldStack = [MatrixStack stackWithCapacity:32];
@@ -88,6 +98,11 @@ static NSOpenGLContext *_globalGlContext = nil;
 	return self;
 }
 
+- (void)finishedLaunching:(NSNotification *)aNotification
+{
+    _rubyFrameHandler = [[ScriptContext sharedContext] executeScript:@"TranquilFrameHandler.new"error:nil];
+}
+
 - (void)initializeGLState
 {
 	glEnable(GL_DEPTH_TEST);
@@ -111,7 +126,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 	[_immediateModeObjects removeAllObjects];
 	[_projStack pop];
 	// Notify the script
-	[[ScriptContext sharedContext] executeScript:@"_frameCallback" error:nil];
+    [_rubyFrameHandler performRubySelector:@selector(handleFrame)];
 }
 
 #pragma - Accessors
