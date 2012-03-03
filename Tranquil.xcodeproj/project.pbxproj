@@ -34,8 +34,9 @@
 		C752088515010A09008400C4 /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C752088415010A09008400C4 /* Scripts */; };
 		C752088915010A60008400C4 /* TranquilMIDI.bridgesupport in Resources */ = {isa = PBXBuildFile; fileRef = C752088815010A60008400C4 /* TranquilMIDI.bridgesupport */; };
 		C752088C15010AD0008400C4 /* TranquilMIDIPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C752088B15010AD0008400C4 /* TranquilMIDIPlugin.m */; };
+		C75208A21501F8CA008400C4 /* GLMath.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
+		C75208A51501F8E0008400C4 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
 		C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
-		C7622B2014D0879A0093DDD0 /* GLMath.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
 		C7622B2114D087AA0093DDD0 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
 		C7622B2214D087CD0093DDD0 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
 		C7622B2714D087E40093DDD0 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
@@ -66,7 +67,6 @@
 		C79EF1DB14F531CB00570FB6 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FED814BE7315003338FE /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C79EF1DC14F531CB00570FB6 /* GLMathWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = C7622B8E14D1CE460093DDD0 /* GLMathWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C79EF1DD14F531D500570FB6 /* GLErrorChecking.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FECC14BD11D6003338FE /* GLErrorChecking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C79EF1E014F5321300570FB6 /* libglmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C786048514BA5C3C006ED999 /* libglmath.a */; };
 		C79EF1E314F5327400570FB6 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B3314D0AFA00093DDD0 /* MacRuby.framework */; };
 		C79EF1E414F5327E00570FB6 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
 		C79EF1E514F5328500570FB6 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
@@ -105,6 +105,20 @@
 			remoteGlobalIDString = C7520850150103C6008400C4;
 			remoteInfo = TranquilMIDI;
 		};
+		C75208A31501F8DD008400C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C7622AF614D085B60093DDD0;
+			remoteInfo = Framework;
+		};
+		C75208A61501F981008400C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C7622AF614D085B60093DDD0;
+			remoteInfo = Framework;
+		};
 		C7622B1E14D0866E0093DDD0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
@@ -118,13 +132,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = C70EA30314AC9780009D29C6;
 			remoteInfo = glmath;
-		};
-		C79EF1E114F5321F00570FB6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C70EA30214AC9780009D29C6;
-			remoteInfo = "Static Library";
 		};
 		C79EF1E714F533B900570FB6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -192,8 +199,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C75208A21501F8CA008400C4 /* GLMath.framework in Copy Frameworks */,
 				C7E6E19C14F60B7000215A8D /* TranquilCore.framework in Copy Frameworks */,
-				C7622B2014D0879A0093DDD0 /* GLMath.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,10 +345,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C75208A51501F8E0008400C4 /* GLMath.framework in Frameworks */,
 				C79EF1E514F5328500570FB6 /* Accelerate.framework in Frameworks */,
 				C79EF1E414F5327E00570FB6 /* OpenGL.framework in Frameworks */,
 				C79EF1E314F5327400570FB6 /* MacRuby.framework in Frameworks */,
-				C79EF1E014F5321300570FB6 /* libglmath.a in Frameworks */,
 				C79EF1C114F530E000570FB6 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -676,7 +683,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				C79EF1E214F5321F00570FB6 /* PBXTargetDependency */,
+				C75208A41501F8DD008400C4 /* PBXTargetDependency */,
 			);
 			name = TranquilCore;
 			productName = TranquilCore;
@@ -696,6 +703,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C75208A71501F981008400C4 /* PBXTargetDependency */,
 				C79EF1E814F533B900570FB6 /* PBXTargetDependency */,
 				C7BD147114FBAE6200EFC94A /* PBXTargetDependency */,
 				C7BD147314FBAE6400EFC94A /* PBXTargetDependency */,
@@ -899,10 +907,15 @@
 			target = C7520850150103C6008400C4 /* TranquilMIDI */;
 			targetProxy = C752086B1501042E008400C4 /* PBXContainerItemProxy */;
 		};
-		C79EF1E214F5321F00570FB6 /* PBXTargetDependency */ = {
+		C75208A41501F8DD008400C4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Static Library";
-			targetProxy = C79EF1E114F5321F00570FB6 /* PBXContainerItemProxy */;
+			name = Framework;
+			targetProxy = C75208A31501F8DD008400C4 /* PBXContainerItemProxy */;
+		};
+		C75208A71501F981008400C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Framework;
+			targetProxy = C75208A61501F981008400C4 /* PBXContainerItemProxy */;
 		};
 		C79EF1E814F533B900570FB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1115,6 +1128,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Core/Supporting Files/TranquilCore-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -1170,6 +1184,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = GLMath;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -1250,6 +1265,7 @@
 				C752085C150103C6008400C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C79EF1CC14F530E000570FB6 /* Build configuration list for PBXNativeTarget "TranquilCore" */ = {
 			isa = XCConfigurationList;
