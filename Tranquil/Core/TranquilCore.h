@@ -1,6 +1,8 @@
 #ifndef Tranquil_TranquilCore_h
 #define Tranquil_TranquilCore_h
 
+#define kTranquilFinishedLaunching @"kTranquilFinishedLaunching"
+
 #import <TranquilCore/Debug.h>
 #import <TranquilCore/ScriptContext.h>
 #import <TranquilCore/Scene.h>
