@@ -1,3 +1,5 @@
+include Math
+
 def scene
     Scene.globalScene
 end
