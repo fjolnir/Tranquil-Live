@@ -28,7 +28,7 @@
 		C752086515010408008400C4 /* MIDIClock.m in Sources */ = {isa = PBXBuildFile; fileRef = C752085F15010408008400C4 /* MIDIClock.m */; };
 		C752086615010408008400C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C752086115010408008400C4 /* InfoPlist.strings */; };
 		C752086A15010423008400C4 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
-		C752086D1501043D008400C4 /* TranquilMIDI.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7520851150103C6008400C4 /* TranquilMIDI.bundle */; };
+		C752086D1501043D008400C4 /* TranquilMIDI.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C7520851150103C6008400C4 /* TranquilMIDI.bundle */; };
 		C752088215010754008400C4 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C752088115010754008400C4 /* CoreMIDI.framework */; };
 		C752088315010769008400C4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42514B8905A00078FBB /* AudioToolbox.framework */; };
 		C752088515010A09008400C4 /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C752088415010A09008400C4 /* Scripts */; };
@@ -49,7 +49,7 @@
 		C773FED414BD50B8003338FE /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
 		C773FED714BD7C18003338FE /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED614BD7C18003338FE /* Sphere.m */; };
 		C773FF0814BFE5D8003338FE /* Plane.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FF0714BFE5D8003338FE /* Plane.m */; };
-		C79EF1B814F5277000570FB6 /* TranquilGraphics.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */; };
+		C79EF1B814F5277000570FB6 /* TranquilGraphics.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */; };
 		C79EF1C114F530E000570FB6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C79EF1C714F530E000570FB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C79EF1C514F530E000570FB6 /* InfoPlist.strings */; };
 		C79EF1CF14F5319A00570FB6 /* ScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C74B3A9814B7E280006741C4 /* ScriptContext.m */; };
@@ -81,13 +81,21 @@
 		C79EF20014F5354900570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C79EF20114F5354D00570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C79EF20214F535AA00570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
-		C79EF20314F5368800570FB6 /* TranquilAudio.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
+		C79EF20314F5368800570FB6 /* TranquilAudio.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
 		C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */; };
 		C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3014B78D4C0000884E /* Credits.rtf */; };
 		C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3614B78D4D0000884E /* MainMenu.xib */; };
 		C7E6E19C14F60B7000215A8D /* TranquilCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C7E6E19C14F60B7000215A8F /* TranquilGraphics.bridgesupport in Resources */ = {isa = PBXBuildFile; fileRef = C7E6E19C14F60B7000215A8E /* TranquilGraphics.bridgesupport */; };
+		C7FD7B571503979C00F3D000 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
+		C7FD7B641503982700F3D000 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
+		C7FD7B651503983000F3D000 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
+		C7FD7B6F1503987A00F3D000 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7FD7B6A1503987A00F3D000 /* InfoPlist.strings */; };
+		C7FD7B701503987A00F3D000 /* TranquilGenerators-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7FD7B6C1503987A00F3D000 /* TranquilGenerators-Info.plist */; };
+		C7FD7B72150398A200F3D000 /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C7FD7B71150398A200F3D000 /* Scripts */; };
+		C7FD7B731503A64100F3D000 /* TranquilGenerators.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C7FD7B561503979C00F3D000 /* TranquilGenerators.bundle */; };
+		C7FD7B761503A67100F3D000 /* TranquilGeneratorsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FD7B751503A67100F3D000 /* TranquilGeneratorsPlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +176,13 @@
 			remoteGlobalIDString = C744E3C714B8464E00078FBB;
 			remoteInfo = TranquilGraphics;
 		};
+		C7FD7B621503982100F3D000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C79EF1BF14F530DF00570FB6;
+			remoteInfo = TranquilCore;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -181,16 +196,18 @@
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C79EF1B514F5270A00570FB6 /* CopyFiles */ = {
+		C79EF1B514F5270A00570FB6 /* Copy Plugins */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				C752086D1501043D008400C4 /* TranquilMIDI.bundle in CopyFiles */,
-				C79EF20314F5368800570FB6 /* TranquilAudio.bundle in CopyFiles */,
-				C79EF1B814F5277000570FB6 /* TranquilGraphics.bundle in CopyFiles */,
+				C7FD7B731503A64100F3D000 /* TranquilGenerators.bundle in Copy Plugins */,
+				C752086D1501043D008400C4 /* TranquilMIDI.bundle in Copy Plugins */,
+				C79EF20314F5368800570FB6 /* TranquilAudio.bundle in Copy Plugins */,
+				C79EF1B814F5277000570FB6 /* TranquilGraphics.bundle in Copy Plugins */,
 			);
+			name = "Copy Plugins";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C7E2F0D714B798740000884E /* Copy Frameworks */ = {
@@ -300,6 +317,13 @@
 		C7E2EF3114B78D4C0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		C7E2EF3714B78D4D0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C7E6E19C14F60B7000215A8E /* TranquilGraphics.bridgesupport */ = {isa = PBXFileReference; lastKnownFileType = file.bridgesupport; path = TranquilGraphics.bridgesupport; sourceTree = "<group>"; };
+		C7FD7B561503979C00F3D000 /* TranquilGenerators.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranquilGenerators.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7FD7B6B1503987A00F3D000 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7FD7B6C1503987A00F3D000 /* TranquilGenerators-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TranquilGenerators-Info.plist"; sourceTree = "<group>"; };
+		C7FD7B6D1503987A00F3D000 /* TranquilGenerators-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TranquilGenerators-Prefix.pch"; sourceTree = "<group>"; };
+		C7FD7B71150398A200F3D000 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
+		C7FD7B741503A67100F3D000 /* TranquilGeneratorsPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranquilGeneratorsPlugin.h; sourceTree = "<group>"; };
+		C7FD7B751503A67100F3D000 /* TranquilGeneratorsPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranquilGeneratorsPlugin.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +387,16 @@
 				C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */,
 				C7622B2114D087AA0093DDD0 /* GLMath.framework in Frameworks */,
 				C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7FD7B531503979C00F3D000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7FD7B651503983000F3D000 /* GLMath.framework in Frameworks */,
+				C7FD7B641503982700F3D000 /* TranquilCore.framework in Frameworks */,
+				C7FD7B571503979C00F3D000 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +548,7 @@
 				C744E3E914B84CB400078FBB /* TranquilAudio.bundle */,
 				C79EF1C014F530DF00570FB6 /* TranquilCore.framework */,
 				C7520851150103C6008400C4 /* TranquilMIDI.bundle */,
+				C7FD7B561503979C00F3D000 /* TranquilGenerators.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -543,6 +578,7 @@
 		C7E2EF2714B78D4C0000884E /* Tranquil */ = {
 			isa = PBXGroup;
 			children = (
+				C7FD7B661503987A00F3D000 /* Generators */,
 				C752085D15010408008400C4 /* MIDI */,
 				C79EF1ED14F5342900570FB6 /* Application */,
 				C7E2EF9E14B78E010000884E /* Core */,
@@ -589,6 +625,28 @@
 				C79EF1C314F530E000570FB6 /* Supporting Files */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		C7FD7B661503987A00F3D000 /* Generators */ = {
+			isa = PBXGroup;
+			children = (
+				C7FD7B71150398A200F3D000 /* Scripts */,
+				C7FD7B691503987A00F3D000 /* Supporting Files */,
+				C7FD7B741503A67100F3D000 /* TranquilGeneratorsPlugin.h */,
+				C7FD7B751503A67100F3D000 /* TranquilGeneratorsPlugin.m */,
+			);
+			name = Generators;
+			path = Plugins/Generators;
+			sourceTree = "<group>";
+		};
+		C7FD7B691503987A00F3D000 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C7FD7B6A1503987A00F3D000 /* InfoPlist.strings */,
+				C7FD7B6C1503987A00F3D000 /* TranquilGenerators-Info.plist */,
+				C7FD7B6D1503987A00F3D000 /* TranquilGenerators-Prefix.pch */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -698,7 +756,7 @@
 				C7E2EF1A14B78D4C0000884E /* Frameworks */,
 				C7E2EF1B14B78D4C0000884E /* Resources */,
 				C7E2F0D714B798740000884E /* Copy Frameworks */,
-				C79EF1B514F5270A00570FB6 /* CopyFiles */,
+				C79EF1B514F5270A00570FB6 /* Copy Plugins */,
 			);
 			buildRules = (
 			);
@@ -713,6 +771,24 @@
 			productName = Tranquil;
 			productReference = C7E2EF1D14B78D4C0000884E /* Tranquil.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C7FD7B551503979C00F3D000 /* TranquilGenerators */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7FD7B5F1503979C00F3D000 /* Build configuration list for PBXNativeTarget "TranquilGenerators" */;
+			buildPhases = (
+				C7FD7B521503979C00F3D000 /* Sources */,
+				C7FD7B531503979C00F3D000 /* Frameworks */,
+				C7FD7B541503979C00F3D000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C7FD7B631503982100F3D000 /* PBXTargetDependency */,
+			);
+			name = TranquilGenerators;
+			productName = TranquilGenerators;
+			productReference = C7FD7B561503979C00F3D000 /* TranquilGenerators.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -745,6 +821,7 @@
 				C744E3C714B8464E00078FBB /* TranquilGraphics */,
 				C7520850150103C6008400C4 /* TranquilMIDI */,
 				C79EF1BF14F530DF00570FB6 /* TranquilCore */,
+				C7FD7B551503979C00F3D000 /* TranquilGenerators */,
 			);
 		};
 /* End PBXProject section */
@@ -813,6 +890,16 @@
 				C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */,
 				C744E3A014B8337D00078FBB /* Scripts in Resources */,
 				C773FEC314BC39C7003338FE /* Shaders in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7FD7B541503979C00F3D000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7FD7B6F1503987A00F3D000 /* InfoPlist.strings in Resources */,
+				C7FD7B701503987A00F3D000 /* TranquilGenerators-Info.plist in Resources */,
+				C7FD7B72150398A200F3D000 /* Scripts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -894,6 +981,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C7FD7B521503979C00F3D000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7FD7B761503A67100F3D000 /* TranquilGeneratorsPlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -941,6 +1036,11 @@
 			isa = PBXTargetDependency;
 			target = C744E3C714B8464E00078FBB /* TranquilGraphics */;
 			targetProxy = C7BD147214FBAE6400EFC94A /* PBXContainerItemProxy */;
+		};
+		C7FD7B631503982100F3D000 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C79EF1BF14F530DF00570FB6 /* TranquilCore */;
+			targetProxy = C7FD7B621503982100F3D000 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1000,6 +1100,14 @@
 			);
 			name = MainMenu.xib;
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C7FD7B6A1503987A00F3D000 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7FD7B6B1503987A00F3D000 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1237,6 +1345,32 @@
 			};
 			name = Release;
 		};
+		C7FD7B601503979C00F3D000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tranquil/Plugins/Generators/Supporting Files/TranquilGenerators-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Tranquil/Plugins/Generators/Supporting Files/TranquilGenerators-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		C7FD7B611503979C00F3D000 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tranquil/Plugins/Generators/Supporting Files/TranquilGenerators-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Tranquil/Plugins/Generators/Supporting Files/TranquilGenerators-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1293,6 +1427,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		C7FD7B5F1503979C00F3D000 /* Build configuration list for PBXNativeTarget "TranquilGenerators" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7FD7B601503979C00F3D000 /* Debug */,
+				C7FD7B611503979C00F3D000 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
