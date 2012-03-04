@@ -58,10 +58,8 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	return paNoDevice;
 }
 
-- (id)initWithDevice:(PaDeviceIndex)aDevice
-{
-	if(aDevice == paNoDevice) return nil;
-	
+- (id)init
+{	
 	self = [super init];
 	if(!self) return nil;
 	
@@ -85,9 +83,6 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	_fftSetup = vDSP_create_fftsetup(log2n, FFT_RADIX2);
 	_magnitudes = calloc(_fftSizeOver2, sizeof(float));
 	assert(_fftSetup);
-	
-	// Open the device
-	[self openDevice:aDevice];
 	
 	return self;
 }
@@ -165,6 +160,8 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 
 - (void)update
 {
+    if(!_isRunning)
+        return;
 	[self _updateSpectrum];
 	
 	for(int i = 0; i < _numberOfFrequencyBands; ++i) {
