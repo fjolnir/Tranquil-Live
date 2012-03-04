@@ -1250,7 +1250,7 @@
 			<object class="NSWindowTemplate" id="700558846">
 				<int key="NSWindowStyleMask">13</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{169, 150}, {800, 600}}</string>
+				<string key="NSWindowRect">{{139, 91}, {800, 600}}</string>
 				<int key="NSWTFlags">1618477056</int>
 				<string key="NSWindowTitle">Tranquil</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -1270,14 +1270,14 @@
 									<string key="NSFrameSize">{800, 600}</string>
 									<reference key="NSSuperview" ref="371255274"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView" ref="730934074"/>
+									<reference key="NSNextKeyView" ref="65485628"/>
 									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<array class="NSMutableArray" key="NSTabViewItems">
 										<object class="NSTabViewItem" id="1023286533">
 											<string key="NSIdentifier">1</string>
 											<object class="NSView" key="NSView" id="65485628">
-												<nil key="NSNextResponder"/>
+												<reference key="NSNextResponder" ref="372167025"/>
 												<int key="NSvFlags">256</int>
 												<array class="NSMutableArray" key="NSSubviews">
 													<object class="NSScrollView" id="891481298">
@@ -1291,9 +1291,29 @@
 																	<object class="NSTextView" id="338971412">
 																		<reference key="NSNextResponder" ref="904182919"/>
 																		<int key="NSvFlags">2322</int>
+																		<set class="NSMutableSet" key="NSDragTypes">
+																			<string>Apple HTML pasteboard type</string>
+																			<string>Apple PDF pasteboard type</string>
+																			<string>Apple PICT pasteboard type</string>
+																			<string>Apple PNG pasteboard type</string>
+																			<string>Apple URL pasteboard type</string>
+																			<string>CorePasteboardFlavorType 0x6D6F6F76</string>
+																			<string>NSColor pasteboard type</string>
+																			<string>NSFilenamesPboardType</string>
+																			<string>NSStringPboardType</string>
+																			<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
+																			<string>NeXT RTFD pasteboard type</string>
+																			<string>NeXT Rich Text Format v1.0 pasteboard type</string>
+																			<string>NeXT TIFF v4.0 pasteboard type</string>
+																			<string>NeXT font pasteboard type</string>
+																			<string>NeXT ruler pasteboard type</string>
+																			<string>WebURLsWithTitlesPboardType</string>
+																			<string>public.url</string>
+																		</set>
 																		<string key="NSFrameSize">{800, 87}</string>
 																		<reference key="NSSuperview" ref="904182919"/>
-																		<reference key="NSNextKeyView" ref="372167025"/>
+																		<reference key="NSWindow"/>
+																		<reference key="NSNextKeyView"/>
 																		<bool key="NSViewIsLayerTreeHost">YES</bool>
 																		<int key="NSViewLayerContentsRedrawPolicy">2</int>
 																		<bool key="NSViewCanDrawConcurrently">YES</bool>
@@ -1368,6 +1388,7 @@
 																</array>
 																<string key="NSFrameSize">{800, 600}</string>
 																<reference key="NSSuperview" ref="891481298"/>
+																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="338971412"/>
 																<int key="NSViewLayerContentsRedrawPolicy">2</int>
 																<string key="NSReuseIdentifierKey">_NS:1478</string>
@@ -1403,6 +1424,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{-100, -100}, {15, 600}}</string>
 																<reference key="NSSuperview" ref="891481298"/>
+																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="932121384"/>
 																<string key="NSReuseIdentifierKey">_NS:1494</string>
 																<reference key="NSTarget" ref="891481298"/>
@@ -1416,6 +1438,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{-100, -100}, {87, 18}}</string>
 																<reference key="NSSuperview" ref="891481298"/>
+																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="904182919"/>
 																<string key="NSReuseIdentifierKey">_NS:1482</string>
 																<int key="NSsFlags">1</int>
@@ -1428,6 +1451,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 														</array>
 														<string key="NSFrameSize">{800, 600}</string>
 														<reference key="NSSuperview" ref="65485628"/>
+														<reference key="NSWindow"/>
 														<reference key="NSNextKeyView" ref="71098097"/>
 														<bool key="NSViewIsLayerTreeHost">YES</bool>
 														<int key="NSViewLayerContentsRedrawPolicy">2</int>
@@ -1442,6 +1466,8 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 													</object>
 												</array>
 												<string key="NSFrameSize">{800, 600}</string>
+												<reference key="NSSuperview" ref="372167025"/>
+												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="891481298"/>
 												<int key="NSViewLayerContentsRedrawPolicy">2</int>
 												<string key="NSReuseIdentifierKey">_NS:11</string>
@@ -1474,7 +1500,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 																		<int key="NSvFlags">2322</int>
 																		<string key="NSFrameSize">{800, 87}</string>
 																		<reference key="NSSuperview" ref="639169456"/>
-																		<reference key="NSNextKeyView" ref="372167025"/>
+																		<reference key="NSNextKeyView" ref="343405234"/>
 																		<bool key="NSViewIsLayerTreeHost">YES</bool>
 																		<int key="NSViewLayerContentsRedrawPolicy">2</int>
 																		<bool key="NSViewCanDrawConcurrently">YES</bool>
@@ -1581,7 +1607,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 														</array>
 														<string key="NSFrameSize">{800, 600}</string>
 														<reference key="NSSuperview" ref="1045149271"/>
-														<reference key="NSNextKeyView" ref="343405234"/>
+														<reference key="NSNextKeyView" ref="639169456"/>
 														<bool key="NSViewIsLayerTreeHost">YES</bool>
 														<int key="NSViewLayerContentsRedrawPolicy">2</int>
 														<bool key="NSViewCanDrawConcurrently">YES</bool>
@@ -1606,7 +1632,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 										<object class="NSTabViewItem" id="130842961">
 											<string key="NSIdentifier">3</string>
 											<object class="NSView" key="NSView" id="730934074">
-												<reference key="NSNextResponder" ref="372167025"/>
+												<nil key="NSNextResponder"/>
 												<int key="NSvFlags">256</int>
 												<array class="NSMutableArray" key="NSSubviews">
 													<object class="NSScrollView" id="339000178">
@@ -1622,7 +1648,6 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 																		<int key="NSvFlags">2322</int>
 																		<string key="NSFrameSize">{800, 87}</string>
 																		<reference key="NSSuperview" ref="949058166"/>
-																		<reference key="NSWindow"/>
 																		<reference key="NSNextKeyView" ref="756193334"/>
 																		<bool key="NSViewIsLayerTreeHost">YES</bool>
 																		<int key="NSViewLayerContentsRedrawPolicy">2</int>
@@ -1673,7 +1698,6 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 																</array>
 																<string key="NSFrameSize">{800, 600}</string>
 																<reference key="NSSuperview" ref="339000178"/>
-																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="568657885"/>
 																<int key="NSViewLayerContentsRedrawPolicy">2</int>
 																<string key="NSReuseIdentifierKey">_NS:1478</string>
@@ -1706,7 +1730,6 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{-100, -100}, {15, 600}}</string>
 																<reference key="NSSuperview" ref="339000178"/>
-																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="727329712"/>
 																<string key="NSReuseIdentifierKey">_NS:1494</string>
 																<reference key="NSTarget" ref="339000178"/>
@@ -1720,7 +1743,6 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{-100, -100}, {87, 18}}</string>
 																<reference key="NSSuperview" ref="339000178"/>
-																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="949058166"/>
 																<string key="NSReuseIdentifierKey">_NS:1482</string>
 																<int key="NSsFlags">1</int>
@@ -1733,7 +1755,6 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 														</array>
 														<string key="NSFrameSize">{800, 600}</string>
 														<reference key="NSSuperview" ref="730934074"/>
-														<reference key="NSWindow"/>
 														<reference key="NSNextKeyView" ref="949058166"/>
 														<bool key="NSViewIsLayerTreeHost">YES</bool>
 														<int key="NSViewLayerContentsRedrawPolicy">2</int>
@@ -1748,9 +1769,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 													</object>
 												</array>
 												<string key="NSFrameSize">{800, 600}</string>
-												<reference key="NSSuperview" ref="372167025"/>
-												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="372167025"/>
+												<reference key="NSNextKeyView" ref="339000178"/>
 												<int key="NSViewLayerContentsRedrawPolicy">2</int>
 												<string key="NSReuseIdentifierKey">_NS:28</string>
 											</object>
@@ -1759,7 +1778,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 											<reference key="NSTabView" ref="372167025"/>
 										</object>
 									</array>
-									<reference key="NSSelectedTabViewItem" ref="130842961"/>
+									<reference key="NSSelectedTabViewItem" ref="1023286533"/>
 									<object class="NSFont" key="NSFont">
 										<string key="NSName">LucidaGrande</string>
 										<double key="NSSize">13</double>
@@ -1768,7 +1787,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 									<int key="NSTvFlags">6</int>
 									<bool key="NSAllowTruncatedLabels">YES</bool>
 									<array class="NSMutableArray" key="NSSubviews">
-										<reference ref="730934074"/>
+										<reference ref="65485628"/>
 									</array>
 								</object>
 							</array>
@@ -3830,6 +3849,14 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/MainWindowController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">OverlayTextView</string>
+					<string key="superclassName">NSTextView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/OverlayTextView.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
