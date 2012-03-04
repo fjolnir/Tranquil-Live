@@ -11,39 +11,16 @@ class AudioProcessor
             p "No such device"
             return
         end
-        self.openDevice(deviceId)
-        self.start
+        openDevice(deviceId)
+        start
     end
 
     def mag(aBand)
-        self.magnitudeForBand(aBand)
+        magnitudeForBand(aBand)
     end
 end
 
-#def startAudio(deviceName)#
-#	return unless @audio.nil?
-#	deviceId = AudioProcessor.deviceIndexForName(deviceName)
-#	if deviceId == -1
-#		p "No such device"
-#		return
-#	end
-#	@audio = AudioProcessor.alloc.initWithDevice(deviceId)
-#	unless @audio.nil?
-#		@audio.start
-#	else
-#		p "Couldn't start audio"
-#	end
-#end
-
-#def stopAudio
-#	unless @audio.nil?
-#		@audio.stop
-#		@audio.close
-#		@audio = nil
-#	endend
-
-#startAudio "Built-in Microphone"
-#startAudio "Soundflower (2ch)"
+#audio.open "Built-in Microphone"
 audio.open "Soundflower (2ch)"
 _registerFrameCallback do
 	$audio.update
