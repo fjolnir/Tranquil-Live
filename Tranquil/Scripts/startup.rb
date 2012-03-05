@@ -4,7 +4,6 @@ def scene
     Scene.globalScene
 end
 
-$LOAD_PATH.push File.dirname(__FILE__)
 require "glmath"
 require "state"
 require "mouse"

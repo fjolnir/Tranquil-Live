@@ -9,6 +9,11 @@
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification
 {
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"startup" ofType:@"rb" inDirectory:@"Scripts"];
+    // Add the script dir to the load path
+    NSString *scriptDir = [path stringByDeletingLastPathComponent];
+    [[ScriptContext sharedContext] executeScript:[NSString stringWithFormat:@"$LOAD_PATH.push '%@'", scriptDir]
+                                           error:nil];
+    
 	NSError *err = nil;
 	[[ScriptContext sharedContext] executeFile:path error:&err];
 	if(err) {

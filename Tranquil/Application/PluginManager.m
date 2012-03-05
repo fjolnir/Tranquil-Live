@@ -58,6 +58,12 @@ static PluginManager *sharedInstance;
 		NSString *loadScriptPath = [[NSBundle bundleForClass:pluginLoader] pathForResource:@"load" 
 																					ofType:@"rb" 
 																			   inDirectory:@"Scripts"];
+        if(loadScriptPath) {
+            // Add the script dir to the load path
+            NSString *scriptDir = [loadScriptPath stringByDeletingLastPathComponent];
+            [[ScriptContext sharedContext] executeScript:[NSString stringWithFormat:@"$LOAD_PATH.push '%@'", scriptDir]
+                                                   error:nil];
+        }
 		[[ScriptContext sharedContext] executeFile:loadScriptPath error:nil];
 	}
 	return YES;
