@@ -17,6 +17,7 @@
 - (float)distanceToPoint:(Vector2 *)aOther;
 
 - (float)magnitude;
+- (float)magnitudeSquared;
 - (Vector2 *)normalize;
 - (Vector2 *)negate;
 - (Vector2 *)floor;
@@ -45,6 +46,7 @@
 - (float)distanceToPoint:(Vector3 *)aOther;
 
 - (float)magnitude;
+- (float)magnitudeSquared;
 - (Vector3 *)normalize;
 - (Vector3 *)negate;
 - (Vector3 *)floor;
@@ -73,6 +75,7 @@
 - (float)distanceToPoint:(Vector4 *)aOther;
 
 - (float)magnitude;
+- (float)magnitudeSquared;
 - (Vector4 *)normalize;
 - (Vector4 *)negate;
 - (Vector4 *)floor;

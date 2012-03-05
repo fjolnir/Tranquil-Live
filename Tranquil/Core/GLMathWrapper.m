@@ -54,6 +54,9 @@
 - (float)magnitude {
 	return vec2_mag(_vec);
 }
+- (float)magnitudeSquared {
+    return vec2_magSquared(_vec);
+}
 - (Vector2 *)normalize {
 	return [Vector2 vectorWithVec:vec2_normalize(_vec)];
 }
@@ -144,6 +147,9 @@
 
 - (float)magnitude {
 	return vec3_mag(_vec);
+}
+- (float)magnitudeSquared {
+    return vec3_magSquared(_vec);
 }
 - (Vector3 *)normalize {
 	return [Vector3 vectorWithVec:vec3_normalize(_vec)];
@@ -241,6 +247,10 @@
 - (float)magnitude {
 	return vec4_mag(_vec);
 }
+- (float)magnitudeSquared {
+    return vec4_magSquared(_vec);
+}
+
 - (Vector4 *)normalize {
 	return [Vector4 vectorWithVec:vec4_normalize(_vec)];
 }
