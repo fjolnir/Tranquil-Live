@@ -28,6 +28,7 @@ end
 # A Gaussian random number centered on zero with a variance of 1
 def gaussRand
     w = 1
+	x = 0
     until w < 1.0 and w > 0 do
         x = cRand
         y = cRand

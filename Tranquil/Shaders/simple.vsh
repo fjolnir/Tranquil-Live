@@ -33,21 +33,19 @@ void main()
 		float lightDistSq = length(lightDir);
 		lightDistSq = lightDistSq*lightDistSq; // For attenuation
 		lightDir = normalize(lightDir);
-		
+
 		// Diffuse component
 		float lambert = max(dot(normal.xyz, lightDir), 0.0);
 		vec4 diffuse = lambert * u_diffuseColors[i];
-		
-		// Specular component		
+
+		// Specular component
 		vec3 eyeDir = normalize(worldPos.xyz - u_cameraPosition.xyz);
 		vec3 reflected = reflect(lightDir, normal.xyz);
 		float specular = pow( max(dot(reflected, eyeDir), 0.0), a_shininess);
-		
+
 		vertColor += (u_ambientColors[i]+diffuse)*a_color + specular*u_specularColors[i];
 	}
 	v_color = vertColor;
-	//v_color = (v_color + vec4(1.0, 1.0, 1.0, 1.0)) / 2.0;
-//	v_color.a = 1.0;
 
 	gl_Position = projectedPos;
 }
