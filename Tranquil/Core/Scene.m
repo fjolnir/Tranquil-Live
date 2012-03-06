@@ -149,8 +149,9 @@ static NSOpenGLContext *_globalGlContext = nil;
 {
 	[_objects removeObject:aObject];
 }
-- (void)addImmediateModeObject:(id<SceneObject>)aObject {
+- (id<SceneObject>)addImmediateModeObject:(id<SceneObject>)aObject {
 	[_immediateModeObjects addObject:aObject];
+    return aObject;
 }
 
 - (void)addLight:(Light *)aLight

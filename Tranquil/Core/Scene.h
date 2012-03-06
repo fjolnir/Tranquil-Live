@@ -34,7 +34,7 @@
 - (void)render;
 - (id<SceneObject>)addObject:(id<SceneObject>)aObject;
 - (void)removeObject:(id<SceneObject>)aObject;
-- (void)addImmediateModeObject:(id<SceneObject>)aObject;
+- (id<SceneObject>)addImmediateModeObject:(id<SceneObject>)aObject;
 
 - (void)addLight:(Light *)aLight;
 - (void)removeLight:(Light *)aLight;
