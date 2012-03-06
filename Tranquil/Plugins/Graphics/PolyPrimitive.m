@@ -81,14 +81,15 @@
 
 #pragma mark - Rendering
 
+// This should only be called after drawing (if you are going to draw) since it messes up the shader state
 - (void)drawNormals:(Scene *)aScene
 {
 	Shader *shader = [aScene currentState].shader;
-	[shader withUniform:@"u_ambientColor" do:^(GLint loc) {
+	[shader withUniform:@"u_globalAmbientColor" do:^(GLuint loc) {
 		vec4_t white = { 1, 1, 1, 1 };
 		glUniform4fv(loc, 1, white.f);
 	}];
-	[shader withUniform:@"u_lightCount" do:^(GLint loc) {
+	[shader withUniform:@"u_lightCount" do:^(GLuint loc) {
 		glUniform1i(loc, 0);
 	}];
 	int count = 2*_vertexCount;
@@ -101,17 +102,15 @@
 		colors[2*i] = vec4_create(1, 0, 0, 1);
 		colors[2*i+1] = colors[2*i];
 	}
-	[shader makeActive];
-	[shader withAttribute:@"a_position" do:^(GLint loc) {
+	[shader withAttribute:@"a_position" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
 		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(vec4_t), points);
 	}];
-	[shader withAttribute:@"a_color" do:^(GLint loc) {
+	[shader withAttribute:@"a_color" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
 		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(vec4_t), colors);
 	}];
 	glDrawArrays(GL_LINES, 0, count);
-	[shader makeInactive];
 	free(points);
 	free(colors);
 }
@@ -129,27 +128,27 @@
 		TLog(@"No shader");
 		return;
 	}
-	[shader withAttribute:@"a_position" do:^(GLint loc) {
+	[shader withAttribute:@"a_position" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
 		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, position)));
 	}];
-	[shader withAttribute:@"a_normal" do:^(GLint loc) {
+	[shader withAttribute:@"a_normal" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
 		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, normal)));
 	}];
-	[shader withAttribute:@"a_color" do:^(GLint loc) {
+	[shader withAttribute:@"a_color" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
 		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, color)));
 	}];
-	[shader withAttribute:@"a_texCoord" do:^(GLint loc) {
+	[shader withAttribute:@"a_texCoord" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
 		glVertexAttribPointer(loc, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, texCoord)));
 	}];
-	[shader withAttribute:@"a_size" do:^(GLint loc) {
+	[shader withAttribute:@"a_size" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
 		glVertexAttribPointer(loc, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, size)));
 	}];
-	[shader withAttribute:@"a_shininess" do:^(GLint loc) {
+	[shader withAttribute:@"a_shininess" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
 		glVertexAttribPointer(loc, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, shininess)));
 	}];
@@ -164,6 +163,9 @@
 
     if(_useVBO)
     	glBindBufferARB(GL_ARRAY_BUFFER, 0);
+
+    if(_state.drawNormals)
+        [self drawNormals:aScene];
 	[_state unapplyToScene:aScene];
 }
 
