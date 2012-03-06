@@ -36,7 +36,7 @@ class TranquilMouseObserver
 	end
 	def scroll(delta)
 		cam = Scene.globalScene.camera;
-		cam.zoom = [0.1, cam.zoom - delta.y/50.0].max
+		cam.zoom = cam.zoom-delta.y/50.0
 		cam.updateMatrix
 	end
 end
