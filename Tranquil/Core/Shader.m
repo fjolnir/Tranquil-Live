@@ -136,18 +136,18 @@ static Shader *_ActiveShader = nil;
 	return location;
 }
 
--(void)withUniform:(NSString *)aUniformName do:(void (^)(GLint))block
+-(void)withUniform:(NSString *)aUniformName do:(void (^)(GLuint))block
 {
 	GLint loc = [self getUniformLocation:aUniformName];
 	if(loc != -1)
-		block(loc);
+		block((GLuint)loc);
 }
 
--(void)withAttribute:(NSString *)aAttribName do:(void (^)(GLint))block
+-(void)withAttribute:(NSString *)aAttribName do:(void (^)(GLuint))block
 {
 	GLint loc = [self getAttributeLocation:aAttribName];
 	if(loc != -1)
-		block(loc);
+		block((GLuint)loc);
 }
 
 - (void)finalize

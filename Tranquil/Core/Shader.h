@@ -35,8 +35,8 @@
 - (GLint)getAttributeLocation:(NSString *)aAttribName;
 
 // Takes a block and calls it with the location of the requested variable only if it exists
--(void)withUniform:(NSString *)aUniformName do:(void (^)(GLint))block;
--(void)withAttribute:(NSString *)aAttribName do:(void (^)(GLint))block;
+-(void)withUniform:(NSString *)aUniformName do:(void (^)(GLuint))block;
+-(void)withAttribute:(NSString *)aAttribName do:(void (^)(GLuint))block;
 
 - (void)makeActive;
 - (void)makeInactive;

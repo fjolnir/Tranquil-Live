@@ -3,14 +3,23 @@
 #import "Shader.h"
 #import "Light.h"
 #import <OpenGL/gl.h>
+#import <TranquilCore/TranquilCore.h>
 #import "GLErrorChecking.h"
 
 @interface State () {
 }
 @end
 
-@implementation State
-@synthesize transform=_transform, ambientLight=_ambientLight, color=_color, shininess=_shininess, opacity=_opacity, lineWidth=_lineWidth, pointRadius=_pointRadius, shader=_shader, renderHint=_renderHint;
+@implementation State {
+@private
+    BOOL _unlit;
+}
+
+
+@synthesize transform=_transform, ambientLight=_ambientLight, color=_color, shininess=_shininess, opacity=_opacity, lineWidth=_lineWidth, pointRadius=_pointRadius, shader=_shader;
+@synthesize drawWireframe=_drawWireframe, drawNormals=_drawNormals, drawPoints=_drawPoints, antiAlias=_antiAlias, drawOrigin=_drawOrigin, ignoreDepth=_ignoreDepth, noZWrite=_noZWrite, cullBackFace=_cullBackFace;
+@synthesize unlit = _unlit;
+
 
 - (id)init
 {
@@ -22,9 +31,9 @@
 	_shininess = 0;
 	_opacity = 1;
 	_color = [Vector4 vectorWithX:1 y:1 z:1 w:1];
-	_renderHint = kTRenderHintNone;
 	_transform = [Matrix4 identity];
 	_shader = nil;
+
 
 	return self;
 }
@@ -38,75 +47,75 @@
 	glLineWidth(_lineWidth);
 	glPointSize(_pointRadius);
 
-	if(_renderHint & kTRenderHintNoZWrite)
+	if(_noZWrite)
 		glDepthMask(false);
-	if(_renderHint & kTRenderHintCullBack)
+    else
+        glDepthMask(true);
+	if(_cullBackFace)
 		glEnable(GL_CULL_FACE);
 	else
 		glDisable(GL_CULL_FACE);
-	if(_renderHint & kTRenderHintWireframe)
+	if(_drawWireframe) {
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	else if(_renderHint & kTRenderHintPoint)
+        if(_antiAlias) glEnable(GL_LINE_SMOOTH);
+        else glDisable(GL_LINE_SMOOTH);
+    } else if(_drawPoints) {
 		glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
-	if(_renderHint & kTRenderHintDrawBBox)
-		TLog(@"TODO: draw bbox");
-	if(_renderHint & kTRenderHintUnlit)
-		TLog(@"TODO: unlit");
-	if(_renderHint & kTRenderHintCastShadow)
-		TLog(@"TODO: shadows");
-	if(_renderHint & kTRenderHintIgnoreDepth)
-		TLog(@"TODO: ignoredepth");
-	if(_renderHint & kTRenderHintDrawOrigin)
-		TLog(@"TODO: draworigin");
-	if(_renderHint & kTRenderHintVertexColors)
-		TLog(@"TODO: vertcolors");
+    } else {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        if(_antiAlias) glEnable(GL_POLYGON_SMOOTH);
+        else glDisable(GL_POLYGON_SMOOTH);
+    }
+    if(_ignoreDepth)
+        glDisable(GL_DEPTH_TEST);
+    else
+        glEnable(GL_DEPTH_TEST);
+
 	TCheckGLError();
 
 	Shader *shader = _shader;
 	if(shader) {
 		[_shader makeActive];
-		[shader withUniform:@"u_projMatrix" do:^(GLint loc) {
+		[shader withUniform:@"u_projMatrix" do:^(GLuint loc) {
 			glUniformMatrix4fv(loc, 1, GL_FALSE, aScene.projMatStack.top.mat.f);
 		}];
-		[shader withUniform:@"u_worldMatrix" do:^(GLint loc) {
+		[shader withUniform:@"u_worldMatrix" do:^(GLuint loc) {
 			glUniformMatrix4fv(loc, 1, GL_FALSE, aScene.worldMatStack.top.mat.f);
 		}];
-		[shader withUniform:@"u_cameraPosition" do:^(GLint loc) {
+		[shader withUniform:@"u_cameraPosition" do:^(GLuint loc) {
 			glUniform4fv(loc, 1, aScene.camera.position.vec.f);
 		}];
-		[shader withUniform:@"u_globalAmbientColor" do:^(GLint loc) {
-			glUniform4fv(loc, 1, aScene.ambientLight.vec.f);
+		[shader withUniform:@"u_globalAmbientColor" do:^(GLuint loc) {
+			glUniform4fv(loc, 1, _unlit ? vec4_create(1, 1, 1, 1).f : aScene.ambientLight.vec.f);
 		}];
-		[shader withUniform:@"u_lightPositions" do:^(GLint loc) {
+		[shader withUniform:@"u_lightPositions" do:^(GLuint loc) {
 			vec4_t positions[[aScene.lights count]];
 			for(int i = 0; i < [aScene.lights count]; ++i) positions[i] = [(Light*)[aScene.lights objectAtIndex:i] position].vec;
 			glUniform4fv(loc, (int)[aScene.lights count], (float*)positions);
 		}];
-		[shader withUniform:@"u_ambientColors" do:^(GLint loc) {
+		[shader withUniform:@"u_ambientColors" do:^(GLuint loc) {
 			vec4_t colors[[aScene.lights count]];
 			for(int i = 0; i < [aScene.lights count]; ++i) colors[i] = [(Light*)[aScene.lights objectAtIndex:i] ambientColor].vec;
 			glUniform4fv(loc, (int)[aScene.lights count], (float*)colors);
 		}];
-		[shader withUniform:@"u_diffuseColors" do:^(GLint loc) {
+		[shader withUniform:@"u_diffuseColors" do:^(GLuint loc) {
 			vec4_t colors[[aScene.lights count]];
 			for(int i = 0; i < [aScene.lights count]; ++i) colors[i] = [(Light*)[aScene.lights objectAtIndex:i] diffuseColor].vec;
 			glUniform4fv(loc, (int)[aScene.lights count], (float*)colors);
 		}];
-		[shader withUniform:@"u_specularColors" do:^(GLint loc) {
+		[shader withUniform:@"u_specularColors" do:^(GLuint loc) {
 			vec4_t colors[[aScene.lights count]];
 			for(int i = 0; i < [aScene.lights count]; ++i) colors[i] = [(Light*)[aScene.lights objectAtIndex:i] specularColor].vec;
 			glUniform4fv(loc, (int)[aScene.lights count], (float*)colors);
 		}];
-		[shader withUniform:@"u_lightCount" do:^(GLint loc) {
-			glUniform1i(loc, (int)[aScene.lights count]);
+		[shader withUniform:@"u_lightCount" do:^(GLuint loc) {
+			glUniform1i(loc, (int)(_unlit ? 0 : [aScene.lights count]));
 		}];
 	}
 	TCheckGLError();
 }
 - (void)unapplyToScene:(Scene *)aScene
 {
-	if(_renderHint & kTRenderHintNoZWrite)
-		glDepthMask(true);
 	if(_shader) [_shader makeInactive];
 	[aScene.worldMatStack pop];
 	[aScene.projMatStack pop];
@@ -124,8 +133,18 @@
 	copy.shininess = _shininess;
 	copy.pointRadius = _pointRadius;
 	copy.shader = _shader;
-	copy.renderHint = _renderHint;
 	copy.color = [_color copy];
-	return copy;
+    copy.drawWireframe = _drawWireframe;
+    copy.drawNormals = _drawNormals;
+    copy.drawPoints = _drawPoints;
+    copy.antiAlias = _antiAlias;
+    copy.drawOrigin = _drawOrigin;
+    copy.ignoreDepth = _ignoreDepth;
+    copy.noZWrite = _noZWrite;
+    copy.cullBackFace = _cullBackFace;
+    copy.unlit = _unlit;
+
+    return copy;
 }
+
 @end
