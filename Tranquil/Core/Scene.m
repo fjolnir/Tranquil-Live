@@ -5,6 +5,7 @@
 #import "Light.h"
 #import "Shader.h"
 #import "GLErrorChecking.h"
+#import "Logger.h"
 #import <MacRuby/MacRuby.h>
 #import <TranquilCore/TranquilCore.h>
 
@@ -126,7 +127,11 @@ static NSOpenGLContext *_globalGlContext = nil;
 	[_immediateModeObjects removeAllObjects];
 	[_projStack pop];
 	// Notify the script
-    [_rubyFrameHandler performRubySelector:@selector(handleFrame)];
+    @try {
+        [_rubyFrameHandler performRubySelector:@selector(handleFrame)];
+    } @catch(NSException *e) {
+        [[Logger sharedLogger] log:e.description];
+    }
 }
 
 #pragma - Accessors

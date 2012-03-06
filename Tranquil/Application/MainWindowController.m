@@ -11,6 +11,7 @@
 {
     [[ScriptContext sharedContext] setDelegate:self];
 	self.window.aspectRatio = NSMakeSize(1.65, 1);
+    [Logger sharedLogger].delegate = self;
 }
 
 - (IBAction)switchScriptView:(id)sender
@@ -65,6 +66,14 @@
     message = [message stringByAppendingString:@"\n"];
     NSAttributedString *consoleOutput = [[NSAttributedString alloc] initWithString:message attributes:_consoleView.typingAttributes];
 
+    [[_consoleView textStorage] appendAttributedString:consoleOutput];
+}
+
+- (void)logger:(Logger *)aLogger receivedMessage:(NSString *)aMessage
+{
+    NSAttributedString *consoleOutput = [[NSAttributedString alloc] initWithString:aMessage
+                                                                        attributes:_consoleView.typingAttributes];
+    
     [[_consoleView textStorage] appendAttributedString:consoleOutput];
 }
 @end

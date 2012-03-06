@@ -11,6 +11,10 @@
 		C70E8A6014D46AD4000DAF2F /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C70E8A5F14D46ACD000DAF2F /* Scripts */; };
 		C729B47214F554F100CDEEE4 /* TAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7906D6F14F554CE0070AA7E /* TAppDelegate.m */; };
 		C729B47314F555FA00CDEEE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EF2D14B78D4C0000884E /* main.m */; };
+		C72A6AEA150634D400A8DAA3 /* Particles.m in Sources */ = {isa = PBXBuildFile; fileRef = C72A6AE9150634D400A8DAA3 /* Particles.m */; };
+		C72A6AED150643B400A8DAA3 /* Texture.h in Headers */ = {isa = PBXBuildFile; fileRef = C72A6AEB150643B400A8DAA3 /* Texture.h */; };
+		C72A6AEE150643B400A8DAA3 /* Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = C72A6AEC150643B400A8DAA3 /* Texture.m */; };
+		C72A6AF11506678000A8DAA3 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = C72A6AF01506678000A8DAA3 /* Logger.m */; };
 		C744E3A014B8337D00078FBB /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C744E39F14B8337D00078FBB /* Scripts */; };
 		C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C744E3CF14B8464E00078FBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C744E3CD14B8464E00078FBB /* InfoPlist.strings */; };
@@ -226,6 +230,12 @@
 
 /* Begin PBXFileReference section */
 		C70E8A5F14D46ACD000DAF2F /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
+		C72A6AE8150634D400A8DAA3 /* Particles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles.h; sourceTree = "<group>"; };
+		C72A6AE9150634D400A8DAA3 /* Particles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Particles.m; sourceTree = "<group>"; };
+		C72A6AEB150643B400A8DAA3 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		C72A6AEC150643B400A8DAA3 /* Texture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture.m; sourceTree = "<group>"; };
+		C72A6AEF1506678000A8DAA3 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		C72A6AF01506678000A8DAA3 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
 		C744E39F14B8337D00078FBB /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		C744E3A114B834EF00078FBB /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		C744E3A214B834EF00078FBB /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
@@ -427,6 +437,8 @@
 				C773FED614BD7C18003338FE /* Sphere.m */,
 				C773FF0614BFE5D7003338FE /* Plane.h */,
 				C773FF0714BFE5D8003338FE /* Plane.m */,
+				C72A6AE8150634D400A8DAA3 /* Particles.h */,
+				C72A6AE9150634D400A8DAA3 /* Particles.m */,
 				C76B70B514D409FA004E6CCE /* Scripts */,
 				C744E3CB14B8464E00078FBB /* Supporting Files */,
 			);
@@ -524,6 +536,8 @@
 				C79EF1F614F5342900570FB6 /* PluginManager.h */,
 				C79EF1F714F5342900570FB6 /* PluginManager.m */,
 				C7E2EF2D14B78D4C0000884E /* main.m */,
+				C72A6AEF1506678000A8DAA3 /* Logger.h */,
+				C72A6AF01506678000A8DAA3 /* Logger.m */,
 				C7E2EF3614B78D4D0000884E /* MainMenu.xib */,
 				C7E2EF2814B78D4C0000884E /* Supporting Files */,
 			);
@@ -622,6 +636,8 @@
 				C773FECC14BD11D6003338FE /* GLErrorChecking.h */,
 				C7622B8E14D1CE460093DDD0 /* GLMathWrapper.h */,
 				C7622B8F14D1CE460093DDD0 /* GLMathWrapper.m */,
+				C72A6AEB150643B400A8DAA3 /* Texture.h */,
+				C72A6AEC150643B400A8DAA3 /* Texture.m */,
 				C79EF1C314F530E000570FB6 /* Supporting Files */,
 			);
 			path = Core;
@@ -667,6 +683,7 @@
 				C79EF1DA14F531CB00570FB6 /* Light.h in Headers */,
 				C79EF1DB14F531CB00570FB6 /* Camera.h in Headers */,
 				C79EF1DC14F531CB00570FB6 /* GLMathWrapper.h in Headers */,
+				C72A6AED150643B400A8DAA3 /* Texture.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -932,6 +949,7 @@
 				C773FEB414BC122D003338FE /* Cube.m in Sources */,
 				C773FED714BD7C18003338FE /* Sphere.m in Sources */,
 				C773FF0814BFE5D8003338FE /* Plane.m in Sources */,
+				C72A6AEA150634D400A8DAA3 /* Particles.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -964,6 +982,7 @@
 				C79EF1D414F531A500570FB6 /* Camera.m in Sources */,
 				C79EF1D214F531A100570FB6 /* Shader.m in Sources */,
 				C79EF1D514F531AE00570FB6 /* GLMathWrapper.m in Sources */,
+				C72A6AEE150643B400A8DAA3 /* Texture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,6 +997,7 @@
 				C79EF1FB14F5342900570FB6 /* OverlayTextView.m in Sources */,
 				C79EF1FC14F5342900570FB6 /* PluginManager.m in Sources */,
 				C729B47314F555FA00CDEEE4 /* main.m in Sources */,
+				C72A6AF11506678000A8DAA3 /* Logger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1435,6 +1455,7 @@
 				C7FD7B611503979C00F3D000 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

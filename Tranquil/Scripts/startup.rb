@@ -7,6 +7,8 @@ end
 require "glmath"
 require "state"
 require "mouse"
+require "texture"
+require "logging"
 
 # Setup
 def _setup
