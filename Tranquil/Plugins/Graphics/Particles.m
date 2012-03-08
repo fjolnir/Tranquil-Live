@@ -11,6 +11,9 @@
     memset(self.vertices, 0, sizeof(Vertex_t)*aCount);
     self.renderMode = kPolyPrimitiveRenderModePoints;
     self.vertexCount = aCount;
+
+    // By default, disable depth buffer writes
+    self.state.ignoreDepth = YES;
     
     return self;
 }
@@ -18,7 +21,10 @@
 - (void)render:(Scene *)aScene
 {
     glEnable(GL_POINT_SPRITE);
+    glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
+    glTexEnvi(GL_POINT_SPRITE, GL_COORD_REPLACE, GL_TRUE);
     [super render:aScene];
+    glDisable(GL_VERTEX_PROGRAM_POINT_SIZE);
     glDisable(GL_POINT_SPRITE);
 }
 
