@@ -7,6 +7,10 @@ end
 def buildSphere(radius=1, stacks=10, slices=10)
 	scene.addObject Sphere.alloc.initWithRadius(radius, stacks:stacks, slices:slices)
 end
+def buildParticles(count=100)
+    scene.addObject Particles.alloc.initWithCount(count)
+end
+
 def drawSphere(radius=1, stacks=10, slices=10)
 	scene.addImmediateModeObject Sphere.alloc.initWithRadius(radius, stacks:stacks, slices:slices)
 end
