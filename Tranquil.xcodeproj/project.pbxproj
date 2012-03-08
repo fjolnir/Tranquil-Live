@@ -12,9 +12,10 @@
 		C729B47214F554F100CDEEE4 /* TAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7906D6F14F554CE0070AA7E /* TAppDelegate.m */; };
 		C729B47314F555FA00CDEEE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2EF2D14B78D4C0000884E /* main.m */; };
 		C72A6AEA150634D400A8DAA3 /* Particles.m in Sources */ = {isa = PBXBuildFile; fileRef = C72A6AE9150634D400A8DAA3 /* Particles.m */; };
-		C72A6AED150643B400A8DAA3 /* Texture.h in Headers */ = {isa = PBXBuildFile; fileRef = C72A6AEB150643B400A8DAA3 /* Texture.h */; };
+		C72A6AED150643B400A8DAA3 /* Texture.h in Headers */ = {isa = PBXBuildFile; fileRef = C72A6AEB150643B400A8DAA3 /* Texture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C72A6AEE150643B400A8DAA3 /* Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = C72A6AEC150643B400A8DAA3 /* Texture.m */; };
-		C72A6AF11506678000A8DAA3 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = C72A6AF01506678000A8DAA3 /* Logger.m */; };
+		C72A6AF21506785E00A8DAA3 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = C72A6AF01506678000A8DAA3 /* Logger.m */; };
+		C72A6AF31506786C00A8DAA3 /* Logger.h in Headers */ = {isa = PBXBuildFile; fileRef = C72A6AEF1506678000A8DAA3 /* Logger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C744E3A014B8337D00078FBB /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C744E39F14B8337D00078FBB /* Scripts */; };
 		C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C744E3CF14B8464E00078FBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C744E3CD14B8464E00078FBB /* InfoPlist.strings */; };
@@ -96,7 +97,6 @@
 		C7FD7B641503982700F3D000 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C7FD7B651503983000F3D000 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
 		C7FD7B6F1503987A00F3D000 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7FD7B6A1503987A00F3D000 /* InfoPlist.strings */; };
-		C7FD7B701503987A00F3D000 /* TranquilGenerators-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7FD7B6C1503987A00F3D000 /* TranquilGenerators-Info.plist */; };
 		C7FD7B72150398A200F3D000 /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C7FD7B71150398A200F3D000 /* Scripts */; };
 		C7FD7B731503A64100F3D000 /* TranquilGenerators.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C7FD7B561503979C00F3D000 /* TranquilGenerators.bundle */; };
 		C7FD7B761503A67100F3D000 /* TranquilGeneratorsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FD7B751503A67100F3D000 /* TranquilGeneratorsPlugin.m */; };
@@ -234,8 +234,8 @@
 		C72A6AE9150634D400A8DAA3 /* Particles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Particles.m; sourceTree = "<group>"; };
 		C72A6AEB150643B400A8DAA3 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
 		C72A6AEC150643B400A8DAA3 /* Texture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture.m; sourceTree = "<group>"; };
-		C72A6AEF1506678000A8DAA3 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
-		C72A6AF01506678000A8DAA3 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
+		C72A6AEF1506678000A8DAA3 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logger.h; path = ../Application/Logger.h; sourceTree = "<group>"; };
+		C72A6AF01506678000A8DAA3 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Logger.m; path = ../Application/Logger.m; sourceTree = "<group>"; };
 		C744E39F14B8337D00078FBB /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		C744E3A114B834EF00078FBB /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		C744E3A214B834EF00078FBB /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
@@ -536,8 +536,6 @@
 				C79EF1F614F5342900570FB6 /* PluginManager.h */,
 				C79EF1F714F5342900570FB6 /* PluginManager.m */,
 				C7E2EF2D14B78D4C0000884E /* main.m */,
-				C72A6AEF1506678000A8DAA3 /* Logger.h */,
-				C72A6AF01506678000A8DAA3 /* Logger.m */,
 				C7E2EF3614B78D4D0000884E /* MainMenu.xib */,
 				C7E2EF2814B78D4C0000884E /* Supporting Files */,
 			);
@@ -620,6 +618,8 @@
 			children = (
 				C79EF1FD14F5345300570FB6 /* TranquilCore.h */,
 				C773FEE714BFB0E3003338FE /* Debug.h */,
+				C72A6AEF1506678000A8DAA3 /* Logger.h */,
+				C72A6AF01506678000A8DAA3 /* Logger.m */,
 				C74B3A9714B7E280006741C4 /* ScriptContext.h */,
 				C74B3A9814B7E280006741C4 /* ScriptContext.m */,
 				C744E3A114B834EF00078FBB /* Scene.h */,
@@ -681,9 +681,10 @@
 				C79EF1D914F531CB00570FB6 /* Shader.h in Headers */,
 				C79EF1FF14F534E700570FB6 /* TranquilPlugin.h in Headers */,
 				C79EF1DA14F531CB00570FB6 /* Light.h in Headers */,
+				C72A6AED150643B400A8DAA3 /* Texture.h in Headers */,
 				C79EF1DB14F531CB00570FB6 /* Camera.h in Headers */,
 				C79EF1DC14F531CB00570FB6 /* GLMathWrapper.h in Headers */,
-				C72A6AED150643B400A8DAA3 /* Texture.h in Headers */,
+				C72A6AF31506786C00A8DAA3 /* Logger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -915,7 +916,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7FD7B6F1503987A00F3D000 /* InfoPlist.strings in Resources */,
-				C7FD7B701503987A00F3D000 /* TranquilGenerators-Info.plist in Resources */,
 				C7FD7B72150398A200F3D000 /* Scripts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -975,6 +975,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72A6AF21506785E00A8DAA3 /* Logger.m in Sources */,
 				C79EF1CF14F5319A00570FB6 /* ScriptContext.m in Sources */,
 				C79EF1D014F5319C00570FB6 /* Scene.m in Sources */,
 				C79EF1D114F5319E00570FB6 /* State.m in Sources */,
@@ -997,7 +998,6 @@
 				C79EF1FB14F5342900570FB6 /* OverlayTextView.m in Sources */,
 				C79EF1FC14F5342900570FB6 /* PluginManager.m in Sources */,
 				C729B47314F555FA00CDEEE4 /* main.m in Sources */,
-				C72A6AF11506678000A8DAA3 /* Logger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
