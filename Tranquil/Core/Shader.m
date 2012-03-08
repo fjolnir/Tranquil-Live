@@ -1,7 +1,6 @@
 #import "Shader.h"
 #import <OpenGL/gl.h>
 #import "GLErrorChecking.h"
-#import "TAppDelegate.h"
 
 static Shader *_ActiveShader = nil;
 
