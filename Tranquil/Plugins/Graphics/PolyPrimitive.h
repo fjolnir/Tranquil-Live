@@ -38,7 +38,10 @@ typedef enum {
 
 typedef void (^VertexMappingBlock)(NSUInteger aIndex, VertexWrapper *aVertex);
 
-@interface PolyPrimitive : NSObject <SceneObject>
+@interface PolyPrimitive : NSObject <SceneObject> {
+@public
+    State *_state;
+}
 @property(readonly) GLuint vertexBuffer, indexBuffer;
 @property(readwrite, assign, nonatomic) Vertex_t *vertices;
 @property(readwrite, assign, nonatomic) GLuint *indices;

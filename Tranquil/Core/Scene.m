@@ -16,6 +16,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 @private
 	NSMutableArray *_objects, *_immediateModeObjects, *_stateStack, *_lights;
     id _rubyFrameHandler;
+    NSComparator _depthSortingBlock;
 }
 @end
 @implementation Scene
@@ -83,7 +84,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 	self.clearColor = [Vector4 vectorWithX:0 y:0 z:0 w:1];
 	_ambientLight = [Vector4 vectorWithX:0 y:0 z:0 w:1];
 	
-	_camera = [[Camera alloc] init];
+	self.camera = [[Camera alloc] init];
 	
 	[GlobalGLContext() makeCurrentContext];
 	TCheckGLError();
@@ -95,7 +96,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 	Shader *shader = [Shader shaderWithName:@"Simple" fragmentShader:fragSrc vertexShader:vertSrc];
 	TCheckGLError();
 	[self currentState].shader = shader;
-	
+
 	return self;
 }
 
@@ -116,7 +117,9 @@ static NSOpenGLContext *_globalGlContext = nil;
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 	
 	[_projStack push:_camera.matrix];
-    
+
+    [_objects sortUsingComparator:_depthSortingBlock];
+    [_immediateModeObjects sortUsingComparator:_depthSortingBlock];
 	for(id<SceneObject> obj in _objects) {
 		[obj render:self];
 	}
@@ -140,6 +143,19 @@ static NSOpenGLContext *_globalGlContext = nil;
 	[_objects makeObjectsPerformSelector:@selector(invalidate)];
 	[_objects removeAllObjects];
 }
+
+- (void)setCamera:(Camera *)aCamera
+{
+    _camera = aCamera;
+    _depthSortingBlock = [^NSComparisonResult(id<SceneObject> obj1, id<SceneObject> obj2) {
+        vec4_t origin = { 0,0,0,1 };
+        vec4_t p1 = vec4_mul_mat4(origin, obj1.state->_transform->_mat);
+        p1 = vec4_mul_mat4(p1, _camera->_matrix->_mat);
+        vec4_t p2 = vec4_mul_mat4(origin, obj2.state->_transform->_mat);
+        p2 = vec4_mul_mat4(p2, _camera->_matrix->_mat);
+        return ((p1.z >= p2.z) ? NSOrderedAscending : NSOrderedDescending);
+    } copy];
+}
 - (id<SceneObject>)addObject:(id<SceneObject>)aObject
 {
 	[_objects addObject:aObject];
@@ -149,7 +165,8 @@ static NSOpenGLContext *_globalGlContext = nil;
 {
 	[_objects removeObject:aObject];
 }
-- (id<SceneObject>)addImmediateModeObject:(id<SceneObject>)aObject {
+- (id<SceneObject>)addImmediateModeObject:(id<SceneObject>)aObject
+{
 	[_immediateModeObjects addObject:aObject];
     return aObject;
 }

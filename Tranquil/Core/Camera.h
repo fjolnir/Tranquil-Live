@@ -1,6 +1,9 @@
 #import "GLMathWrapper.h"
 
-@interface Camera : NSObject
+@interface Camera : NSObject {
+@public
+    Matrix4 *_matrix;
+}
 @property(readwrite, assign) Vector4 *position;
 @property(readwrite, assign) Quaternion *orientation;
 @property(readwrite, assign) float fov, zoom, aspectRatio;
