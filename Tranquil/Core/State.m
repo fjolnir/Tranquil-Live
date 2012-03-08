@@ -2,6 +2,7 @@
 #import "Scene.h"
 #import "Shader.h"
 #import "Light.h"
+#import "Texture.h"
 #import <OpenGL/gl.h>
 #import <TranquilCore/TranquilCore.h>
 #import "GLErrorChecking.h"
@@ -10,15 +11,10 @@
 }
 @end
 
-@implementation State {
-@private
-    BOOL _unlit;
-}
-
-
+@implementation State
 @synthesize transform=_transform, ambientLight=_ambientLight, color=_color, shininess=_shininess, opacity=_opacity, lineWidth=_lineWidth, pointRadius=_pointRadius, shader=_shader;
 @synthesize drawWireframe=_drawWireframe, drawNormals=_drawNormals, drawPoints=_drawPoints, antiAlias=_antiAlias, drawOrigin=_drawOrigin, ignoreDepth=_ignoreDepth, noZWrite=_noZWrite, cullBackFace=_cullBackFace;
-@synthesize unlit = _unlit;
+@synthesize unlit=_unlit, texture=_texture;
 
 
 - (id)init
@@ -33,7 +29,7 @@
 	_color = [Vector4 vectorWithX:1 y:1 z:1 w:1];
 	_transform = [Matrix4 identity];
 	_shader = nil;
-
+    _texture = nil;
 
 	return self;
 }
@@ -76,6 +72,13 @@
 	Shader *shader = _shader;
 	if(shader) {
 		[_shader makeActive];
+        if(_texture) {
+            [shader withUniform:@"u_texture" do:^(GLuint loc) {
+                glActiveTexture(GL_TEXTURE0);
+                glBindTexture(GL_TEXTURE_2D, _texture.texId);
+                glUniform1i(loc, 0);
+            }];
+        }
 		[shader withUniform:@"u_projMatrix" do:^(GLuint loc) {
 			glUniformMatrix4fv(loc, 1, GL_FALSE, aScene.projMatStack.top.mat.f);
 		}];
@@ -143,6 +146,7 @@
     copy.noZWrite = _noZWrite;
     copy.cullBackFace = _cullBackFace;
     copy.unlit = _unlit;
+    copy.texture = _texture;
 
     return copy;
 }
