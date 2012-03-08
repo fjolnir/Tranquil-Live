@@ -79,6 +79,9 @@
                 glUniform1i(loc, 0);
             }];
         }
+        [shader withUniform:@"u_textureMask" do:^(GLuint loc) {
+            glUniform1f(loc, (_texture ? 1.0f : 0.0f));
+        }];
 		[shader withUniform:@"u_projMatrix" do:^(GLuint loc) {
 			glUniformMatrix4fv(loc, 1, GL_FALSE, aScene.projMatStack.top.mat.f);
 		}];
@@ -119,6 +122,10 @@
 }
 - (void)unapplyToScene:(Scene *)aScene
 {
+    if(_texture) {
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, 0);
+    }
 	if(_shader) [_shader makeInactive];
 	[aScene.worldMatStack pop];
 	[aScene.projMatStack pop];
