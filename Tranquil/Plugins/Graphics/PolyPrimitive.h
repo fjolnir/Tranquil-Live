@@ -59,6 +59,6 @@ typedef void (^VertexMappingBlock)(NSUInteger aIndex, VertexWrapper *aVertex);
 
 - (void)recomputeNormals:(BOOL)aSmooth;
 
-- (void)mapVertices:(VertexMappingBlock)aEnumBlock;
+- (PolyPrimitive *)mapVertices:(VertexMappingBlock)aEnumBlock;
 @end
 

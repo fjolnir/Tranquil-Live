@@ -248,7 +248,7 @@
 	// TODO
 }
 
-- (void)mapVertices:(VertexMappingBlock)aEnumBlock
+- (PolyPrimitive *)mapVertices:(VertexMappingBlock)aEnumBlock
 {
     VertexWrapper *wrapper = [[VertexWrapper alloc] init];
     for(NSUInteger i = 0; i < _vertexCount; ++i) {
@@ -262,6 +262,7 @@
         glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
         glBufferSubData(GL_ARRAY_BUFFER, 0, _vertexCount*sizeof(Vertex_t), _vertices);
     }
+    return self;
 }
 
 @end
