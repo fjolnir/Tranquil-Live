@@ -14,11 +14,13 @@ uniform vec4 u_specularColors[MAX_LIGHTS];
 
 attribute vec4 a_position;
 attribute vec4 a_normal;
-attribute vec4 a_texCoord;
+attribute vec2 a_texCoord;
 attribute vec4 a_color;
 attribute float a_shininess;
+attribute float a_size;
 
 varying vec4 v_color;
+varying vec2 v_texCoord;
 
 void main()
 {
@@ -27,6 +29,9 @@ void main()
 	
 	vec4 normal = u_worldMatrix * a_normal;
 	vec4 vertColor = u_globalAmbientColor * a_color;
+	vec3 eyeVec = worldPos.xyz - u_cameraPosition.xyz;
+	vec3 eyeDir = normalize(eyeVec);
+
 	int i;
 	for(i = 0; i < u_lightCount; ++i) {
 		vec3 lightDir = u_lightPositions[i].xyz - worldPos.xyz;
@@ -39,13 +44,14 @@ void main()
 		vec4 diffuse = lambert * u_diffuseColors[i];
 
 		// Specular component
-		vec3 eyeDir = normalize(worldPos.xyz - u_cameraPosition.xyz);
-		vec3 reflected = reflect(lightDir, normal.xyz);
+        vec3 reflected = reflect(lightDir, normal.xyz);
 		float specular = pow( max(dot(reflected, eyeDir), 0.0), a_shininess);
 
 		vertColor += (u_ambientColors[i]+diffuse)*a_color + specular*u_specularColors[i];
 	}
 	v_color = vertColor;
+	v_texCoord = a_texCoord;
 
+    gl_PointSize = a_size;//*30.0/length(eyeVec);
 	gl_Position = projectedPos;
 }
