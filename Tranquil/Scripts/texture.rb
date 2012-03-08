@@ -1,6 +1,6 @@
 class Texture
     def self.load(aPath)
-        initWithContentsOfFile(aPath, minFilter:GL_NEAREST, maxFilter:GL_LINEAR, buildMipMaps:false)
+        alloc.initWithContentsOfFile(aPath, minFilter:GL_NEAREST, maxFilter:GL_LINEAR, buildMipMaps:false)
     end
 end
 

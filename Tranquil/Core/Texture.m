@@ -13,6 +13,7 @@
                   minFilter:(GLuint)aMinFilter
                   maxFilter:(GLuint)aMaxFilter
                buildMipMaps:(BOOL)aShouldBuildMipMaps {
+    glEnable(GL_TEXTURE_2D);
     CFURLRef textureUrl = (CFURLRef)[NSURL fileURLWithPath:[aPath stringByExpandingTildeInPath]];
     assert(textureUrl != nil);
     CGImageSourceRef imageSource = CGImageSourceCreateWithURL(textureUrl, NULL);
@@ -38,10 +39,13 @@
                                                  colorSpace,
                                                  kCGBitmapByteOrder32Host|kCGImageAlphaPremultipliedFirst);
     assert(context != NULL);
-    
+    CGContextSetBlendMode(context, kCGBlendModeCopy);
+
+    CGContextTranslateCTM(context, 0, height);
+    CGContextScaleCTM(context, 1, -1);
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), image);
     
-    //glPixelStorei(GL_UNPACK_ROW_LENGTH, width);
+    glPixelStorei(GL_UNPACK_ROW_LENGTH, width);
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
     GLuint textureId;
     glGenTextures(1, &textureId);
