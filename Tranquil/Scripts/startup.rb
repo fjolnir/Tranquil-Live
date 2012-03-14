@@ -21,7 +21,7 @@ def _setup
 	scene.camera.updateMatrix
 	
 	light = Light.new
-	light.position = vec4(0,10,0,1)
+	light.position = vec4(3,10,0,1)
 	light.ambientColor = vec4(0.2, 0.2, 0.2, 1)
 	light.specularColor = vec4(0.1, 0.1, 0.1, 1)
 	light.diffuseColor = vec4(0.7, 0.7, 0.7, 1)

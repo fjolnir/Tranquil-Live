@@ -47,7 +47,9 @@ void main()
         vec3 reflected = reflect(lightDir, normal.xyz);
 		float specular = pow( max(dot(reflected, eyeDir), 0.0), a_shininess);
 
-		vertColor += (u_ambientColors[i]+diffuse)*a_color + specular*u_specularColors[i];
+		vec4 light = (u_ambientColors[i]+diffuse)*a_color + specular*u_specularColors[i];
+
+		vertColor += light;
 	}
 	v_color = vertColor;
 	v_texCoord = a_texCoord;
