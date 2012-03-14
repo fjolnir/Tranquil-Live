@@ -68,11 +68,10 @@ static NSOpenGLContext *_globalGlContext = nil;
                                                  name:kTranquilFinishedLaunching
                                                object:nil];
 
-    
-	_projStack = [MatrixStack stackWithCapacity:8];
-	[_projStack push:[Matrix4 identity]];
-	 _worldStack = [MatrixStack stackWithCapacity:32];
-	 [_worldStack push:[Matrix4 identity]];
+    _projStack = matrix_stack_create(8);
+    matrix_stack_push_item(_projStack, kMat4_identity);
+    _worldStack = matrix_stack_create(32);
+    matrix_stack_push_item(_worldStack, kMat4_identity);
 	
 	_objects = [NSMutableArray array];
 	_immediateModeObjects = [NSMutableArray array];
@@ -81,8 +80,8 @@ static NSOpenGLContext *_globalGlContext = nil;
 	State *rootState = [[State alloc] init];
 	[_stateStack addObject:rootState];
 	
-	self.clearColor = [Vector4 vectorWithX:0 y:0 z:0 w:1];
-	_ambientLight = [Vector4 vectorWithX:0 y:0 z:0 w:1];
+	self.clearColor = vec4_create(0, 0, 0, 1);
+	_ambientLight = vec4_create(0, 0, 0, 1);
 	
 	self.camera = [[Camera alloc] init];
 	
@@ -116,7 +115,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 {
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 	
-	[_projStack push:_camera.matrix];
+    matrix_stack_push_item(_projStack, _camera.matrix);
 
     [_objects sortUsingComparator:_depthSortingBlock];
     [_immediateModeObjects sortUsingComparator:_depthSortingBlock];
@@ -128,7 +127,8 @@ static NSOpenGLContext *_globalGlContext = nil;
 	}
     [_immediateModeObjects makeObjectsPerformSelector:@selector(invalidate)];
 	[_immediateModeObjects removeAllObjects];
-	[_projStack pop];
+    matrix_stack_pop(_projStack);
+
 	// Notify the script
     @try {
         [_rubyFrameHandler performRubySelector:@selector(handleFrame)];
@@ -149,10 +149,10 @@ static NSOpenGLContext *_globalGlContext = nil;
     _camera = aCamera;
     _depthSortingBlock = [^NSComparisonResult(id<SceneObject> obj1, id<SceneObject> obj2) {
         vec4_t origin = { 0,0,0,1 };
-        vec4_t p1 = vec4_mul_mat4(origin, obj1.state->_transform->_mat);
-        p1 = vec4_mul_mat4(p1, _camera->_matrix->_mat);
-        vec4_t p2 = vec4_mul_mat4(origin, obj2.state->_transform->_mat);
-        p2 = vec4_mul_mat4(p2, _camera->_matrix->_mat);
+        vec4_t p1 = vec4_mul_mat4(origin, obj1.state->_transform);
+        p1 = vec4_mul_mat4(p1, _camera->_matrix);
+        vec4_t p2 = vec4_mul_mat4(origin, obj2.state->_transform);
+        p2 = vec4_mul_mat4(p2, _camera->_matrix);
         return ((p1.z >= p2.z) ? NSOrderedAscending : NSOrderedDescending);
     } copy];
 }
@@ -180,7 +180,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 	[_lights removeObject:aLight];
 }
 
-- (void)setClearColor:(Vector4 *)aColor
+- (void)setClearColor:(vec4_t)aColor
 {
 	_clearColor = aColor;
 	glClearColor(aColor.r, aColor.g, aColor.b, aColor.a);

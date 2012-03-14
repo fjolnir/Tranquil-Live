@@ -60,7 +60,8 @@
 - (void)scrollWheel:(NSEvent *)aEvent
 {
     [_rubyMouseObserver performRubySelector:@selector(scroll:) 
-                              withArguments:[Vector2 vectorWithX:aEvent.scrollingDeltaX y:aEvent.scrollingDeltaY], NULL];
+                              withArguments:[NSNumber numberWithDouble:aEvent.scrollingDeltaX],
+                                            [NSNumber numberWithDouble:aEvent.scrollingDeltaY], nil];
 }
 
 - (void)mouseEntered:(NSEvent *)aEvent
@@ -83,13 +84,15 @@
 - (void)mouseDown:(NSEvent *)aEvent
 {
 	[_rubyMouseObserver performRubySelector:@selector(leftClick:)
-                              withArguments:[Vector2 vectorWithX:aEvent.locationInWindow.x y:aEvent.locationInWindow.y], NULL];
+                              withArguments:[NSNumber numberWithDouble:aEvent.locationInWindow.x],
+                                            [NSNumber numberWithDouble:aEvent.locationInWindow.y], nil];
 }
 
 - (void)mouseDragged:(NSEvent *)aEvent
 {
 	[_rubyMouseObserver performRubySelector:@selector(leftDrag:)
-                              withArguments:[Vector2 vectorWithX:aEvent.locationInWindow.x y:aEvent.locationInWindow.y], NULL];
+                              withArguments:[NSNumber numberWithDouble:aEvent.locationInWindow.x],
+                                            [NSNumber numberWithDouble:aEvent.locationInWindow.y], nil];
 }
 
 @end

@@ -15,6 +15,8 @@
 <arg type='f'/>
 <retval type='{_Vertex_t={_vec4_t=dddd}{_vec4_t=dddd}{_vec4_t=dddd}{_vec2_t=dd}dd}'/>
 </function>
+<function name='vtest'>
+<retval type='^{_Vertex_t={_vec4_t=dddd}{_vec4_t=dddd}{_vec4_t=dddd}{_vec2_t=dd}dd}'/>
 </function>
 <class name='PolyPrimitive'>
 <method selector='isValid'>
@@ -23,8 +25,8 @@
 <method selector='mapVertices:'>
 <arg function_pointer='true' type='@?' index='0'>
 <arg type64='Q' type='I'/>
-<arg type='@'/>
-<retval type='v'/>
+<arg type='{_Vertex_t={_vec4_t=dddd}{_vec4_t=dddd}{_vec4_t=dddd}{_vec2_t=dd}dd}'/>
+<retval type='{_Vertex_t={_vec4_t=dddd}{_vec4_t=dddd}{_vec4_t=dddd}{_vec2_t=dd}dd}'/>
 </arg>
 </method>
 <method selector='recomputeNormals:'>
@@ -39,5 +41,8 @@
 <method selector='usesIndices'>
 <retval type='B'/>
 </method>
+    <method selector='vertices'>
+        <retval type='^{_Vertex_t={_vec4_t=dddd}{_vec4_t=dddd}{_vec4_t=dddd}{_vec2_t=dd}dd}'/>
+    </method>
 </class>
 </signatures>

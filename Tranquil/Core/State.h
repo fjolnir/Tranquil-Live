@@ -1,19 +1,19 @@
 // Just a container for the render state of an object
-#import <TranquilCore/GLMathWrapper.h>
+#import <GLMath/GLMath.h>
 
 @class Scene, Shader, Texture;
 
 @interface State : NSObject {
 @public
-    Matrix4 *_transform;
+    mat4_t _transform;
 }
-@property(readwrite, assign) Matrix4 *transform;
-@property(readwrite, assign) Vector4 *ambientLight;
-@property(readwrite, assign) Vector4 *color;
-@property(readwrite, assign) float shininess;
-@property(readwrite, assign) float opacity;
-@property(readwrite, assign) float lineWidth;
-@property(readwrite, assign) float pointRadius;
+@property(readwrite, assign) mat4_t transform;
+@property(readwrite, assign) vec4_t ambientLight;
+@property(readwrite, assign) vec4_t color;
+@property(readwrite, assign) GLMFloat shininess;
+@property(readwrite, assign) GLMFloat opacity;
+@property(readwrite, assign) GLMFloat lineWidth;
+@property(readwrite, assign) GLMFloat pointRadius;
 @property(readwrite, retain) Shader *shader;
 @property(readwrite, retain) Texture *texture;
 

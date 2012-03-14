@@ -1,5 +1,5 @@
-#import "GLMathWrapper.h"
+#import <GLMath/GLMath.h>
 
 @interface Light : NSObject
-@property Vector4 *position, *ambientColor, *diffuseColor, *specularColor;
+@property vec4_t position, ambientColor, diffuseColor, specularColor;
 @end

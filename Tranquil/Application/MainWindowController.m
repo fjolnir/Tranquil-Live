@@ -6,7 +6,6 @@
 @implementation MainWindowController
 @synthesize mainView=_mainView, consoleView=_consoleView, tabView=_tabView;
 
-
 - (void)awakeFromNib
 {
     [[ScriptContext sharedContext] setDelegate:self];
@@ -56,6 +55,7 @@
 - (void)scriptContext:(ScriptContext *)aContext encounteredError:(NSError *)aError
 {
     NSString *message = [aError.userInfo objectForKey:@"description"];
+    NSLog(@"%@", message);
     NSRange evalRange = [message rangeOfString:@"/(eval):"];
     // If it's a message from eval (most likely case, get rid of the pwd)
     if(evalRange.location != NSNotFound) {

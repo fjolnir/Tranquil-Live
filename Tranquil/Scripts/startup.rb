@@ -17,7 +17,7 @@ def _setup
 	
 	scene.camera.position = vec4(0, 0, 5, 1)
 	scene.camera.orientation = quat(0, 1, 0, 0)
-    scene.camera.fov = Math::PI/2.0
+	scene.camera.fov = PI/2.0
 	scene.camera.updateMatrix
 	
 	light = Light.new
@@ -37,10 +37,10 @@ def _registerFrameCallback(&callback)
 end
 
 class TranquilFrameHandler
-    def handleFrame
-        $internalFrameCallbacks.each { |c| c.call }
-        $userFrameCallback.call unless $userFrameCallback.nil?
-    end
+	def handleFrame
+		$internalFrameCallbacks.each { |c| c.call }
+		$userFrameCallback.call unless $userFrameCallback.nil?
+	end
 end
 
 def everyFrame(&callback)

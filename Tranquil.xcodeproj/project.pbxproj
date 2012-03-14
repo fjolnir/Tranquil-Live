@@ -63,14 +63,12 @@
 		C79EF1D214F531A100570FB6 /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEB614BC1F00003338FE /* Shader.m */; };
 		C79EF1D314F531A300570FB6 /* Light.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FEBC14BC27D7003338FE /* Light.m */; };
 		C79EF1D414F531A500570FB6 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = C773FED914BE7316003338FE /* Camera.m */; };
-		C79EF1D514F531AE00570FB6 /* GLMathWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C7622B8F14D1CE460093DDD0 /* GLMathWrapper.m */; };
 		C79EF1D614F531CB00570FB6 /* ScriptContext.h in Headers */ = {isa = PBXBuildFile; fileRef = C74B3A9714B7E280006741C4 /* ScriptContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C79EF1D714F531CB00570FB6 /* Scene.h in Headers */ = {isa = PBXBuildFile; fileRef = C744E3A114B834EF00078FBB /* Scene.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C79EF1D814F531CB00570FB6 /* State.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FEB814BC21D2003338FE /* State.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C79EF1D914F531CB00570FB6 /* Shader.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FEB514BC1F00003338FE /* Shader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C79EF1DA14F531CB00570FB6 /* Light.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FEBB14BC27D7003338FE /* Light.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C79EF1DB14F531CB00570FB6 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FED814BE7315003338FE /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C79EF1DC14F531CB00570FB6 /* GLMathWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = C7622B8E14D1CE460093DDD0 /* GLMathWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C79EF1DD14F531D500570FB6 /* GLErrorChecking.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FECC14BD11D6003338FE /* GLErrorChecking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C79EF1E314F5327400570FB6 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B3314D0AFA00093DDD0 /* MacRuby.framework */; };
 		C79EF1E414F5327E00570FB6 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
@@ -275,8 +273,6 @@
 		C752088B15010AD0008400C4 /* TranquilMIDIPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranquilMIDIPlugin.m; sourceTree = "<group>"; };
 		C760C4F514B7AE1700451951 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C7622B3314D0AFA00093DDD0 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = SDKROOT; };
-		C7622B8E14D1CE460093DDD0 /* GLMathWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMathWrapper.h; sourceTree = "<group>"; };
-		C7622B8F14D1CE460093DDD0 /* GLMathWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMathWrapper.m; sourceTree = "<group>"; };
 		C76B70B514D409FA004E6CCE /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		C773FEAE14BC0EA3003338FE /* PolyPrimitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolyPrimitive.h; sourceTree = "<group>"; };
 		C773FEAF14BC0EA3003338FE /* PolyPrimitive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolyPrimitive.m; sourceTree = "<group>"; };
@@ -634,8 +630,6 @@
 				C773FED914BE7316003338FE /* Camera.m */,
 				C744E3DA14B8468F00078FBB /* TranquilPlugin.h */,
 				C773FECC14BD11D6003338FE /* GLErrorChecking.h */,
-				C7622B8E14D1CE460093DDD0 /* GLMathWrapper.h */,
-				C7622B8F14D1CE460093DDD0 /* GLMathWrapper.m */,
 				C72A6AEB150643B400A8DAA3 /* Texture.h */,
 				C72A6AEC150643B400A8DAA3 /* Texture.m */,
 				C79EF1C314F530E000570FB6 /* Supporting Files */,
@@ -683,7 +677,6 @@
 				C79EF1DA14F531CB00570FB6 /* Light.h in Headers */,
 				C72A6AED150643B400A8DAA3 /* Texture.h in Headers */,
 				C79EF1DB14F531CB00570FB6 /* Camera.h in Headers */,
-				C79EF1DC14F531CB00570FB6 /* GLMathWrapper.h in Headers */,
 				C72A6AF31506786C00A8DAA3 /* Logger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -755,6 +748,7 @@
 				C79EF1BC14F530DF00570FB6 /* Frameworks */,
 				C79EF1BD14F530DF00570FB6 /* Headers */,
 				C79EF1BE14F530DF00570FB6 /* Resources */,
+				C769924B1510C67900D280FE /* Generate BridgeSupport */,
 			);
 			buildRules = (
 			);
@@ -923,6 +917,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		C769924B1510C67900D280FE /* Generate BridgeSupport */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate BridgeSupport";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p $TARGET_BUILD_DIR/$FULL_PRODUCT_NAME/Resources/BridgeSupport/\nbridgesupport/gen_bridge_metadata -c '-D__SCRIPTINGBRIDGE__ -DGLM_USE_DOUBLE' -F complete -f $TARGET_BUILD_DIR/TranquilCore.framework/ -o $TARGET_BUILD_DIR/TranquilCore.framework/Resources/BridgeSupport/TranquilCore.bridgesupport\n";
+			showEnvVarsInLog = 0;
+		};
 		C76B904D14FBC5090026A990 /* Generate Bridge Metadata */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -982,7 +991,6 @@
 				C79EF1D314F531A300570FB6 /* Light.m in Sources */,
 				C79EF1D414F531A500570FB6 /* Camera.m in Sources */,
 				C79EF1D214F531A100570FB6 /* Shader.m in Sources */,
-				C79EF1D514F531AE00570FB6 /* GLMathWrapper.m in Sources */,
 				C72A6AEE150643B400A8DAA3 /* Texture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

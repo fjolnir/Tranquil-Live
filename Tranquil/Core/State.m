@@ -26,8 +26,8 @@
 	_lineWidth = 1;
 	_shininess = 0;
 	_opacity = 1;
-	_color = [Vector4 vectorWithX:1 y:1 z:1 w:1];
-	_transform = [Matrix4 identity];
+	_color = vec4_create(1, 1, 1, 1);
+    _transform = kMat4_identity;
 	_shader = nil;
     _texture = nil;
 
@@ -36,9 +36,9 @@
 
 - (void)applyToScene:(Scene *)aScene
 {
-	[aScene.projMatStack push];
-	[aScene.worldMatStack push];
-	[aScene.worldMatStack mul:_transform];
+    matrix_stack_push(aScene.projMatStack);
+    matrix_stack_push(aScene.worldMatStack);
+    matrix_stack_mul_mat4(aScene.worldMatStack, _transform);
 
 	glLineWidth(_lineWidth);
 	glPointSize(_pointRadius);
@@ -84,25 +84,25 @@
             glUniform1f(loc, (_texture ? 1.0f : 0.0f));
         }];
 		[shader withUniform:@"u_projMatrix" do:^(GLuint loc) {
-            mat4_t projMat = aScene.projMatStack.top.mat;
+            mat4_t projMat = matrix_stack_get_mat4(aScene.projMatStack);
             float projMatf[16] = FCAST_MAT4(projMat);
             glUniformMatrix4fv(loc, 1, GL_FALSE, projMatf);
 //			glUniformMatrix4fv(loc, 1, GL_FALSE, aScene.projMatStack.top.mat.f);
 		}];
 		[shader withUniform:@"u_worldMatrix" do:^(GLuint loc) {
-            mat4_t worldMat = aScene.worldMatStack.top.mat;
+            mat4_t worldMat = matrix_stack_get_mat4(aScene.worldMatStack);
             float worldMatf[16] = FCAST_MAT4(worldMat);
             glUniformMatrix4fv(loc, 1, GL_FALSE, worldMatf);
 //			glUniformMatrix4fv(loc, 1, GL_FALSE, aScene.worldMatStack.top.mat.f);
 		}];
 		[shader withUniform:@"u_cameraPosition" do:^(GLuint loc) {
-            float pos[4] = FCAST_VEC4(aScene.camera.position.vec);
+            float pos[4] = FCAST_VEC4(aScene.camera.position);
 			glUniform4fv(loc, 1, pos);
 //			glUniform4fv(loc, 1, aScene.camera.position.vec.f);
 		}];
 		[shader withUniform:@"u_globalAmbientColor" do:^(GLuint loc) {
             float white[4] = {1,1,1,1};
-            float ambient[4] = FCAST_VEC4(aScene.ambientLight.vec);
+            float ambient[4] = FCAST_VEC4(aScene.ambientLight);
             glUniform4fv(loc, 1, _unlit ? white : ambient);
 //			glUniform4fv(loc, 1, _unlit ? vec4_create(1, 1, 1, 1).f : aScene.ambientLight.vec.f);
 		}];
@@ -110,7 +110,7 @@
             float positions[[aScene.lights count]*4];
             double *vec;
 			for(int i = 0; i < [aScene.lights count]; ++i) {
-                vec = [(Light*)[aScene.lights objectAtIndex:i] position].vec.f;
+                vec = [(Light*)[aScene.lights objectAtIndex:i] position].f;
                 for(int j = 0; j < 4; ++j) positions[i*4 + j] = (float)vec[j];
             }
 //			vec4_t positions[[aScene.lights count]];
@@ -121,7 +121,7 @@
             float colors[[aScene.lights count]*4];
             double *vec;
 			for(int i = 0; i < [aScene.lights count]; ++i) {
-                vec = [(Light*)[aScene.lights objectAtIndex:i] ambientColor].vec.f;
+                vec = [(Light*)[aScene.lights objectAtIndex:i] ambientColor].f;
                 for(int j = 0; j < 4; ++j) colors[i*4 + j] = (float)vec[j];
             }
 			glUniform4fv(loc, (int)[aScene.lights count], colors);
@@ -133,7 +133,7 @@
             float colors[[aScene.lights count]*4];
             double *vec;
 			for(int i = 0; i < [aScene.lights count]; ++i) {
-                vec = [(Light*)[aScene.lights objectAtIndex:i] diffuseColor].vec.f;
+                vec = [(Light*)[aScene.lights objectAtIndex:i] diffuseColor].f;
                 for(int j = 0; j < 4; ++j) colors[i*4 + j] = (float)vec[j];
             }
 			glUniform4fv(loc, (int)[aScene.lights count], colors);
@@ -145,7 +145,7 @@
             float colors[[aScene.lights count]*4];
             double *vec;
 			for(int i = 0; i < [aScene.lights count]; ++i) {
-                vec = [(Light*)[aScene.lights objectAtIndex:i] specularColor].vec.f;
+                vec = [(Light*)[aScene.lights objectAtIndex:i] specularColor].f;
                 for(int j = 0; j < 4; ++j) colors[i*4 + j] = (float)vec[j];
             }
 			glUniform4fv(loc, (int)[aScene.lights count], colors);
@@ -166,8 +166,8 @@
         glBindTexture(GL_TEXTURE_2D, 0);
     }
 	if(_shader) [_shader makeInactive];
-	[aScene.worldMatStack pop];
-	[aScene.projMatStack pop];
+    matrix_stack_pop(aScene.worldMatStack);
+    matrix_stack_pop(aScene.projMatStack);
 }
 
 #pragma mark -
@@ -175,14 +175,14 @@
 {
 	NSZone *zone = aZone ? aZone : NSDefaultMallocZone();
 	State *copy = [[[self class] allocWithZone:zone] init];
-	copy.transform = [_transform copy];
+	copy.transform = _transform;
 	copy.shininess = _shininess;
 	copy.opacity = _opacity;
 	copy.lineWidth = _lineWidth;
 	copy.shininess = _shininess;
 	copy.pointRadius = _pointRadius;
 	copy.shader = _shader;
-	copy.color = [_color copy];
+	copy.color = _color;
     copy.drawWireframe = _drawWireframe;
     copy.drawNormals = _drawNormals;
     copy.drawPoints = _drawPoints;

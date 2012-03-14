@@ -1,6 +1,6 @@
 // Manages the graphics state
 
-#import "GLMathWrapper.h"
+#import <GLMath/GLMath.h>
 #import "Camera.h"
 
 @class Scene, State, Light;
@@ -18,11 +18,11 @@
 @property(readonly) NSArray *objects;
 @property(readonly) NSArray *immediateModeObjects;
 @property(readonly) NSArray *lights;
-@property(readwrite) Vector4 *clearColor;
-@property(readwrite) Vector4 *ambientLight;
+@property(readwrite) vec4_t clearColor;
+@property(readwrite) vec4_t ambientLight;
 @property(readonly) NSArray *stateStack;
-@property(readonly) MatrixStack *projMatStack;
-@property(readonly) MatrixStack *worldMatStack;
+@property(readonly) matrix_stack_t *projMatStack;
+@property(readonly) matrix_stack_t *worldMatStack;
 @property(readwrite, retain) Camera *camera;
 
 - (void)initializeGLState;

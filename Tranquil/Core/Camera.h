@@ -1,16 +1,14 @@
-#import "GLMathWrapper.h"
-
 @interface Camera : NSObject {
 @public
-    Matrix4 *_matrix;
+    mat4_t _matrix;
 }
-@property(readwrite, assign) Vector4 *position;
-@property(readwrite, assign) Quaternion *orientation;
-@property(readwrite, assign) float fov, zoom, aspectRatio;
-@property(readonly) Matrix4 *matrix;
-+ (Vector4 *)viewportSize;
+@property(readwrite, assign) vec4_t position;
+@property(readwrite, assign) quat_t orientation;
+@property(readwrite, assign) GLMFloat fov, zoom, aspectRatio;
+@property(readonly) mat4_t matrix;
++ (vec4_t)viewportSize;
 
 - (void)updateMatrix;
 // Takes a point in screen space and un-projects it back into world space
-- (Vector4 *)unProjectPoint:(Vector4 *)aPoint;
+- (vec4_t)unProjectPoint:(vec4_t)aPoint;
 @end

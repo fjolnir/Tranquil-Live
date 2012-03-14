@@ -4,39 +4,39 @@ def mapToSphere(windowCoord)
 	# Map to sphere
 	mag = p.x**2 + p.y**2
 	if mag > 1.0
-		scale = 1.0 / Math.sqrt(mag)
+		scale = 1.0 / sqrt(mag)
 		p.x *= scale
 		p.y *= scale
 		p.z = 0
 	else
-		p.z = -Math.sqrt(1.0 - mag)
+		p.z = -sqrt(1.0 - mag)
 	end
     return p
 end
 
 class TranquilMouseObserver
-	@@lastMouseLoc = vec2(0,0)
-	def leftClick(pos)
-		@@lastMouseLoc = mapToSphere(pos)
+	@lastMouseLoc = vec2(0,0)
+	def leftClick(x,y)
+		@lastMouseLoc = mapToSphere(vec2(x,y))
 	end
     
-	def leftDrag(pos)
-		mouseLoc = mapToSphere(pos)
+	def leftDrag(x,y)
+		mouseLoc = mapToSphere(vec2(x,y))
 
 		cam = scene.camera
-		rotation = Quaternion.new
-		rotation.vec = @@lastMouseLoc.cross(mouseLoc) # Axis of rotation
-		rotation.scalar = @@lastMouseLoc.dot(mouseLoc) # Angle
+		rotation = quat(0,0,0,0)
+		rotation.vec = @lastMouseLoc.cross(mouseLoc) # Axis of rotation
+		rotation.scalar = @lastMouseLoc.dot(mouseLoc) # Angle
         #rotation = rotation.normalize    
         
-        cam.orientation = rotation.mul(cam.orientation)
-		cam.position = rotation.rotatePoint(cam.position)
+        cam.orientation = rotation * cam.orientation
+		cam.position = rotation * cam.position
 		cam.updateMatrix
-		@@lastMouseLoc = mouseLoc
+		@lastMouseLoc = mouseLoc
 	end
-	def scroll(delta)
-		cam = Scene.globalScene.camera;
-		cam.zoom = cam.zoom-delta.y/50.0
+	def scroll(dx, dy)
+		cam = scene.camera
+		cam.zoom = cam.zoom-dy/50.0
 		cam.updateMatrix
 	end
 end

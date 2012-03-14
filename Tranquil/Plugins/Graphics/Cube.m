@@ -6,7 +6,7 @@
 {
 	return [self initWithSize:1.0];
 }
-- (id)initWithSize:(float)size
+- (id)initWithSize:(GLMFloat)size
 {
 	self = [super initWithVertexCapacity:6*2*3 indexCapacity:0];
 	if(!self) return nil;
@@ -27,7 +27,7 @@
 	vec2_t t_rb = { 1, 0 };
 	vec2_t t_rt = { 1, 1 };
 	vec2_t t_lt = { 0, 1 };
-	vec4_t color = self.state.color.vec;
+	vec4_t color = self.state.color;
 
 	vec4_t normal;
 	normal = vec4_create(0, 0, -1, 0);

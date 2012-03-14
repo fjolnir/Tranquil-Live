@@ -1,5 +1,5 @@
 #import "PolyPrimitive.h"
 
 @interface Cube : PolyPrimitive
-- (id)initWithSize:(float)size;
+- (id)initWithSize:(GLMFloat)size;
 @end
