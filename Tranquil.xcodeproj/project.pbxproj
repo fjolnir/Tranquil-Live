@@ -1291,6 +1291,7 @@
 				HEADER_SEARCH_PATHS = GLMath;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-DGLM_USE_DOUBLE";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -1313,6 +1314,7 @@
 				HEADER_SEARCH_PATHS = GLMath;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = "-DGLM_USE_DOUBLE";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -1327,7 +1329,6 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tranquil/Application/Supporting Files/Tranquil-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-pagezero_size",
 					10000,
@@ -1352,7 +1353,6 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tranquil/Application/Supporting Files/Tranquil-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-pagezero_size",
 					10000,

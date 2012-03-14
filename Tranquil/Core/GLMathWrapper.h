@@ -1,11 +1,19 @@
 #include <GLMath/GLMath.h>
 
+// We are using double precision vertices for the time being, so we need these macros to cast uniforms to floats
+// before uploading to gl. This is a workaround for a bug in MacRuby that causes it to get alignment on floats wrong
+#define FCAST_VEC4(v) { (float)((v).x), (float)((v).y), (float)((v).z), (float)((v).w) }
+#define FCAST_MAT4(m) { (float)((m).m00), (float)((m).m01), (float)((m).m02), (float)((m).m03), \
+(float)((m).m10), (float)((m).m11), (float)((m).m12), (float)((m).m13), \
+(float)((m).m20), (float)((m).m21), (float)((m).m22), (float)((m).m23), \
+(float)((m).m30), (float)((m).m31), (float)((m).m32), (float)((m).m33), }
+
 @interface Vector2 : NSObject { @public vec2_t _vec; }
 @property(readwrite, assign) vec2_t vec;
-@property(readwrite, assign) float x, y;
-@property(readwrite, assign) float u, v;
+@property(readwrite, assign) GLMFloat x, y;
+@property(readwrite, assign) GLMFloat u, v;
 
-+ (Vector2 *)vectorWithX:(float)aX y:(float)aY;
++ (Vector2 *)vectorWithX:(GLMFloat)aX y:(GLMFloat)aY;
 + (Vector2 *)vectorWithVec:(vec2_t)aVec;
 
 - (Vector2 *)add:(Vector2 *)aOther;
@@ -13,27 +21,27 @@
 - (Vector2 *)mul:(Vector2 *)aOther;
 - (Vector2 *)div:(Vector2 *)aOther;
 
-- (float)dot:(Vector2 *)aOther;
-- (float)distanceToPoint:(Vector2 *)aOther;
+- (GLMFloat)dot:(Vector2 *)aOther;
+- (GLMFloat)distanceToPoint:(Vector2 *)aOther;
 
-- (float)magnitude;
-- (float)magnitudeSquared;
+- (GLMFloat)magnitude;
+- (GLMFloat)magnitudeSquared;
 - (Vector2 *)normalize;
 - (Vector2 *)negate;
 - (Vector2 *)floor;
 
-- (Vector2 *)scalarMul:(float)aScalar;
-- (Vector2 *)scalarDiv:(float)aScalar;
-- (Vector2 *)scalarAdd:(float)aScalar;
-- (Vector2 *)scalarSub:(float)aScalar;
+- (Vector2 *)scalarMul:(GLMFloat)aScalar;
+- (Vector2 *)scalarDiv:(GLMFloat)aScalar;
+- (Vector2 *)scalarAdd:(GLMFloat)aScalar;
+- (Vector2 *)scalarSub:(GLMFloat)aScalar;
 @end
 
 @interface Vector3 : NSObject { @public vec3_t _vec; }
 @property(readwrite, assign) vec3_t vec;
-@property(readwrite, assign) float x, y, z;
-@property(readwrite, assign) float r, g, b;
+@property(readwrite, assign) GLMFloat x, y, z;
+@property(readwrite, assign) GLMFloat r, g, b;
 
-+ (Vector3 *)vectorWithX:(float)aX y:(float)aY z:(float)aZ;
++ (Vector3 *)vectorWithX:(GLMFloat)aX y:(GLMFloat)aY z:(GLMFloat)aZ;
 + (Vector3 *)vectorWithVec:(vec3_t)aVec;
 
 - (Vector3 *)add:(Vector3 *)aOther;
@@ -42,27 +50,27 @@
 - (Vector3 *)div:(Vector3 *)aOther;
 - (Vector3 *)cross:(Vector3 *)aOther;
 
-- (float)dot:(Vector3 *)aOther;
-- (float)distanceToPoint:(Vector3 *)aOther;
+- (GLMFloat)dot:(Vector3 *)aOther;
+- (GLMFloat)distanceToPoint:(Vector3 *)aOther;
 
-- (float)magnitude;
-- (float)magnitudeSquared;
+- (GLMFloat)magnitude;
+- (GLMFloat)magnitudeSquared;
 - (Vector3 *)normalize;
 - (Vector3 *)negate;
 - (Vector3 *)floor;
 
-- (Vector3 *)scalarMul:(float)aScalar;
-- (Vector3 *)scalarDiv:(float)aScalar;
-- (Vector3 *)scalarAdd:(float)aScalar;
-- (Vector3 *)scalarSub:(float)aScalar;
+- (Vector3 *)scalarMul:(GLMFloat)aScalar;
+- (Vector3 *)scalarDiv:(GLMFloat)aScalar;
+- (Vector3 *)scalarAdd:(GLMFloat)aScalar;
+- (Vector3 *)scalarSub:(GLMFloat)aScalar;
 @end
 
 @interface Vector4 : NSObject { @public vec4_t _vec; }
 @property(readwrite, assign) vec4_t vec;
-@property(readwrite, assign) float x, y, z, w;
-@property(readwrite, assign) float r, g, b, a;
+@property(readwrite, assign) GLMFloat x, y, z, w;
+@property(readwrite, assign) GLMFloat r, g, b, a;
 
-+ (Vector4 *)vectorWithX:(float)aX y:(float)aY z:(float)aZ w:(float)aW;
++ (Vector4 *)vectorWithX:(GLMFloat)aX y:(GLMFloat)aY z:(GLMFloat)aZ w:(GLMFloat)aW;
 + (Vector4 *)vectorWithVec:(vec4_t)aVec;
 
 - (Vector4 *)add:(Vector4 *)aOther;
@@ -71,19 +79,19 @@
 - (Vector4 *)div:(Vector4 *)aOther;
 - (Vector4 *)cross:(Vector4 *)aOther;
 
-- (float)dot:(Vector4 *)aOther;
-- (float)distanceToPoint:(Vector4 *)aOther;
+- (GLMFloat)dot:(Vector4 *)aOther;
+- (GLMFloat)distanceToPoint:(Vector4 *)aOther;
 
-- (float)magnitude;
-- (float)magnitudeSquared;
+- (GLMFloat)magnitude;
+- (GLMFloat)magnitudeSquared;
 - (Vector4 *)normalize;
 - (Vector4 *)negate;
 - (Vector4 *)floor;
 
-- (Vector4 *)scalarMul:(float)aScalar;
-- (Vector4 *)scalarDiv:(float)aScalar;
-- (Vector4 *)scalarAdd:(float)aScalar;
-- (Vector4 *)scalarSub:(float)aScalar;
+- (Vector4 *)scalarMul:(GLMFloat)aScalar;
+- (Vector4 *)scalarDiv:(GLMFloat)aScalar;
+- (Vector4 *)scalarAdd:(GLMFloat)aScalar;
+- (Vector4 *)scalarSub:(GLMFloat)aScalar;
 @end
 
 @interface Matrix3 : NSObject { @public mat3_t _mat; }
@@ -94,7 +102,7 @@
 - (Vector3 *)mulVector:(Vector3 *)aVector;
 - (Matrix3 *)inverse;
 - (Matrix3 *)transpose;
-- (float)determinant;
+- (GLMFloat)determinant;
 @end
 
 @interface Matrix4 : NSObject { @public mat4_t _mat; }
@@ -103,27 +111,27 @@
 + (Matrix4 *)identity;
 + (Matrix4 *)zero;
 
-+ (Matrix4 *)perspectiveMatrixWithFov:(float)aFov aspectRatio:(float)aAspect zNear:(float)aZNear zFar:(float)aZFar;
-+ (Matrix4 *)frustumWithLeft:(float)aLeft right:(float)aRight bottom:(float)aBottom top:(float)aTop near:(float)aNear far:(float)aFar;
-+ (Matrix4 *)orthoWithLeft:(float)aLeft right:(float)aRight bottom:(float)aBottom top:(float)aTop near:(float)aNear far:(float)aFar;
++ (Matrix4 *)perspectiveMatrixWithFov:(GLMFloat)aFov aspectRatio:(GLMFloat)aAspect zNear:(GLMFloat)aZNear zFar:(GLMFloat)aZFar;
++ (Matrix4 *)frustumWithLeft:(GLMFloat)aLeft right:(GLMFloat)aRight bottom:(GLMFloat)aBottom top:(GLMFloat)aTop near:(GLMFloat)aNear far:(GLMFloat)aFar;
++ (Matrix4 *)orthoWithLeft:(GLMFloat)aLeft right:(GLMFloat)aRight bottom:(GLMFloat)aBottom top:(GLMFloat)aTop near:(GLMFloat)aNear far:(GLMFloat)aFar;
 + (Matrix4 *)lookatWithEye:(Vector3 *)aEye center:(Vector3 *)aCenter upVec:(Vector3 *)upVec;
 
 // Transformation matrices
-+ (Matrix4 *)translationWithX:(float)x y:(float)y z:(float)z;
-+ (Matrix4 *)rotationWithAngle:(float)angle x:(float)x y:(float)y z:(float)z;
-+ (Matrix4 *)scaleWithX:(float)x y:(float)y z:(float)z;
++ (Matrix4 *)translationWithX:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z;
++ (Matrix4 *)rotationWithAngle:(GLMFloat)angle x:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z;
++ (Matrix4 *)scaleWithX:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z;
 
 - (Matrix4 *)mul:(Matrix4 *)aOther;
 - (Vector4 *)mulVector:(Vector4 *)aVector;
 - (Vector3 *)mulVector3:(Vector3 *)aVector isPoint:(BOOL)aIsPoint ;
 - (Matrix4 *)inverse;
 - (Matrix4 *)transpose;
-- (float)determinant;
+- (GLMFloat)determinant;
 - (Matrix3 *)extractMatrix3;
 
-- (Matrix4 *)translateWithX:(float)x y:(float)y z:(float)z;
-- (Matrix4 *)rotateWithAngle:(float)angle x:(float)x y:(float)y z:(float)z;
-- (Matrix4 *)scaleWithX:(float)x y:(float)y z:(float)z;
+- (Matrix4 *)translateWithX:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z;
+- (Matrix4 *)rotateWithAngle:(GLMFloat)angle x:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z;
+- (Matrix4 *)scaleWithX:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z;
 @end
 
 @interface MatrixStack : NSObject { @public matrix_stack_t *_stack; }
@@ -136,18 +144,18 @@
 - (void)pop;
 
 - (void)mul:(Matrix4 *)aMat;
-- (void)translateWithX:(float)x y:(float)y z:(float)z;
-- (void)scaleWithX:(float)x y:(float)y z:(float)z;
-- (void)rotateWithAngle:(float)angle x:(float)x y:(float)y z:(float)z;
+- (void)translateWithX:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z;
+- (void)scaleWithX:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z;
+- (void)rotateWithAngle:(GLMFloat)angle x:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z;
 @end
 
 @interface Quaternion : NSObject { @public quat_t _quat; }
 @property(readwrite, assign) quat_t quat;
 @property(readwrite, assign) Vector3 *vec;
-@property(readwrite, assign) float scalar;
+@property(readwrite, assign) GLMFloat scalar;
 
 
-+ (Quaternion *)quaternionWithAngle:(float)aAngle x:(float)aX y:(float)aY z:(float)aZ;
++ (Quaternion *)quaternionWithAngle:(GLMFloat)aAngle x:(GLMFloat)aX y:(GLMFloat)aY z:(GLMFloat)aZ;
 + (Quaternion *)quaternionWithQuat:(quat_t)aQuat;
 + (Quaternion *)quaternionFromMatrix4:(Matrix4 *)aMat;
 + (Quaternion *)quaternionFromOrtho:(Matrix4 *)aMat;
@@ -155,11 +163,11 @@
 - (Matrix4 *)toMatrix4;
 - (Matrix4 *)toOrtho;
 
-- (float)magnitude;
+- (GLMFloat)magnitude;
 - (Quaternion *)normalize;
 - (Quaternion *)computeW;
 - (Quaternion *)mul:(Quaternion *)aOther;
 - (Vector4 *)rotatePoint:(Vector4 *)aPoint;
-- (float)dot:(Quaternion *)aOther;
-- (Quaternion *)slerpWithDest:(Quaternion *)aDest t:(float)aT;
+- (GLMFloat)dot:(Quaternion *)aOther;
+- (Quaternion *)slerpWithDest:(Quaternion *)aDest t:(GLMFloat)aT;
 @end

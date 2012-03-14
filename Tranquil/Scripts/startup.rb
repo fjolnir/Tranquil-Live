@@ -1,3 +1,4 @@
+framework "GLMath"
 include Math
 
 def scene

@@ -1,19 +1,31 @@
 #import <OpenGL/gl.h>
 #import <TranquilCore/TranquilCore.h>
+#import <GLMath/GLMath.h>
 
 @class State;
 
-typedef union {
+#ifndef __SCRIPTINGBRIDGE__
+typedef union _Vertex_t {
 	float f[16];
 	struct {
 		vec4_t position;
 		vec4_t normal;
 		vec4_t color;
 		vec2_t texCoord;
-		float size;
-		float shininess;
+		GLMFloat size;
+		GLMFloat shininess;
 	};
 } Vertex_t;
+#else
+typedef struct _Vertex_t {
+    vec4_t position;
+    vec4_t normal;
+    vec4_t color;
+    vec2_t texCoord;
+    GLMFloat size;
+    GLMFloat shininess;
+} Vertex_t;
+#endif
 
 // This class is necessary because it's currently unsupported to pass a struct directly
 // to MacRuby TODO: Fix! this is terrible.

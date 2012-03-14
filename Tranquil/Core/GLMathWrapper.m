@@ -4,7 +4,7 @@
 @synthesize vec=_vec;
 @dynamic x, y, u, v;
 
-+ (Vector2 *)vectorWithX:(float)aX y:(float)aY {
++ (Vector2 *)vectorWithX:(GLMFloat)aX y:(GLMFloat)aY {
 	Vector2 *out = [[self alloc] init];
 	out->_vec = vec2_create(aX, aY);
 	return out;
@@ -22,14 +22,14 @@
 	return copy;
 }
 
-- (float)x { return _vec.x; }
-- (float)y { return _vec.y; }
-- (void)setX:(float)n { _vec.x = n; }
-- (void)setY:(float)n { _vec.y = n; }
-- (float)u { return _vec.u; }
-- (float)v { return _vec.v; }
-- (void)setU:(float)n { _vec.u = n; }
-- (void)setV:(float)n { _vec.v = n; }
+- (GLMFloat)x { return _vec.x; }
+- (GLMFloat)y { return _vec.y; }
+- (void)setX:(GLMFloat)n { _vec.x = n; }
+- (void)setY:(GLMFloat)n { _vec.y = n; }
+- (GLMFloat)u { return _vec.u; }
+- (GLMFloat)v { return _vec.v; }
+- (void)setU:(GLMFloat)n { _vec.u = n; }
+- (void)setV:(GLMFloat)n { _vec.v = n; }
 
 - (Vector2 *)add:(Vector2 *)aOther {
 	return [Vector2 vectorWithVec:vec2_add(_vec, aOther->_vec)];
@@ -44,17 +44,17 @@
 	return [Vector2 vectorWithVec:vec2_div(_vec, aOther->_vec)];
 }
 
-- (float)dot:(Vector2 *)aOther {
+- (GLMFloat)dot:(Vector2 *)aOther {
 	return vec2_dot(_vec, aOther->_vec);
 }
-- (float)distanceToPoint:(Vector2 *)aOther {
+- (GLMFloat)distanceToPoint:(Vector2 *)aOther {
 	return vec2_dist(_vec, aOther->_vec);
 }
 
-- (float)magnitude {
+- (GLMFloat)magnitude {
 	return vec2_mag(_vec);
 }
-- (float)magnitudeSquared {
+- (GLMFloat)magnitudeSquared {
     return vec2_magSquared(_vec);
 }
 - (Vector2 *)normalize {
@@ -67,17 +67,17 @@
 	return [Vector2 vectorWithVec:vec2_floor(_vec)];
 }
 
-- (Vector2 *)scalarMul:(float)aScalar {
+- (Vector2 *)scalarMul:(GLMFloat)aScalar {
 	return [Vector2 vectorWithVec:vec2_scalarMul(_vec, aScalar)];
 }
-- (Vector2 *)scalarDiv:(float)aScalar {
+- (Vector2 *)scalarDiv:(GLMFloat)aScalar {
 	return [Vector2 vectorWithVec:vec2_scalarDiv(_vec, aScalar)];
 }
-- (Vector2 *)scalarAdd:(float)aScalar
+- (Vector2 *)scalarAdd:(GLMFloat)aScalar
 {
     return [Vector2 vectorWithVec:vec2_scalarAdd(_vec, aScalar)];
 }
-- (Vector2 *)scalarSub:(float)aScalar
+- (Vector2 *)scalarSub:(GLMFloat)aScalar
 {
     return [Vector2 vectorWithVec:vec2_scalarAdd(_vec, aScalar)];
 }
@@ -92,7 +92,7 @@
 @synthesize vec=_vec;
 @dynamic x, y, z;
 
-+ (Vector3 *)vectorWithX:(float)aX y:(float)aY z:(float)aZ {
++ (Vector3 *)vectorWithX:(GLMFloat)aX y:(GLMFloat)aY z:(GLMFloat)aZ {
 	Vector3 *out = [[self alloc] init];
 	out->_vec = vec3_create(aX, aY, aZ);
 	return out;
@@ -109,18 +109,18 @@
 	copy->_vec = _vec;
 	return copy;
 }
-- (float)x { return _vec.x; }
-- (float)y { return _vec.y; }
-- (float)z { return _vec.z; }
-- (void)setX:(float)n { _vec.x = n; }
-- (void)setY:(float)n { _vec.y = n; }
-- (void)setZ:(float)n { _vec.z = n; }
-- (float)r { return _vec.r; }
-- (float)g { return _vec.g; }
-- (float)b { return _vec.b; }
-- (void)setR:(float)n { _vec.r = n; }
-- (void)setG:(float)n { _vec.g = n; }
-- (void)setB:(float)n { _vec.b = n; }
+- (GLMFloat)x { return _vec.x; }
+- (GLMFloat)y { return _vec.y; }
+- (GLMFloat)z { return _vec.z; }
+- (void)setX:(GLMFloat)n { _vec.x = n; }
+- (void)setY:(GLMFloat)n { _vec.y = n; }
+- (void)setZ:(GLMFloat)n { _vec.z = n; }
+- (GLMFloat)r { return _vec.r; }
+- (GLMFloat)g { return _vec.g; }
+- (GLMFloat)b { return _vec.b; }
+- (void)setR:(GLMFloat)n { _vec.r = n; }
+- (void)setG:(GLMFloat)n { _vec.g = n; }
+- (void)setB:(GLMFloat)n { _vec.b = n; }
 
 - (Vector3 *)add:(Vector3 *)aOther {
 	return [Vector3 vectorWithVec:vec3_add(_vec, aOther->_vec)];
@@ -138,17 +138,17 @@
 	return [Vector3 vectorWithVec:vec3_cross(_vec, aOther->_vec)];
 }
 
-- (float)dot:(Vector3 *)aOther {
+- (GLMFloat)dot:(Vector3 *)aOther {
 	return vec3_dot(_vec, aOther->_vec);
 }
-- (float)distanceToPoint:(Vector3 *)aOther {
+- (GLMFloat)distanceToPoint:(Vector3 *)aOther {
 	return vec3_dist(_vec, aOther->_vec);
 }
 
-- (float)magnitude {
+- (GLMFloat)magnitude {
 	return vec3_mag(_vec);
 }
-- (float)magnitudeSquared {
+- (GLMFloat)magnitudeSquared {
     return vec3_magSquared(_vec);
 }
 - (Vector3 *)normalize {
@@ -161,17 +161,17 @@
 	return [Vector3 vectorWithVec:vec3_floor(_vec)];
 }
 
-- (Vector3 *)scalarMul:(float)aScalar {
+- (Vector3 *)scalarMul:(GLMFloat)aScalar {
 	return [Vector3 vectorWithVec:vec3_scalarMul(_vec, aScalar)];
 }
-- (Vector3 *)scalarDiv:(float)aScalar {
+- (Vector3 *)scalarDiv:(GLMFloat)aScalar {
 	return [Vector3 vectorWithVec:vec3_scalarDiv(_vec, aScalar)];
 }
-- (Vector3 *)scalarAdd:(float)aScalar
+- (Vector3 *)scalarAdd:(GLMFloat)aScalar
 {
     return [Vector3 vectorWithVec:vec3_scalarAdd(_vec, aScalar)];
 }
-- (Vector3 *)scalarSub:(float)aScalar
+- (Vector3 *)scalarSub:(GLMFloat)aScalar
 {
     return [Vector3 vectorWithVec:vec3_scalarAdd(_vec, aScalar)];
 }
@@ -185,7 +185,7 @@
 @synthesize vec=_vec;
 @dynamic x, y, z, w, r, g, b, a;
 
-+ (Vector4 *)vectorWithX:(float)aX y:(float)aY z:(float)aZ w:(float)aW {
++ (Vector4 *)vectorWithX:(GLMFloat)aX y:(GLMFloat)aY z:(GLMFloat)aZ w:(GLMFloat)aW {
 	Vector4 *out = [[self alloc] init];
 	out->_vec = vec4_create(aX, aY, aZ, aW);
 	return out;
@@ -202,24 +202,24 @@
 	copy->_vec = _vec;
 	return copy;
 }
-- (float)x { return _vec.x; }
-- (float)y { return _vec.y; }
-- (float)z { return _vec.z; }
-- (float)w { return _vec.w; }
-- (float)r { return _vec.r; }
-- (float)g { return _vec.g; }
-- (float)b { return _vec.b; }
-- (float)a { return _vec.a; }
+- (GLMFloat)x { return _vec.x; }
+- (GLMFloat)y { return _vec.y; }
+- (GLMFloat)z { return _vec.z; }
+- (GLMFloat)w { return _vec.w; }
+- (GLMFloat)r { return _vec.r; }
+- (GLMFloat)g { return _vec.g; }
+- (GLMFloat)b { return _vec.b; }
+- (GLMFloat)a { return _vec.a; }
 
-- (void)setX:(float)n { _vec.x = n; }
-- (void)setY:(float)n { _vec.y = n; }
-- (void)setZ:(float)n { _vec.z = n; }
-- (void)setW:(float)n { _vec.w = n; }
+- (void)setX:(GLMFloat)n { _vec.x = n; }
+- (void)setY:(GLMFloat)n { _vec.y = n; }
+- (void)setZ:(GLMFloat)n { _vec.z = n; }
+- (void)setW:(GLMFloat)n { _vec.w = n; }
 
-- (void)setR:(float)n { _vec.r = n; }
-- (void)setG:(float)n { _vec.g = n; }
-- (void)setB:(float)n { _vec.b = n; }
-- (void)setA:(float)n { _vec.a = n; }
+- (void)setR:(GLMFloat)n { _vec.r = n; }
+- (void)setG:(GLMFloat)n { _vec.g = n; }
+- (void)setB:(GLMFloat)n { _vec.b = n; }
+- (void)setA:(GLMFloat)n { _vec.a = n; }
 
 - (Vector4 *)add:(Vector4 *)aOther {
 	return [Vector4 vectorWithVec:vec4_add(_vec, aOther->_vec)];
@@ -237,17 +237,17 @@
 	return [Vector4 vectorWithVec:vec4_cross(_vec, aOther->_vec)];
 }
 
-- (float)dot:(Vector4 *)aOther {
+- (GLMFloat)dot:(Vector4 *)aOther {
 	return vec4_dot(_vec, aOther->_vec);
 }
-- (float)distanceToPoint:(Vector4 *)aOther {
+- (GLMFloat)distanceToPoint:(Vector4 *)aOther {
 	return vec4_dist(_vec, aOther->_vec);
 }
 
-- (float)magnitude {
+- (GLMFloat)magnitude {
 	return vec4_mag(_vec);
 }
-- (float)magnitudeSquared {
+- (GLMFloat)magnitudeSquared {
     return vec4_magSquared(_vec);
 }
 
@@ -261,17 +261,17 @@
 	return [Vector4 vectorWithVec:vec4_floor(_vec)];
 }
 
-- (Vector4 *)scalarMul:(float)aScalar {
+- (Vector4 *)scalarMul:(GLMFloat)aScalar {
 	return [Vector4 vectorWithVec:vec4_scalarMul(_vec, aScalar)];
 }
-- (Vector4 *)scalarDiv:(float)aScalar {
+- (Vector4 *)scalarDiv:(GLMFloat)aScalar {
 	return [Vector4 vectorWithVec:vec4_scalarDiv(_vec, aScalar)];
 }
-- (Vector4 *)scalarAdd:(float)aScalar
+- (Vector4 *)scalarAdd:(GLMFloat)aScalar
 {
     return [Vector4 vectorWithVec:vec4_scalarAdd(_vec, aScalar)];
 }
-- (Vector4 *)scalarSub:(float)aScalar
+- (Vector4 *)scalarSub:(GLMFloat)aScalar
 {
     return [Vector4 vectorWithVec:vec4_scalarAdd(_vec, aScalar)];
 }
@@ -308,7 +308,7 @@
 - (Matrix3 *)transpose {
 	return [Matrix3 matrixWithMat:mat3_transpose(_mat)];
 }
-- (float)determinant {
+- (GLMFloat)determinant {
 	return mat3_det(_mat);
 }
 @end
@@ -336,17 +336,17 @@
 }
 
 // Viewing matrices
-+ (Matrix4 *)perspectiveMatrixWithFov:(float)aFov aspectRatio:(float)aAspect zNear:(float)aZNear zFar:(float)aZFar {
++ (Matrix4 *)perspectiveMatrixWithFov:(GLMFloat)aFov aspectRatio:(GLMFloat)aAspect zNear:(GLMFloat)aZNear zFar:(GLMFloat)aZFar {
 	Matrix4 *out = [[self alloc] init];
 	out->_mat = mat4_perspective(aFov, aAspect, aZNear, aZFar);
 	return out;
 }
-+ (Matrix4 *)frustumWithLeft:(float)aLeft right:(float)aRight bottom:(float)aBottom top:(float)aTop near:(float)aNear far:(float)aFar {
++ (Matrix4 *)frustumWithLeft:(GLMFloat)aLeft right:(GLMFloat)aRight bottom:(GLMFloat)aBottom top:(GLMFloat)aTop near:(GLMFloat)aNear far:(GLMFloat)aFar {
 	Matrix4 *out = [[self alloc] init];
 	out->_mat = mat4_frustum(aLeft, aRight, aBottom, aTop, aNear, aFar);
 	return out;
 }
-+ (Matrix4 *)orthoWithLeft:(float)aLeft right:(float)aRight bottom:(float)aBottom top:(float)aTop near:(float)aNear far:(float)aFar {
++ (Matrix4 *)orthoWithLeft:(GLMFloat)aLeft right:(GLMFloat)aRight bottom:(GLMFloat)aBottom top:(GLMFloat)aTop near:(GLMFloat)aNear far:(GLMFloat)aFar {
 	Matrix4 *out = [[self alloc] init];
 	out->_mat = mat4_ortho(aLeft, aRight, aBottom, aTop, aNear, aFar);
 	return out;
@@ -361,17 +361,17 @@
 }
 
 // Transformation matrices
-+ (Matrix4 *)translationWithX:(float)x y:(float)y z:(float)z {
++ (Matrix4 *)translationWithX:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z {
 	Matrix4 *out = [[self alloc] init];
 	out->_mat = mat4_create_translation(x, y, z);
 	return out;
 }
-+ (Matrix4 *)rotationWithAngle:(float)angle x:(float)x y:(float)y z:(float)z {
++ (Matrix4 *)rotationWithAngle:(GLMFloat)angle x:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z {
 	Matrix4 *out = [[self alloc] init];
 	out->_mat = mat4_create_rotation(angle, x, y, z);
 	return out;
 }
-+ (Matrix4 *)scaleWithX:(float)x y:(float)y z:(float)z {
++ (Matrix4 *)scaleWithX:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z {
 	Matrix4 *out = [[self alloc] init];
 	out->_mat = mat4_create_scale(x, y, z);
 	return out;
@@ -393,7 +393,7 @@
 - (Matrix4 *)transpose {
 	return [Matrix4 matrixWithMat:mat4_transpose(_mat)];
 }
-- (float)determinant {
+- (GLMFloat)determinant {
 	return mat4_det(_mat);
 }
 - (Matrix3 *)extractMatrix3 {
@@ -401,13 +401,13 @@
 }
 
 // Transformations
-- (Matrix4 *)translateWithX:(float)x y:(float)y z:(float)z {
+- (Matrix4 *)translateWithX:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z {
 	return [Matrix4 matrixWithMat:mat4_translate(_mat, x, y, z)];
 }
-- (Matrix4 *)rotateWithAngle:(float)angle x:(float)x y:(float)y z:(float)z {
+- (Matrix4 *)rotateWithAngle:(GLMFloat)angle x:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z {
 	return [Matrix4 matrixWithMat:mat4_rotate(_mat, angle, x, y, z)];
 }
-- (Matrix4 *)scaleWithX:(float)x y:(float)y z:(float)z {
+- (Matrix4 *)scaleWithX:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z {
 	return [Matrix4 matrixWithMat:mat4_scale(_mat, x, y, z)];
 }
 @end
@@ -454,13 +454,13 @@
 - (void)mul:(Matrix4 *)aMat {
 	matrix_stack_mul_mat4(_stack, aMat->_mat);
 }
-- (void)translateWithX:(float)x y:(float)y z:(float)z {
+- (void)translateWithX:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z {
 	matrix_stack_translate(_stack, x, y, z);
 }
-- (void)scaleWithX:(float)x y:(float)y z:(float)z {
+- (void)scaleWithX:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z {
 	matrix_stack_scale(_stack, x, y, z);
 }
-- (void)rotateWithAngle:(float)angle x:(float)x y:(float)y z:(float)z {
+- (void)rotateWithAngle:(GLMFloat)angle x:(GLMFloat)x y:(GLMFloat)y z:(GLMFloat)z {
 	matrix_stack_rotate(_stack, angle, x, y, z);
 }
 @end
@@ -469,7 +469,7 @@
 @synthesize quat=_quat;
 @dynamic vec, scalar;
 
-+ (Quaternion *)quaternionWithAngle:(float)aAngle x:(float)aX y:(float)aY z:(float)aZ {
++ (Quaternion *)quaternionWithAngle:(GLMFloat)aAngle x:(GLMFloat)aX y:(GLMFloat)aY z:(GLMFloat)aZ {
 	Quaternion *out = [[self alloc] init];
 	out->_quat = quat_createf(aAngle, aX, aY, aZ);
 	return out;
@@ -498,10 +498,10 @@
 }
 
 - (Vector3 *)vec { return [Vector3 vectorWithVec:_quat.vec]; }
-- (float)scalar { return _quat.scalar; }
+- (GLMFloat)scalar { return _quat.scalar; }
 
 - (void)setVec:(Vector3 *)n { _quat.vec = n.vec; }
-- (void)setScalar:(float)n { _quat.scalar = n; }
+- (void)setScalar:(GLMFloat)n { _quat.scalar = n; }
 
 - (Matrix4 *)toMatrix4 {
 	return [Matrix4 matrixWithMat:quat_to_mat4(_quat)];
@@ -510,7 +510,7 @@
 	return [Matrix4 matrixWithMat:quat_to_ortho(_quat)];
 }
 
-- (float)magnitude {
+- (GLMFloat)magnitude {
 	return quat_mag(_quat);
 }
 - (Quaternion *)normalize {
@@ -525,10 +525,10 @@
 - (Vector4 *)rotatePoint:(Vector4 *)aPoint {
 	return [Vector4 vectorWithVec:quat_rotatePoint(_quat, aPoint->_vec)];
 }
-- (float)dot:(Quaternion *)aOther {
+- (GLMFloat)dot:(Quaternion *)aOther {
 	return quat_dotProduct(_quat, aOther->_quat);
 }
-- (Quaternion *)slerpWithDest:(Quaternion *)aDest t:(float)aT {
+- (Quaternion *)slerpWithDest:(Quaternion *)aDest t:(GLMFloat)aT {
 	return [Quaternion quaternionWithQuat:quat_slerp(_quat, aDest->_quat, aT)];
 }
 

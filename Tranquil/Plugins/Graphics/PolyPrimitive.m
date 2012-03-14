@@ -86,8 +86,8 @@
 {
 	Shader *shader = [aScene currentState].shader;
 	[shader withUniform:@"u_globalAmbientColor" do:^(GLuint loc) {
-		vec4_t white = { 1, 1, 1, 1 };
-		glUniform4fv(loc, 1, white.f);
+        float white[4] = { 1, 1, 1, 1 };
+		glUniform4fv(loc, 1, white);
 	}];
 	[shader withUniform:@"u_lightCount" do:^(GLuint loc) {
 		glUniform1i(loc, 0);
@@ -104,11 +104,11 @@
 	}
 	[shader withAttribute:@"a_position" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(vec4_t), points);
+		glVertexAttribPointer(loc, 4, GL_DOUBLE, GL_FALSE, sizeof(vec4_t), points);
 	}];
 	[shader withAttribute:@"a_color" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(vec4_t), colors);
+		glVertexAttribPointer(loc, 4, GL_DOUBLE, GL_FALSE, sizeof(vec4_t), colors);
 	}];
 	glDrawArrays(GL_LINES, 0, count);
 	free(points);
@@ -130,27 +130,27 @@
 	}
 	[shader withAttribute:@"a_position" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, position)));
+		glVertexAttribPointer(loc, 4, GL_DOUBLE, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, position)));
 	}];
 	[shader withAttribute:@"a_normal" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, normal)));
+		glVertexAttribPointer(loc, 4, GL_DOUBLE, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, normal)));
 	}];
 	[shader withAttribute:@"a_color" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, color)));
+		glVertexAttribPointer(loc, 4, GL_DOUBLE, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, color)));
 	}];
 	[shader withAttribute:@"a_texCoord" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, texCoord)));
+		glVertexAttribPointer(loc, 2, GL_DOUBLE, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, texCoord)));
 	}];
 	[shader withAttribute:@"a_size" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, size)));
+		glVertexAttribPointer(loc, 1, GL_DOUBLE, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, size)));
 	}];
 	[shader withAttribute:@"a_shininess" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, shininess)));
+		glVertexAttribPointer(loc, 1, GL_DOUBLE, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, shininess)));
 	}];
 
 	if(_usesIndices) {

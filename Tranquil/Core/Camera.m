@@ -6,7 +6,7 @@
 + (Vector4 *)viewportSize
 {
 	vec4_t viewport;
-	glGetFloatv(GL_VIEWPORT, viewport.f);
+	glGetDoublev(GL_VIEWPORT, viewport.f);
 	return [Vector4 vectorWithVec:viewport];
 }
 

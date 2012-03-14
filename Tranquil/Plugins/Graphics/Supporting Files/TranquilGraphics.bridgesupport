@@ -1,27 +1,22 @@
 <?xml version='1.0'?>
 <!DOCTYPE signatures SYSTEM "file://localhost/System/Library/DTDs/BridgeSupport.dtd">
 <signatures version='1.0'>
+<struct name='Vertex_t' type='{_Vertex_t=&quot;position&quot;{_vec4_t=&quot;x&quot;d&quot;y&quot;d&quot;z&quot;d&quot;w&quot;d}&quot;normal&quot;{_vec4_t=&quot;x&quot;d&quot;y&quot;d&quot;z&quot;d&quot;w&quot;d}&quot;color&quot;{_vec4_t=&quot;x&quot;d&quot;y&quot;d&quot;z&quot;d&quot;w&quot;d}&quot;texCoord&quot;{_vec2_t=&quot;x&quot;d&quot;y&quot;d}&quot;size&quot;d&quot;shininess&quot;d}'/>
 <enum name='kPolyPrimitiveRenderModePoints' value='0'/>
 <enum name='kPolyPrimitiveRenderModeTriFan' value='6'/>
 <enum name='kPolyPrimitiveRenderModeTriList' value='4'/>
 <enum name='kPolyPrimitiveRenderModeTriStrip' value='5'/>
 <function name='VertexCreate' inline='true'>
-<arg type='i'/>
-<arg type='i'/>
-<arg type='i'/>
-<arg type='i'/>
+<arg type='{_vec4_t=dddd}'/>
+<arg type='{_vec4_t=dddd}'/>
+<arg type='{_vec2_t=dd}'/>
+<arg type='{_vec4_t=dddd}'/>
 <arg type='f'/>
 <arg type='f'/>
-<retval type='(?=[16f])'/>
+<retval type='{_Vertex_t={_vec4_t=dddd}{_vec4_t=dddd}{_vec4_t=dddd}{_vec2_t=dd}dd}'/>
+</function>
 </function>
 <class name='PolyPrimitive'>
-<method selector='asdf:'>
-<arg function_pointer='true' type='@?' index='0'>
-<arg type='i'/>
-<arg type='(?=[16f])'/>
-<retval type='v'/>
-</arg>
-</method>
 <method selector='isValid'>
 <retval type='B'/>
 </method>
