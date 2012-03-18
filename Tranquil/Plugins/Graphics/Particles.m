@@ -19,6 +19,7 @@
 
     // By default, disable depth buffer writes
     self.state.ignoreDepth = YES;
+    self.state.unlit = YES;
     
     return self;
 }

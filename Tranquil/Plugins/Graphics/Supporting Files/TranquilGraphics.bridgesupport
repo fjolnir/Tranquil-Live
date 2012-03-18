@@ -32,8 +32,11 @@
 </method>
 </class>
 <class name='Plane'>
-<method selector='initWithSubdivisions:useVBO:'>
-<arg type='B' index='1'/>
+<method selector='initWithCols:rows:useVBO:'>
+<arg type='B' index='2'/>
+</method>
+<method selector='planeWithCols:rows:useVBO:' class_method='true'>
+<arg type='B' index='2'/>
 </method>
 </class>
 <class name='PolyPrimitive'>

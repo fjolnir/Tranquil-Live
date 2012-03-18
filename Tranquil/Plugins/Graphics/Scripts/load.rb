@@ -13,12 +13,12 @@ def drawSphere(radius=1, stacks=10, slices=10)
 end
 
 def buildPlane(subdivs=vec2(4,4))
-    raise TypeError unless subdivs.is_a?(Vector2)
-	scene.addObject Plane.objc_send(:planeWithSubdivisions,subdivs, :useVBO,true)
+    raise TypeError unless subdivs.is_a?(Vec2)
+	scene.addObject Plane.objc_send(:planeWithCols,subdivs.x, :rows,subdivs.y, :useVBO,true)
 end
 def drawPlane(subdivs=vec2(4,4))
-    raise TypeError unless subdivs.is_a?(Vector2)
-	scene.addImmediateModeObject Plane.objc_send(:planeWithSubdivisions,subdivs, :useVBO,false)
+    raise TypeError unless subdivs.is_a?(Vec2)
+	scene.addImmediateModeObject Plane.objc_send(:planeWithCols,subdivs.x, :rows,subdivs.y, :useVBO,false)
 end
 
 def buildParticles(count=100)

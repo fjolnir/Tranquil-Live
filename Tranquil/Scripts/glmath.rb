@@ -99,7 +99,7 @@ class Mat4
 	 def +(x)
 		if x.is_a?(self.class)
 			raise "todo"
-        elsif other.is_a?(Numeric)
+        elsif x.is_a?(Numeric)
 			raise "todo"
         else
 		    raise TypeError
@@ -108,7 +108,7 @@ class Mat4
     def -(x)
 		if x.is_a?(self.class)
 			raise "todo"
-        elsif other.is_a?(Numeric)
+        elsif x.is_a?(Numeric)
 			raise "todo"
         else
 		    raise TypeError
@@ -117,9 +117,9 @@ class Mat4
     def *(x)
         if x.is_a?(self.class)
             mat4_mul(self,x)
-		elsif other.is_a?(Vec4)
+		elsif x.is_a?(Vec4)
 			vec4_mul_mat4(x, self)
-        elsif other.is_a?(Numeric)
+        elsif x.is_a?(Numeric)
 			raise "todo"
         else
 		    raise TypeError
@@ -128,7 +128,7 @@ class Mat4
     def /(x)
         if x.is_a?(self.class)
 			raise "todo"
-        elsif other.is_a?(Numeric)
+        elsif x.is_a?(Numeric)
 			raise "todo"
         else
 		    raise TypeError
@@ -141,8 +141,8 @@ class Vec2
     def +(x)
 		if x.is_a?(self.class)
             vec2_add(self,x)
-        elsif other.is_a?(Numeric)
-            vec2_scalarAdd(x)
+        elsif x.is_a?(Numeric)
+            vec2_scalarAdd(self,x)
         else
 		    raise TypeError
         end
@@ -150,8 +150,8 @@ class Vec2
     def -(x)
 		if x.is_a?(self.class)
             vec2_sub(self,x)
-        elsif other.is_a?(Numeric)
-            vec2_scalarSub(x)
+        elsif x.is_a?(Numeric)
+            vec2_scalarSub(self,x)
         else
 		    raise TypeError
         end
@@ -159,8 +159,8 @@ class Vec2
     def *(x)
         if x.is_a?(self.class)
             vec2_mul(self,x)
-        elsif other.is_a?(Numeric)
-            vec2_scalarMul(x)
+        elsif x.is_a?(Numeric)
+            vec2_scalarMul(self,x)
         else
 		    raise TypeError
         end
@@ -168,8 +168,8 @@ class Vec2
     def /(x)
         if x.is_a?(self.class)
             vec2_div(self,x)
-        elsif other.is_a?(Numeric)
-            vec2_scalarDiv(x)
+        elsif x.is_a?(Numeric)
+            vec2_scalarDiv(self,x)
         else
 		    raise TypeError
         end
@@ -222,8 +222,8 @@ class Vec3
     def +(x)
 		if x.is_a?(self.class)
             vec3_add(self,x)
-        elsif other.is_a?(Numeric)
-            vec3_scalarAdd(x)
+        elsif x.is_a?(Numeric)
+            vec3_scalarAdd(self,x)
         else
 		    raise TypeError
         end
@@ -231,8 +231,8 @@ class Vec3
     def -(x)
 		if x.is_a?(self.class)
             vec3_sub(self,x)
-        elsif other.is_a?(Numeric)
-            vec3_scalarSub(x)
+        elsif x.is_a?(Numeric)
+            vec3_scalarSub(self,x)
         else
 		    raise TypeError
         end
@@ -240,8 +240,8 @@ class Vec3
     def *(x)
         if x.is_a?(self.class)
             vec3_mul(self,x)
-        elsif other.is_a?(Numeric)
-            vec3_scalarMul(x)
+        elsif x.is_a?(Numeric)
+            vec3_scalarMul(self,x)
         else
 		    raise TypeError
         end
@@ -249,8 +249,8 @@ class Vec3
     def /(x)
         if x.is_a?(self.class)
             vec3_div(self,x)
-        elsif other.is_a?(Numeric)
-            vec3_scalarDiv(x)
+        elsif x.is_a?(Numeric)
+            vec3_scalarDiv(self,x)
         else
 		    raise TypeError
         end
@@ -310,8 +310,8 @@ class Vec4
     def +(x)
 		if x.is_a?(self.class)
             vec4_add(self,x)
-        elsif other.is_a?(Numeric)
-            vec4_scalarAdd(x)
+        elsif x.is_a?(Numeric)
+            vec4_scalarAdd(self,x)
         else
 		    raise TypeError
         end
@@ -320,8 +320,8 @@ class Vec4
     def -(x)
 		if x.is_a?(self.class)
             vec4_sub(self,x)
-        elsif other.is_a?(Numeric)
-            vec4_scalarSub(x)
+        elsif x.is_a?(Numeric)
+            vec4_scalarSub(self,x)
         else
 		    raise TypeError
         end
@@ -329,9 +329,9 @@ class Vec4
     def *(x)
         if x.is_a?(self.class)
             vec4_mul(self,x)
-        elsif other.is_a?(Numeric)
-            vec4_scalarMul(x)
-		elsif other.is_a?(mat4)
+        elsif x.is_a?(Numeric)
+            vec4_scalarMul(self,x)
+		elsif x.is_a?(mat4)
 			vec4_mul_mat4(self, x)
         else
 		    raise TypeError
@@ -340,8 +340,8 @@ class Vec4
     def /(x)
         if x.is_a?(self.class)
             vec4_div(self,x)
-        elsif other.is_a?(Numeric)
-            vec4_scalarDiv(x)
+        elsif x.is_a?(Numeric)
+            vec4_scalarDiv(self,x)
         else
 		    raise TypeError
         end
@@ -394,5 +394,8 @@ class Vec4
 		else
 			raise TypeError
 		end
+    end
+    def normalize
+        vec4_normalize(self)
     end
 end
