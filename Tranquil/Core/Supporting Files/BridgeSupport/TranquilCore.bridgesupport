@@ -13,82 +13,82 @@
 <string_constant name='kTranquilFinishedLaunching' nsstring='true' value='kTranquilFinishedLaunching'/>
 <class name='Camera'>
 <method selector='aspectRatio'>
-<retval declared_type='GLMFloat' type='d'/>
+<retval declared_type='GLMFloat' type='f'/>
 </method>
 <method selector='fov'>
-<retval declared_type='GLMFloat' type='d'/>
+<retval declared_type='GLMFloat' type='f'/>
 </method>
 <method selector='matrix'>
-<retval declared_type='mat4_t' type='{_mat4_t=dddddddddddddddd}'/>
+<retval declared_type='mat4_t' type='{_mat4_t=ffffffffffffffff}'/>
 </method>
 <method selector='orientation'>
-<retval declared_type='quat_t' type='{_quat_t=dddd}'/>
+<retval declared_type='quat_t' type='{_quat_t=ffff}'/>
 </method>
 <method selector='position'>
-<retval declared_type='vec4_t' type='{_vec4_t=dddd}'/>
+<retval declared_type='vec4_t' type='{_vec4_t=ffff}'/>
 </method>
 <method selector='setAspectRatio:'>
-<arg name='aspectRatio' declared_type='GLMFloat' type='d' index='0'/>
+<arg name='aspectRatio' declared_type='GLMFloat' type='f' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setFov:'>
-<arg name='fov' declared_type='GLMFloat' type='d' index='0'/>
+<arg name='fov' declared_type='GLMFloat' type='f' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setOrientation:'>
-<arg name='orientation' declared_type='quat_t' type='{_quat_t=dddd}' index='0'/>
+<arg name='orientation' declared_type='quat_t' type='{_quat_t=ffff}' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setPosition:'>
-<arg name='position' declared_type='vec4_t' type='{_vec4_t=dddd}' index='0'/>
+<arg name='position' declared_type='vec4_t' type='{_vec4_t=ffff}' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setZoom:'>
-<arg name='zoom' declared_type='GLMFloat' type='d' index='0'/>
+<arg name='zoom' declared_type='GLMFloat' type='f' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='unProjectPoint:'>
-<arg name='aPoint' declared_type='vec4_t' type='{_vec4_t=dddd}' index='0'/>
-<retval declared_type='vec4_t' type='{_vec4_t=dddd}'/>
+<arg name='aPoint' declared_type='vec4_t' type='{_vec4_t=ffff}' index='0'/>
+<retval declared_type='vec4_t' type='{_vec4_t=ffff}'/>
 </method>
 <method selector='updateMatrix'>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='viewportSize' class_method='true'>
-<retval declared_type='vec4_t' type='{_vec4_t=dddd}'/>
+<retval declared_type='vec4_t' type='{_vec4_t=ffff}'/>
 </method>
 <method selector='zoom'>
-<retval declared_type='GLMFloat' type='d'/>
+<retval declared_type='GLMFloat' type='f'/>
 </method>
 </class>
 <class name='Light'>
 <method selector='ambientColor'>
-<retval declared_type='vec4_t' type='{_vec4_t=dddd}'/>
+<retval declared_type='vec4_t' type='{_vec4_t=ffff}'/>
 </method>
 <method selector='diffuseColor'>
-<retval declared_type='vec4_t' type='{_vec4_t=dddd}'/>
+<retval declared_type='vec4_t' type='{_vec4_t=ffff}'/>
 </method>
 <method selector='position'>
-<retval declared_type='vec4_t' type='{_vec4_t=dddd}'/>
+<retval declared_type='vec4_t' type='{_vec4_t=ffff}'/>
 </method>
 <method selector='setAmbientColor:'>
-<arg name='ambientColor' declared_type='vec4_t' type='{_vec4_t=dddd}' index='0'/>
+<arg name='ambientColor' declared_type='vec4_t' type='{_vec4_t=ffff}' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setDiffuseColor:'>
-<arg name='diffuseColor' declared_type='vec4_t' type='{_vec4_t=dddd}' index='0'/>
+<arg name='diffuseColor' declared_type='vec4_t' type='{_vec4_t=ffff}' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setPosition:'>
-<arg name='position' declared_type='vec4_t' type='{_vec4_t=dddd}' index='0'/>
+<arg name='position' declared_type='vec4_t' type='{_vec4_t=ffff}' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setSpecularColor:'>
-<arg name='specularColor' declared_type='vec4_t' type='{_vec4_t=dddd}' index='0'/>
+<arg name='specularColor' declared_type='vec4_t' type='{_vec4_t=ffff}' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='specularColor'>
-<retval declared_type='vec4_t' type='{_vec4_t=dddd}'/>
+<retval declared_type='vec4_t' type='{_vec4_t=ffff}'/>
 </method>
 </class>
 <class name='Logger'>
@@ -146,7 +146,7 @@
 <retval declared_type='id' type='@'/>
 </method>
 <method selector='ambientLight'>
-<retval declared_type='vec4_t' type='{_vec4_t=dddd}'/>
+<retval declared_type='vec4_t' type='{_vec4_t=ffff}'/>
 </method>
 <method selector='camera'>
 <retval declared_type='Camera*' type='@'/>
@@ -155,7 +155,7 @@
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='clearColor'>
-<retval declared_type='vec4_t' type='{_vec4_t=dddd}'/>
+<retval declared_type='vec4_t' type='{_vec4_t=ffff}'/>
 </method>
 <method selector='currentState'>
 <retval declared_type='State*' type='@'/>
@@ -202,7 +202,7 @@
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setAmbientLight:'>
-<arg name='ambientLight' declared_type='vec4_t' type='{_vec4_t=dddd}' index='0'/>
+<arg name='ambientLight' declared_type='vec4_t' type='{_vec4_t=ffff}' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setCamera:'>
@@ -210,7 +210,7 @@
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setClearColor:'>
-<arg name='clearColor' declared_type='vec4_t' type='{_vec4_t=dddd}' index='0'/>
+<arg name='clearColor' declared_type='vec4_t' type='{_vec4_t=ffff}' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='stateStack'>
@@ -313,7 +313,7 @@
 </class>
 <class name='State'>
 <method selector='ambientLight'>
-<retval declared_type='vec4_t' type='{_vec4_t=dddd}'/>
+<retval declared_type='vec4_t' type='{_vec4_t=ffff}'/>
 </method>
 <method selector='antiAlias'>
 <retval declared_type='BOOL' type='B'/>
@@ -323,7 +323,7 @@
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='color'>
-<retval declared_type='vec4_t' type='{_vec4_t=dddd}'/>
+<retval declared_type='vec4_t' type='{_vec4_t=ffff}'/>
 </method>
 <method selector='cullBackFace'>
 <retval declared_type='BOOL' type='B'/>
@@ -344,19 +344,19 @@
 <retval declared_type='BOOL' type='B'/>
 </method>
 <method selector='lineWidth'>
-<retval declared_type='GLMFloat' type='d'/>
+<retval declared_type='GLMFloat' type='f'/>
 </method>
 <method selector='noZWrite'>
 <retval declared_type='BOOL' type='B'/>
 </method>
 <method selector='opacity'>
-<retval declared_type='GLMFloat' type='d'/>
+<retval declared_type='GLMFloat' type='f'/>
 </method>
 <method selector='pointRadius'>
-<retval declared_type='GLMFloat' type='d'/>
+<retval declared_type='GLMFloat' type='f'/>
 </method>
 <method selector='setAmbientLight:'>
-<arg name='ambientLight' declared_type='vec4_t' type='{_vec4_t=dddd}' index='0'/>
+<arg name='ambientLight' declared_type='vec4_t' type='{_vec4_t=ffff}' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setAntiAlias:'>
@@ -364,7 +364,7 @@
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setColor:'>
-<arg name='color' declared_type='vec4_t' type='{_vec4_t=dddd}' index='0'/>
+<arg name='color' declared_type='vec4_t' type='{_vec4_t=ffff}' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setCullBackFace:'>
@@ -392,7 +392,7 @@
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setLineWidth:'>
-<arg name='lineWidth' declared_type='GLMFloat' type='d' index='0'/>
+<arg name='lineWidth' declared_type='GLMFloat' type='f' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setNoZWrite:'>
@@ -400,11 +400,11 @@
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setOpacity:'>
-<arg name='opacity' declared_type='GLMFloat' type='d' index='0'/>
+<arg name='opacity' declared_type='GLMFloat' type='f' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setPointRadius:'>
-<arg name='pointRadius' declared_type='GLMFloat' type='d' index='0'/>
+<arg name='pointRadius' declared_type='GLMFloat' type='f' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setShader:'>
@@ -412,7 +412,7 @@
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setShininess:'>
-<arg name='shininess' declared_type='GLMFloat' type='d' index='0'/>
+<arg name='shininess' declared_type='GLMFloat' type='f' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setTexture:'>
@@ -420,7 +420,7 @@
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setTransform:'>
-<arg name='transform' declared_type='mat4_t' type='{_mat4_t=dddddddddddddddd}' index='0'/>
+<arg name='transform' declared_type='mat4_t' type='{_mat4_t=ffffffffffffffff}' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setUnlit:'>
@@ -431,13 +431,13 @@
 <retval declared_type='Shader*' type='@'/>
 </method>
 <method selector='shininess'>
-<retval declared_type='GLMFloat' type='d'/>
+<retval declared_type='GLMFloat' type='f'/>
 </method>
 <method selector='texture'>
 <retval declared_type='Texture*' type='@'/>
 </method>
 <method selector='transform'>
-<retval declared_type='mat4_t' type='{_mat4_t=dddddddddddddddd}'/>
+<retval declared_type='mat4_t' type='{_mat4_t=ffffffffffffffff}'/>
 </method>
 <method selector='unapplyToScene:'>
 <arg name='aScene' declared_type='Scene*' type='@' index='0'/>
