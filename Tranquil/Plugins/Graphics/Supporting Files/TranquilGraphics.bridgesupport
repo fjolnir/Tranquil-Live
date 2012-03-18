@@ -43,7 +43,7 @@
 <method selector='isValid'>
 <retval type='B'/>
 </method>
-<method selector='map:'>
+<method selector='mapVertices:'>
 <arg function_pointer='true' type='^?' index='0'>
 <arg type='I'/>
 <arg type='{_Vertex_t={_vec4_t=ffff}{_vec4_t=ffff}{_vec4_t=ffff}{_vec2_t=ff}ff}'/>

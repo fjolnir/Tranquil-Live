@@ -234,7 +234,7 @@
 <method selector='executeFile:error:'>
 <arg name='aPath' declared_type='NSString*' type='@' index='0'/>
 <arg name='aoErr' declared_type='NSError**' type='^@' index='1'/>
-<retval declared_type='id' type='@'/>
+<retval declared_type='void' type='v'/>
 </method>
 <method selector='executeScript:error:'>
 <arg name='aSource' declared_type='NSString*' type='@' index='0'/>

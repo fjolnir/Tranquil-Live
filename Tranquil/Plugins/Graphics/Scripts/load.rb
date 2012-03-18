@@ -25,3 +25,8 @@ def buildParticles(count=100)
     scene.addObject Particles.objc_send(:particles,count, :useVBO,true)
 end
 
+class PolyPrimitive
+    def map(&blk)
+        self.mapVertices(blk)
+    end
+end

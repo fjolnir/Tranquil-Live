@@ -249,22 +249,7 @@
 	// TODO
 }
 
-//- (PolyPrimitive *)mapVertices:(VertexMappingBlock)aEnumBlock
-//{
-//    for(NSUInteger i = 0; i < _vertexCount; ++i) {
-//        _vertices[i] = aEnumBlock(i, _vertices[i]);
-//        
-//        printVec4(_vertices[i].position);
-//    }
-//    if(_useVBO) {
-//        glBindBuffer(GL_ARRAY_BUFFER, 0);
-//        glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-//        glBufferSubData(GL_ARRAY_BUFFER, 0, _vertexCount*sizeof(Vertex_t), _vertices);
-//    }
-//    return self;
-//}
-
-- (PolyPrimitive *)map:(Vertex_t (*)(unsigned, Vertex_t))mapping
+- (PolyPrimitive *)mapVertices:(Vertex_t (*)(unsigned, Vertex_t))mapping
 {
     for(unsigned i = 0; i < _vertexCount; ++i) {
         _vertices[i] = mapping(i, _vertices[i]);
