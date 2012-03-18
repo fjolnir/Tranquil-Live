@@ -22,3 +22,12 @@ def drawPlane(subdivs=vec2(4,4))
     raise TypeError unless subdivs.is_a?(Vector2)
 	scene.addImmediateModeObject Plane.alloc.initWithSubdivisions(subdivs)
 end
+
+
+class PolyPrimitive
+    def map
+        (0...self.vertexCount).each do |i|
+            self.vertices[i] = yield(i, self.vertices[i])
+        end
+    end
+end

@@ -1,7 +1,7 @@
 #import "Plane.h"
 
 @implementation Plane
-- (id)initWithSubdivisions:(Vector2 *)aSubdivs
+- (id)initWithSubdivisions:(vec2_t)aSubdivs
 {
 	assert(aSubdivs.x>0 && aSubdivs.y>0);
 	

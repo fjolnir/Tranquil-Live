@@ -32,7 +32,7 @@ typedef Vertex_t (^VertexMappingBlock)(NSUInteger aIndex, Vertex_t aVertex);
     State *_state;
 }
 @property(readonly) GLuint vertexBuffer, indexBuffer;
-@property(readwrite, assign, nonatomic) Vertex_t *vertices;
+@property(readonly, assign, nonatomic) Vertex_t *vertices;
 @property(readwrite, assign, nonatomic) GLuint *indices;
 @property(readwrite, assign, nonatomic) int vertexCount, vertexCapacity, indexCount, indexCapacity;
 @property(readonly) BOOL usesIndices;
@@ -51,5 +51,5 @@ typedef Vertex_t (^VertexMappingBlock)(NSUInteger aIndex, Vertex_t aVertex);
 
 - (void)recomputeNormals:(BOOL)aSmooth;
 
-- (PolyPrimitive *)mapVertices:(VertexMappingBlock)aEnumBlock;
+//- (PolyPrimitive *)mapVertices:(VertexMappingBlock)aEnumBlock;
 @end

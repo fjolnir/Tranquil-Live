@@ -2,5 +2,5 @@
 #import "PolyPrimitive.h"
 
 @interface Plane : PolyPrimitive
-- (id)initWithSubdivisions:(Vector2 *)aSubdivs;
+- (id)initWithSubdivisions:(vec2_t)aSubdivs;
 @end
