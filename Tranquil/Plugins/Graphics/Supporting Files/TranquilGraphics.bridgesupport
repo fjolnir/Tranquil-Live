@@ -1,32 +1,53 @@
 <?xml version='1.0'?>
 <!DOCTYPE signatures SYSTEM "file://localhost/System/Library/DTDs/BridgeSupport.dtd">
 <signatures version='1.0'>
-<struct name='Vertex_t' type='{_Vertex_t=&quot;position&quot;{_vec4_t=&quot;x&quot;d&quot;y&quot;d&quot;z&quot;d&quot;w&quot;d}&quot;normal&quot;{_vec4_t=&quot;x&quot;d&quot;y&quot;d&quot;z&quot;d&quot;w&quot;d}&quot;color&quot;{_vec4_t=&quot;x&quot;d&quot;y&quot;d&quot;z&quot;d&quot;w&quot;d}&quot;texCoord&quot;{_vec2_t=&quot;x&quot;d&quot;y&quot;d}&quot;size&quot;d&quot;shininess&quot;d}'/>
+<struct name='Vertex_t' type='{_Vertex_t=&quot;position&quot;{_vec4_t=&quot;x&quot;f&quot;y&quot;f&quot;z&quot;f&quot;w&quot;f}&quot;normal&quot;{_vec4_t=&quot;x&quot;f&quot;y&quot;f&quot;z&quot;f&quot;w&quot;f}&quot;color&quot;{_vec4_t=&quot;x&quot;f&quot;y&quot;f&quot;z&quot;f&quot;w&quot;f}&quot;texCoord&quot;{_vec2_t=&quot;x&quot;f&quot;y&quot;f}&quot;size&quot;f&quot;shininess&quot;f}'/>
 <enum name='kPolyPrimitiveRenderModePoints' value='0'/>
 <enum name='kPolyPrimitiveRenderModeTriFan' value='6'/>
 <enum name='kPolyPrimitiveRenderModeTriList' value='4'/>
 <enum name='kPolyPrimitiveRenderModeTriStrip' value='5'/>
 <function name='VertexCreate' inline='true'>
-<arg type='{_vec4_t=dddd}'/>
-<arg type='{_vec4_t=dddd}'/>
-<arg type='{_vec2_t=dd}'/>
-<arg type='{_vec4_t=dddd}'/>
+<arg type='{_vec4_t=ffff}'/>
+<arg type='{_vec4_t=ffff}'/>
+<arg type='{_vec2_t=ff}'/>
+<arg type='{_vec4_t=ffff}'/>
 <arg type='f'/>
 <arg type='f'/>
-<retval type='{_Vertex_t={_vec4_t=dddd}{_vec4_t=dddd}{_vec4_t=dddd}{_vec2_t=dd}dd}'/>
+<retval type='{_Vertex_t={_vec4_t=ffff}{_vec4_t=ffff}{_vec4_t=ffff}{_vec2_t=ff}ff}'/>
 </function>
-<function name='vtest'>
-<retval type='^{_Vertex_t={_vec4_t=dddd}{_vec4_t=dddd}{_vec4_t=dddd}{_vec2_t=dd}dd}'/>
-</function>
+<class name='Cube'>
+<method selector='cubeWithSize:useVBO:' class_method='true'>
+<arg type='B' index='1'/>
+</method>
+<method selector='initWithSize:useVBO:'>
+<arg type='B' index='1'/>
+</method>
+</class>
+<class name='Particles'>
+<method selector='initWithCount:useVBO:'>
+<arg type='B' index='1'/>
+</method>
+<method selector='particles:useVBO:' class_method='true'>
+<arg type='B' index='1'/>
+</method>
+</class>
+<class name='Plane'>
+<method selector='initWithSubdivisions:useVBO:'>
+<arg type='B' index='1'/>
+</method>
+</class>
 <class name='PolyPrimitive'>
+<method selector='initWithVertexCapacity:indexCapacity:useVBO:'>
+<arg type='B' index='2'/>
+</method>
 <method selector='isValid'>
 <retval type='B'/>
 </method>
-<method selector='mapVertices:'>
-<arg function_pointer='true' type='@?' index='0'>
-<arg type64='Q' type='I'/>
-<arg type='{_Vertex_t={_vec4_t=dddd}{_vec4_t=dddd}{_vec4_t=dddd}{_vec2_t=dd}dd}'/>
-<retval type='{_Vertex_t={_vec4_t=dddd}{_vec4_t=dddd}{_vec4_t=dddd}{_vec2_t=dd}dd}'/>
+<method selector='map:'>
+<arg function_pointer='true' type='^?' index='0'>
+<arg type='I'/>
+<arg type='{_Vertex_t={_vec4_t=ffff}{_vec4_t=ffff}{_vec4_t=ffff}{_vec2_t=ff}ff}'/>
+<retval type='{_Vertex_t={_vec4_t=ffff}{_vec4_t=ffff}{_vec4_t=ffff}{_vec2_t=ff}ff}'/>
 </arg>
 </method>
 <method selector='recomputeNormals:'>
@@ -41,8 +62,13 @@
 <method selector='usesIndices'>
 <retval type='B'/>
 </method>
-    <method selector='vertices'>
-        <retval type='^{_Vertex_t={_vec4_t=dddd}{_vec4_t=dddd}{_vec4_t=dddd}{_vec2_t=dd}dd}'/>
-    </method>
+</class>
+<class name='Sphere'>
+<method selector='initWithRadius:stacks:slices:useVBO:'>
+<arg type='B' index='3'/>
+</method>
+<method selector='sphereWithRadius:stacks:slices:useVBO:' class_method='true'>
+<arg type='B' index='3'/>
+</method>
 </class>
 </signatures>

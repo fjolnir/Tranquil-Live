@@ -1,5 +1,6 @@
 #import "ScriptContext.h"
 #import <RubyCocoa/RBObject.h>
+#import <Ruby/Ruby.h>
 
 static ScriptContext *sharedContext;
 
@@ -20,33 +21,45 @@ static ScriptContext *sharedContext;
 	return sharedContext;
 }
 
-- (id)executeFile:(NSString *)aPath error:(NSError **)aoErr
+- (void)executeFile:(NSString *)aPath error:(NSError **)aoErr
 {
-	@try {
-        return [RBObject RBObjectWithRubyScriptString:[NSString stringWithContentsOfFile:aPath usedEncoding:NULL error:nil]];
-	} @catch (NSException *e) {
-		NSError *err = [NSError errorWithDomain:@"ScriptError" 
+    int err = 0;
+    ruby_script([aPath UTF8String]);
+    rb_load_file([aPath UTF8String]);
+    err = ruby_exec();
+
+    if(err) {
+        VALUE exception = rb_gv_get("$!");
+        char *buffer = RSTRING(rb_obj_as_string(exception))->ptr;
+        NSLog(@"ERROR %s", buffer);
+        NSString *errMsg = [NSString stringWithUTF8String:buffer];
+        NSError *err = [NSError errorWithDomain:@"ScriptError" 
 										   code:0 
-									   userInfo:[NSDictionary dictionaryWithObject:[e description] 
+									   userInfo:[NSDictionary dictionaryWithObject:errMsg
 																			forKey:@"description"]];
-		[self _reportError:err];
-		if(aoErr) *aoErr = err;
-	}
-	return nil;
+        [self _reportError:err];
+        if(aoErr) *aoErr = err;
+    }
 }
 - (id)executeScript:(NSString *)aSource error:(NSError **)aoErr
 {
-	@try {
-		return [RBObject RBObjectWithRubyScriptString:aSource];
-	} @catch (NSException *e) {
-		NSError *err = [NSError errorWithDomain:@"ScriptError" 
+    int err;
+    VALUE result = rb_eval_string_protect([aSource UTF8String], &err);
+    if(err) {
+        VALUE exception = rb_gv_get("$!");
+        char *buffer = RSTRING(rb_obj_as_string(exception))->ptr;
+        NSLog(@"ERROR %s", buffer);
+        NSString *errMsg = [NSString stringWithUTF8String:buffer];
+        NSError *err = [NSError errorWithDomain:@"ScriptError" 
 										   code:0 
-									   userInfo:[NSDictionary dictionaryWithObject:[e description] 
+									   userInfo:[NSDictionary dictionaryWithObject:errMsg
 																			forKey:@"description"]];
-		[self _reportError:err];
-		if(aoErr) *aoErr = err;
-	}
-	return nil;
+        [self _reportError:err];
+        if(aoErr) *aoErr = err;
+        
+        return nil;
+    }
+    return [[[RBObject alloc] initWithRubyObject:result] autorelease];
 }
 
 #pragma mark - Delegate

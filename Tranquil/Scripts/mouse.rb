@@ -26,7 +26,7 @@ class TranquilMouseObserver
 		rotation = quat(0,0,0,0)
 		rotation.vec = @lastMouseLoc.cross(mouseLoc) # Axis of rotation
 		rotation.scalar = @lastMouseLoc.dot(mouseLoc) # Angle
-        #rotation = rotation.normalize    
+        rotation = rotation.normalize    
         
         cam.orientation = rotation * cam.orientation
 		cam.position = rotation * cam.position

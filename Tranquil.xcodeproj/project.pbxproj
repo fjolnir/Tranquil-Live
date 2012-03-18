@@ -12,8 +12,11 @@
 			buildConfigurationList = C7B6A72B1511B145003F797D /* Build configuration list for PBXAggregateTarget "Generate BridgeSupport Metadata" */;
 			buildPhases = (
 				C7B6A7321511B162003F797D /* TranquilCore BridgeSupport */,
+				C72AFE8B151600BC004ED374 /* TranquilGraphics BridgeSupport */,
 			);
 			dependencies = (
+				C72AFE8F151602BF004ED374 /* PBXTargetDependency */,
+				C72AFE8D151602B5004ED374 /* PBXTargetDependency */,
 				C7B6A72F1511B14A003F797D /* PBXTargetDependency */,
 				C7B6A73C1511B53A003F797D /* PBXTargetDependency */,
 			);
@@ -32,6 +35,8 @@
 		C72A6AEE150643B400A8DAA3 /* Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = C72A6AEC150643B400A8DAA3 /* Texture.m */; };
 		C72A6AF21506785E00A8DAA3 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = C72A6AF01506678000A8DAA3 /* Logger.m */; };
 		C72A6AF31506786C00A8DAA3 /* Logger.h in Headers */ = {isa = PBXBuildFile; fileRef = C72A6AEF1506678000A8DAA3 /* Logger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C72AFE9215161718004ED374 /* Ruby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72AFE9015161706004ED374 /* Ruby.framework */; };
+		C72AFE931516171F004ED374 /* Ruby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72AFE9015161706004ED374 /* Ruby.framework */; };
 		C744E3A014B8337D00078FBB /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C744E39F14B8337D00078FBB /* Scripts */; };
 		C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C744E3CF14B8464E00078FBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C744E3CD14B8464E00078FBB /* InfoPlist.strings */; };
@@ -120,6 +125,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C72AFE8C151602B5004ED374 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C7622AF614D085B60093DDD0;
+			remoteInfo = Framework;
+		};
+		C72AFE8E151602BF004ED374 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C744E3C714B8464E00078FBB;
+			remoteInfo = TranquilGraphics;
+		};
 		C75208681501041E008400C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
@@ -268,6 +287,7 @@
 		C72A6AEC150643B400A8DAA3 /* Texture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture.m; sourceTree = "<group>"; };
 		C72A6AEF1506678000A8DAA3 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logger.h; path = ../Application/Logger.h; sourceTree = "<group>"; };
 		C72A6AF01506678000A8DAA3 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Logger.m; path = ../Application/Logger.m; sourceTree = "<group>"; };
+		C72AFE9015161706004ED374 /* Ruby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ruby.framework; path = System/Library/Frameworks/Ruby.framework; sourceTree = SDKROOT; };
 		C744E39F14B8337D00078FBB /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		C744E3A114B834EF00078FBB /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		C744E3A214B834EF00078FBB /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
@@ -411,6 +431,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72AFE9215161718004ED374 /* Ruby.framework in Frameworks */,
 				C7F364FF1515CCB80017D1A6 /* RubyCocoa.framework in Frameworks */,
 				C75208A51501F8E0008400C4 /* GLMath.framework in Frameworks */,
 				C79EF1E514F5328500570FB6 /* Accelerate.framework in Frameworks */,
@@ -423,6 +444,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72AFE931516171F004ED374 /* Ruby.framework in Frameworks */,
 				C7F364FE1515CCAC0017D1A6 /* RubyCocoa.framework in Frameworks */,
 				C79EF20214F535AA00570FB6 /* TranquilCore.framework in Frameworks */,
 				C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */,
@@ -602,6 +624,7 @@
 		C7E2EF2014B78D4C0000884E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C72AFE9015161706004ED374 /* Ruby.framework */,
 				C7F364FD1515CCAC0017D1A6 /* RubyCocoa.framework */,
 				C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */,
 				C760C4F514B7AE1700451951 /* OpenGL.framework */,
@@ -957,6 +980,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		C72AFE8B151600BC004ED374 /* TranquilGraphics BridgeSupport */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "TranquilGraphics BridgeSupport";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pushd Tranquil/Plugins/Graphics\n../../../bridgesupport/gen_bridge_metadata -c \"-F/Users/fyolnish/Development/Mac/Tranquil/DerivedData/Build/Debug -framework Cocoa -framework GLMath -framework TranquilCore -I. -D__SCRIPTINGBRIDGE__\" *.h > Supporting\\ Files/TranquilGraphics.bridgesupport\npopd\n";
+			showEnvVarsInLog = 0;
+		};
 		C76B904D14FBC5090026A990 /* Generate Bridge Metadata */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1060,6 +1098,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C72AFE8D151602B5004ED374 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Framework;
+			targetProxy = C72AFE8C151602B5004ED374 /* PBXContainerItemProxy */;
+		};
+		C72AFE8F151602BF004ED374 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C744E3C714B8464E00078FBB /* TranquilGraphics */;
+			targetProxy = C72AFE8E151602BF004ED374 /* PBXContainerItemProxy */;
+		};
 		C75208691501041E008400C4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C79EF1BF14F530DF00570FB6 /* TranquilCore */;

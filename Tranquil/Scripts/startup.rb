@@ -1,9 +1,3 @@
-require_framework "GLMath"
-require_framework("TranquilCore")
-require_framework("OpenGL")
-
-include Math
-
 def scene
     Scene.globalScene
 end
@@ -16,7 +10,7 @@ require "logging"
 
 # Setup
 def _setup
-	scene.clearColor = vec4(1,0,0,1)
+	scene.clearColor = vec4(0,0,0,1)
     
 	scene.camera.position = vec4(0, 0, 5, 1)
 	scene.camera.orientation = quat(0, 1, 0, 0)

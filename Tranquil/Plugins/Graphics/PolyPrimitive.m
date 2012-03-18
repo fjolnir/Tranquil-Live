@@ -264,4 +264,17 @@
 //    return self;
 //}
 
+- (PolyPrimitive *)map:(Vertex_t (*)(unsigned, Vertex_t))mapping
+{
+    for(unsigned i = 0; i < _vertexCount; ++i) {
+        _vertices[i] = mapping(i, _vertices[i]);
+    }
+    if(_useVBO) {
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
+        glBufferSubData(GL_ARRAY_BUFFER, 0, _vertexCount*sizeof(Vertex_t), _vertices);
+    }
+    return self;
+}
+
 @end

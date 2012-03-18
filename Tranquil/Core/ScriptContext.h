@@ -15,5 +15,5 @@
 + (ScriptContext *)sharedContext;
 
 - (id)executeScript:(NSString *)aSource error:(NSError **)aoErr;
-- (id)executeFile:(NSString *)aPath error:(NSError **)aoErr;
+- (void)executeFile:(NSString *)aPath error:(NSError **)aoErr;
 @end

@@ -25,10 +25,3 @@ def buildParticles(count=100)
     scene.addObject Particles.objc_send(:particles,count, :useVBO,true)
 end
 
-class PolyPrimitive
-    def map
-        (0...self.vertexCount).each do |i|
-            self.vertices[i] = yield(i, self.vertices[i])
-        end
-    end
-end
