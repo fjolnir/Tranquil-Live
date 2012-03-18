@@ -2,8 +2,6 @@
 #import <AudioToolbox/CoreAudioClock.h>
 #import <CoreMIDI/CoreMIDI.h>
 
-typedef void (^MIDIClockCallback)(void);
-
 @interface MIDIClock : NSObject {
 	CAClockRef _caClock;
 	
@@ -15,7 +13,6 @@ typedef void (^MIDIClockCallback)(void);
 		
 	BOOL _running;
 }
-@property(readwrite, copy) MIDIClockCallback pulseCallback, startCallback, stopCallback;
 @property(readonly) CAClockRef caClock;
 
 + (MIDIClock *)globalClock;

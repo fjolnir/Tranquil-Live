@@ -12,7 +12,7 @@ MIDIClock *sharedInstance;
 static void MIDIInputProc(const MIDIPacketList *pktlist, void *readProcRefCon, void *srcConnRefCon);
 static void clockListener(void *userData, CAClockMessage message, const void *param);
 @implementation MIDIClock
-@synthesize caClock=_caClock, pulseCallback=_pulseCallback, startCallback=_startCallback, stopCallback=_stopCallback;
+@synthesize caClock=_caClock;
 
 + (MIDIClock *)globalClock
 {
@@ -166,6 +166,18 @@ static void clockListener(void *userData, CAClockMessage message, const void *pa
 
 #pragma mark -
 
+- (void)didStart
+{
+    // Overridden in ruby
+}
+- (void)didPulse
+{
+    // Overridden in ruby
+}
+- (void)didStop
+{
+    // Overridden in ruby
+}
 // Receives status change notifications from the CoreAudio Clock
 - (void)_clockListener:(CAClockMessage)message parameter:(const void *)param {
     // Register the audio thread with the garbage collector
@@ -175,14 +187,12 @@ static void clockListener(void *userData, CAClockMessage message, const void *pa
         case kCAClockMessage_Started:
             NSLog(@"Clock started");
             _running = YES;            
-            if(_startCallback)
-                _startCallback();
+            [self didStart];
             break;
         case kCAClockMessage_Stopped:
             NSLog(@"Clock stopped");
             _running = NO;
-            if(_stopCallback)
-                _stopCallback();
+            [self didStop];
             break;
         case kCAClockMessage_Armed:
             NSLog(@"Clock armed");
@@ -206,8 +216,10 @@ static void clockListener(void *userData, CAClockMessage message, const void *pa
 
 - (void)_receivedClockPulseWithTimestamp:(MIDITimeStamp)aTimestamp
 {
-    if(_running && _pulseCallback)
-        dispatch_async(dispatch_get_main_queue(), _pulseCallback);
+    if(_running)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self didPulse];
+        });
 }
 
 
