@@ -31,7 +31,6 @@ static ScriptContext *sharedContext;
     if(err) {
         VALUE exception = rb_gv_get("$!");
         char *buffer = RSTRING(rb_obj_as_string(exception))->ptr;
-        NSLog(@"ERROR %s", buffer);
         NSString *errMsg = [NSString stringWithUTF8String:buffer];
         NSError *err = [NSError errorWithDomain:@"ScriptError" 
 										   code:0 
@@ -48,7 +47,6 @@ static ScriptContext *sharedContext;
     if(err) {
         VALUE exception = rb_gv_get("$!");
         char *buffer = RSTRING(rb_obj_as_string(exception))->ptr;
-        NSLog(@"ERROR %s", buffer);
         NSString *errMsg = [NSString stringWithUTF8String:buffer];
         NSError *err = [NSError errorWithDomain:@"ScriptError" 
 										   code:0 

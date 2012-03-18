@@ -55,12 +55,11 @@
 - (void)scriptContext:(ScriptContext *)aContext encounteredError:(NSError *)aError
 {
     NSString *message = [aError.userInfo objectForKey:@"description"];
-    NSLog(@"%@", message);
-    NSRange evalRange = [message rangeOfString:@"/(eval):"];
+    //NSRange evalRange = [message rangeOfString:@"/(eval):"];
     // If it's a message from eval (most likely case, get rid of the pwd)
-    if(evalRange.location != NSNotFound) {
-        message = [message substringFromIndex:evalRange.location+1];
-    }
+    //if(evalRange.location != NSNotFound) {
+    //    message = [message substringFromIndex:evalRange.location+1];
+    //}
     NSLog(@"%@", message);
     // Append to the console view
     message = [message stringByAppendingString:@"\n"];
