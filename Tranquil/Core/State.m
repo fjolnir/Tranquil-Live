@@ -181,7 +181,7 @@
 	copy.lineWidth = _lineWidth;
 	copy.shininess = _shininess;
 	copy.pointRadius = _pointRadius;
-	copy.shader = _shader;
+	copy.shader = [_shader retain];
 	copy.color = _color;
     copy.drawWireframe = _drawWireframe;
     copy.drawNormals = _drawNormals;
@@ -192,7 +192,7 @@
     copy.noZWrite = _noZWrite;
     copy.cullBackFace = _cullBackFace;
     copy.unlit = _unlit;
-    copy.texture = _texture;
+    copy.texture = [_texture retain];
 
     return copy;
 }

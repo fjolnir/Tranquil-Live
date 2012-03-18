@@ -1,6 +1,12 @@
 #import "Sphere.h"
 
 @implementation Sphere
+
++ (Sphere *)sphereWithRadius:(GLMFloat)aRadius stacks:(int)aStacks slices:(int)aSlices
+{
+    return [[[self alloc] initWithRadius:aRadius stacks:aStacks slices:aSlices] autorelease];
+}
+
 - (id)initWithRadius:(GLMFloat)aRadius stacks:(int)aStacks slices:(int)aSlices
 {
 	assert(aRadius>0);

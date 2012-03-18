@@ -86,6 +86,14 @@
     return textureId;
 }
 
++ (Texture *)textureWithContentsOfFile:(NSString *)aPath minFilter:(GLuint)aMinFilter maxFilter:(GLuint)aMaxFilter buildMipMaps:(BOOL)aShouldBuildMipMaps
+{
+    return [[[self alloc] initWithContentsOfFile:aPath
+                                      minFilter:aMinFilter
+                                      maxFilter:aMaxFilter
+                                    buildMipMaps:aShouldBuildMipMaps] autorelease];
+}
+
 - (id)initWithContentsOfFile:(NSString *)aPath minFilter:(GLuint)aMinFilter maxFilter:(GLuint)aMaxFilter buildMipMaps:(BOOL)aShouldBuildMipMaps
 {
     if(!(self = [super init]))
@@ -97,7 +105,6 @@
                                 buildMipMaps:aShouldBuildMipMaps];
 
     return self;
-
 }
 
 @end

@@ -10,7 +10,7 @@ end
 
 midi.syncSource = "IAC Driver Bus 1"
 midi.arm
-midi.pulseCallback = -> {
-    p midi.currentBeat
-    p midi.currentBPM
-}
+#midi.pulseCallback = -> {
+#    p midi.currentBeat
+#    p midi.currentBPM
+#}

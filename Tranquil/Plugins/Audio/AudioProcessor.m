@@ -123,7 +123,7 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	}
 }
 
-- (void)finalize
+- (void)dealloc
 {
 	[self close];
 	free(_sampleBuffer);
@@ -134,7 +134,7 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	free(_magnitudes);
 	free(_frequencyBands);
 	
-	[super finalize];
+	[super dealloc];
 }
 
 - (void)start

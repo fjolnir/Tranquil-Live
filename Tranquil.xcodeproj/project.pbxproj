@@ -85,7 +85,6 @@
 		C79EF1DA14F531CB00570FB6 /* Light.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FEBB14BC27D7003338FE /* Light.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C79EF1DB14F531CB00570FB6 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FED814BE7315003338FE /* Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C79EF1DD14F531D500570FB6 /* GLErrorChecking.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FECC14BD11D6003338FE /* GLErrorChecking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C79EF1E314F5327400570FB6 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B3314D0AFA00093DDD0 /* MacRuby.framework */; };
 		C79EF1E414F5327E00570FB6 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
 		C79EF1E514F5328500570FB6 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
 		C79EF1E614F532E500570FB6 /* Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = C773FEE714BFB0E3003338FE /* Debug.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -101,13 +100,16 @@
 		C79EF20214F535AA00570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C79EF20314F5368800570FB6 /* TranquilAudio.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
 		C7B6A76A15120A4F003F797D /* BridgeSupport in Resources */ = {isa = PBXBuildFile; fileRef = C7B6A76915120A4F003F797D /* BridgeSupport */; };
-		C7B6A76F15123891003F797D /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B3314D0AFA00093DDD0 /* MacRuby.framework */; };
 		C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */; };
 		C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3014B78D4C0000884E /* Credits.rtf */; };
 		C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3614B78D4D0000884E /* MainMenu.xib */; };
 		C7E6E19C14F60B7000215A8D /* TranquilCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C7E6E19C14F60B7000215A8F /* TranquilGraphics.bridgesupport in Resources */ = {isa = PBXBuildFile; fileRef = C7E6E19C14F60B7000215A8E /* TranquilGraphics.bridgesupport */; };
+		C7F364FE1515CCAC0017D1A6 /* RubyCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F364FD1515CCAC0017D1A6 /* RubyCocoa.framework */; };
+		C7F364FF1515CCB80017D1A6 /* RubyCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F364FD1515CCAC0017D1A6 /* RubyCocoa.framework */; };
+		C7F365001515CCBE0017D1A6 /* RubyCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7F364FD1515CCAC0017D1A6 /* RubyCocoa.framework */; };
+		C7F365081515D3540017D1A6 /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = C7F365071515D3540017D1A6 /* rb_main.rb */; };
 		C7FD7B571503979C00F3D000 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C7FD7B641503982700F3D000 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C7FD7B651503983000F3D000 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
@@ -251,6 +253,7 @@
 			files = (
 				C75208A21501F8CA008400C4 /* GLMath.framework in Copy Frameworks */,
 				C7E6E19C14F60B7000215A8D /* TranquilCore.framework in Copy Frameworks */,
+				C7F365001515CCBE0017D1A6 /* RubyCocoa.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,7 +306,6 @@
 		C752088A15010AD0008400C4 /* TranquilMIDIPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranquilMIDIPlugin.h; sourceTree = "<group>"; };
 		C752088B15010AD0008400C4 /* TranquilMIDIPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranquilMIDIPlugin.m; sourceTree = "<group>"; };
 		C760C4F514B7AE1700451951 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		C7622B3314D0AFA00093DDD0 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = SDKROOT; };
 		C76B70B514D409FA004E6CCE /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		C773FEAE14BC0EA3003338FE /* PolyPrimitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolyPrimitive.h; sourceTree = "<group>"; };
 		C773FEAF14BC0EA3003338FE /* PolyPrimitive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolyPrimitive.m; sourceTree = "<group>"; };
@@ -355,6 +357,8 @@
 		C7E2EF3114B78D4C0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		C7E2EF3714B78D4D0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C7E6E19C14F60B7000215A8E /* TranquilGraphics.bridgesupport */ = {isa = PBXFileReference; lastKnownFileType = file.bridgesupport; path = TranquilGraphics.bridgesupport; sourceTree = "<group>"; };
+		C7F364FD1515CCAC0017D1A6 /* RubyCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RubyCocoa.framework; path = /Library/Frameworks/RubyCocoa.framework; sourceTree = "<absolute>"; };
+		C7F365071515D3540017D1A6 /* rb_main.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
 		C7FD7B561503979C00F3D000 /* TranquilGenerators.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranquilGenerators.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7FD7B6B1503987A00F3D000 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C7FD7B6C1503987A00F3D000 /* TranquilGenerators-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TranquilGenerators-Info.plist"; sourceTree = "<group>"; };
@@ -407,10 +411,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7F364FF1515CCB80017D1A6 /* RubyCocoa.framework in Frameworks */,
 				C75208A51501F8E0008400C4 /* GLMath.framework in Frameworks */,
 				C79EF1E514F5328500570FB6 /* Accelerate.framework in Frameworks */,
 				C79EF1E414F5327E00570FB6 /* OpenGL.framework in Frameworks */,
-				C79EF1E314F5327400570FB6 /* MacRuby.framework in Frameworks */,
 				C79EF1C114F530E000570FB6 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,7 +423,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7B6A76F15123891003F797D /* MacRuby.framework in Frameworks */,
+				C7F364FE1515CCAC0017D1A6 /* RubyCocoa.framework in Frameworks */,
 				C79EF20214F535AA00570FB6 /* TranquilCore.framework in Frameworks */,
 				C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */,
 				C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */,
@@ -565,6 +569,7 @@
 				C79EF1F614F5342900570FB6 /* PluginManager.h */,
 				C79EF1F714F5342900570FB6 /* PluginManager.m */,
 				C7E2EF2D14B78D4C0000884E /* main.m */,
+				C7F365071515D3540017D1A6 /* rb_main.rb */,
 				C7E2EF3614B78D4D0000884E /* MainMenu.xib */,
 				C7E2EF2814B78D4C0000884E /* Supporting Files */,
 			);
@@ -597,7 +602,7 @@
 		C7E2EF2014B78D4C0000884E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C7622B3314D0AFA00093DDD0 /* MacRuby.framework */,
+				C7F364FD1515CCAC0017D1A6 /* RubyCocoa.framework */,
 				C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */,
 				C760C4F514B7AE1700451951 /* OpenGL.framework */,
 				C7E2EF2114B78D4C0000884E /* Cocoa.framework */,
@@ -936,6 +941,7 @@
 				C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */,
 				C744E3A014B8337D00078FBB /* Scripts in Resources */,
 				C773FEC314BC39C7003338FE /* Shaders in Resources */,
+				C7F365081515D3540017D1A6 /* rb_main.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1342,7 +1348,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = required;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1354,7 +1360,10 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = GLMath;
+				HEADER_SEARCH_PATHS = (
+					GLMath,
+					"/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin11.0",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DGLM_USE_DOUBLE";
@@ -1371,13 +1380,16 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = required;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = GLMath;
+				HEADER_SEARCH_PATHS = (
+					GLMath,
+					"/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin11.0",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DGLM_USE_DOUBLE";

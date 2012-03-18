@@ -2,6 +2,12 @@
 #import <TranquilCore/TranquilCore.h>
 
 @implementation Cube
+
++ (Cube *)cubeWithSize:(GLMFloat)aSize
+{
+    return [[(Cube*)[self alloc] initWithSize:aSize] autorelease];
+}
+
 - (id)init
 {
 	return [self initWithSize:1.0];

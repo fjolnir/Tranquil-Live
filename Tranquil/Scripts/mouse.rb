@@ -22,7 +22,6 @@ class TranquilMouseObserver
     
 	def leftDrag(x,y)
 		mouseLoc = mapToSphere(vec2(x,y))
-
 		cam = scene.camera
 		rotation = quat(0,0,0,0)
 		rotation.vec = @lastMouseLoc.cross(mouseLoc) # Axis of rotation
@@ -36,7 +35,7 @@ class TranquilMouseObserver
 	end
 	def scroll(dx, dy)
 		cam = scene.camera
-		cam.zoom = cam.zoom-dy/50.0
+		cam.zoom = cam.zoom - dy.floatValue/50.0
 		cam.updateMatrix
 	end
 end

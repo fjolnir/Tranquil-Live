@@ -15,15 +15,15 @@
 @end
 
 @interface Scene : NSObject
-@property(readonly) NSArray *objects;
-@property(readonly) NSArray *immediateModeObjects;
-@property(readonly) NSArray *lights;
-@property(readwrite) vec4_t clearColor;
+@property(readonly, nonatomic) NSArray *objects;
+@property(readonly, nonatomic) NSArray *immediateModeObjects;
+@property(readonly, nonatomic) NSArray *lights;
+@property(readwrite, nonatomic) vec4_t clearColor;
 @property(readwrite) vec4_t ambientLight;
 @property(readonly) NSArray *stateStack;
 @property(readonly) matrix_stack_t *projMatStack;
 @property(readonly) matrix_stack_t *worldMatStack;
-@property(readwrite, retain) Camera *camera;
+@property(readwrite, retain, nonatomic) Camera *camera;
 
 - (void)initializeGLState;
 

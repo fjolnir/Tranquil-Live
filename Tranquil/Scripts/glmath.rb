@@ -1,8 +1,9 @@
-Vec2 = NSClassFromString("vec2_t")
-Vec3 = NSClassFromString("vec3_t")
-Vec4 = NSClassFromString("vec4_t")
-Mat4 = NSClassFromString("mat4_t")
-Quat = NSClassFromString("quat_t")
+Vec2 = vec2_create(0,0).class #OSX::vec2_t
+Vec3 = vec3_create(0,0,0).class #OSX::vec3_t
+Vec4 = vec4_create(0,0,0,0).class #OSX::vec4_t
+cam = Scene.globalScene.camera
+Quat = cam.orientation.class #OSX::quat_t
+Mat4 = cam.matrix.class #OSX::mat4_t
 
 def vec2(aX,aY)
     vec2_create(aX, aY)

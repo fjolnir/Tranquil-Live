@@ -228,7 +228,7 @@ static void clockListener(void *userData, CAClockMessage message, const void *pa
     return self;
 }
 
-- (void)finalize
+- (void)dealloc
 {
     OSStatus err;
     
@@ -244,7 +244,7 @@ static void clockListener(void *userData, CAClockMessage message, const void *pa
     err = CAClockDispose(_caClock);
     if (err != noErr) NSLog(@"CAClockDispose err");
     
-    [super finalize];
+    [super dealloc];
 }
 @end
 

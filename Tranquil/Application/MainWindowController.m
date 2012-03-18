@@ -67,6 +67,7 @@
     NSAttributedString *consoleOutput = [[NSAttributedString alloc] initWithString:message attributes:_consoleView.typingAttributes];
 
     [[_consoleView textStorage] appendAttributedString:consoleOutput];
+    [consoleOutput release];
 }
 
 - (void)logger:(Logger *)aLogger receivedMessage:(NSString *)aMessage
@@ -75,5 +76,6 @@
                                                                         attributes:_consoleView.typingAttributes];
     
     [[_consoleView textStorage] appendAttributedString:consoleOutput];
+    [consoleOutput release];
 }
 @end

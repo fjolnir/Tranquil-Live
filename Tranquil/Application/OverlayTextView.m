@@ -2,8 +2,8 @@
 #include "OverlayTextView.h"
 #import <OpenGL/gl.h>
 #import <OpenGL/OpenGL.h>
-#import <MacRuby/MacRuby.h>
 #import "TAppDelegate.h"
+#import <RubyCocoa/RBObject.h>
 
 @interface OverlayTextView () {
 	NSRect _insertionPointRect;
@@ -25,6 +25,7 @@
 	shadow.shadowOffset = NSMakeSize(0, -1);
 	shadow.shadowColor = [NSColor colorWithDeviceRed:0 green:0 blue:0 alpha:1];
 	self.shadow = shadow;
+    [shadow release];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(finishedLaunching:)
                                                  name:kTranquilFinishedLaunching
@@ -47,7 +48,7 @@
 
 - (void)finishedLaunching:(NSNotification *)aNotification
 {
-    _rubyMouseObserver = [[MacRuby sharedRuntime] evaluateString:@"TranquilMouseObserver.new"];
+    _rubyMouseObserver = [[RBObject RBObjectWithRubyScriptString:@"TranquilMouseObserver.new"] retain];
 }
 
 - (void)viewWillMoveToSuperview:(NSView *)aSuperview
@@ -59,9 +60,9 @@
 
 - (void)scrollWheel:(NSEvent *)aEvent
 {
-    [_rubyMouseObserver performRubySelector:@selector(scroll:) 
-                              withArguments:[NSNumber numberWithDouble:aEvent.scrollingDeltaX],
-                                            [NSNumber numberWithDouble:aEvent.scrollingDeltaY], nil];
+    [_rubyMouseObserver performSelector:@selector(scroll:) 
+                              withObject:[NSNumber numberWithDouble:aEvent.scrollingDeltaX]
+                             withObject:       [NSNumber numberWithDouble:aEvent.scrollingDeltaY]];
 }
 
 - (void)mouseEntered:(NSEvent *)aEvent
@@ -83,16 +84,16 @@
 
 - (void)mouseDown:(NSEvent *)aEvent
 {
-	[_rubyMouseObserver performRubySelector:@selector(leftClick:)
-                              withArguments:[NSNumber numberWithDouble:aEvent.locationInWindow.x],
-                                            [NSNumber numberWithDouble:aEvent.locationInWindow.y], nil];
+	[_rubyMouseObserver performSelector:@selector(leftClick:)
+                              withObject:[NSNumber numberWithDouble:aEvent.locationInWindow.x]
+                             withObject:          [NSNumber numberWithDouble:aEvent.locationInWindow.y]];
 }
 
 - (void)mouseDragged:(NSEvent *)aEvent
 {
-	[_rubyMouseObserver performRubySelector:@selector(leftDrag:)
-                              withArguments:[NSNumber numberWithDouble:aEvent.locationInWindow.x],
-                                            [NSNumber numberWithDouble:aEvent.locationInWindow.y], nil];
+	[_rubyMouseObserver performSelector:@selector(leftDrag:)
+                              withObject:[NSNumber numberWithDouble:aEvent.locationInWindow.x]
+                             withObject:         [NSNumber numberWithDouble:aEvent.locationInWindow.y]];
 }
 
 @end

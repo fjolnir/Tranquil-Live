@@ -1,4 +1,8 @@
-int main(int argc, char *argv[])
+#import <RubyCocoa/RubyCocoa.h>
+
+int main(int argc, const char *argv[])
 {
-	return NSApplicationMain(argc, (const char **)argv);
+    RBApplicationInit("rb_main.rb", argc, argv, nil);
+
+	return NSApplicationMain(argc, argv);
 }

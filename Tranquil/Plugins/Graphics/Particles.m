@@ -2,6 +2,11 @@
 
 @implementation Particles
 
++ (Particles *)particles:(NSUInteger)aCount
+{
+    return [[[self alloc] initWithCount:aCount] autorelease];
+}
+
 - (id)initWithCount:(NSUInteger)aCount
 {
     if(!(self = [super initWithVertexCapacity:aCount indexCapacity:0]))

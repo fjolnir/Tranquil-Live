@@ -13,7 +13,6 @@
 - (id)init
 {
 	self = [super init];
-	
 	if(!self) return nil;
 	_position = vec4_create(0, 0, 0, 1);
 	_orientation = quat_createf(0, 1, 0, 0);
@@ -27,7 +26,7 @@
 }
 
 - (void)updateMatrix
-{
+{   
 	// First we must translate & rotate the world into place
 	vec4_t t = vec4_negate(_position);
 	mat4_t translation = mat4_create_translation(t.x, t.y, t.z);
@@ -36,7 +35,7 @@
     // Implement zooming just by translating in the view direction
     vec4_t p = (vec4_t){ 0,0,-_zoom,1 };
     p = quat_rotatePoint(_orientation, p);
-    translation = mat4_mul(translation, mat4_create_translation(p.x, p.y, p.z));
+   // translation = mat4_mul(translation, mat4_create_translation(p.x, p.y, p.z));
     
 	// Then apply the projection
 	GLMFloat near = 1;

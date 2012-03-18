@@ -1,5 +1,6 @@
 <?xml version='1.0'?>
 <signatures version='1.0'>
+<depends_on path='@executable_path/../Frameworks/RubyCocoa.framework'/>
 <depends_on path='@executable_path/../Frameworks/GLMath.framework'/>
 <depends_on path='/System/Library/Frameworks/Accelerate.framework'/>
 <depends_on path='/System/Library/Frameworks/OpenGL.framework'/>
@@ -463,6 +464,13 @@
 </method>
 <method selector='texId'>
 <retval declared_type='GLuint' type='I'/>
+</method>
+<method selector='textureWithContentsOfFile:minFilter:maxFilter:buildMipMaps:' class_method='true'>
+<arg name='aPath' declared_type='NSString*' type='@' index='0'/>
+<arg name='aMinFilter' declared_type='GLuint' type='I' index='1'/>
+<arg name='aMaxFilter' declared_type='GLuint' type='I' index='2'/>
+<arg name='aShouldBuildMipMaps' declared_type='BOOL' type='B' index='3'/>
+<retval declared_type='Texture*' type='@'/>
 </method>
 </class>
 </signatures>

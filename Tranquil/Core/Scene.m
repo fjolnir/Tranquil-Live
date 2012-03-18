@@ -6,8 +6,8 @@
 #import "Shader.h"
 #import "GLErrorChecking.h"
 #import "Logger.h"
-#import <MacRuby/MacRuby.h>
 #import <TranquilCore/TranquilCore.h>
+#import <RubyCocoa/RubyCocoa.h>
 
 static Scene *_GlobalScene = nil;
 static NSOpenGLContext *_globalGlContext = nil;
@@ -36,7 +36,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 		NSOpenGLPFASamples, (NSOpenGLPixelFormatAttribute)4,
         0
     };
-	return [[NSOpenGLPixelFormat alloc] initWithAttributes:attrs];
+	return [[[NSOpenGLPixelFormat alloc] initWithAttributes:attrs] autorelease];
     
 }
 
@@ -73,17 +73,18 @@ static NSOpenGLContext *_globalGlContext = nil;
     _worldStack = matrix_stack_create(32);
     matrix_stack_push_item(_worldStack, kMat4_identity);
 	
-	_objects = [NSMutableArray array];
-	_immediateModeObjects = [NSMutableArray array];
-	_lights = [NSMutableArray array];
-	_stateStack = [NSMutableArray array];
+	_objects = [[NSMutableArray alloc] init];
+	_immediateModeObjects = [[NSMutableArray alloc] init];
+	_lights = [[NSMutableArray alloc] init];
+	_stateStack = [[NSMutableArray alloc] init];
 	State *rootState = [[State alloc] init];
 	[_stateStack addObject:rootState];
+    [rootState release];
 	
 	self.clearColor = vec4_create(0, 0, 0, 1);
 	_ambientLight = vec4_create(0, 0, 0, 1);
 	
-	self.camera = [[Camera alloc] init];
+	self.camera = [[[Camera alloc] init] autorelease];
 	
 	[GlobalGLContext() makeCurrentContext];
 	TCheckGLError();
@@ -101,7 +102,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 
 - (void)finishedLaunching:(NSNotification *)aNotification
 {
-    _rubyFrameHandler = [[ScriptContext sharedContext] executeScript:@"TranquilFrameHandler.new"error:nil];
+    _rubyFrameHandler = [[[ScriptContext sharedContext] executeScript:@"TranquilFrameHandler.new"error:nil] retain];
 }
 
 - (void)initializeGLState
@@ -119,6 +120,8 @@ static NSOpenGLContext *_globalGlContext = nil;
 
     [_objects sortUsingComparator:_depthSortingBlock];
     [_immediateModeObjects sortUsingComparator:_depthSortingBlock];
+//    [_objects makeObjectsPerformSelector:@selector(render:) withObject:self];
+//    [_immediateModeObjects makeObjectsPerformSelector:@selector(render:) withObject:self];
 	for(id<SceneObject> obj in _objects) {
 		[obj render:self];
 	}
@@ -131,7 +134,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 
 	// Notify the script
     @try {
-        [_rubyFrameHandler performRubySelector:@selector(handleFrame)];
+        [_rubyFrameHandler performSelector:@selector(handleFrame)];
     } @catch(NSException *e) {
         [[Logger sharedLogger] log:e.description];
     }
@@ -146,6 +149,8 @@ static NSOpenGLContext *_globalGlContext = nil;
 
 - (void)setCamera:(Camera *)aCamera
 {
+    [aCamera retain];
+    [_camera release];
     _camera = aCamera;
     _depthSortingBlock = [^NSComparisonResult(id<SceneObject> obj1, id<SceneObject> obj2) {
         vec4_t origin = { 0,0,0,1 };
@@ -192,7 +197,9 @@ static NSOpenGLContext *_globalGlContext = nil;
 }
 - (void)pushState
 {
-	[_stateStack addObject:[[self currentState] copy]];
+    State *copy = [[self currentState] copy];
+	[_stateStack addObject:copy];
+    [copy release];
 }
 - (void)popState
 {

@@ -1,4 +1,7 @@
-framework "GLMath"
+require_framework "GLMath"
+require_framework("TranquilCore")
+require_framework("OpenGL")
+
 include Math
 
 def scene
@@ -13,14 +16,14 @@ require "logging"
 
 # Setup
 def _setup
-	scene.clearColor = vec4(0,0,0,1)
-	
+	scene.clearColor = vec4(1,0,0,1)
+    
 	scene.camera.position = vec4(0, 0, 5, 1)
 	scene.camera.orientation = quat(0, 1, 0, 0)
 	scene.camera.fov = PI/2.0
 	scene.camera.updateMatrix
 	
-	light = Light.new
+	light = Light.alloc.init
 	light.position = vec4(3,10,0,1)
 	light.ambientColor = vec4(0.2, 0.2, 0.2, 1)
 	light.specularColor = vec4(0.1, 0.1, 0.1, 1)

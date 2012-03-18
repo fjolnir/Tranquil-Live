@@ -7,7 +7,7 @@
 @synthesize glView;
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification
-{
+{    
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"startup" ofType:@"rb" inDirectory:@"Scripts"];
     // Add the script dir to the load path
     NSString *scriptDir = [path stringByDeletingLastPathComponent];

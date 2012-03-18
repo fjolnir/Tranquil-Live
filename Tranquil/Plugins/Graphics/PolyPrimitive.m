@@ -67,11 +67,12 @@
 	free(_indices);
 }
 
-- (void)finalize
+- (void)dealloc
 {
     [self invalidate];
+    [_state release];
 
-	[super finalize];
+	[super dealloc];
 }
 
 #pragma mark - Rendering

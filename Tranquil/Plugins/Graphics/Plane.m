@@ -1,6 +1,12 @@
 #import "Plane.h"
 
 @implementation Plane
+
++ (Plane *)planeWithSubdivisions:(vec2_t)aSubdivs
+{
+    return [[[self alloc] initWithSubdivisions:aSubdivs] autorelease];
+}
+
 - (id)initWithSubdivisions:(vec2_t)aSubdivs
 {
 	assert(aSubdivs.x>0 && aSubdivs.y>0);

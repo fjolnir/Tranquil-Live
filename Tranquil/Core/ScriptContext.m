@@ -1,5 +1,5 @@
 #import "ScriptContext.h"
-#import <MacRuby/MacRuby.h>
+#import <RubyCocoa/RBObject.h>
 
 static ScriptContext *sharedContext;
 
@@ -23,7 +23,7 @@ static ScriptContext *sharedContext;
 - (id)executeFile:(NSString *)aPath error:(NSError **)aoErr
 {
 	@try {
-		return [[MacRuby sharedRuntime] evaluateFileAtPath:aPath];
+        return [RBObject RBObjectWithRubyScriptString:[NSString stringWithContentsOfFile:aPath usedEncoding:NULL error:nil]];
 	} @catch (NSException *e) {
 		NSError *err = [NSError errorWithDomain:@"ScriptError" 
 										   code:0 
@@ -37,7 +37,7 @@ static ScriptContext *sharedContext;
 - (id)executeScript:(NSString *)aSource error:(NSError **)aoErr
 {
 	@try {
-		return [[MacRuby sharedRuntime] evaluateString:aSource];
+		return [RBObject RBObjectWithRubyScriptString:aSource];
 	} @catch (NSException *e) {
 		NSError *err = [NSError errorWithDomain:@"ScriptError" 
 										   code:0 
