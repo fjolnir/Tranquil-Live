@@ -3,18 +3,18 @@
 
 @implementation Cube
 
-+ (Cube *)cubeWithSize:(GLMFloat)aSize
++ (Cube *)cubeWithSize:(GLMFloat)aSize useVBO:(BOOL)aUseVBO
 {
-    return [[(Cube*)[self alloc] initWithSize:aSize] autorelease];
+    return [[(Cube*)[self alloc] initWithSize:aSize useVBO:aUseVBO] autorelease];
 }
 
 - (id)init
 {
-	return [self initWithSize:1.0];
+	return [self initWithSize:1.0 useVBO:YES];
 }
-- (id)initWithSize:(GLMFloat)size
+- (id)initWithSize:(GLMFloat)size useVBO:(BOOL)aUseVBO
 {
-	self = [super initWithVertexCapacity:6*2*3 indexCapacity:0];
+	self = [super initWithVertexCapacity:6*2*3 indexCapacity:0 useVBO:aUseVBO];
 	if(!self) return nil;
 	
 

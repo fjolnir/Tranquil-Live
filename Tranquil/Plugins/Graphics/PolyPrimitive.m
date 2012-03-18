@@ -17,7 +17,7 @@
 @synthesize useVBO = _useVBO;
 
 
-- (id)initWithVertexCapacity:(int)aVertexCapacity indexCapacity:(int)aIndexCapacity
+- (id)initWithVertexCapacity:(int)aVertexCapacity indexCapacity:(int)aIndexCapacity useVBO:(BOOL)aUseVBO
 {
 	self = [super init];
 	if(!self) return nil;
@@ -33,7 +33,8 @@
     _vertexBuffer = 0;
     _indexBuffer = 0;
     _usesIndices = aIndexCapacity > 0;
-    _useVBO = NO;
+    _useVBO = aUseVBO;
+    
     [self setVertexCapacity:aVertexCapacity];
     [self setIndexCapacity:aIndexCapacity];
 	return self;
@@ -50,8 +51,12 @@
 
 - (void)setUseVBO:(BOOL)aUseVBO
 {
+    if(_useVBO == aUseVBO)
+        return;
     _useVBO = aUseVBO;
-    if(!_useVBO)
+    if(_useVBO)
+        [self setVertexCapacity:_vertexCapacity]; // Create the VBO
+    else
         [self _deleteVBO];
 }
 
@@ -184,6 +189,7 @@
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	TCheckGLError();
 }
+
 - (void)setIndexCapacity:(int)aIndexCapacity
 {
 	if(_indexCapacity == aIndexCapacity || aIndexCapacity == 0) return;

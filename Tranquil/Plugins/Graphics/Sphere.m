@@ -2,17 +2,17 @@
 
 @implementation Sphere
 
-+ (Sphere *)sphereWithRadius:(GLMFloat)aRadius stacks:(int)aStacks slices:(int)aSlices
++ (Sphere *)sphereWithRadius:(GLMFloat)aRadius stacks:(int)aStacks slices:(int)aSlices useVBO:(BOOL)aUseVBO
 {
-    return [[[self alloc] initWithRadius:aRadius stacks:aStacks slices:aSlices] autorelease];
+    return [[[self alloc] initWithRadius:aRadius stacks:aStacks slices:aSlices useVBO:aUseVBO] autorelease];
 }
 
-- (id)initWithRadius:(GLMFloat)aRadius stacks:(int)aStacks slices:(int)aSlices
+- (id)initWithRadius:(GLMFloat)aRadius stacks:(int)aStacks slices:(int)aSlices useVBO:(BOOL)aUseVBO
 {
 	assert(aRadius>0);
 	assert(aStacks>0 && aSlices>0);
 	
-	self = [super initWithVertexCapacity:aSlices*aStacks*6 indexCapacity:0];
+	self = [super initWithVertexCapacity:aSlices*aStacks*6 indexCapacity:0 useVBO:aUseVBO];
 	if(!self) return nil;
 	
 	self.renderMode = kPolyPrimitiveRenderModeTriList;

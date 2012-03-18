@@ -2,14 +2,14 @@
 
 @implementation Particles
 
-+ (Particles *)particles:(NSUInteger)aCount
++ (Particles *)particles:(NSUInteger)aCount useVBO:(BOOL)aUseVBO
 {
-    return [[[self alloc] initWithCount:aCount] autorelease];
+    return [[[self alloc] initWithCount:aCount useVBO:aUseVBO] autorelease];
 }
 
-- (id)initWithCount:(NSUInteger)aCount
+- (id)initWithCount:(NSUInteger)aCount useVBO:(BOOL)aUseVBO
 {
-    if(!(self = [super initWithVertexCapacity:aCount indexCapacity:0]))
+    if(!(self = [super initWithVertexCapacity:aCount indexCapacity:0 useVBO:aUseVBO]))
        return nil;
     
     // Zero all the vertices, the position is set by using mapVertices

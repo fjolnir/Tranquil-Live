@@ -41,7 +41,7 @@ typedef Vertex_t (^VertexMappingBlock)(NSUInteger aIndex, Vertex_t aVertex);
 @property(readonly, nonatomic) BOOL isValid;
 @property(readwrite, assign, nonatomic) BOOL useVBO;
 
-- (id)initWithVertexCapacity:(int)aVertexCapacity indexCapacity:(int)aIndexCapacity;
+- (id)initWithVertexCapacity:(int)aVertexCapacity indexCapacity:(int)aIndexCapacity useVBO:(BOOL)aUseVBO;
 
 - (void)addVertex:(Vertex_t)aVertex;
 - (void)clear;

@@ -2,19 +2,19 @@
 
 @implementation Plane
 
-+ (Plane *)planeWithSubdivisions:(vec2_t)aSubdivs
++ (Plane *)planeWithSubdivisions:(vec2_t)aSubdivs useVBO:(BOOL)aUseVBO
 {
-    return [[[self alloc] initWithSubdivisions:aSubdivs] autorelease];
+    return [[[self alloc] initWithSubdivisions:aSubdivs useVBO:aUseVBO] autorelease];
 }
 
-- (id)initWithSubdivisions:(vec2_t)aSubdivs
+- (id)initWithSubdivisions:(vec2_t)aSubdivs useVBO:(BOOL)aUseVBO
 {
 	assert(aSubdivs.x>0 && aSubdivs.y>0);
 	
 	int uDiv = (int)aSubdivs.u;
 	int vDiv = (int)aSubdivs.v;
 	
-	self = [super initWithVertexCapacity:(uDiv*vDiv) + (uDiv-1)*(vDiv-1) indexCapacity:0];
+	self = [super initWithVertexCapacity:(uDiv*vDiv) + (uDiv-1)*(vDiv-1) indexCapacity:0 useVBO:aUseVBO];
 	if(!self) return nil;
 	
 	self.renderMode = kPolyPrimitiveRenderModeTriStrip;
