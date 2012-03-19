@@ -15,10 +15,10 @@
 				C72AFE8B151600BC004ED374 /* TranquilGraphics BridgeSupport */,
 			);
 			dependencies = (
+				C72AFEC9151708E3004ED374 /* PBXTargetDependency */,
 				C72AFE8F151602BF004ED374 /* PBXTargetDependency */,
 				C72AFE8D151602B5004ED374 /* PBXTargetDependency */,
 				C7B6A72F1511B14A003F797D /* PBXTargetDependency */,
-				C7B6A73C1511B53A003F797D /* PBXTargetDependency */,
 			);
 			name = "Generate BridgeSupport Metadata";
 			productName = "Generate BridgeSupport Metadata";
@@ -139,6 +139,13 @@
 			remoteGlobalIDString = C744E3C714B8464E00078FBB;
 			remoteInfo = TranquilGraphics;
 		};
+		C72AFEC8151708E3004ED374 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C7B6A7331511B299003F797D;
+			remoteInfo = "Generate BridgeSupport";
+		};
 		C75208681501041E008400C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
@@ -208,13 +215,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = C79EF1BF14F530DF00570FB6;
 			remoteInfo = TranquilCore;
-		};
-		C7B6A73B1511B53A003F797D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C7B6A7331511B299003F797D;
-			remoteInfo = "Framework with BridgeSupport";
 		};
 		C7BD147014FBAE6200EFC94A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1108,6 +1108,11 @@
 			target = C744E3C714B8464E00078FBB /* TranquilGraphics */;
 			targetProxy = C72AFE8E151602BF004ED374 /* PBXContainerItemProxy */;
 		};
+		C72AFEC9151708E3004ED374 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Generate BridgeSupport";
+			targetProxy = C72AFEC8151708E3004ED374 /* PBXContainerItemProxy */;
+		};
 		C75208691501041E008400C4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C79EF1BF14F530DF00570FB6 /* TranquilCore */;
@@ -1147,11 +1152,6 @@
 			isa = PBXTargetDependency;
 			target = C79EF1BF14F530DF00570FB6 /* TranquilCore */;
 			targetProxy = C7B6A72E1511B14A003F797D /* PBXContainerItemProxy */;
-		};
-		C7B6A73C1511B53A003F797D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Framework with BridgeSupport";
-			targetProxy = C7B6A73B1511B53A003F797D /* PBXContainerItemProxy */;
 		};
 		C7BD147114FBAE6200EFC94A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
