@@ -69,9 +69,9 @@ static NSOpenGLContext *_globalGlContext = nil;
                                                object:nil];
 
     _projStack = matrix_stack_create(8);
-    matrix_stack_push_item(_projStack, kMat4_identity);
+    matrix_stack_push_item(_projStack, GLMMat4_identity);
     _worldStack = matrix_stack_create(32);
-    matrix_stack_push_item(_worldStack, kMat4_identity);
+    matrix_stack_push_item(_worldStack, GLMMat4_identity);
 	
 	_objects = [[NSMutableArray alloc] init];
 	_immediateModeObjects = [[NSMutableArray alloc] init];

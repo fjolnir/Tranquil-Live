@@ -27,7 +27,7 @@
 	_shininess = 0;
 	_opacity = 1;
 	_color = vec4_create(1, 1, 1, 1);
-    _transform = kMat4_identity;
+    _transform = GLMMat4_identity;
 	_shader = nil;
     _texture = nil;
 
