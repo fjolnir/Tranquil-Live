@@ -63,7 +63,7 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	self = [super init];
 	if(!self) return nil;
 	
-	[self setNumberOfFrequencyBands:32];
+	[self setNumberOfFrequencyBands:16];
 	_gain = 0.8;
 	_smoothingFactor = 0.2;
     _minDb = -210.0f;

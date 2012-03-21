@@ -6,13 +6,13 @@ end
 # A random vector with each component between 0&1
 # Visualized: A positive unit cube
 def randVec
-	vec3(rand, rand, rand)
+	vec4(rand, rand, rand)
 end
 
 # A random vector with each component between -1&1
 # Visualized: A 2x2x2 cube centered on the origin,
 def cRandVec
-	vec3(cRand, cRand, cRand)
+	vec4(cRand, cRand, cRand)
 end
 
 # A random vector of length equal to or less than 1
@@ -39,7 +39,7 @@ def gaussRand
 end
     
 def gaussVec
-    vec3(gaussRand, gaussRand, gaussRand)
+    vec4(gaussRand, gaussRand, gaussRand)
 end
     
     

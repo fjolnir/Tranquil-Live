@@ -9,7 +9,7 @@ def vec2(aX,aY)
     vec2_create(aX, aY)
 end
 def vec3(aX,aY,aZ)
-    vec4_create(aX, aY, aZ, 1)
+    vec3_create(aX, aY, aZ)
 end
 def vec4(aX,aY,aZ,aW=1.0)
     vec4_create(aX, aY, aZ, aW)

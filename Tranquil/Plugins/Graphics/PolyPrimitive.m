@@ -256,9 +256,9 @@
         _vertices[i] = mapping(i, _vertices[i]);
     }
     if(_useVBO) {
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
         glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
         glBufferSubData(GL_ARRAY_BUFFER, 0, _vertexCount*sizeof(Vertex_t), _vertices);
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
     }
     return self;
 }

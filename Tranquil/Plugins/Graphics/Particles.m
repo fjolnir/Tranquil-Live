@@ -17,7 +17,7 @@
     self.renderMode = PolyPrimitiveRenderModePoints;
     self.vertexCount = aCount;
 
-    // By default, disable depth buffer writes
+    // By default, disable depth buffer writes and lighting
     self.state.ignoreDepth = YES;
     self.state.unlit = YES;
     
