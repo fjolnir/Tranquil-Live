@@ -2,10 +2,10 @@
 <!DOCTYPE signatures SYSTEM "file://localhost/System/Library/DTDs/BridgeSupport.dtd">
 <signatures version='1.0'>
 <struct name='Vertex_t' type='{_Vertex_t=&quot;position&quot;{_vec4_t=&quot;x&quot;f&quot;y&quot;f&quot;z&quot;f&quot;w&quot;f}&quot;normal&quot;{_vec4_t=&quot;x&quot;f&quot;y&quot;f&quot;z&quot;f&quot;w&quot;f}&quot;color&quot;{_vec4_t=&quot;x&quot;f&quot;y&quot;f&quot;z&quot;f&quot;w&quot;f}&quot;texCoord&quot;{_vec2_t=&quot;x&quot;f&quot;y&quot;f}&quot;size&quot;f&quot;shininess&quot;f}'/>
-<enum name='kPolyPrimitiveRenderModePoints' value='0'/>
-<enum name='kPolyPrimitiveRenderModeTriFan' value='6'/>
-<enum name='kPolyPrimitiveRenderModeTriList' value='4'/>
-<enum name='kPolyPrimitiveRenderModeTriStrip' value='5'/>
+<enum name='PolyPrimitiveRenderModePoints' value='0'/>
+<enum name='PolyPrimitiveRenderModeTriFan' value='6'/>
+<enum name='PolyPrimitiveRenderModeTriList' value='4'/>
+<enum name='PolyPrimitiveRenderModeTriStrip' value='5'/>
 <function name='VertexCreate' inline='true'>
 <arg type='{_vec4_t=ffff}'/>
 <arg type='{_vec4_t=ffff}'/>

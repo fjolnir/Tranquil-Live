@@ -18,7 +18,7 @@
 	if(!self) return nil;
 	
 
-	self.renderMode = kPolyPrimitiveRenderModeTriList;
+	self.renderMode = PolyPrimitiveRenderModeTriList;
 	
 	// Initialize with a white cube extending 1 unit on each axis	
 	vec4_t rbb = {  size, -size, -size, 1 };

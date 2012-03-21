@@ -14,7 +14,7 @@
     
     // Zero all the vertices, the position is set by using mapVertices
     memset(self.vertices, 0, sizeof(Vertex_t)*aCount);
-    self.renderMode = kPolyPrimitiveRenderModePoints;
+    self.renderMode = PolyPrimitiveRenderModePoints;
     self.vertexCount = aCount;
 
     // By default, disable depth buffer writes

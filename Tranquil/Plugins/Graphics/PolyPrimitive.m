@@ -116,7 +116,8 @@
 }
 - (void)render:(Scene *)aScene
 {
-	[_state applyToScene:aScene];
+	_useVBO=NO;
+    [_state applyToScene:aScene];
     void *baseOffset = _vertices;
     if(_useVBO) {
         baseOffset = 0;

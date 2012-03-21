@@ -37,6 +37,7 @@
 		C72A6AF31506786C00A8DAA3 /* Logger.h in Headers */ = {isa = PBXBuildFile; fileRef = C72A6AEF1506678000A8DAA3 /* Logger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C72AFE9215161718004ED374 /* Ruby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72AFE9015161706004ED374 /* Ruby.framework */; };
 		C72AFE931516171F004ED374 /* Ruby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72AFE9015161706004ED374 /* Ruby.framework */; };
+		C72AFECC151759F0004ED374 /* SuperShape.m in Sources */ = {isa = PBXBuildFile; fileRef = C72AFECB151759F0004ED374 /* SuperShape.m */; };
 		C744E3A014B8337D00078FBB /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C744E39F14B8337D00078FBB /* Scripts */; };
 		C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C744E3CF14B8464E00078FBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C744E3CD14B8464E00078FBB /* InfoPlist.strings */; };
@@ -288,6 +289,8 @@
 		C72A6AEF1506678000A8DAA3 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logger.h; path = ../Application/Logger.h; sourceTree = "<group>"; };
 		C72A6AF01506678000A8DAA3 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Logger.m; path = ../Application/Logger.m; sourceTree = "<group>"; };
 		C72AFE9015161706004ED374 /* Ruby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ruby.framework; path = System/Library/Frameworks/Ruby.framework; sourceTree = SDKROOT; };
+		C72AFECA151759F0004ED374 /* SuperShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperShape.h; sourceTree = "<group>"; };
+		C72AFECB151759F0004ED374 /* SuperShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperShape.m; sourceTree = "<group>"; };
 		C744E39F14B8337D00078FBB /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		C744E3A114B834EF00078FBB /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		C744E3A214B834EF00078FBB /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
@@ -493,6 +496,8 @@
 				C773FF0714BFE5D8003338FE /* Plane.m */,
 				C72A6AE8150634D400A8DAA3 /* Particles.h */,
 				C72A6AE9150634D400A8DAA3 /* Particles.m */,
+				C72AFECA151759F0004ED374 /* SuperShape.h */,
+				C72AFECB151759F0004ED374 /* SuperShape.m */,
 				C76B70B514D409FA004E6CCE /* Scripts */,
 				C744E3CB14B8464E00078FBB /* Supporting Files */,
 			);
@@ -1037,6 +1042,7 @@
 				C773FED714BD7C18003338FE /* Sphere.m in Sources */,
 				C773FF0814BFE5D8003338FE /* Plane.m in Sources */,
 				C72A6AEA150634D400A8DAA3 /* Particles.m in Sources */,
+				C72AFECC151759F0004ED374 /* SuperShape.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

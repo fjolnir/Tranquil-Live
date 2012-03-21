@@ -15,7 +15,7 @@
 	self = [super initWithVertexCapacity:aSlices*aStacks*6 indexCapacity:0 useVBO:aUseVBO];
 	if(!self) return nil;
 	
-	self.renderMode = kPolyPrimitiveRenderModeTriList;
+	self.renderMode = PolyPrimitiveRenderModeTriList;
 
 	GLMFloat radsPerSeg = degToRad(360.0/(GLMFloat)aStacks);
 	vec4_t color = self.state.color;

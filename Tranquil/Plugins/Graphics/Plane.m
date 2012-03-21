@@ -14,7 +14,7 @@
 	self = [super initWithVertexCapacity:(uDiv*vDiv) + (uDiv-1)*(vDiv-1) indexCapacity:0 useVBO:aUseVBO];
 	if(!self) return nil;
 	
-	self.renderMode = kPolyPrimitiveRenderModeTriStrip;
+	self.renderMode = PolyPrimitiveRenderModeTriStrip;
 	
 	// Build the vertex list
 	Vertex_t verts[uDiv*vDiv];

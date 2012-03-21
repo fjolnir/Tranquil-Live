@@ -19,10 +19,10 @@ static __inline__ Vertex_t VertexCreate(vec4_t aPos, vec4_t aNormal, vec2_t aTex
 }
 
 typedef enum {
-	kPolyPrimitiveRenderModeTriStrip = GL_TRIANGLE_STRIP,
-	kPolyPrimitiveRenderModeTriFan = GL_TRIANGLE_FAN,
-	kPolyPrimitiveRenderModeTriList = GL_TRIANGLES,
-	kPolyPrimitiveRenderModePoints = GL_POINTS
+	PolyPrimitiveRenderModeTriStrip = GL_TRIANGLE_STRIP,
+	PolyPrimitiveRenderModeTriFan = GL_TRIANGLE_FAN,
+	PolyPrimitiveRenderModeTriList = GL_TRIANGLES,
+	PolyPrimitiveRenderModePoints = GL_POINTS
 } PolyPrimitiveRenderMode;
 
 typedef Vertex_t (^VertexMappingBlock)(NSUInteger aIndex, Vertex_t aVertex);
