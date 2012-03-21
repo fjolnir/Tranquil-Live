@@ -179,10 +179,7 @@ static void clockListener(void *userData, CAClockMessage message, const void *pa
     // Overridden in ruby
 }
 // Receives status change notifications from the CoreAudio Clock
-- (void)_clockListener:(CAClockMessage)message parameter:(const void *)param {
-    // Register the audio thread with the garbage collector
-    objc_registerThreadWithCollector();
-    
+- (void)_clockListener:(CAClockMessage)message parameter:(const void *)param {    
     switch (message) {
         case kCAClockMessage_Started:
             NSLog(@"Clock started");
@@ -208,7 +205,7 @@ static void clockListener(void *userData, CAClockMessage message, const void *pa
             break;
         default: {
             CFStringRef str = UTCreateStringForOSType(message);
-            NSLog(@"Unknown clock message received: %@", [(NSString *)str autorelease]);
+            NSLog(@"Unknown clock message received: %@", (NSString *)str);
             CFRelease(str); }
             break;
     }
@@ -262,13 +259,6 @@ static void clockListener(void *userData, CAClockMessage message, const void *pa
 
 static void MIDIInputProc(const MIDIPacketList *pktlist, void *readProcRefCon, void *srcConnRefCon)
 {
-    static BOOL didRegisterWithCollector = NO;
-    // Register the audio thread with the garbage collector
-    if(!didRegisterWithCollector) {
-        objc_registerThreadWithCollector();
-        didRegisterWithCollector = YES;
-    }
-    
     // Make a pointer to the first packet
     MIDIPacket *packet = (MIDIPacket *)&(pktlist->packet[0]);
     UInt32 packetCount = pktlist->numPackets;

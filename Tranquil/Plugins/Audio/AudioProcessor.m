@@ -220,14 +220,7 @@ static int inputCallback(const void *inputBuffer, void *outputBuffer,
 	 framesPerBuffer:(unsigned long)framesPerBuffer 
 			timeInfo:(const PaStreamCallbackTimeInfo *)timeInfo
 		 statusFlags:(PaStreamCallbackFlags)statusFlags
-{
-    static BOOL didRegisterWithCollector = NO;
-	// Register the audio thread with the garbage collector
-    if(!didRegisterWithCollector) {
-    	objc_registerThreadWithCollector();
-        didRegisterWithCollector = YES;
-    }
-	
+{	
 	// Update the buffer if it isn't being processed
 	if(_isRunning && pthread_mutex_trylock(&_sampleBufferMutex) == 0) {
 		memcpy(_sampleBuffer, buffer, sizeof(float)*framesPerBuffer);

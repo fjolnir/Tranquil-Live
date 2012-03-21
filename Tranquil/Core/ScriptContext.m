@@ -21,7 +21,7 @@ static ScriptContext *sharedContext;
 	return sharedContext;
 }
 
-- (void)executeFile:(NSString *)aPath error:(NSError **)aoErr
+- (BOOL)executeFile:(NSString *)aPath error:(NSError **)aoErr
 {
     int err = 0;
     ruby_script([aPath UTF8String]);
@@ -38,7 +38,9 @@ static ScriptContext *sharedContext;
 																			forKey:@"description"]];
         [self _reportError:err];
         if(aoErr) *aoErr = err;
+        return NO;
     }
+    return YES;
 }
 - (id)executeScript:(NSString *)aSource error:(NSError **)aoErr
 {
