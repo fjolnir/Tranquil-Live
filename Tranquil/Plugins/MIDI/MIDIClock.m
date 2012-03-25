@@ -168,15 +168,15 @@ static void clockListener(void *userData, CAClockMessage message, const void *pa
 
 - (void)didStart
 {
-    // Overridden in ruby
+    // Overridden in script
 }
 - (void)didPulse
 {
-    // Overridden in ruby
+    // Overridden in script
 }
 - (void)didStop
 {
-    // Overridden in ruby
+    // Overridden in script
 }
 // Receives status change notifications from the CoreAudio Clock
 - (void)_clockListener:(CAClockMessage)message parameter:(const void *)param {    

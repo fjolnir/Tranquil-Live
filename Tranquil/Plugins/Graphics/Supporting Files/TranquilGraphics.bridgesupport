@@ -47,7 +47,7 @@
 <retval type='B'/>
 </method>
 <method selector='mapVertices:'>
-<arg function_pointer='true' type='^?' index='0'>
+<arg function_pointer='true' type='@?' index='0'>
 <arg type='I'/>
 <arg type='{_Vertex_t={_vec4_t=ffff}{_vec4_t=ffff}{_vec4_t=ffff}{_vec2_t=ff}ff}'/>
 <retval type='{_Vertex_t={_vec4_t=ffff}{_vec4_t=ffff}{_vec4_t=ffff}{_vec2_t=ff}ff}'/>
@@ -58,6 +58,13 @@
 </method>
 <method selector='setUseVBO:'>
 <arg type='B' index='0'/>
+</method>
+<method selector='test:'>
+<arg function_pointer='true' type='@?' index='0'>
+<arg type='I'/>
+<arg type='^{_Vertex_t={_vec4_t=ffff}{_vec4_t=ffff}{_vec4_t=ffff}{_vec2_t=ff}ff}'/>
+<retval type='v'/>
+</arg>
 </method>
 <method selector='useVBO'>
 <retval type='B'/>

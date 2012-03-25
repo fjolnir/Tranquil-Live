@@ -1,6 +1,8 @@
 @interface Texture : NSObject
 @property(readonly, nonatomic) GLuint texId;
 
++ (Texture *)load:(NSString *)aPath;
+
 + (GLuint)loadTextureAtPath:(NSString *)aPath
                   minFilter:(GLuint)aMinFilter
                   maxFilter:(GLuint)aMaxFilter

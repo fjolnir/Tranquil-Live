@@ -15,13 +15,16 @@
                buildMipMaps:(BOOL)aShouldBuildMipMaps {
     glEnable(GL_TEXTURE_2D);
     CFURLRef textureUrl = (CFURLRef)[NSURL fileURLWithPath:[aPath stringByExpandingTildeInPath]];
-    assert(textureUrl != nil);
+    if(textureUrl == NULL)
+        return 0;
     CGImageSourceRef imageSource = CGImageSourceCreateWithURL(textureUrl, NULL);
-    assert(imageSource != NULL);
+    if(imageSource == NULL)
+        return 0;
     assert(CGImageSourceGetCount(imageSource) > 0);
     
     CGImageRef image = CGImageSourceCreateImageAtIndex(imageSource, 0, NULL);
-    assert(image != NULL);
+    if(image == NULL)
+        return 0;
     
     NSInteger width = CGImageGetWidth(image);
     NSInteger height = CGImageGetHeight(image);
@@ -86,6 +89,11 @@
     return textureId;
 }
 
++ (Texture *)load:(NSString *)aPath
+{
+    return [self textureWithContentsOfFile:aPath minFilter:GL_NEAREST maxFilter:GL_LINEAR buildMipMaps:YES];
+}
+
 + (Texture *)textureWithContentsOfFile:(NSString *)aPath minFilter:(GLuint)aMinFilter maxFilter:(GLuint)aMaxFilter buildMipMaps:(BOOL)aShouldBuildMipMaps
 {
     return [[[self alloc] initWithContentsOfFile:aPath
@@ -103,6 +111,11 @@
                                    minFilter:aMinFilter
                                    maxFilter:aMaxFilter
                                 buildMipMaps:aShouldBuildMipMaps];
+
+    if(!_texId) {
+        [self autorelease];
+        return nil;
+    }
 
     return self;
 }

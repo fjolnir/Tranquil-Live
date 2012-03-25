@@ -16,4 +16,9 @@
 
 - (id)executeScript:(NSString *)aSource error:(NSError **)aoErr;
 - (BOOL)executeFile:(NSString *)aPath error:(NSError **)aoErr;
+- (id)executeFunction:(NSString *)aFunction withObjects:(NSArray *)aArgs error:(NSError **)aoErr;
+
+- (void)addSearchPath:(NSString *)aPath;
+
+- (BOOL)loadBridgeSupport:(NSString *)aPath;
 @end

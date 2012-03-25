@@ -51,5 +51,6 @@ typedef Vertex_t (^VertexMappingBlock)(NSUInteger aIndex, Vertex_t aVertex);
 
 - (void)recomputeNormals:(BOOL)aSmooth;
 
-- (PolyPrimitive *)mapVertices:(Vertex_t (*)(unsigned, Vertex_t))mapping;
+- (PolyPrimitive *)mapVertices:(Vertex_t (^)(unsigned, Vertex_t))mapping;
+- (void)test:(void (^)(unsigned, Vertex_t*))mapping;
 @end

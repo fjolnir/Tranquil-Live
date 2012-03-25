@@ -85,17 +85,20 @@
         }];
 		[shader withUniform:@"u_projMatrix" do:^(GLuint loc) {
             mat4_t projMat = matrix_stack_get_mat4(aScene.projMatStack);
-			glUniformMatrix4fv(loc, 1, GL_FALSE, projMat.f);
+			glUniformMatrix4fv(loc, 1, GL_FALSE, GLM_FCAST(projMat));
 		}];
 		[shader withUniform:@"u_worldMatrix" do:^(GLuint loc) {
             mat4_t worldMat = matrix_stack_get_mat4(aScene.worldMatStack);
-			glUniformMatrix4fv(loc, 1, GL_FALSE, worldMat.f);
+			glUniformMatrix4fv(loc, 1, GL_FALSE, GLM_FCAST(worldMat));
 		}];
 		[shader withUniform:@"u_cameraPosition" do:^(GLuint loc) {
-			glUniform4fv(loc, 1, aScene.camera.position.f);
+            vec4_t camPos = aScene.camera.position;
+			glUniform4fv(loc, 1, GLM_FCAST(camPos));
 		}];
 		[shader withUniform:@"u_globalAmbientColor" do:^(GLuint loc) {
-			glUniform4fv(loc, 1, _unlit ? vec4_create(1, 1, 1, 1).f : aScene.ambientLight.f);
+            vec4_t ambient = aScene.ambientLight;
+            GLMFloat white[] = {1,1,1,1};
+			glUniform4fv(loc, 1, _unlit ? white : GLM_FCAST(ambient));
 		}];
 		[shader withUniform:@"u_lightPositions" do:^(GLuint loc) {
 			vec4_t positions[[aScene.lights count]];

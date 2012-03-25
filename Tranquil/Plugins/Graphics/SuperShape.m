@@ -24,7 +24,13 @@
     _state = [GlobalState() copy];
     _vertices = NULL;
     _vertexCount = 0;
+    _indexCount = 0;
+    _step = 0;
     self.step = 0.05;
+    
+    _ss1m = _ss2m = 0.0;
+    _ss1n1 = _ss1n2 = _ss1n3 = _ss2n1 = _ss2n2 = _ss2n3 = 1.0;
+    _ss1a = _ss1b = _ss2a = _ss2b = 1.0;
     
     return self;
 }
@@ -52,13 +58,12 @@
     _vertexCount = _vRes*_hRes;
     _indexCount = 2*_vRes*(_hRes-1);
     
-    if(!_vertices) {
-        _vertices = calloc(_vertexCount, sizeof(Vertex_t));
-        _indices = calloc(_indexCount, sizeof(GLuint));
-    } else {
-        _vertices = realloc(_vertices, sizeof(Vertex_t)*_vertexCount);
-        _indices = realloc(_indices, sizeof(GLuint)*_indexCount);
+    if(_vertices) {
+        free(_vertices);
+        free(_indices);
     }
+    _vertices = calloc(_vertexCount, sizeof(Vertex_t));
+    _indices = calloc(_indexCount, sizeof(GLuint));
 }
 
 - (void)render:(Scene *)aScene
@@ -96,7 +101,6 @@
             v->normal = GLMVec4_zero;
             v->shininess = 0.3;
             
-            // = eval(self, theta, phi);
             phi += _vStep;
         }
         theta += _hStep;
@@ -114,22 +118,26 @@
             Vertex_t *vert2 = &_vertices[(x+1)*_vRes + y];
             Vertex_t *vert3 = &_vertices[x*_vRes + y+1];
             
+            // This normal generations 
             if(y == 0) {
                 vert1->normal = vec4_create(0, 0, -1, 0);
+                vert2->normal = vec4_create(0, 0, -1, 0);
             } else if(y == _vRes-1) {
                 vert1->normal = vec4_create(0, 0, 1, 0);
+                vert2->normal = vec4_create(0, 0, 1, 0);
             } else {
                 vec4_t v1 = vec4_sub(vert2->position, vert1->position);
                 vec4_t v2 = vec4_sub(vert3->position, vert1->position);
                 vert1->normal = vec4_normalize(vec4_cross(v1, v2));
                 vert2->normal = vert1->normal;
             }
+            
         }
     }
     for(i = 0; i < _vertexCount; ++i) {
         _vertices[i].normal = vec4_normalize(_vertices[i].normal);
         _vertices[i].color = _vertices[i].normal;
-        _vertices[i].color.a = 1;
+        _vertices[i].color.w = 1;
         _vertices[i].normal.w = 0;
     }
     
@@ -169,8 +177,6 @@
     TCheckGLError();
 
     glDrawElements(GL_QUAD_STRIP, _indexCount, GL_UNSIGNED_INT, _indices);
-//    glPointSize(6);
-//    glDrawArrays(GL_POINTS, 0, _vertexCount);
     TCheckGLError();
     
 	[_state unapplyToScene:aScene];

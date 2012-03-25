@@ -8,11 +8,10 @@
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification
 {    
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"startup" ofType:@"rb" inDirectory:@"Scripts"];
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"startup" ofType:@"lua" inDirectory:@"Scripts"];
     // Add the script dir to the load path
     NSString *scriptDir = [path stringByDeletingLastPathComponent];
-    [[ScriptContext sharedContext] executeScript:[NSString stringWithFormat:@"$LOAD_PATH.push '%@'", scriptDir]
-                                           error:nil];
+    [[ScriptContext sharedContext] addSearchPath:scriptDir];
     
 	NSError *err = nil;
 	[[ScriptContext sharedContext] executeFile:path error:&err];
@@ -22,7 +21,7 @@
 	}
 	[[PluginManager sharedManager] loadAllPlugins];
 	
-	[[ScriptContext sharedContext] executeScript:@"_setup" error:nil];
+	[[ScriptContext sharedContext] executeScript:@"_setup()" error:nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kTranquilFinishedLaunching object:nil];
 }

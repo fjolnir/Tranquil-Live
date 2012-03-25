@@ -1,6 +1,5 @@
 #import "PluginManager.h"
 #import <TranquilCore/TranquilCore.h>
-#import <RubyCocoa/RubyCocoa.h>
 #import "ScriptContext.h"
 
 static PluginManager *sharedInstance;
@@ -51,26 +50,24 @@ static PluginManager *sharedInstance;
     NSString *bsPath = [bundle pathForResource:[[aPath lastPathComponent] stringByDeletingPathExtension]
                                         ofType:@"bridgesupport"];
     if(bsPath) {
-        NSString *bsLoadScript;
-        bsLoadScript = [NSString stringWithFormat:@"OSX.load_bridge_support_file('%@')", bsPath];
-        [[ScriptContext sharedContext] executeScript:bsLoadScript error:nil];
+        NSLog(@"loaded %@? %d", bsPath, [[ScriptContext sharedContext] loadBridgeSupport:bsPath]);
+        //NSString *bsLoadScript;
+     //   bsLoadScript = [NSString stringWithFormat:@"OSX.load_bridge_support_file('%@')", bsPath];
+       // [[ScriptContext sharedContext] executeScript:bsLoadScript error:nil];
     }
-//    if(bsPath)
-//        [[MacRuby sharedRuntime] loadBridgeSupportFileAtPath:bsPath];
 
 	BOOL result = [pluginLoader loadPlugin];
 	if(result) {
 		NSString *loadScriptPath = [[NSBundle bundleForClass:pluginLoader] pathForResource:@"load" 
-																					ofType:@"rb" 
+																					ofType:@"lua" 
 																			   inDirectory:@"Scripts"];
         if(loadScriptPath) {
             // Add the script dir to the load path
             NSString *scriptDir = [loadScriptPath stringByDeletingLastPathComponent];
-            [[ScriptContext sharedContext] executeScript:[NSString stringWithFormat:@"$LOAD_PATH.push '%@'", scriptDir]
-                                                   error:nil];
-            RBBundleInit([loadScriptPath UTF8String], pluginLoader, nil);
+            
+            [[ScriptContext sharedContext] addSearchPath:scriptDir];
+            [[ScriptContext sharedContext] executeFile:loadScriptPath error:nil];
         }
-//		[[ScriptContext sharedContext] executeFile:loadScriptPath error:nil];
 	}
 	return YES;
 }

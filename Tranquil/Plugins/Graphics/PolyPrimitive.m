@@ -87,7 +87,8 @@
 {
 	Shader *shader = [aScene currentState].shader;
 	[shader withUniform:@"u_globalAmbientColor" do:^(GLuint loc) {
-		glUniform4fv(loc, 1, vec4_create(1,1,1,1).f);
+        GLMFloat white[] = {1,1,1,1};
+		glUniform4fv(loc, 1, white);
 	}];
 	[shader withUniform:@"u_lightCount" do:^(GLuint loc) {
 		glUniform1i(loc, 0);
@@ -250,8 +251,9 @@
 	// TODO
 }
 
-- (PolyPrimitive *)mapVertices:(Vertex_t (*)(unsigned, Vertex_t))mapping
+- (PolyPrimitive *)mapVertices:(Vertex_t (^)(unsigned, Vertex_t))mapping
 {
+    mapping(0, _vertices[0]);
     for(unsigned i = 0; i < _vertexCount; ++i) {
         _vertices[i] = mapping(i, _vertices[i]);
     }
@@ -263,4 +265,11 @@
     return self;
 }
 
+- (void)test:(void (^)(unsigned, Vertex_t*))mapping
+{
+    for(unsigned i = 0; i < _vertexCount; ++i) {
+        mapping(i, &_vertices[i]);
+        printVec4(_vertices[i].position);
+    }
+}
 @end

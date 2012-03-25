@@ -35,8 +35,6 @@
 		C72A6AEE150643B400A8DAA3 /* Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = C72A6AEC150643B400A8DAA3 /* Texture.m */; };
 		C72A6AF21506785E00A8DAA3 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = C72A6AF01506678000A8DAA3 /* Logger.m */; };
 		C72A6AF31506786C00A8DAA3 /* Logger.h in Headers */ = {isa = PBXBuildFile; fileRef = C72A6AEF1506678000A8DAA3 /* Logger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C72AFE9215161718004ED374 /* Ruby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72AFE9015161706004ED374 /* Ruby.framework */; };
-		C72AFE931516171F004ED374 /* Ruby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72AFE9015161706004ED374 /* Ruby.framework */; };
 		C72AFECC151759F0004ED374 /* SuperShape.m in Sources */ = {isa = PBXBuildFile; fileRef = C72AFECB151759F0004ED374 /* SuperShape.m */; };
 		C744E3A014B8337D00078FBB /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C744E39F14B8337D00078FBB /* Scripts */; };
 		C744E3C914B8464E00078FBB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
@@ -105,16 +103,17 @@
 		C79EF20114F5354D00570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C79EF20214F535AA00570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C79EF20314F5368800570FB6 /* TranquilAudio.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
+		C7ADE9911519C6C000032666 /* LuaCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C22D441519C29300CCE69B /* LuaCocoa.framework */; };
+		C7B30DD8151A259C002C7DC4 /* LuaCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7C22D441519C29300CCE69B /* LuaCocoa.framework */; };
+		C7B30DDA151A2903002C7DC4 /* stack.rb in Resources */ = {isa = PBXBuildFile; fileRef = C7B30DD9151A2903002C7DC4 /* stack.rb */; };
 		C7B6A76A15120A4F003F797D /* BridgeSupport in Resources */ = {isa = PBXBuildFile; fileRef = C7B6A76915120A4F003F797D /* BridgeSupport */; };
+		C7C22D541519C2B900CCE69B /* LuaCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C22D441519C29300CCE69B /* LuaCocoa.framework */; };
 		C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */; };
 		C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3014B78D4C0000884E /* Credits.rtf */; };
 		C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3614B78D4D0000884E /* MainMenu.xib */; };
 		C7E6E19C14F60B7000215A8D /* TranquilCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C7E6E19C14F60B7000215A8F /* TranquilGraphics.bridgesupport in Resources */ = {isa = PBXBuildFile; fileRef = C7E6E19C14F60B7000215A8E /* TranquilGraphics.bridgesupport */; };
-		C7F364FE1515CCAC0017D1A6 /* RubyCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F364FD1515CCAC0017D1A6 /* RubyCocoa.framework */; };
-		C7F364FF1515CCB80017D1A6 /* RubyCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F364FD1515CCAC0017D1A6 /* RubyCocoa.framework */; };
-		C7F365001515CCBE0017D1A6 /* RubyCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7F364FD1515CCAC0017D1A6 /* RubyCocoa.framework */; };
 		C7F365081515D3540017D1A6 /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = C7F365071515D3540017D1A6 /* rb_main.rb */; };
 		C7FD7B571503979C00F3D000 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C7FD7B641503982700F3D000 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
@@ -231,6 +230,83 @@
 			remoteGlobalIDString = C744E3C714B8464E00078FBB;
 			remoteInfo = TranquilGraphics;
 		};
+		C7C22D431519C29300CCE69B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = LuaCocoa;
+		};
+		C7C22D451519C29300CCE69B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00E16942124596690095535F;
+			remoteInfo = luacocoa_shell;
+		};
+		C7C22D471519C29300CCE69B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 006467DD1081A1CA00183915;
+			remoteInfo = TestApp;
+		};
+		C7C22D491519C29300CCE69B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00E16AEF1245BD2D0095535F;
+			remoteInfo = SimpleLuaView;
+		};
+		C7C22D4B1519C29300CCE69B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00DF0B9A12605A56007AED88;
+			remoteInfo = SimpleLuaOpenGLView;
+		};
+		C7C22D4D1519C29300CCE69B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 008397AB128250A4009609AE;
+			remoteInfo = CoreAnimationScriptability;
+		};
+		C7C22D4F1519C29300CCE69B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00D4A4F914ECA4C5009E57C5;
+			remoteInfo = OpenSavePanelDelegatePattern;
+		};
+		C7C22D521519C2AF00CCE69B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = LuaCocoa;
+		};
+		C7D4675C151E127A00B28E23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0065BBBA151152410085E364;
+			remoteInfo = OpenSavePanelBlocksPattern;
+		};
+		C7D4675E151E127A00B28E23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00BB380B150B5ED30004258A;
+			remoteInfo = BlocksExample;
+		};
+		C7D46760151E127A00B28E23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0065BB90151145EF0085E364;
+			remoteInfo = PrototypeLauncher;
+		};
 		C7FD7B621503982100F3D000 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
@@ -271,9 +347,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C7B30DD8151A259C002C7DC4 /* LuaCocoa.framework in Copy Frameworks */,
 				C75208A21501F8CA008400C4 /* GLMath.framework in Copy Frameworks */,
 				C7E6E19C14F60B7000215A8D /* TranquilCore.framework in Copy Frameworks */,
-				C7F365001515CCBE0017D1A6 /* RubyCocoa.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,7 +364,6 @@
 		C72A6AEC150643B400A8DAA3 /* Texture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture.m; sourceTree = "<group>"; };
 		C72A6AEF1506678000A8DAA3 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logger.h; path = ../Application/Logger.h; sourceTree = "<group>"; };
 		C72A6AF01506678000A8DAA3 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Logger.m; path = ../Application/Logger.m; sourceTree = "<group>"; };
-		C72AFE9015161706004ED374 /* Ruby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ruby.framework; path = System/Library/Frameworks/Ruby.framework; sourceTree = SDKROOT; };
 		C72AFECA151759F0004ED374 /* SuperShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperShape.h; sourceTree = "<group>"; };
 		C72AFECB151759F0004ED374 /* SuperShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperShape.m; sourceTree = "<group>"; };
 		C744E39F14B8337D00078FBB /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
@@ -367,7 +442,9 @@
 		C79EF1F614F5342900570FB6 /* PluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginManager.h; sourceTree = "<group>"; };
 		C79EF1F714F5342900570FB6 /* PluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginManager.m; sourceTree = "<group>"; };
 		C79EF1FD14F5345300570FB6 /* TranquilCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranquilCore.h; sourceTree = "<group>"; };
+		C7B30DD9151A2903002C7DC4 /* stack.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = stack.rb; path = Tranquil/Scripts/stack.rb; sourceTree = "<group>"; };
 		C7B6A76915120A4F003F797D /* BridgeSupport */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BridgeSupport; sourceTree = "<group>"; };
+		C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LuaCocoa.xcodeproj; path = LuaCocoa/Xcode/LuaCocoa.xcodeproj; sourceTree = "<group>"; };
 		C7E2EF1D14B78D4C0000884E /* Tranquil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tranquil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E2EF2114B78D4C0000884E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C7E2EF2414B78D4C0000884E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -380,7 +457,6 @@
 		C7E2EF3114B78D4C0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		C7E2EF3714B78D4D0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C7E6E19C14F60B7000215A8E /* TranquilGraphics.bridgesupport */ = {isa = PBXFileReference; lastKnownFileType = file.bridgesupport; path = TranquilGraphics.bridgesupport; sourceTree = "<group>"; };
-		C7F364FD1515CCAC0017D1A6 /* RubyCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RubyCocoa.framework; path = /Library/Frameworks/RubyCocoa.framework; sourceTree = "<absolute>"; };
 		C7F365071515D3540017D1A6 /* rb_main.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
 		C7FD7B561503979C00F3D000 /* TranquilGenerators.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranquilGenerators.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7FD7B6B1503987A00F3D000 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -434,8 +510,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C72AFE9215161718004ED374 /* Ruby.framework in Frameworks */,
-				C7F364FF1515CCB80017D1A6 /* RubyCocoa.framework in Frameworks */,
+				C7ADE9911519C6C000032666 /* LuaCocoa.framework in Frameworks */,
 				C75208A51501F8E0008400C4 /* GLMath.framework in Frameworks */,
 				C79EF1E514F5328500570FB6 /* Accelerate.framework in Frameworks */,
 				C79EF1E414F5327E00570FB6 /* OpenGL.framework in Frameworks */,
@@ -447,8 +522,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C72AFE931516171F004ED374 /* Ruby.framework in Frameworks */,
-				C7F364FE1515CCAC0017D1A6 /* RubyCocoa.framework in Frameworks */,
+				C7C22D541519C2B900CCE69B /* LuaCocoa.framework in Frameworks */,
 				C79EF20214F535AA00570FB6 /* TranquilCore.framework in Frameworks */,
 				C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */,
 				C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */,
@@ -603,9 +677,28 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		C7C22D281519C29300CCE69B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7C22D441519C29300CCE69B /* LuaCocoa.framework */,
+				C7C22D461519C29300CCE69B /* luacocoa */,
+				C7C22D481519C29300CCE69B /* TestApp.app */,
+				C7C22D4A1519C29300CCE69B /* SimpleLuaView.app */,
+				C7C22D4C1519C29300CCE69B /* SimpleLuaOpenGLView.app */,
+				C7C22D4E1519C29300CCE69B /* CoreAnimationScriptability.app */,
+				C7C22D501519C29300CCE69B /* OpenSavePanelDelegatePattern.app */,
+				C7D4675D151E127A00B28E23 /* OpenSavePanelBlocksPattern.app */,
+				C7D4675F151E127A00B28E23 /* BlocksExample.app */,
+				C7D46761151E127A00B28E23 /* PrototypeLauncher.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C7E2EF1214B78D4C0000884E = {
 			isa = PBXGroup;
 			children = (
+				C7B30DD9151A2903002C7DC4 /* stack.rb */,
+				C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */,
 				C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */,
 				C7E2EF2714B78D4C0000884E /* Tranquil */,
 				C7E2EF2014B78D4C0000884E /* Frameworks */,
@@ -629,8 +722,6 @@
 		C7E2EF2014B78D4C0000884E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C72AFE9015161706004ED374 /* Ruby.framework */,
-				C7F364FD1515CCAC0017D1A6 /* RubyCocoa.framework */,
 				C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */,
 				C760C4F514B7AE1700451951 /* OpenGL.framework */,
 				C7E2EF2114B78D4C0000884E /* Cocoa.framework */,
@@ -838,6 +929,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C7C22D531519C2AF00CCE69B /* PBXTargetDependency */,
 				C75208A71501F981008400C4 /* PBXTargetDependency */,
 				C79EF1E814F533B900570FB6 /* PBXTargetDependency */,
 				C7BD147114FBAE6200EFC94A /* PBXTargetDependency */,
@@ -890,6 +982,10 @@
 					ProductGroup = C786047E14BA5C3B006ED999 /* Products */;
 					ProjectRef = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
 				},
+				{
+					ProductGroup = C7C22D281519C29300CCE69B /* Products */;
+					ProjectRef = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -917,6 +1013,76 @@
 			fileType = archive.ar;
 			path = libglmath.a;
 			remoteRef = C786048414BA5C3C006ED999 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7C22D441519C29300CCE69B /* LuaCocoa.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LuaCocoa.framework;
+			remoteRef = C7C22D431519C29300CCE69B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7C22D461519C29300CCE69B /* luacocoa */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = luacocoa;
+			remoteRef = C7C22D451519C29300CCE69B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7C22D481519C29300CCE69B /* TestApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TestApp.app;
+			remoteRef = C7C22D471519C29300CCE69B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7C22D4A1519C29300CCE69B /* SimpleLuaView.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SimpleLuaView.app;
+			remoteRef = C7C22D491519C29300CCE69B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7C22D4C1519C29300CCE69B /* SimpleLuaOpenGLView.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SimpleLuaOpenGLView.app;
+			remoteRef = C7C22D4B1519C29300CCE69B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7C22D4E1519C29300CCE69B /* CoreAnimationScriptability.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = CoreAnimationScriptability.app;
+			remoteRef = C7C22D4D1519C29300CCE69B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7C22D501519C29300CCE69B /* OpenSavePanelDelegatePattern.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = OpenSavePanelDelegatePattern.app;
+			remoteRef = C7C22D4F1519C29300CCE69B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7D4675D151E127A00B28E23 /* OpenSavePanelBlocksPattern.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = OpenSavePanelBlocksPattern.app;
+			remoteRef = C7D4675C151E127A00B28E23 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7D4675F151E127A00B28E23 /* BlocksExample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = BlocksExample.app;
+			remoteRef = C7D4675E151E127A00B28E23 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7D46761151E127A00B28E23 /* PrototypeLauncher.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = PrototypeLauncher.app;
+			remoteRef = C7D46760151E127A00B28E23 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -970,6 +1136,7 @@
 				C744E3A014B8337D00078FBB /* Scripts in Resources */,
 				C773FEC314BC39C7003338FE /* Shaders in Resources */,
 				C7F365081515D3540017D1A6 /* rb_main.rb in Resources */,
+				C7B30DDA151A2903002C7DC4 /* stack.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1168,6 +1335,11 @@
 			isa = PBXTargetDependency;
 			target = C744E3C714B8464E00078FBB /* TranquilGraphics */;
 			targetProxy = C7BD147214FBAE6400EFC94A /* PBXContainerItemProxy */;
+		};
+		C7C22D531519C2AF00CCE69B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LuaCocoa;
+			targetProxy = C7C22D521519C2AF00CCE69B /* PBXContainerItemProxy */;
 		};
 		C7FD7B631503982100F3D000 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1406,6 +1578,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					"__GLM_SIMPLESTRUCTS__=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_UNROLL_LOOPS = YES;
@@ -1435,6 +1608,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_FAST_MATH = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "__GLM_SIMPLESTRUCTS__=1";
 				GCC_UNROLL_LOOPS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1460,10 +1634,7 @@
 				GCC_PREFIX_HEADER = "Tranquil/Application/Supporting Files/Tranquil-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tranquil/Application/Supporting Files/Tranquil-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/MacRuby.framework/Versions/0.12/usr/lib\"",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks/";
 				OTHER_LDFLAGS = (
 					"-pagezero_size",
 					10000,
@@ -1487,10 +1658,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tranquil/Application/Supporting Files/Tranquil-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/MacRuby.framework/Versions/0.12/usr/lib\"",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks/";
 				OTHER_LDFLAGS = (
 					"-pagezero_size",
 					10000,

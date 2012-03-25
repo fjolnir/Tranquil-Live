@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <signatures version='1.0'>
-<depends_on path='@executable_path/../Frameworks/RubyCocoa.framework'/>
+<depends_on path='@rpath/LuaCocoa.framework'/>
 <depends_on path='@executable_path/../Frameworks/GLMath.framework'/>
 <depends_on path='/System/Library/Frameworks/Accelerate.framework'/>
 <depends_on path='/System/Library/Frameworks/OpenGL.framework'/>
@@ -22,7 +22,7 @@
 <retval declared_type='mat4_t' type='{_mat4_t=ffffffffffffffff}'/>
 </method>
 <method selector='orientation'>
-<retval declared_type='quat_t' type='{_quat_t=ffff}'/>
+<retval declared_type='quat_t' type='{_quat_t={_vec3_t=fff}f}'/>
 </method>
 <method selector='position'>
 <retval declared_type='vec4_t' type='{_vec4_t=ffff}'/>
@@ -36,7 +36,7 @@
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setOrientation:'>
-<arg name='orientation' declared_type='quat_t' type='{_quat_t=ffff}' index='0'/>
+<arg name='orientation' declared_type='quat_t' type='{_quat_t={_vec3_t=fff}f}' index='0'/>
 <retval declared_type='void' type='v'/>
 </method>
 <method selector='setPosition:'>
@@ -228,6 +228,10 @@
 </method>
 </class>
 <class name='ScriptContext'>
+<method selector='addSearchPath:'>
+<arg name='aPath' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
 <method selector='delegate'>
 <retval declared_type='id' type='@'/>
 </method>
@@ -236,10 +240,20 @@
 <arg name='aoErr' declared_type='NSError**' type='^@' index='1'/>
 <retval declared_type='BOOL' type='B'/>
 </method>
+<method selector='executeFunction:withObjects:error:'>
+<arg name='aFunction' declared_type='NSString*' type='@' index='0'/>
+<arg name='aArgs' declared_type='NSArray*' type='@' index='1'/>
+<arg name='aoErr' declared_type='NSError**' type='^@' index='2'/>
+<retval declared_type='id' type='@'/>
+</method>
 <method selector='executeScript:error:'>
 <arg name='aSource' declared_type='NSString*' type='@' index='0'/>
 <arg name='aoErr' declared_type='NSError**' type='^@' index='1'/>
 <retval declared_type='id' type='@'/>
+</method>
+<method selector='loadBridgeSupport:'>
+<arg name='aPath' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='BOOL' type='B'/>
 </method>
 <method selector='setDelegate:'>
 <arg name='delegate' declared_type='id' type='@' index='0'/>
@@ -454,6 +468,10 @@
 <arg name='aMaxFilter' declared_type='GLuint' type='I' index='2'/>
 <arg name='aShouldBuildMipMaps' declared_type='BOOL' type='B' index='3'/>
 <retval declared_type='id' type='@'/>
+</method>
+<method selector='load:' class_method='true'>
+<arg name='aPath' declared_type='NSString*' type='@' index='0'/>
+<retval declared_type='Texture*' type='@'/>
 </method>
 <method selector='loadTextureAtPath:minFilter:maxFilter:buildMipMaps:' class_method='true'>
 <arg name='aPath' declared_type='NSString*' type='@' index='0'/>

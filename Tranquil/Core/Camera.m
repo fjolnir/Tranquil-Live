@@ -6,7 +6,7 @@
 + (vec4_t)viewportSize
 {
 	vec4_t viewport;
-	glGetFloatv(GL_VIEWPORT, viewport.f);
+	glGetFloatv(GL_VIEWPORT, GLM_FCAST(viewport));
     return viewport;
 }
 

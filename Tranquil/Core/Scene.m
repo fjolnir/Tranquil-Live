@@ -7,7 +7,6 @@
 #import "GLErrorChecking.h"
 #import "Logger.h"
 #import <TranquilCore/TranquilCore.h>
-#import <RubyCocoa/RubyCocoa.h>
 
 static Scene *_GlobalScene = nil;
 static NSOpenGLContext *_globalGlContext = nil;
@@ -15,7 +14,6 @@ static NSOpenGLContext *_globalGlContext = nil;
 @interface Scene () {
 @private
 	NSMutableArray *_objects, *_immediateModeObjects, *_stateStack, *_lights;
-    id _rubyFrameHandler;
     NSComparator _depthSortingBlock;
 }
 @end
@@ -102,7 +100,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 
 - (void)finishedLaunching:(NSNotification *)aNotification
 {
-    _rubyFrameHandler = [[[ScriptContext sharedContext] executeScript:@"TranquilFrameHandler.new"error:nil] retain];
+    // Script ready
 }
 
 - (void)initializeGLState
@@ -134,7 +132,8 @@ static NSOpenGLContext *_globalGlContext = nil;
 
 	// Notify the script
     @try {
-        [_rubyFrameHandler performSelector:@selector(handleFrame)];
+        [[ScriptContext sharedContext] executeFunction:@"_tranq_handleFrame"
+                                           withObjects:nil error:nil];
     } @catch(NSException *e) {
         [[Logger sharedLogger] log:e.description];
     }
@@ -188,7 +187,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 - (void)setClearColor:(vec4_t)aColor
 {
 	_clearColor = aColor;
-	glClearColor(aColor.r, aColor.g, aColor.b, aColor.a);
+	glClearColor(aColor.x, aColor.y, aColor.z, aColor.w);
 }
 
 - (State *)currentState

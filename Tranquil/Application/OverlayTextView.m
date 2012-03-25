@@ -3,11 +3,10 @@
 #import <OpenGL/gl.h>
 #import <OpenGL/OpenGL.h>
 #import "TAppDelegate.h"
-#import <RubyCocoa/RBObject.h>
 
 @interface OverlayTextView () {
 	NSRect _insertionPointRect;
-    id _rubyMouseObserver;
+    id _scriptMouseObserver;
 }
 @end
 
@@ -48,7 +47,7 @@
 
 - (void)finishedLaunching:(NSNotification *)aNotification
 {
-    _rubyMouseObserver = [[RBObject RBObjectWithRubyScriptString:@"TranquilMouseObserver.new"] retain];
+//    _scriptMouseObserver = [[RBObject RBObjectWithRubyScriptString:@"TranquilMouseObserver.new"] retain];
 }
 
 - (void)viewWillMoveToSuperview:(NSView *)aSuperview
@@ -60,9 +59,12 @@
 
 - (void)scrollWheel:(NSEvent *)aEvent
 {
-    [_rubyMouseObserver performSelector:@selector(scroll:) 
-                              withObject:[NSNumber numberWithDouble:aEvent.scrollingDeltaX]
-                             withObject:       [NSNumber numberWithDouble:aEvent.scrollingDeltaY]];
+    NSArray *args = [NSArray arrayWithObjects:
+                     [NSNumber numberWithFloat:aEvent.scrollingDeltaX],
+                     [NSNumber numberWithDouble:aEvent.scrollingDeltaY],
+                     nil];
+    [[ScriptContext sharedContext] executeFunction:@"_tranq_scroll"
+                                       withObjects:args error:nil];
 }
 
 - (void)mouseEntered:(NSEvent *)aEvent
@@ -84,16 +86,22 @@
 
 - (void)mouseDown:(NSEvent *)aEvent
 {
-	[_rubyMouseObserver performSelector:@selector(leftClick:)
-                              withObject:[NSNumber numberWithDouble:aEvent.locationInWindow.x]
-                             withObject:          [NSNumber numberWithDouble:aEvent.locationInWindow.y]];
+    NSArray *args = [NSArray arrayWithObjects:
+                     [NSNumber numberWithFloat:aEvent.locationInWindow.x],
+                     [NSNumber numberWithDouble:aEvent.locationInWindow.y],
+                     nil];
+    [[ScriptContext sharedContext] executeFunction:@"_tranq_leftClick"
+                                       withObjects:args error:nil];
 }
 
 - (void)mouseDragged:(NSEvent *)aEvent
 {
-	[_rubyMouseObserver performSelector:@selector(leftDrag:)
-                              withObject:[NSNumber numberWithDouble:aEvent.locationInWindow.x]
-                             withObject:         [NSNumber numberWithDouble:aEvent.locationInWindow.y]];
+    NSArray *args = [NSArray arrayWithObjects:
+     [NSNumber numberWithFloat:aEvent.locationInWindow.x],
+     [NSNumber numberWithDouble:aEvent.locationInWindow.y],
+     nil];
+    [[ScriptContext sharedContext] executeFunction:@"_tranq_leftDrag"
+                                       withObjects:args error:nil];
 }
 
 @end
