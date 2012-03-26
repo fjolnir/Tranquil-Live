@@ -103,11 +103,7 @@
 		C79EF20114F5354D00570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C79EF20214F535AA00570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C79EF20314F5368800570FB6 /* TranquilAudio.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
-		C7ADE9911519C6C000032666 /* LuaCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C22D441519C29300CCE69B /* LuaCocoa.framework */; };
-		C7B30DD8151A259C002C7DC4 /* LuaCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7C22D441519C29300CCE69B /* LuaCocoa.framework */; };
-		C7B30DDA151A2903002C7DC4 /* stack.rb in Resources */ = {isa = PBXBuildFile; fileRef = C7B30DD9151A2903002C7DC4 /* stack.rb */; };
 		C7B6A76A15120A4F003F797D /* BridgeSupport in Resources */ = {isa = PBXBuildFile; fileRef = C7B6A76915120A4F003F797D /* BridgeSupport */; };
-		C7C22D541519C2B900CCE69B /* LuaCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C22D441519C29300CCE69B /* LuaCocoa.framework */; };
 		C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */; };
 		C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3014B78D4C0000884E /* Credits.rtf */; };
@@ -230,83 +226,6 @@
 			remoteGlobalIDString = C744E3C714B8464E00078FBB;
 			remoteInfo = TranquilGraphics;
 		};
-		C7C22D431519C29300CCE69B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = LuaCocoa;
-		};
-		C7C22D451519C29300CCE69B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 00E16942124596690095535F;
-			remoteInfo = luacocoa_shell;
-		};
-		C7C22D471519C29300CCE69B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 006467DD1081A1CA00183915;
-			remoteInfo = TestApp;
-		};
-		C7C22D491519C29300CCE69B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 00E16AEF1245BD2D0095535F;
-			remoteInfo = SimpleLuaView;
-		};
-		C7C22D4B1519C29300CCE69B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 00DF0B9A12605A56007AED88;
-			remoteInfo = SimpleLuaOpenGLView;
-		};
-		C7C22D4D1519C29300CCE69B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 008397AB128250A4009609AE;
-			remoteInfo = CoreAnimationScriptability;
-		};
-		C7C22D4F1519C29300CCE69B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 00D4A4F914ECA4C5009E57C5;
-			remoteInfo = OpenSavePanelDelegatePattern;
-		};
-		C7C22D521519C2AF00CCE69B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = LuaCocoa;
-		};
-		C7D4675C151E127A00B28E23 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0065BBBA151152410085E364;
-			remoteInfo = OpenSavePanelBlocksPattern;
-		};
-		C7D4675E151E127A00B28E23 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 00BB380B150B5ED30004258A;
-			remoteInfo = BlocksExample;
-		};
-		C7D46760151E127A00B28E23 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0065BB90151145EF0085E364;
-			remoteInfo = PrototypeLauncher;
-		};
 		C7FD7B621503982100F3D000 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
@@ -347,7 +266,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C7B30DD8151A259C002C7DC4 /* LuaCocoa.framework in Copy Frameworks */,
 				C75208A21501F8CA008400C4 /* GLMath.framework in Copy Frameworks */,
 				C7E6E19C14F60B7000215A8D /* TranquilCore.framework in Copy Frameworks */,
 			);
@@ -442,9 +360,8 @@
 		C79EF1F614F5342900570FB6 /* PluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginManager.h; sourceTree = "<group>"; };
 		C79EF1F714F5342900570FB6 /* PluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginManager.m; sourceTree = "<group>"; };
 		C79EF1FD14F5345300570FB6 /* TranquilCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranquilCore.h; sourceTree = "<group>"; };
-		C7B30DD9151A2903002C7DC4 /* stack.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = stack.rb; path = Tranquil/Scripts/stack.rb; sourceTree = "<group>"; };
 		C7B6A76915120A4F003F797D /* BridgeSupport */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BridgeSupport; sourceTree = "<group>"; };
-		C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LuaCocoa.xcodeproj; path = LuaCocoa/Xcode/LuaCocoa.xcodeproj; sourceTree = "<group>"; };
+		C7D46A20151F550600B28E23 /* LuaJIT-2.0.0-beta9.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "LuaJIT-2.0.0-beta9.xcodeproj"; path = "LuaJIT-2.0.0-beta9/LuaJIT-2.0.0-beta9.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		C7E2EF1D14B78D4C0000884E /* Tranquil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tranquil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E2EF2114B78D4C0000884E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C7E2EF2414B78D4C0000884E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -510,7 +427,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7ADE9911519C6C000032666 /* LuaCocoa.framework in Frameworks */,
 				C75208A51501F8E0008400C4 /* GLMath.framework in Frameworks */,
 				C79EF1E514F5328500570FB6 /* Accelerate.framework in Frameworks */,
 				C79EF1E414F5327E00570FB6 /* OpenGL.framework in Frameworks */,
@@ -522,7 +438,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7C22D541519C2B900CCE69B /* LuaCocoa.framework in Frameworks */,
 				C79EF20214F535AA00570FB6 /* TranquilCore.framework in Frameworks */,
 				C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */,
 				C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */,
@@ -677,19 +592,9 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		C7C22D281519C29300CCE69B /* Products */ = {
+		C7D46A21151F550600B28E23 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C7C22D441519C29300CCE69B /* LuaCocoa.framework */,
-				C7C22D461519C29300CCE69B /* luacocoa */,
-				C7C22D481519C29300CCE69B /* TestApp.app */,
-				C7C22D4A1519C29300CCE69B /* SimpleLuaView.app */,
-				C7C22D4C1519C29300CCE69B /* SimpleLuaOpenGLView.app */,
-				C7C22D4E1519C29300CCE69B /* CoreAnimationScriptability.app */,
-				C7C22D501519C29300CCE69B /* OpenSavePanelDelegatePattern.app */,
-				C7D4675D151E127A00B28E23 /* OpenSavePanelBlocksPattern.app */,
-				C7D4675F151E127A00B28E23 /* BlocksExample.app */,
-				C7D46761151E127A00B28E23 /* PrototypeLauncher.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -697,8 +602,6 @@
 		C7E2EF1214B78D4C0000884E = {
 			isa = PBXGroup;
 			children = (
-				C7B30DD9151A2903002C7DC4 /* stack.rb */,
-				C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */,
 				C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */,
 				C7E2EF2714B78D4C0000884E /* Tranquil */,
 				C7E2EF2014B78D4C0000884E /* Frameworks */,
@@ -769,6 +672,7 @@
 		C7E2EF9E14B78E010000884E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C7D46A20151F550600B28E23 /* LuaJIT-2.0.0-beta9.xcodeproj */,
 				C79EF1FD14F5345300570FB6 /* TranquilCore.h */,
 				C773FEE714BFB0E3003338FE /* Debug.h */,
 				C72A6AEF1506678000A8DAA3 /* Logger.h */,
@@ -929,7 +833,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C7C22D531519C2AF00CCE69B /* PBXTargetDependency */,
 				C75208A71501F981008400C4 /* PBXTargetDependency */,
 				C79EF1E814F533B900570FB6 /* PBXTargetDependency */,
 				C7BD147114FBAE6200EFC94A /* PBXTargetDependency */,
@@ -983,8 +886,8 @@
 					ProjectRef = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
 				},
 				{
-					ProductGroup = C7C22D281519C29300CCE69B /* Products */;
-					ProjectRef = C7C22D271519C29300CCE69B /* LuaCocoa.xcodeproj */;
+					ProductGroup = C7D46A21151F550600B28E23 /* Products */;
+					ProjectRef = C7D46A20151F550600B28E23 /* LuaJIT-2.0.0-beta9.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1013,76 +916,6 @@
 			fileType = archive.ar;
 			path = libglmath.a;
 			remoteRef = C786048414BA5C3C006ED999 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C7C22D441519C29300CCE69B /* LuaCocoa.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = LuaCocoa.framework;
-			remoteRef = C7C22D431519C29300CCE69B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C7C22D461519C29300CCE69B /* luacocoa */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = luacocoa;
-			remoteRef = C7C22D451519C29300CCE69B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C7C22D481519C29300CCE69B /* TestApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = TestApp.app;
-			remoteRef = C7C22D471519C29300CCE69B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C7C22D4A1519C29300CCE69B /* SimpleLuaView.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = SimpleLuaView.app;
-			remoteRef = C7C22D491519C29300CCE69B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C7C22D4C1519C29300CCE69B /* SimpleLuaOpenGLView.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = SimpleLuaOpenGLView.app;
-			remoteRef = C7C22D4B1519C29300CCE69B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C7C22D4E1519C29300CCE69B /* CoreAnimationScriptability.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = CoreAnimationScriptability.app;
-			remoteRef = C7C22D4D1519C29300CCE69B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C7C22D501519C29300CCE69B /* OpenSavePanelDelegatePattern.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = OpenSavePanelDelegatePattern.app;
-			remoteRef = C7C22D4F1519C29300CCE69B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C7D4675D151E127A00B28E23 /* OpenSavePanelBlocksPattern.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = OpenSavePanelBlocksPattern.app;
-			remoteRef = C7D4675C151E127A00B28E23 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C7D4675F151E127A00B28E23 /* BlocksExample.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = BlocksExample.app;
-			remoteRef = C7D4675E151E127A00B28E23 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C7D46761151E127A00B28E23 /* PrototypeLauncher.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = PrototypeLauncher.app;
-			remoteRef = C7D46760151E127A00B28E23 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1136,7 +969,6 @@
 				C744E3A014B8337D00078FBB /* Scripts in Resources */,
 				C773FEC314BC39C7003338FE /* Shaders in Resources */,
 				C7F365081515D3540017D1A6 /* rb_main.rb in Resources */,
-				C7B30DDA151A2903002C7DC4 /* stack.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1336,11 +1168,6 @@
 			target = C744E3C714B8464E00078FBB /* TranquilGraphics */;
 			targetProxy = C7BD147214FBAE6400EFC94A /* PBXContainerItemProxy */;
 		};
-		C7C22D531519C2AF00CCE69B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = LuaCocoa;
-			targetProxy = C7C22D521519C2AF00CCE69B /* PBXContainerItemProxy */;
-		};
 		C7FD7B631503982100F3D000 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C79EF1BF14F530DF00570FB6 /* TranquilCore */;
@@ -1527,8 +1354,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Core/Supporting Files/TranquilCore-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = (
+					GLMath,
+					"/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin11.0",
+					"LuaJIT-2.0.0-beta9/src/",
+				);
 				INFOPLIST_FILE = "Tranquil/Core/Supporting Files/TranquilCore-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/src\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1544,8 +1380,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Core/Supporting Files/TranquilCore-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				HEADER_SEARCH_PATHS = (
+					GLMath,
+					"/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin11.0",
+					"LuaJIT-2.0.0-beta9/src/",
+				);
 				INFOPLIST_FILE = "Tranquil/Core/Supporting Files/TranquilCore-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/src\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};

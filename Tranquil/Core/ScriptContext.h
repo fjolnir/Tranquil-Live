@@ -1,6 +1,4 @@
 // A Lua context
-
-
 @class ScriptContext;
 
 @protocol ScriptContextDelegate <NSObject>
@@ -19,6 +17,4 @@
 - (id)executeFunction:(NSString *)aFunction withObjects:(NSArray *)aArgs error:(NSError **)aoErr;
 
 - (void)addSearchPath:(NSString *)aPath;
-
-- (BOOL)loadBridgeSupport:(NSString *)aPath;
 @end
