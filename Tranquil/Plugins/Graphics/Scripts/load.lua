@@ -14,6 +14,23 @@ objc_loadClass("Plane")
 objc_loadClass("Sphere")
 objc_loadClass("SuperShape")
 
+-- Add a map method to the primitives (It's faster to do this inside lua than to pass a lua function to a c function and
+-- iterate there)
+local mapTable = {
+	argCount = 3,
+	imp = function(prim, selector, lambda)
+		prim = objc_wrapper(prim)
+		local numV = prim:vertexCount()
+		local verts = prim:vertices()
+		for i=0, numV-1 do
+			lambda(i, verts[i])
+		end
+	end
+}
+objc_instanceMethodRegistry["Sphere"]["map"] = mapTable
+objc_instanceMethodRegistry["Cube"]["map"] = mapTable
+objc_instanceMethodRegistry["Plane"]["map"] = mapTable
+
 function buildCube(size)
 	size = size or 1
 	return scene:addObject_(Cube:cubeWithSize_useVBO_(size, true).id)
