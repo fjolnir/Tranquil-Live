@@ -1,5 +1,7 @@
+-- TLC - The Tiny Lua Cocoa bridge
+
 local objc_debug = false
-function objc_log(...)
+local function objc_log(...)
 	if objc_debug == true then
 			for i,arg in pairs({...}) do
 		if i == 1 then
@@ -49,10 +51,6 @@ const char *object_getClassName(id obj);
 id objc_getMetaClass(const char *name);
 BOOL class_isMetaClass(id cls);
 id class_getSuperclass(id cls);
-
-double objc_msgSend_fpret(id self, SEL op, ...);
-id objc_msgSend(id theReceiver, SEL theSelector, ...);
-void objc_msgSend_stret(void * stretAddr, id theReceiver, SEL theSelector,  ...);
 
 void free(void *ptr);
 
@@ -110,7 +108,7 @@ objc_instanceMethodRegistry = {}
 
 
 -- Takes a single ObjC type encoded, and converts it to a C type specifier
-function objc_typeEncodingToCType(aEncoding)
+local function objc_typeEncodingToCType(aEncoding)
 	i = 1
 	local ret = ""
 	local isPtr = false
@@ -249,7 +247,7 @@ local function _objc_readMethod(method)
 	return ret
 end
 
-function _objc_readMethods(obj, cache)
+local function _objc_readMethods(obj, cache)
 	local count = ffi.new("unsigned int[1]")
 	local list = class_copyMethodList(obj, count)
 	for i=0, count[0]-1 do
