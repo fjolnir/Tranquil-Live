@@ -97,6 +97,7 @@
 		C7D46A1E151F550600B28E23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILDMODE = static;
 				COPY_PHASE_STRIP = NO;
 				DEBUGGING_SYMBOLS = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -112,6 +113,7 @@
 		C7D46A1F151F550600B28E23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILDMODE = static;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
