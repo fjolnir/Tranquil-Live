@@ -1,7 +1,3 @@
-function Texture:load(aPath)
-    print("Hay")
-end
-
 function loadTex(aPath)
     return Texture:load(aPath)
 end
