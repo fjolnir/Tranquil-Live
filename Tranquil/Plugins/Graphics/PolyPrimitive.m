@@ -265,15 +265,4 @@
     return self;
 }
 
-- (void)test:(void (^)(unsigned, Vertex_t*))mapping
-{
-    for(unsigned i = 0; i < _vertexCount; ++i) {
-        mapping(i, &_vertices[i]);
-        printVec4(_vertices[i].position);
-    }
-}
-+ (void)funPtrTest:(float (*)(int foo))aPtr
-{
-    NSLog(@"Called me!");
-}
 @end
