@@ -2,7 +2,7 @@
 #import <TranquilCore/TranquilCore.h>
 
 @implementation Cube
-
+    
 + (Cube *)cubeWithSize:(GLMFloat)aSize useVBO:(BOOL)aUseVBO
 {
     return [[(Cube*)[self alloc] initWithSize:aSize useVBO:aUseVBO] autorelease];

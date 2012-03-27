@@ -1,15 +1,14 @@
 #import <lua.h>
 #import <lauxlib.h>
+#import <lualib.h>
 #import "ScriptContext.h"
 #import <objc/runtime.h>
 
 static ScriptContext *sharedContext;
 
-void LuaObjectBridge_pushunboxednsnumber(lua_State* lua_state, NSNumber* the_number);
-void LuaObjectBridge_pushunboxednsstring(lua_State* lua_state, NSString* the_string);
-void LuaObjectBridge_pushunboxednsarray(lua_State* lua_state, NSArray* the_array);
-void LuaObjectBridge_pushunboxednsdictionary(lua_State* lua_state, NSDictionary* the_dictionary);
-void LuaObjectBridge_pushunboxedpropertylist(lua_State* lua_state, id the_object);
+int objcToLua(lua_State *L, const char *typeDescription, void *buffer);
+int sizeOfTypeDescription(const char *aTypeDescription);
+void instanceToLua(lua_State *L, id instance);
 
 @interface ScriptContext () {
     lua_State *_luaState;
@@ -37,6 +36,7 @@ void LuaObjectBridge_pushunboxedpropertylist(lua_State* lua_state, id the_object
         return nil;
     
     _luaState = lua_open();
+    luaL_openlibs(_luaState);
     
     return self;
 }
@@ -87,7 +87,7 @@ void LuaObjectBridge_pushunboxedpropertylist(lua_State* lua_state, id the_object
     int err = 0;
     lua_getglobal(_luaState, [aFunction UTF8String]);
     for(id arg in aArgs)
-        LuaObjectBridge_pushunboxedpropertylist(_luaState, arg);
+        instanceToLua(_luaState, arg);
 
     err = lua_pcall(_luaState, [aArgs count], 0, 0);
     if(err) {
@@ -123,162 +123,205 @@ void LuaObjectBridge_pushunboxedpropertylist(lua_State* lua_state, id the_object
 
 #pragma mark - ObjC -> Lua object bridging
 
-void LuaObjectBridge_pushunboxednsnumber(lua_State* lua_state, NSNumber* the_number)
+int sizeOfTypeDescription(const char *aTypeDescription)
 {
-	lua_checkstack(lua_state, 1);
-	if(nil == the_number)
-	{
-		lua_pushnil(lua_state);
-	}
-	const char* objc_type = [the_number objCType];
-	switch(objc_type[0])
-	{
-		case _C_BOOL:
-		{
-			lua_pushboolean(lua_state, [the_number boolValue]);		
-			break;
-		}
-		case _C_CHR:
-		case _C_UCHR:
-		{
-			// booleans in NSNumber are returning 'c' as the type and not 'B'.
-			// The class type is NSCFBoolean, but I've read it is a private class so I don't want to reference it directly.
-			// So I'll create an instance of it and compare to it.
-			// (I've read it is a singleton.)
-			if([[NSNumber numberWithBool:YES] class] == [the_number class])
-			{
-				lua_pushboolean(lua_state, [the_number boolValue]);		
-			}
-			else
-			{
-				lua_pushinteger(lua_state, (lua_Integer)[the_number integerValue]);		
-			}
-			break;
-		}
-		case _C_SHT:
-		case _C_USHT:
-		case _C_INT:
-		case _C_UINT:
-		case _C_LNG:
-		case _C_ULNG:
-		case _C_LNG_LNG:
-		case _C_ULNG_LNG:
-		{
-			lua_pushinteger(lua_state, (lua_Integer)[the_number integerValue]);		
-			break;
-		}
-		case _C_FLT:
-		case _C_DBL:
-		default:
-		{
-			lua_pushinteger(lua_state, (lua_Number)[the_number doubleValue]);		
-			break;			
-		}
-	}
+    int i = 0;
+    int size = 0;
+    while(aTypeDescription[i]) {
+        switch(aTypeDescription[i]) {
+            case _C_PTR:
+            case _C_CHARPTR:
+                size += sizeof(void*);
+                break;
+            case _C_CHR:
+            case _C_UCHR:
+                size += sizeof(char);
+                break;
+            case _C_INT:
+            case _C_UINT:
+                size += sizeof(int);
+                break;
+            case _C_SHT:
+            case _C_USHT:
+                size += sizeof(short);
+                break;
+            case _C_LNG:
+            case _C_ULNG:
+                size += sizeof(long);
+                break;
+            case _C_LNG_LNG:
+            case _C_ULNG_LNG:
+                size += sizeof(long long);
+                break;
+            case _C_FLT:
+                size += sizeof(float);
+                break;
+            case _C_DBL:
+                size += sizeof(double);
+                break;
+            case _C_BOOL:
+                size += sizeof(_Bool);
+                break;
+            case _C_VOID:
+                size += sizeof(char);
+                break;
+            case _C_ID:
+                size += sizeof(id);
+                break;
+            case _C_CLASS:
+                size += sizeof(Class);
+                break;
+            case _C_SEL:
+                size += sizeof(SEL);
+                break;
+            default:
+                [NSException raise:@"Tranquil Error" format:@"Unsupported type %c", aTypeDescription[i]];
+        }
+        ++i;
+    }
+    return size;
+}
+#define BEGIN_STACK_MODIFY(L) int __startStackIndex = lua_gettop((L));
+
+#define END_STACK_MODIFY(L, i) while(lua_gettop((L)) > (__startStackIndex + (i))) lua_remove((L), __startStackIndex + 1);
+
+int objcToLua(lua_State *L, const char *typeDescription, void *buffer) {
+    BEGIN_STACK_MODIFY(L)
+    
+    int size = sizeOfTypeDescription(typeDescription);
+    
+    switch (typeDescription[0]) {
+        case _C_VOID:
+            lua_pushnil(L);
+            break;
+            
+        case _C_PTR:
+            lua_pushlightuserdata(L, *(void **)buffer);
+            break;                        
+            
+        case _C_CHR: {
+            char c = *(char *)buffer;
+            if (c <= 1) lua_pushboolean(L, c); // If it's 1 or 0, then treat it like a bool
+            else lua_pushinteger(L, c);
+            break;
+        }
+            
+        case _C_SHT:
+            lua_pushinteger(L, *(short *)buffer);            
+            break;
+            
+        case _C_INT:
+            lua_pushnumber(L, *(int *)buffer);
+            break;
+            
+        case _C_UCHR:
+            lua_pushnumber(L, *(unsigned char *)buffer);
+            break;
+            
+        case _C_UINT:
+            lua_pushnumber(L, *(unsigned int *)buffer);
+            break;
+            
+        case _C_USHT:
+            lua_pushinteger(L, *(short *)buffer);
+            break;
+            
+        case _C_LNG:
+            lua_pushnumber(L, *(long *)buffer);
+            break;
+            
+        case _C_LNG_LNG:
+            lua_pushnumber(L, *(long long *)buffer);
+            break;
+            
+        case _C_ULNG:
+            lua_pushnumber(L, *(unsigned long *)buffer);
+            break;
+            
+        case _C_ULNG_LNG:
+            lua_pushnumber(L, *(unsigned long long *)buffer);
+            break;
+            
+        case _C_FLT:
+            lua_pushnumber(L, *(float *)buffer);
+            break;
+            
+        case _C_DBL:
+            lua_pushnumber(L, *(double *)buffer);
+            break;
+            
+        case _C_BOOL:
+            lua_pushboolean(L, *(BOOL *)buffer);
+            break;
+            
+        case _C_CHARPTR:
+            lua_pushstring(L, *(char **)buffer);
+            break;
+            
+        case _C_ID: {
+            id instance = *(id *)buffer;
+            instanceToLua(L, instance);
+            break;
+        }
+            
+      /*  case _C_STRUCT_B: {
+            wax_fromStruct(L, typeDescription, buffer);
+            break;
+        }*/
+            
+        case _C_SEL:
+            lua_pushstring(L, sel_getName(*(SEL *)buffer));
+            break;            
+            
+        default:
+            luaL_error(L, "Unable to convert Obj-C type with type description '%s'", typeDescription);
+            break;
+    }
+    
+    END_STACK_MODIFY(L, 1)
+    
+    return size;
 }
 
-void LuaObjectBridge_pushunboxednsstring(lua_State* lua_state, NSString* the_string)
-{
-	lua_checkstack(lua_state, 1);
-	if(nil == the_string)
-	{
-		lua_pushnil(lua_state);
-	}
-	else if([the_string length] == 0)
-	{
-		lua_pushnil(lua_state);		
-	}
-	else
-	{
-		lua_pushstring(lua_state, [the_string UTF8String]);
-	}
-}
-
-void LuaObjectBridge_pushunboxednsarray(lua_State* lua_state, NSArray* the_array)
-{
-	if([the_array isKindOfClass:[NSArray class]])
-	{
-		lua_checkstack(lua_state, 3); // is it really 3? table+key+value?
-		lua_newtable(lua_state);
-		int table_index = lua_gettop(lua_state);
-		int current_lua_array_index = 1;
-		for(id an_element in the_array)
-		{
-			// recursively add elements
-			LuaObjectBridge_pushunboxedpropertylist(lua_state, an_element);
-			lua_rawseti(lua_state, table_index, current_lua_array_index);
-			current_lua_array_index++;
-		}
-	}
-	else
-	{
-		lua_checkstack(lua_state, 1);
-		lua_pushnil(lua_state);
-	}
-	
-}
-
-
-void LuaObjectBridge_pushunboxednsdictionary(lua_State* lua_state, NSDictionary* the_dictionary)
-{
-	if([the_dictionary isKindOfClass:[NSDictionary class]])
-	{
-		lua_checkstack(lua_state, 3); // is it really 3? table+key+value?
-		lua_newtable(lua_state);
-		int table_index = lua_gettop(lua_state);
-		for(id a_key in the_dictionary)
-		{
-			// recursively add elements
-			LuaObjectBridge_pushunboxedpropertylist(lua_state, a_key); // push key
-			LuaObjectBridge_pushunboxedpropertylist(lua_state, [the_dictionary valueForKey:a_key]); // push value
-			lua_rawset(lua_state, table_index);
-		}
-	}
-	else
-	{
-		lua_checkstack(lua_state, 1);
-		lua_pushnil(lua_state);
-	}
-	
-}
-
-void LuaObjectBridge_pushunboxedpropertylist(lua_State* lua_state, id the_object)
-{
-	if(nil == the_object)
-	{
-		lua_checkstack(lua_state, 1);
-		lua_pushnil(lua_state);
-	}
-	if([the_object isKindOfClass:[NSNull class]])
-	{
-		lua_checkstack(lua_state, 1);
-		lua_pushnil(lua_state);
-	}
-	else if([the_object isKindOfClass:[NSNumber class]])
-	{
-		LuaObjectBridge_pushunboxednsnumber(lua_state, the_object);
-	}
-	else if([the_object isKindOfClass:[NSString class]])
-	{
-		LuaObjectBridge_pushunboxednsstring(lua_state, the_object);
-	}
-	else if([the_object isKindOfClass:[NSArray class]])
-	{
-		LuaObjectBridge_pushunboxednsarray(lua_state, the_object);
-	}
-	else if([the_object isKindOfClass:[NSDictionary class]])
-	{
-		LuaObjectBridge_pushunboxednsdictionary(lua_state, the_object);
-	}
-	else if([the_object isKindOfClass:[NSValue class]] && !strcmp([the_object objCType], @encode(SEL)))
-	{
-		SEL return_selector;
-		[the_object getValue:&return_selector];
-		lua_pushstring(lua_state, [NSStringFromSelector(return_selector) UTF8String]);
-	}
-	else
-	{
-		lua_checkstack(lua_state, 1);
-		lua_pushnil(lua_state);
-	}
+void instanceToLua(lua_State *L, id instance) {
+    BEGIN_STACK_MODIFY(L)
+    
+    if(instance) {
+        if([instance isKindOfClass:[NSString class]]) {    
+            lua_pushstring(L, [(NSString *)instance UTF8String]);
+        }
+        else if([instance isKindOfClass:[NSNumber class]]) {
+            lua_pushnumber(L, [instance doubleValue]);
+        }
+        else if([instance isKindOfClass:[NSArray class]]) {
+            lua_newtable(L);
+            for (id obj in instance) {
+                int i = lua_objlen(L, -1);
+                instanceToLua(L, obj);
+                lua_rawseti(L, -2, i + 1);
+            }
+        }
+        else if([instance isKindOfClass:[NSDictionary class]]) {
+            lua_newtable(L);
+            for (id key in instance) {
+                instanceToLua(L, key);
+                instanceToLua(L, [instance objectForKey:key]);
+                lua_rawset(L, -3);
+            }
+        }                
+        else if([instance isKindOfClass:[NSValue class]]) {
+            void *buffer = malloc(sizeOfTypeDescription([instance objCType]));
+            [instance getValue:buffer];
+            objcToLua(L, [instance objCType], buffer);
+            free(buffer);
+        }
+        else {
+            assert(0);
+        }
+    }
+    else {
+        lua_pushnil(L);
+    }
+    
+    END_STACK_MODIFY(L, 1)
 }

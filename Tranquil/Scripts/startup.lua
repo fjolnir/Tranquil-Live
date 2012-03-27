@@ -1,32 +1,35 @@
-LuaCocoa.import("GLMath")
-LuaCocoa.import("TranquilCore")
-LuaCocoa.import("OpenGL")
+ffi = require("ffi")
 
--- Add math functions/constants to the global namespace
+---- Add math functions/constants to the global namespace
 for k,v in pairs(math) do _G[k] = v end
+
+require "glmath"
+require "objc"
+
+objc_loadClass("Scene")
+objc_loadClass("Camera")
+objc_loadClass("Light")
 
 scene = Scene:globalScene()
 
-require "glmath"
+require "logging"
 require "state"
 require "mouse"
-require "logging"
 
 function _setup()
-    scene:setClearColor(vec4(0,0,0,1))
-    
-    scene:camera():setPosition(vec4(0, 0, 5, 1))
- 	scene:camera():setOrientation(quat(0, 1, 0, 0))
- 	scene:camera():setFov(math.pi/2.0)
- 	scene:camera():updateMatrix()
-    
-    light = Light:alloc():init()
-    print(light.position)
- 	light:setPosition(vec4(4,10,10,1))
- 	light:setAmbientColor(vec4(0.2, 0.2, 0.2, 1))
- 	light:setSpecularColor(vec4(0.1, 0.1, 0.1, 1))
- 	light:setDiffuseColor(vec4(0.7, 0.7, 0.7, 1))
- 	scene:addLight(light)
+	scene:setClearColor_(vec4(0,0,0,1))
+	
+	scene:camera():setPosition_(vec4(0, 0, 5, 1))
+	scene:camera():setOrientation_(quat(0, 1, 0, 0))
+	scene:camera():setFov_(math.pi/2.0)
+	scene:camera():updateMatrix()
+	
+	light = Light:new()
+	light:setPosition_(vec4(4,10,10,1))
+	light:setAmbientColor_(vec4(0.2, 0.2, 0.2, 1))
+	light:setSpecularColor_(vec4(0.1, 0.1, 0.1, 1))
+	light:setDiffuseColor_(vec4(0.7, 0.7, 0.7, 1))
+	scene:addLight_(light.id)
 end
 
 _userFrameCallback = nil

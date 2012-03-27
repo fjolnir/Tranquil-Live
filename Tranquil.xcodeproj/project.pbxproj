@@ -6,25 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		C7B6A72A1511B145003F797D /* Generate BridgeSupport Metadata */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = C7B6A72B1511B145003F797D /* Build configuration list for PBXAggregateTarget "Generate BridgeSupport Metadata" */;
-			buildPhases = (
-				C7B6A7321511B162003F797D /* TranquilCore BridgeSupport */,
-				C72AFE8B151600BC004ED374 /* TranquilGraphics BridgeSupport */,
-			);
-			dependencies = (
-				C72AFEC9151708E3004ED374 /* PBXTargetDependency */,
-				C72AFE8F151602BF004ED374 /* PBXTargetDependency */,
-				C72AFE8D151602B5004ED374 /* PBXTargetDependency */,
-				C7B6A72F1511B14A003F797D /* PBXTargetDependency */,
-			);
-			name = "Generate BridgeSupport Metadata";
-			productName = "Generate BridgeSupport Metadata";
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
 		C70E8A6014D46AD4000DAF2F /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C70E8A5F14D46ACD000DAF2F /* Scripts */; };
@@ -103,13 +84,12 @@
 		C79EF20114F5354D00570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C79EF20214F535AA00570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C79EF20314F5368800570FB6 /* TranquilAudio.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
-		C7B6A76A15120A4F003F797D /* BridgeSupport in Resources */ = {isa = PBXBuildFile; fileRef = C7B6A76915120A4F003F797D /* BridgeSupport */; };
+		C7D46ABF151FFD8600B28E23 /* libluajit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D46ABE151FFD8600B28E23 /* libluajit.a */; };
 		C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */; };
 		C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3014B78D4C0000884E /* Credits.rtf */; };
 		C7E2EF3814B78D4D0000884E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3614B78D4D0000884E /* MainMenu.xib */; };
 		C7E6E19C14F60B7000215A8D /* TranquilCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
-		C7E6E19C14F60B7000215A8F /* TranquilGraphics.bridgesupport in Resources */ = {isa = PBXBuildFile; fileRef = C7E6E19C14F60B7000215A8E /* TranquilGraphics.bridgesupport */; };
 		C7F365081515D3540017D1A6 /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = C7F365071515D3540017D1A6 /* rb_main.rb */; };
 		C7FD7B571503979C00F3D000 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C7FD7B641503982700F3D000 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
@@ -121,27 +101,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C72AFE8C151602B5004ED374 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C7622AF614D085B60093DDD0;
-			remoteInfo = Framework;
-		};
-		C72AFE8E151602BF004ED374 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C744E3C714B8464E00078FBB;
-			remoteInfo = TranquilGraphics;
-		};
-		C72AFEC8151708E3004ED374 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C7B6A7331511B299003F797D;
-			remoteInfo = "Generate BridgeSupport";
-		};
 		C75208681501041E008400C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
@@ -199,13 +158,6 @@
 			remoteInfo = TranquilCore;
 		};
 		C79EF1EB14F533CC00570FB6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C79EF1BF14F530DF00570FB6;
-			remoteInfo = TranquilCore;
-		};
-		C7B6A72E1511B14A003F797D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7E2EF1414B78D4C0000884E /* Project object */;
 			proxyType = 1;
@@ -360,8 +312,9 @@
 		C79EF1F614F5342900570FB6 /* PluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginManager.h; sourceTree = "<group>"; };
 		C79EF1F714F5342900570FB6 /* PluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginManager.m; sourceTree = "<group>"; };
 		C79EF1FD14F5345300570FB6 /* TranquilCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranquilCore.h; sourceTree = "<group>"; };
-		C7B6A76915120A4F003F797D /* BridgeSupport */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BridgeSupport; sourceTree = "<group>"; };
 		C7D46A20151F550600B28E23 /* LuaJIT-2.0.0-beta9.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "LuaJIT-2.0.0-beta9.xcodeproj"; path = "LuaJIT-2.0.0-beta9/LuaJIT-2.0.0-beta9.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		C7D46ABE151FFD8600B28E23 /* libluajit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libluajit.a; path = "LuaJIT-2.0.0-beta9/src/libluajit.a"; sourceTree = SOURCE_ROOT; };
+		C7D46AC0152021E600B28E23 /* objc.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = objc.lua; path = Tranquil/Scripts/objc.lua; sourceTree = "<group>"; };
 		C7E2EF1D14B78D4C0000884E /* Tranquil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tranquil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E2EF2114B78D4C0000884E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C7E2EF2414B78D4C0000884E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -373,7 +326,6 @@
 		C7E2EF2F14B78D4C0000884E /* Tranquil-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tranquil-Prefix.pch"; sourceTree = "<group>"; };
 		C7E2EF3114B78D4C0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		C7E2EF3714B78D4D0000884E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		C7E6E19C14F60B7000215A8E /* TranquilGraphics.bridgesupport */ = {isa = PBXFileReference; lastKnownFileType = file.bridgesupport; path = TranquilGraphics.bridgesupport; sourceTree = "<group>"; };
 		C7F365071515D3540017D1A6 /* rb_main.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
 		C7FD7B561503979C00F3D000 /* TranquilGenerators.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranquilGenerators.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7FD7B6B1503987A00F3D000 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -431,6 +383,7 @@
 				C79EF1E514F5328500570FB6 /* Accelerate.framework in Frameworks */,
 				C79EF1E414F5327E00570FB6 /* OpenGL.framework in Frameworks */,
 				C79EF1C114F530E000570FB6 /* Cocoa.framework in Frameworks */,
+				C7D46ABF151FFD8600B28E23 /* libluajit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +415,6 @@
 		C744E3CB14B8464E00078FBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C7E6E19C14F60B7000215A8E /* TranquilGraphics.bridgesupport */,
 				C744E3CC14B8464E00078FBB /* TranquilGraphics-Info.plist */,
 				C744E3CD14B8464E00078FBB /* InfoPlist.strings */,
 				C744E3D014B8464E00078FBB /* TranquilGraphics-Prefix.pch */,
@@ -561,7 +513,6 @@
 		C79EF1C314F530E000570FB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C7B6A76915120A4F003F797D /* BridgeSupport */,
 				C79EF1C414F530E000570FB6 /* TranquilCore-Info.plist */,
 				C79EF1C514F530E000570FB6 /* InfoPlist.strings */,
 				C79EF1C814F530E000570FB6 /* TranquilCore-Prefix.pch */,
@@ -599,9 +550,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C7D46ABA151FFD6D00B28E23 /* LuaJIT */ = {
+			isa = PBXGroup;
+			children = (
+				C7D46ABE151FFD8600B28E23 /* libluajit.a */,
+				C7D46A20151F550600B28E23 /* LuaJIT-2.0.0-beta9.xcodeproj */,
+			);
+			name = LuaJIT;
+			sourceTree = "<group>";
+		};
 		C7E2EF1214B78D4C0000884E = {
 			isa = PBXGroup;
 			children = (
+				C7D46AC0152021E600B28E23 /* objc.lua */,
 				C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */,
 				C7E2EF2714B78D4C0000884E /* Tranquil */,
 				C7E2EF2014B78D4C0000884E /* Frameworks */,
@@ -672,7 +633,7 @@
 		C7E2EF9E14B78E010000884E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				C7D46A20151F550600B28E23 /* LuaJIT-2.0.0-beta9.xcodeproj */,
+				C7D46ABA151FFD6D00B28E23 /* LuaJIT */,
 				C79EF1FD14F5345300570FB6 /* TranquilCore.h */,
 				C773FEE714BFB0E3003338FE /* Debug.h */,
 				C72A6AEF1506678000A8DAA3 /* Logger.h */,
@@ -898,7 +859,6 @@
 				C7520850150103C6008400C4 /* TranquilMIDI */,
 				C79EF1BF14F530DF00570FB6 /* TranquilCore */,
 				C7FD7B551503979C00F3D000 /* TranquilGenerators */,
-				C7B6A72A1511B145003F797D /* Generate BridgeSupport Metadata */,
 			);
 		};
 /* End PBXProject section */
@@ -927,7 +887,6 @@
 			files = (
 				C744E3CF14B8464E00078FBB /* InfoPlist.strings in Resources */,
 				C76B70B614D40C59004E6CCE /* Scripts in Resources */,
-				C7E6E19C14F60B7000215A8F /* TranquilGraphics.bridgesupport in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -955,7 +914,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79EF1C714F530E000570FB6 /* InfoPlist.strings in Resources */,
-				C7B6A76A15120A4F003F797D /* BridgeSupport in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,21 +942,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C72AFE8B151600BC004ED374 /* TranquilGraphics BridgeSupport */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "TranquilGraphics BridgeSupport";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "pushd Tranquil/Plugins/Graphics\n../../../bridgesupport/gen_bridge_metadata -c \"-F/Users/fyolnish/Development/Mac/Tranquil/DerivedData/Build/Debug -framework Cocoa -framework GLMath -framework TranquilCore -I. -D__SCRIPTINGBRIDGE__\" *.h > Supporting\\ Files/TranquilGraphics.bridgesupport\npopd\n";
-			showEnvVarsInLog = 0;
-		};
 		C76B904D14FBC5090026A990 /* Generate Bridge Metadata */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1012,21 +955,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "";
-		};
-		C7B6A7321511B162003F797D /* TranquilCore BridgeSupport */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "TranquilCore BridgeSupport";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "bridgesupport/gen_bridge_metadata -c '-D__SCRIPTINGBRIDGE__' -F complete -f $TARGET_BUILD_DIR/TranquilCore.framework/ -o $PROJECT_DIR/Tranquil/Core/Supporting\\ Files/BridgeSupport/TranquilCore.bridgesupport\n\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1103,21 +1031,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C72AFE8D151602B5004ED374 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Framework;
-			targetProxy = C72AFE8C151602B5004ED374 /* PBXContainerItemProxy */;
-		};
-		C72AFE8F151602BF004ED374 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C744E3C714B8464E00078FBB /* TranquilGraphics */;
-			targetProxy = C72AFE8E151602BF004ED374 /* PBXContainerItemProxy */;
-		};
-		C72AFEC9151708E3004ED374 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Generate BridgeSupport";
-			targetProxy = C72AFEC8151708E3004ED374 /* PBXContainerItemProxy */;
-		};
 		C75208691501041E008400C4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C79EF1BF14F530DF00570FB6 /* TranquilCore */;
@@ -1152,11 +1065,6 @@
 			isa = PBXTargetDependency;
 			target = C79EF1BF14F530DF00570FB6 /* TranquilCore */;
 			targetProxy = C79EF1EB14F533CC00570FB6 /* PBXContainerItemProxy */;
-		};
-		C7B6A72F1511B14A003F797D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C79EF1BF14F530DF00570FB6 /* TranquilCore */;
-			targetProxy = C7B6A72E1511B14A003F797D /* PBXContainerItemProxy */;
 		};
 		C7BD147114FBAE6200EFC94A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1396,20 +1304,6 @@
 			};
 			name = Release;
 		};
-		C7B6A72C1511B145003F797D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		C7B6A72D1511B145003F797D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		C7E2EF3914B78D4D0000884E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1423,7 +1317,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
-					"__GLM_SIMPLESTRUCTS__=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_UNROLL_LOOPS = YES;
@@ -1453,7 +1346,6 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_FAST_MATH = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = "__GLM_SIMPLESTRUCTS__=1";
 				GCC_UNROLL_LOOPS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1480,6 +1372,12 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tranquil/Application/Supporting Files/Tranquil-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks/";
+				OTHER_CFLAGS = (
+					"-pagezero_size",
+					10000,
+					"-image_base",
+					100000000,
+				);
 				OTHER_LDFLAGS = (
 					"-pagezero_size",
 					10000,
@@ -1504,6 +1402,12 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Tranquil/Application/Supporting Files/Tranquil-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks/";
+				OTHER_CFLAGS = (
+					"-pagezero_size",
+					10000,
+					"-image_base",
+					100000000,
+				);
 				OTHER_LDFLAGS = (
 					"-pagezero_size",
 					10000,
@@ -1577,15 +1481,6 @@
 			buildConfigurations = (
 				C79EF1CD14F530E000570FB6 /* Debug */,
 				C79EF1CE14F530E000570FB6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C7B6A72B1511B145003F797D /* Build configuration list for PBXAggregateTarget "Generate BridgeSupport Metadata" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C7B6A72C1511B145003F797D /* Debug */,
-				C7B6A72D1511B145003F797D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

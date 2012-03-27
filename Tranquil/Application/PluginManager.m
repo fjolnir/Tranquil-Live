@@ -46,15 +46,6 @@ static PluginManager *sharedInstance;
 		return NO;
 	}
 
-    // Load a bridge support file if one is supplied
-    NSString *bsPath = [bundle pathForResource:[[aPath lastPathComponent] stringByDeletingPathExtension]
-                                        ofType:@"bridgesupport"];
-    if(bsPath) {
-        NSLog(@"loaded %@? %d", bsPath, [[ScriptContext sharedContext] loadBridgeSupport:bsPath]);
-        //NSString *bsLoadScript;
-     //   bsLoadScript = [NSString stringWithFormat:@"OSX.load_bridge_support_file('%@')", bsPath];
-       // [[ScriptContext sharedContext] executeScript:bsLoadScript error:nil];
-    }
 
 	BOOL result = [pluginLoader loadPlugin];
 	if(result) {

@@ -160,6 +160,7 @@ static NSOpenGLContext *_globalGlContext = nil;
         return ((p1.z >= p2.z) ? NSOrderedAscending : NSOrderedDescending);
     } copy];
 }
+
 - (id<SceneObject>)addObject:(id<SceneObject>)aObject
 {
 	[_objects addObject:aObject];
@@ -209,5 +210,13 @@ static NSOpenGLContext *_globalGlContext = nil;
 	[self pushState];
 	block([self currentState]);
 	[self popState];
+}
++ (void)testMethod:(vec4_t)foobar
+{
+    printVec4(foobar);
+//    NSLog(@"called test method: %d", foobar);
+}
+- (void)testInstance {
+    NSLog(@"yay");
 }
 @end

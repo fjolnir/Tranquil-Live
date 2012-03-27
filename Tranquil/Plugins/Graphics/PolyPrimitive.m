@@ -272,4 +272,8 @@
         printVec4(_vertices[i].position);
     }
 }
++ (void)funPtrTest:(float (*)(int foo))aPtr
+{
+    NSLog(@"Called me!");
+}
 @end
