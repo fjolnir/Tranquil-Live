@@ -3,11 +3,11 @@ local _print = print
 function print(...)
 	_print(...)
 	local output = ""
-	for i,str in pairs({...}) do
+	for i,arg in pairs({...}) do
 		if i == 1 then
-			output = str
+			output = tostring(arg)
 		else
-			output = output .. ",   " .. str
+			output = output .. ",   " .. tostring(arg)
 		end
 	end
     Logger:sharedLogger():log_(objc_strToObj(output).id)
