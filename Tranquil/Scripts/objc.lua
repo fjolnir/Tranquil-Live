@@ -19,8 +19,8 @@
 -- Loading a class: objc_loadClass("MyClass")
 -- Creating objects: MyClass.new() or MyClass.alloc().init()
    -- Retaining&Releasing objects is handled by the lua garbage collector so you should never need to call retain/release
--- Calling methods: myInstance:doThis_withThis_andThat_(this, this, that)
-   -- Colons in selectors are converted to underscores
+-- Calling methods: myInstance:doThis_withThis_andThat(this, this, that)
+   -- Colons in selectors are converted to underscores (last one being optional)
 -- Creating blocks: objc_createBlock(myFunction, returnType, argTypes)
    -- returnType: An encoded type specifying what the block should return (Consult https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html for reference)
    -- argTypes: An array of encoded types specifying the argument types the block expects
@@ -49,11 +49,6 @@ if ffi.abi("64bit") then
 	ffi.cdef("typedef double CGFloat;")
 else
 	ffi.cdef("typedef float CGFloat;")
-end
-
--- Private structs required to load on iOS
-if ffi.arch == "arm" and ffi.os == "OSX" then
-	ffi.cdef("struct __GSFont;")
 end
 
 ffi.cdef([[
@@ -123,15 +118,17 @@ typedef unsigned long NSUInteger;
 typedef struct _NSRange { NSUInteger location; NSUInteger length; } NSRange;
 typedef struct _NSZone NSZone;
 
-// NSString dependencies
+// Opaque dependencies
 struct _NSStringBuffer;
 struct __CFCharacterSet;
+struct __GSFont;
 ]])
 
 CGPoint = ffi.metatype("CGPoint", {})
 CGSize = ffi.metatype("CGSize", {})
 CGRect = ffi.metatype("CGRect", {})
 CGAffineTransform = ffi.metatype("CGAffineTransform", {})
+NSRange = ffi.metatype("NSRange", {})
 
 local objc_msgSend = ffi.C.objc_msgSend
 local objc_getClass = ffi.C.objc_getClass
@@ -316,6 +313,11 @@ ffi.metatype("struct objc_class", {
 	__index = function(self,selStr)
 		selStr = selStr:gsub("_", ":")
 		return function(...)
+			local argCount = #{...}
+			if argCount > 0 and selStr:sub(-1,-1) ~= ":" then
+				for i=1, argCount do selStr = selStr..":" end
+			end
+
 			local className = class_getName(ffi.cast("Class", self))
 			objc_log("Calling +["..className.." "..selStr.."]")
 			local methods = objc_classMethodRegistry[className]
@@ -361,6 +363,11 @@ ffi.metatype("struct objc_object", {
 	__index = function(self,selStr)
 		selStr = selStr:gsub("_", ":")
 		return function(...)
+			local argCount = #{...}
+			if argCount > 0 and selStr:sub(-1,-1) ~= ":" then
+				for i=1, argCount do selStr = selStr..":" end
+			end
+
 			local className = object_getClassName(ffi.cast("id", self))
 			objc_log("Calling -["..className.." "..selStr.."]")
 			local methods = objc_instanceMethodRegistry[className]
