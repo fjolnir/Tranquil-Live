@@ -1,4 +1,33 @@
 -- TLC - The Tiny Lua Cocoa bridge
+-- Note: Only tested on x86_64 & OS X >=10.7.3
+
+-- Copyright (c) 2012, Fjölnir Ásgeirsson
+
+-- Permission to use, copy, modify, and/or distribute this software for any
+-- purpose with or without fee is hereby granted, provided that the above
+-- copyright notice and this permission notice appear in all copies.
+
+-- THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+-- WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+-- MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+-- ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+-- WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+-- ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+-- OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+-- Usage:
+-- Loading a class: objc_loadClass("MyClass")
+-- Creating objects: MyClass:new() or MyClass:alloc():init()
+   -- Objects returned by init* or new are automatically autoreleased
+-- Calling methods: myInstance:doThis_withThis_andThat_(this, this, that)
+   -- Colons in selectors are converted to underscores
+-- Creating blocks: objc_createBlock(myFunction, returnType, argTypes)
+   -- returnType: An encoded type specifying what the block should return (Consult https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html for reference)
+   -- argTypes: An array of encoded types specifying the argument types the block expects
+
+-- Note: Currently, in order to pass an object to a method, you must append '.id' to it, this is to
+--      get the actual reference rather than the lua wrapper. This is not desirable and I will fix it asap
+--      Example: Instead of myInstance:method_(anotherInstance) you'd do myInstance:method_(anotherInstance.id)
 
 local objc_debug = false
 local function objc_log(...)
