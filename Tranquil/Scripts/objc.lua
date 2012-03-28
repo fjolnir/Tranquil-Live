@@ -357,7 +357,7 @@ objc_wrapper = ffi.metatype("struct { id id; }", {
 					methods[selStr] = methodDesc
 					method = methodDesc
 				else
-					error("Unknown selector "..selStr)
+					error("Unknown selector: '"..selStr.."'")
 				end
 			end
 
