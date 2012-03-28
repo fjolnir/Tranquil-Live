@@ -25,14 +25,12 @@ typedef id (*IMP)(id, SEL, ...);
 typedef signed char BOOL;
 typedef struct objc_method *Method;
 
-SEL sel_registerName(const char *str);
-
 id objc_getClass(const char *name);
 const char * class_getName(id cls);
 Method class_getClassMethod(id aClass, SEL aSelector);
 IMP class_getMethodImplementation(id cls, SEL name);
-
 Method * class_copyMethodList(id cls, unsigned int *outCount);
+
 SEL method_getName(Method method);
 unsigned method_getNumberOfArguments(Method method);
 void method_getReturnType(Method method, char *dst, size_t dst_len);
@@ -44,6 +42,7 @@ id object_getClass(id object);
 Method class_getInstanceMethod(id aClass, SEL aSelector);
 Method class_getClassMethod(id aClass, SEL aSelector);
 
+SEL sel_registerName(const char *str);
 const char* sel_getName(SEL aSelector);
 
 const char *object_getClassName(id obj);
@@ -53,6 +52,21 @@ BOOL class_isMetaClass(id cls);
 id class_getSuperclass(id cls);
 
 void free(void *ptr);
+
+// http://clang.llvm.org/docs/Block-ABI-Apple.txt
+struct __block_descriptor_1 {
+	unsigned long int reserved; // NULL
+	unsigned long int size; // sizeof(struct __block_literal_1)
+}
+
+struct __block_literal_1 {
+	struct __block_literal_1 *isa;
+	int flags;
+	int reserved;
+	void *invoke;
+	struct __block_descriptor_1 *descriptor;
+}
+struct __block_literal_1 *_NSConcreteGlobalBlock;
 
 // NSObject dependencies
 typedef double CGFloat;
@@ -68,6 +82,7 @@ typedef struct _NSZone NSZone;
 // NSString dependencies
 struct _NSStringBuffer {};
 ]])
+
 
 local objc_getClass = ffi.C.objc_getClass
 local objc_getMetaClass = ffi.C.objc_getMetaClass
@@ -307,7 +322,7 @@ objc_wrapper = ffi.metatype("struct { id id; }", {
 					error("Could not find class "..className)
 				end
 			end
-			--objc_log(self.id, object_getClassName(ffi.cast("id", self.id)), selStr, methods)
+
 			local method = methods[selStr]
 			if method == nil then
 				-- Try loading it (in case it was defined in a superclass)
@@ -365,4 +380,66 @@ end
 function objc_objToStr(aObj)
 	local str = aObj:description():UTF8String()
 	return ffi.string(str)
+end
+
+
+-- Blocks
+
+local objc_sharedBlockDescriptor = ffi.new("struct __block_descriptor_1")
+objc_sharedBlockDescriptor.reserved = 0;
+objc_sharedBlockDescriptor.size = ffi.sizeof("struct __block_literal_1")
+
+local _NSConcreteGlobalBlock = ffi.C._NSConcreteGlobalBlock
+
+-- Wraps a function to be used with a block
+local function _objc_createBlockWrapper(lambda, retType, argTypes)
+	-- Build a function definition string to cast to
+	retType = retType or "v"
+	argTypes = argTypes or {"v"}
+
+	retType = objc_typeEncodingToCType(retType)
+	if retType == nil then
+		return nil
+	end
+	local funTypeStr = ""..retType.." (*)(void *,"
+
+	local shouldCancel = false
+	for i,typeStr in pairs(argTypes) do
+		typeStr = objc_typeEncodingToCType(typeStr)
+		-- If we encounter an unsupported type, we skip loading this method
+		if typeStr == nil then
+			shouldCancel = true
+			break
+		end
+		if i < #argTypes then
+			typeStr = typeStr..","
+		end
+		funTypeStr = funTypeStr..typeStr
+	end
+
+	if shouldCancel == true then
+		return nil
+	end
+	funTypeStr = funTypeStr..")"
+	objc_log(funTypeStr)
+	
+	ret = function(theBlock, ...)
+		return lambda(...)
+	end
+	return ffi.cast(funTypeStr, ret)
+end
+
+-- Creates a block and returns it typecast to 'id'
+function objc_createBlock(lambda, retType, argTypes)
+	if not lambda then
+		return nil
+	end
+	local block = ffi.new("struct __block_literal_1")
+	block.isa = _NSConcreteGlobalBlock
+	block.flags = bit.lshift(1, 29)
+	block.reserved = 0
+	block.invoke = ffi.cast("void*", _objc_createBlockWrapper(lambda, retType, argTypes))
+	block.descriptor = objc_sharedBlockDescriptor
+
+	return ffi.cast("id", block)
 end
