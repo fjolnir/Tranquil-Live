@@ -211,12 +211,4 @@ static NSOpenGLContext *_globalGlContext = nil;
 	block([self currentState]);
 	[self popState];
 }
-+ (void)testMethod:(vec4_t)foobar
-{
-    printVec4(foobar);
-//    NSLog(@"called test method: %d", foobar);
-}
-- (void)testInstance {
-    NSLog(@"yay");
-}
 @end
