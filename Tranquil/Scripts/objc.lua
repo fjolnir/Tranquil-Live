@@ -24,6 +24,7 @@
 -- Creating blocks: objc_createBlock(myFunction, returnType, argTypes)
    -- returnType: An encoded type specifying what the block should return (Consult https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html for reference)
    -- argTypes: An array of encoded types specifying the argument types the block expects
+   -- Both return and argument types default to void if none are passed
 
 local objc_debug = false
 local function objc_log(...)
@@ -247,11 +248,6 @@ local function objc_typeEncodingToCType(aEncoding)
 end
 
 local function _objc_readMethod(method)
-	local ret = {
-		method = method,
-		argCount = method_getNumberOfArguments(method),
-	}
-
 	local imp = method_getImplementation(method);
 	-- Typecast the IMP
 	local typePtr = ffi.new("char[512]")
@@ -263,7 +259,7 @@ local function _objc_readMethod(method)
 	end
 	local impTypeStr = ""..retTypeStr.." (*)("
 
-	local argCount = ret.argCount
+	local argCount = method_getNumberOfArguments(method)
 	for j=0, argCount-1 do
 		method_getArgumentType(method, j, typePtr, 512);
 		local typeStr = ffi.string(typePtr)
@@ -281,9 +277,7 @@ local function _objc_readMethod(method)
 	impTypeStr = impTypeStr..")"
 	objc_log("Loading method:",objc_selToStr(ffi.C.method_getName(method)), impTypeStr)
 
-	ret.imp = ffi.cast(impTypeStr, imp)
-
-	return ret
+	return ffi.cast(impTypeStr, imp)
 end
 
 local function _objc_readMethods(obj, cache)
@@ -312,14 +306,13 @@ ffi.metatype("struct objc_class", {
 				local methodDesc = class_getClassMethod(self, SEL(selStr))
 		
 				if ffi.cast("void*", methodDesc) > nil then
-					methodDesc = _objc_readMethod(methodDesc)
-					methods[selStr] = methodDesc
-					method = methodDesc
+					method = _objc_readMethod(methodDesc)
+					methods[selStr] = method
 				else
 					error("Unknown selector "..selStr)
 				end
 			end
-			local ret = method.imp(ffi.cast("id", self), SEL(selStr), ...)
+			local ret = method(ffi.cast("id", self), SEL(selStr), ...)
 
 			if ffi.istype("struct objc_object*", ret) then
 				if not (selStr:sub(1,5) == "alloc" or selStr == "new")  then
@@ -329,6 +322,14 @@ ffi.metatype("struct objc_class", {
 
 			end
 			return ret
+		end
+	end,
+	__newindex = function(self,selStr,lambda)
+		selStr = selStr:gsub("_", ":")
+		local className = class_getName(ffi.cast("Class", self))
+		local methods = objc_instanceMethodRegistry[className]
+		if not (methods == nil) then
+			methods[selStr] = lambda
 		end
 	end
 })
@@ -355,15 +356,14 @@ ffi.metatype("struct objc_object", {
 				local methodDesc = class_getInstanceMethod(object_getClass(self), SEL(selStr))
 
 				if ffi.cast("void*", methodDesc) > nil then
-					methodDesc = _objc_readMethod(methodDesc)
-					methods[selStr] = methodDesc
-					method = methodDesc
+					method = _objc_readMethod(methodDesc)
+					methods[selStr] = method
 				else
 					error("Unknown selector: '"..selStr.."'")
 				end
 			end
 
-			local ret = method.imp(self, SEL(selStr), ...)
+			local ret = method(self, SEL(selStr), ...)
 
 			if ffi.istype("id", ret) then
 				-- Retain objects that need to be retained
@@ -371,7 +371,6 @@ ffi.metatype("struct objc_object", {
 					ret.retain()
 					ret = ffi.gc(ret, CFRelease)
 				end
-
 			end
 			return ret
 		end
