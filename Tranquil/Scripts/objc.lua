@@ -263,24 +263,18 @@ local function _objc_readMethod(method)
 	local impTypeStr = ""..retTypeStr.." (*)("
 
 	local argCount = ret.argCount
-	local shouldCancel = false
 	for j=0, argCount-1 do
 		method_getArgumentType(method, j, typePtr, 512);
 		local typeStr = ffi.string(typePtr)
 		typeStr =  objc_typeEncodingToCType(typeStr)
 		-- If we encounter an unsupported type, we skip loading this method
 		if typeStr == nil then
-			shouldCancel = true
-			break
+			return nil
 		end
 		if j < argCount-1 then
 			typeStr = typeStr..","
 		end
 		impTypeStr = impTypeStr..typeStr
-	end
-
-	if shouldCancel == true then
-		return nil
 	end
 
 	impTypeStr = impTypeStr..")"
@@ -309,8 +303,9 @@ objc_classWrapper = ffi.metatype("union { id id; }", {
 	__index = function(proxy,selStr)
 		selStr = selStr:gsub("_", ":")
 		return function(self, ...)
-			objc_log("Calling +"..selStr)
-			local methods = objc_classMethodRegistry[class_getName(self.id)]
+			local className = class_getName(self.id)
+			objc_log("Calling +["..className.." "..selStr.."]")
+			local methods = objc_classMethodRegistry[className]
 			local method = methods[selStr]
 			if method == nil then
 				-- Try loading it (in case it was defined in a superclass)
@@ -432,13 +427,11 @@ local function _objc_createBlockWrapper(lambda, retType, argTypes)
 	end
 	local funTypeStr = ""..retType.." (*)(void *,"
 
-	local shouldCancel = false
 	for i,typeStr in pairs(argTypes) do
 		typeStr = objc_typeEncodingToCType(typeStr)
 		-- If we encounter an unsupported type, we skip loading this method
 		if typeStr == nil then
-			shouldCancel = true
-			break
+			return nil
 		end
 		if i < #argTypes then
 			typeStr = typeStr..","
@@ -446,9 +439,6 @@ local function _objc_createBlockWrapper(lambda, retType, argTypes)
 		funTypeStr = funTypeStr..typeStr
 	end
 
-	if shouldCancel == true then
-		return nil
-	end
 	funTypeStr = funTypeStr..")"
 	objc_log(funTypeStr)
 	
