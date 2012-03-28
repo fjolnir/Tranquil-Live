@@ -308,7 +308,7 @@ ffi.metatype("struct objc_class", {
 			local methods = objc_classMethodRegistry[className]
 			local method = methods[selStr]
 			if method == nil then
-				-- Try loading it (in case it was defined in a superclass)
+				-- Try loading it (in case it was implemented in a superclass)
 				local methodDesc = class_getClassMethod(self, SEL(selStr))
 		
 				if ffi.cast("void*", methodDesc) > nil then
@@ -351,7 +351,7 @@ ffi.metatype("struct objc_object", {
 
 			local method = methods[selStr]
 			if method == nil then
-				-- Try loading it (in case it was defined in a superclass)
+				-- Try loading it (in case it was implemented in a superclass)
 				local methodDesc = class_getInstanceMethod(object_getClass(self), SEL(selStr))
 
 				if ffi.cast("void*", methodDesc) > nil then
