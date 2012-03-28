@@ -6,3 +6,4 @@ Tranquil.xcodeproj/xcuserdata
 Lua/build
 build
 .idea
+libluajit.so
