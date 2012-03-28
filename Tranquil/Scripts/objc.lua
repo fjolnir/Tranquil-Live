@@ -309,10 +309,14 @@ ffi.metatype("struct objc_class", {
 					method = _objc_readMethod(methodDesc)
 					methods[selStr] = method
 				else
-					error("Unknown selector "..selStr)
+					error("Unknown selector "..selStr.."\n"..debug.traceback())
 				end
 			end
-			local ret = method(ffi.cast("id", self), SEL(selStr), ...)
+
+			local success, ret = pcall(method, ffi.cast("id", self), SEL(selStr), ...)
+			if success == false then
+				error(ret.."\n"..debug.traceback())
+			end
 
 			if ffi.istype("struct objc_object*", ret) then
 				if not (selStr:sub(1,5) == "alloc" or selStr == "new")  then
@@ -346,7 +350,7 @@ ffi.metatype("struct objc_object", {
 				objc_loadClass(className)
 				methods = objc_instanceMethodRegistry[className]
 				if methods == nil then
-					error("Could not find class "..className)
+					error("Could not find class "..className.."\n"..debug.traceback())
 				end
 			end
 
@@ -359,11 +363,14 @@ ffi.metatype("struct objc_object", {
 					method = _objc_readMethod(methodDesc)
 					methods[selStr] = method
 				else
-					error("Unknown selector: '"..selStr.."'")
+					error("Unknown selector: '"..selStr.."'".."\n"..debug.traceback())
 				end
 			end
 
-			local ret = method(self, SEL(selStr), ...)
+			local success, ret = pcall(method, ffi.cast("id", self), SEL(selStr), ...)
+			if success == false then
+				error(ret.."\n"..debug.traceback())
+			end
 
 			if ffi.istype("id", ret) then
 				-- Retain objects that need to be retained
