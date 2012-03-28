@@ -314,7 +314,6 @@
 		C79EF1FD14F5345300570FB6 /* TranquilCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranquilCore.h; sourceTree = "<group>"; };
 		C7D46A20151F550600B28E23 /* LuaJIT-2.0.0-beta9.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "LuaJIT-2.0.0-beta9.xcodeproj"; path = "LuaJIT-2.0.0-beta9/LuaJIT-2.0.0-beta9.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		C7D46ABE151FFD8600B28E23 /* libluajit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libluajit.a; path = "LuaJIT-2.0.0-beta9/src/libluajit.a"; sourceTree = SOURCE_ROOT; };
-		C7D46AC0152021E600B28E23 /* objc.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = objc.lua; path = Tranquil/Scripts/objc.lua; sourceTree = "<group>"; };
 		C7E2EF1D14B78D4C0000884E /* Tranquil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tranquil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E2EF2114B78D4C0000884E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C7E2EF2414B78D4C0000884E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -562,7 +561,6 @@
 		C7E2EF1214B78D4C0000884E = {
 			isa = PBXGroup;
 			children = (
-				C7D46AC0152021E600B28E23 /* objc.lua */,
 				C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */,
 				C7E2EF2714B78D4C0000884E /* Tranquil */,
 				C7E2EF2014B78D4C0000884E /* Frameworks */,
