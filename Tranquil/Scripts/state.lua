@@ -1,10 +1,10 @@
 objc_loadClass("NSMutableArray")
-_objectStack = NSMutableArray:array()
+_objectStack = NSMutableArray:array():retain()
 
 -- Returns the current state object, be it the scene state or of an object in it.
 function currState()
     if _objectStack:count() > 0 then
-        return _objectStack:lastObject()
+        return _objectStack:lastObject():state()
     else
         return scene:currentState()
     end
@@ -19,22 +19,22 @@ end
 
 -- Makes the state manipulation functions apply to the state of the passed primitive
 function withPrimitive(primitive, lambda)
-	_objectStack:addObject_(primitive)
+	_objectStack:addObject_(primitive.id)
 	lambda()
 	_objectStack:removeLastObject()
 end
 
 function scale(vec)
-    state = currState()
-	state:setTransform_(state:transform() * Mat4.scale(vec))
+    local state = currState()
+	state:setTransform_(state:transform() * mat4_create_scale(vec.x,vec.y,vec.z))
 end
 function translate(vec)
-    state = currState()
-	state:setTransform_(state:transform() * Mat4.translation(vec))
+    local state = currState()
+	state:setTransform_(state:transform() * mat4_create_translation(vec.x,vec.y,vec.z))
 end
 function rotate(angle, vec)
-    state = currState()
-	state:setTransform_(state:transform() * Mat4.rotation(angle, vec))
+    local state = currState()
+	state:setTransform_(state:transform() * mat4_create_rotation(angle, vec.x,vec.y,vec.z))
 end
 function color(color)
 	currState():setColor_(color)

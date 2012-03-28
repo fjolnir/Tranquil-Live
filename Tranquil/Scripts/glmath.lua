@@ -144,7 +144,21 @@ void printVec4(vec4_t vec);
 void printMat3(mat3_t mat);
 void printMat4(mat4_t mat);
 void printQuat(quat_t quat);
+
+mat4_t mat4_create_translation(GLMFloat x, GLMFloat y, GLMFloat z);
+mat4_t mat4_translate(mat4_t mat, GLMFloat x, GLMFloat y, GLMFloat z);
+mat4_t mat4_create_rotation(GLMFloat angle, GLMFloat x, GLMFloat y, GLMFloat z);
+mat4_t mat4_rotate(mat4_t mat, GLMFloat angle, GLMFloat x, GLMFloat y, GLMFloat z);
+mat4_t mat4_create_scale(GLMFloat x, GLMFloat y, GLMFloat z);
+mat4_t mat4_scale(mat4_t mat, GLMFloat x, GLMFloat y, GLMFloat z);
 ]]
+
+mat4_create_translation = ffi.C.mat4_create_translation
+mat4_translate = ffi.C.mat4_translate
+mat4_create_rotation = ffi.C.mat4_create_rotation
+mat4_rotate = ffi.C.mat4_rotate
+mat4_create_scale = ffi.C.mat4_create_scale
+mat4_scale = ffi.C.mat4_scale
 
 -- Create the metatables
 
