@@ -1,5 +1,5 @@
 -- TLC - The Tiny Lua Cocoa bridge
--- Note: Only tested on x86_64 & OS X >=10.7.3
+-- Note: Only tested on x86_64 with OS X >=10.7.3 & iPhone 4 with iOS 5
 
 -- Copyright (c) 2012, Fjölnir Ásgeirsson
 
@@ -26,6 +26,10 @@
    -- argTypes: An array of encoded types specifying the argument types the block expects
    -- Both return and argument types default to void if none are passed
 
+if ffi == nil then
+	ffi = require("ffi")
+end
+
 local objc_debug = false
 local function objc_log(...)
 	if objc_debug == true then
@@ -41,14 +45,21 @@ local function objc_log(...)
 	end
 end
 
+if ffi.abi("64bit") then
+	ffi.cdef("typedef double CGFloat;")
+else
+	ffi.cdef("typedef float CGFloat;")
+end
+
+-- Private structs required to load on iOS
+if ffi.arch == "arm" and ffi.os == "OSX" then
+	ffi.cdef("struct __GSFont;")
+end
+
 ffi.cdef([[
 typedef struct objc_class *Class;
-struct objc_class {
-    Class isa;
-};
-typedef struct objc_object {
-	Class isa;
-} *id;
+struct objc_class { Class isa; };
+typedef struct objc_object { Class isa; } *id;
 
 typedef struct objc_selector *SEL;
 typedef id (*IMP)(id, SEL, ...);
@@ -100,7 +111,6 @@ struct __block_literal_1 {
 struct __block_literal_1 *_NSConcreteGlobalBlock;
 
 // NSObject dependencies
-typedef double CGFloat;
 typedef struct CGPoint { CGFloat x; CGFloat y; } CGPoint;
 typedef struct CGSize { CGFloat width; CGFloat height; } CGSize;
 typedef struct CGRect { CGPoint origin; CGSize size; } CGRect;
@@ -110,10 +120,16 @@ typedef long NSInteger;
 typedef unsigned long NSUInteger;
 typedef struct _NSRange { NSUInteger location; NSUInteger length; } NSRange;
 typedef struct _NSZone NSZone;
+
 // NSString dependencies
-struct _NSStringBuffer {};
+struct _NSStringBuffer;
+struct __CFCharacterSet;
 ]])
 
+CGPoint = ffi.metatype("CGPoint", {})
+CGSize = ffi.metatype("CGSize", {})
+CGRect = ffi.metatype("CGRect", {})
+CGAffineTransform = ffi.metatype("CGAffineTransform", {})
 
 local objc_getClass = ffi.C.objc_getClass
 local objc_getMetaClass = ffi.C.objc_getMetaClass
