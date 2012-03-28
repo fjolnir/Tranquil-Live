@@ -18,7 +18,7 @@
 -- Usage:
 -- Loading a class: objc_loadClass("MyClass")
 -- Creating objects: MyClass.new() or MyClass.alloc().init()
-   -- Objects returned by init* or new are automatically autoreleased
+   -- Retaining&Releasing objects is handled by the lua garbage collector so you should never need to call retain/release
 -- Calling methods: myInstance:doThis_withThis_andThat_(this, this, that)
    -- Colons in selectors are converted to underscores
 -- Creating blocks: objc_createBlock(myFunction, returnType, argTypes)
