@@ -66,6 +66,8 @@ typedef id (*IMP)(id, SEL, ...);
 typedef signed char BOOL;
 typedef struct objc_method *Method;
 
+id objc_msgSend(id theReceiver, SEL theSelector, ...);
+
 Class objc_getClass(const char *name);
 const char *class_getName(Class cls);
 Method class_getClassMethod(Class aClass, SEL aSelector);
@@ -131,6 +133,7 @@ CGSize = ffi.metatype("CGSize", {})
 CGRect = ffi.metatype("CGRect", {})
 CGAffineTransform = ffi.metatype("CGAffineTransform", {})
 
+local objc_msgSend = ffi.C.objc_msgSend
 local objc_getClass = ffi.C.objc_getClass
 local objc_getMetaClass = ffi.C.objc_getMetaClass
 
@@ -325,7 +328,7 @@ ffi.metatype("struct objc_class", {
 					method = _objc_readMethod(methodDesc)
 					methods[selStr] = method
 				else
-					error("Unknown selector "..selStr.."\n"..debug.traceback())
+					method = objc_msgSend
 				end
 			end
 
@@ -379,7 +382,7 @@ ffi.metatype("struct objc_object", {
 					method = _objc_readMethod(methodDesc)
 					methods[selStr] = method
 				else
-					error("Unknown selector: '"..selStr.."'".."\n"..debug.traceback())
+					method = objc_msgSend
 				end
 			end
 
