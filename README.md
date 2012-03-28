@@ -5,11 +5,11 @@
 If you want to try it out you can test the following code:
 
 ```lua
-scene:clear() -- Deletes all objects in the scene when the script is run
+scene.clear() -- Deletes all objects in the scene when the script is run
 c = buildCube() -- Creates a cube primitive and adds it to the scene
 everyFrame(function() -- Runs the passed block after redraw
   withPrimitive(c, function() -- Sets the active primitive to c
-    rotate(0.05, vec3(0.3,1,0)) -- Applies a rotation to the transform of the current state
+    rotate(0.05, vec3(0.3,1,0.3)) -- Applies a rotation to the transform of the current state
   end)
 end)
 ```

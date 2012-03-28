@@ -10,5 +10,5 @@ function print(...)
 			output = output .. ",   " .. tostring(arg)
 		end
 	end
-    Logger:sharedLogger():log_(objc_strToObj(output).id)
+    Logger.sharedLogger().log_(objc_strToObj(output))
 end

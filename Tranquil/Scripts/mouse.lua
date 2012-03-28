@@ -1,5 +1,5 @@
 function mapToSphere(windowCoord)
-    viewport = Camera:viewportSize()
+    viewport = Camera.viewportSize()
 
     p = vec3(2.0*windowCoord.x/viewport.z - 1.0, 2.0*windowCoord.y/viewport.w - 1.0, 0)
     mag = p.x^2 + p.y^2
@@ -24,20 +24,20 @@ function _tranq_leftClick(x,y)
 end
 function _tranq_leftDrag(x,y)
 	mouseLoc = mapToSphere(vec2(x,y))
-	local cam = scene:camera()
+	local cam = scene.camera()
 	local rotation = quat(0,0,0,0)
 
 	rotation.vec = _lastMouseLoc:cross(mouseLoc) -- Axis of rotation
 	rotation.scalar = _lastMouseLoc:dot(mouseLoc) -- Angle
 	rotation = rotation:normalize()
 
-    cam:setOrientation_(rotation*cam:orientation())
-    cam:setPosition_(rotation:rotatePoint(cam:position()))
-    cam:updateMatrix()
+    cam.setOrientation_(rotation*cam.orientation())
+    cam.setPosition_(rotation:rotatePoint(cam.position()))
+    cam.updateMatrix()
     _lastMouseLoc = mouseLoc
 end
 function _tranq_scroll(dx,dy)
-    local cam = scene:camera()
-    cam:setZoom_(cam:zoom() - dy/50.0)
-    cam:updateMatrix()
+    local cam = scene.camera()
+    cam.setZoom_(cam.zoom() - dy/50.0)
+    cam.updateMatrix()
 end
