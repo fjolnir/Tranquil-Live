@@ -9,10 +9,10 @@ typedef struct _Vertex_t {
 } Vertex_t;
 ]])
 
-objc_loadClass("Cube")
-objc_loadClass("Plane")
-objc_loadClass("Sphere")
-objc_loadClass("SuperShape")
+Cube = objc.Cube
+Plane = objc.Plane
+Sphere = objc.Sphere
+SuperShape = objc.SuperShape
 
 -- Add a map method to the primitives (It's faster to do this inside lua than to pass a lua function to a c function and
 -- iterate there)

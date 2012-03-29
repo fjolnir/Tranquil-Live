@@ -1,4 +1,4 @@
-objc_loadClass("NSMutableArray")
+NSMutableArray = objc.NSMutableArray
 _objectStack = NSMutableArray.array()
 
 -- Returns the current state object, be it the scene state or of an object in it.

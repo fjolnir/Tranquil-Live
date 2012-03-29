@@ -1,5 +1,5 @@
 -- TLC - The Tiny Lua Cocoa bridge
--- Note: Only tested on x86_64 with OS X >=10.7.3 & iPhone 4 with iOS 5
+-- Note: Only tested with LuaJit 2 Beta 9 on x86_64 with OS X >=10.7.3 & iPhone 4 with iOS 5
 
 -- Copyright (c) 2012, Fjölnir Ásgeirsson
 
@@ -16,23 +16,45 @@
 -- OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -- Usage:
--- Loading a class: objc_loadClass("MyClass")
+-- Accessing a class: MyClass = objc.MyClass
+-- Loading a framework: objc.loadFramework("AppKit")
+   -- Foundation is loaded by default.
+   -- The table objc.frameworkSearchPaths, contains a list of paths to search (formatted like /System/Library/Frameworks/%s.framework/%s)
 -- Creating objects: MyClass.new() or MyClass.alloc().init()
    -- Retaining&Releasing objects is handled by the lua garbage collector so you should never need to call retain/release
--- Calling methods: myInstance:doThis_withThis_andThat(this, this, that)
+-- Calling methods: myInstance.doThis_withThis_andThat(this, this, that)
    -- Colons in selectors are converted to underscores (last one being optional)
--- Creating blocks: objc_createBlock(myFunction, returnType, argTypes)
+-- Creating blocks: objc.createBlock(myFunction, returnType, argTypes)
    -- returnType: An encoded type specifying what the block should return (Consult https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html for reference)
    -- argTypes: An array of encoded types specifying the argument types the block expects
    -- Both return and argument types default to void if none are passed
 
-if ffi == nil then
-	ffi = require("ffi")
-end
+-- Demo:
+-- objc = require("objc")
+-- objc.loadFramework("AppKit")
+-- pool = objc.NSAutoreleasePool.new()
+-- objc.NSSpeechSynthesizer.new().startSpeakingString(objc.strToObj("Hello From Lua!"))
+-- pool.drain()
 
-local objc_debug = false
-local function objc_log(...)
-	if objc_debug == true then
+local ffi = require("ffi")
+
+local objc = {
+	debug = false,
+	frameworkSearchPaths = {
+		"/System/Library/Frameworks/%s.framework/%s",
+		"/Library/Frameworks/%s.framework/%s",
+		"~/Library/Frameworks/%s.framework/%s"
+	}
+}
+-- Automatically load classes when requested (On subsequent accesses they will not be reloaded)
+setmetatable(objc, {
+	__index = function(t, key)
+		return objc.loadClass(key)
+	end
+})
+
+local function _log(...)
+	if objc.debug == true then
 		local output
 		for i,arg in pairs({...}) do
 			if i == 1 then
@@ -46,9 +68,17 @@ local function objc_log(...)
 end
 
 if ffi.abi("64bit") then
-	ffi.cdef("typedef double CGFloat;")
+	ffi.cdef([[
+	typedef double CGFloat;
+	typedef long NSInteger;
+	typedef unsigned long NSUInteger;
+	]])
 else
-	ffi.cdef("typedef float CGFloat;")
+	ffi.cdef([[
+	typedef float CGFloat;
+	typedef int NSInteger;
+	typedef unsigned int NSUInteger;
+	]])
 end
 
 ffi.cdef([[
@@ -112,9 +142,6 @@ typedef struct CGPoint { CGFloat x; CGFloat y; } CGPoint;
 typedef struct CGSize { CGFloat width; CGFloat height; } CGSize;
 typedef struct CGRect { CGPoint origin; CGSize size; } CGRect;
 typedef struct CGAffineTransform { CGFloat a; CGFloat b; CGFloat c; CGFloat d; CGFloat tx; CGFloat ty; } CGAffineTransform;
-
-typedef long NSInteger;
-typedef unsigned long NSUInteger;
 typedef struct _NSRange { NSUInteger location; NSUInteger length; } NSRange;
 typedef struct _NSZone NSZone;
 
@@ -122,7 +149,31 @@ typedef struct _NSZone NSZone;
 struct _NSStringBuffer;
 struct __CFCharacterSet;
 struct __GSFont;
+struct __CFString;
+struct __CFDictionary;
+struct __CFArray;
+struct __CFAllocator;
+struct _NSModalSession;
+
+int access(const char *path, int amode);
 ]])
+
+local C = ffi.C
+
+ffi.load("/usr/lib/libobjc.A.dylib", true)
+
+function objc.loadFramework(name)
+	for i,path in pairs(objc.frameworkSearchPaths) do
+		path = path:format(name,name)
+		if C.access(path, bit.lshift(1,2)) == 0 then
+			return ffi.load(path, true)
+		end
+	end
+	error("Error! Framework '"..name.."' not found.")
+end
+
+objc.loadFramework("Foundation")
+objc.loadFramework("CoreFoundation")
 
 CGPoint = ffi.metatype("CGPoint", {})
 CGSize = ffi.metatype("CGSize", {})
@@ -130,47 +181,21 @@ CGRect = ffi.metatype("CGRect", {})
 CGAffineTransform = ffi.metatype("CGAffineTransform", {})
 NSRange = ffi.metatype("NSRange", {})
 
-local objc_msgSend = ffi.C.objc_msgSend
-local objc_getClass = ffi.C.objc_getClass
-local objc_getMetaClass = ffi.C.objc_getMetaClass
-
-local class_getInstanceMethod = ffi.C.class_getInstanceMethod
-local class_getClassMethod = ffi.C.class_getClassMethod
-local class_isMetaClass = ffi.C.class_isMetaClass
-local class_getSuperclass = ffi.C.class_getSuperclass
-local class_copyMethodList = ffi.C.class_copyMethodList
-class_getName = function(class)
-	return ffi.string(ffi.C.class_getName(class))
-end
-
-local object_getClass = ffi.C.object_getClass
-local object_getClassName = function(name)
-	return ffi.string(ffi.C.object_getClassName(name))
-end
-
-local method_getNumberOfArguments = ffi.C.method_getNumberOfArguments
-local method_getImplementation = ffi.C.method_getImplementation
-local method_getReturnType = ffi.C.method_getReturnType
-local method_getArgumentType = ffi.C.method_getArgumentType
-
-local function objc_selToStr(sel)
+local function _selToStr(sel)
 	return ffi.string(ffi.C.sel_getName(sel))
 end
-local function objc_strToSel(str)
+local function _strToSel(str)
 	return ffi.C.sel_registerName(str)
 end
-local SEL=objc_strToSel
-
-local free = ffi.C.free
-local CFRelease = ffi.C.CFRelease
+local SEL=_strToSel
 
 -- Stores references to method implementations
-objc_classMethodRegistry = {}
-objc_instanceMethodRegistry = {}
+local _objc_classMethodRegistry = {}
+local _objc_instanceMethodRegistry = {}
 
 
 -- Takes a single ObjC type encoded, and converts it to a C type specifier
-local function objc_typeEncodingToCType(aEncoding)
+local function _typeEncodingToCType(aEncoding)
 	local i = 1
 	local ret = ""
 	local isPtr = false
@@ -194,7 +219,6 @@ local function objc_typeEncodingToCType(aEncoding)
 	if aEncoding:sub(i,i) == "R" then i = i+1; end
 	if aEncoding:sub(i,i) == "V" then i = i+1; end
 
-	
 	-- Then type encodings
 	local c = aEncoding:sub(i,i)
 
@@ -241,19 +265,19 @@ local function objc_typeEncodingToCType(aEncoding)
 	elseif c == "(" then
 		local name = aEncoding:sub(aEncoding:find("[^=^(]+"))
 		if name == "?" then
-			objc_log("Anonymous unions not supported: "..aEncoding)
+			_log("Anonymous unions not supported: "..aEncoding)
 			return nil
 		end
 		ret = ret .. "union "..name
 	elseif c == "{" then
 		local name = aEncoding:sub(aEncoding:find("[^=^{]+"))
 		if name == "?" then
-			objc_log("Anonymous structs not supported "..aEncoding)
+			_log("Anonymous structs not supported "..aEncoding)
 			return nil
 		end
 		ret = ret .. "struct "..name
 	else
-		objc_log("Error! type encoding '"..aEncoding.."' is not supported")
+		_log("Error! type encoding '"..aEncoding.."' is not supported")
 		return nil
 	end
 
@@ -263,23 +287,23 @@ local function objc_typeEncodingToCType(aEncoding)
 	return ret
 end
 
-local function _objc_readMethod(method)
-	local imp = method_getImplementation(method);
+local function _readMethod(method)
+	local imp = C.method_getImplementation(method);
 	-- Typecast the IMP
 	local typePtr = ffi.new("char[512]")
 
-	method_getReturnType(method, typePtr, 512)
-	local retTypeStr = objc_typeEncodingToCType(ffi.string(typePtr))
+	C.method_getReturnType(method, typePtr, 512)
+	local retTypeStr = _typeEncodingToCType(ffi.string(typePtr))
 	if retTypeStr == nil then
 		return nil
 	end
 	local impTypeStr = ""..retTypeStr.." (*)("
 
-	local argCount = method_getNumberOfArguments(method)
+	local argCount = C.method_getNumberOfArguments(method)
 	for j=0, argCount-1 do
-		method_getArgumentType(method, j, typePtr, 512);
+		C.method_getArgumentType(method, j, typePtr, 512);
 		local typeStr = ffi.string(typePtr)
-		typeStr =  objc_typeEncodingToCType(typeStr)
+		typeStr =  _typeEncodingToCType(typeStr)
 		-- If we encounter an unsupported type, we skip loading this method
 		if typeStr == nil then
 			return nil
@@ -291,22 +315,22 @@ local function _objc_readMethod(method)
 	end
 
 	impTypeStr = impTypeStr..")"
-	objc_log("Loading method:",objc_selToStr(ffi.C.method_getName(method)), impTypeStr)
+	_log("Loading method:",_selToStr(ffi.C.method_getName(method)), impTypeStr)
 
 	return ffi.cast(impTypeStr, imp)
 end
 
-local function _objc_readMethods(obj, cache)
+local function _readMethods(obj, cache)
 	local count = ffi.new("unsigned int[1]")
-	local list = class_copyMethodList(obj, count)
+	local list = C.class_copyMethodList(obj, count)
 	for i=0, count[0]-1 do
 		local method = list[i]
-		local selector = ffi.C.method_getName(method)
-		local selStr = objc_selToStr(selector)
+		local selector = C.method_getName(method)
+		local selStr = _selToStr(selector)
 
-		cache[selStr] = _objc_readMethod(method)
+		cache[selStr] = _readMethod(method)
 	end
-    free(list)
+    C.free(list)
 end
 
 ffi.metatype("struct objc_class", {
@@ -318,19 +342,19 @@ ffi.metatype("struct objc_class", {
 				for i=1, argCount do selStr = selStr..":" end
 			end
 
-			local className = class_getName(ffi.cast("Class", self))
-			objc_log("Calling +["..className.." "..selStr.."]")
-			local methods = objc_classMethodRegistry[className]
+			local className = ffi.string(C.class_getName(ffi.cast("Class", self)))
+			_log("Calling +["..className.." "..selStr.."]")
+			local methods = _objc_classMethodRegistry[className]
 			local method = methods[selStr]
 			if method == nil then
 				-- Try loading it (in case it was implemented in a superclass)
-				local methodDesc = class_getClassMethod(self, SEL(selStr))
+				local methodDesc = C.class_getClassMethod(self, SEL(selStr))
 		
 				if ffi.cast("void*", methodDesc) > nil then
-					method = _objc_readMethod(methodDesc)
+					method = _readMethod(methodDesc)
 					methods[selStr] = method
 				else
-					method = objc_msgSend
+					method = C.objc_msgSend
 				end
 			end
 
@@ -342,17 +366,17 @@ ffi.metatype("struct objc_class", {
 			if ffi.istype("struct objc_object*", ret) then
 				if not (selStr:sub(1,5) == "alloc" or selStr == "new")  then
 					ret.retain()
-					ret = ffi.gc(ret, CFRelease)
 				end
-
+				ret = ffi.gc(ret, C.CFRelease)
 			end
 			return ret
 		end
 	end,
+	-- Grafts a lua function onto the class as an instance method, it will only be callable from lua though
 	__newindex = function(self,selStr,lambda)
 		selStr = selStr:gsub("_", ":")
-		local className = class_getName(ffi.cast("Class", self))
-		local methods = objc_instanceMethodRegistry[className]
+		local className = C.class_getName(ffi.cast("Class", self))
+		local methods = _objc_instanceMethodRegistry[className]
 		if not (methods == nil) then
 			methods[selStr] = lambda
 		end
@@ -368,13 +392,13 @@ ffi.metatype("struct objc_object", {
 				for i=1, argCount do selStr = selStr..":" end
 			end
 
-			local className = object_getClassName(ffi.cast("id", self))
-			objc_log("Calling -["..className.." "..selStr.."]")
-			local methods = objc_instanceMethodRegistry[className]
+			local className = ffi.string(C.object_getClassName(ffi.cast("id", self)))
+			_log("Calling -["..className.." "..selStr.."]")
+			local methods = _objc_instanceMethodRegistry[className]
 			-- If the class hasn't been loaded already, load it
 			if methods == nil then
-				objc_loadClass(className)
-				methods = objc_instanceMethodRegistry[className]
+				objc.loadClass(className)
+				methods = _objc_instanceMethodRegistry[className]
 				if methods == nil then
 					error("Could not find class "..className.."\n"..debug.traceback())
 				end
@@ -383,13 +407,13 @@ ffi.metatype("struct objc_object", {
 			local method = methods[selStr]
 			if method == nil then
 				-- Try loading it (in case it was implemented in a superclass)
-				local methodDesc = class_getInstanceMethod(object_getClass(self), SEL(selStr))
+				local methodDesc = C.class_getInstanceMethod(C.object_getClass(self), SEL(selStr))
 
 				if ffi.cast("void*", methodDesc) > nil then
-					method = _objc_readMethod(methodDesc)
+					method = _readMethod(methodDesc)
 					methods[selStr] = method
 				else
-					method = objc_msgSend
+					method = C.objc_msgSend
 				end
 			end
 
@@ -398,12 +422,12 @@ ffi.metatype("struct objc_object", {
 				error(ret.."\n"..debug.traceback())
 			end
 
-			if ffi.istype("id", ret) then
+			if ffi.istype("struct objc_object*", ret) and not (selStr == "retain" or selStr == "release") then
 				-- Retain objects that need to be retained
-				if not (selStr:sub(1,4) == "init" or selStr:sub(1,4) == "copy" or selStr:sub(1,11) == "mutableCopy" or selStr == "retain" or selStr == "release") then
+				if not (selStr:sub(1,4) == "init" or selStr:sub(1,4) == "copy" or selStr:sub(1,11) == "mutableCopy") then
 					ret.retain()
-					ret = ffi.gc(ret, CFRelease)
 				end
+				ret = ffi.gc(ret, C.CFRelease)
 			end
 			return ret
 		end
@@ -412,30 +436,29 @@ ffi.metatype("struct objc_object", {
 
 
 -- Loads the class for a given name (Only caches the methods defined in the class itself, other methods are cached on first usage)
-function objc_loadClass(aClassName)
-	local class = objc_getClass(aClassName)
-	if(objc_classMethodRegistry[aClassName]) then
+function objc.loadClass(aClassName)
+	local class = C.objc_getClass(aClassName)
+	if(_objc_classMethodRegistry[aClassName]) then
 		return class
 	end
-	local metaClass = objc_getMetaClass(aClassName)
+	local metaClass = C.objc_getMetaClass(aClassName)
 
-	objc_classMethodRegistry[aClassName] = objc_classMethodRegistry[aClassName] or { }
-	objc_instanceMethodRegistry[aClassName] = objc_instanceMethodRegistry[aClassName] or { }
+	_objc_classMethodRegistry[aClassName] = _objc_classMethodRegistry[aClassName] or { }
+	_objc_instanceMethodRegistry[aClassName] = _objc_instanceMethodRegistry[aClassName] or { }
 
-	_objc_readMethods(ffi.cast("Class", metaClass), objc_classMethodRegistry[aClassName])
-	_objc_readMethods(class, objc_instanceMethodRegistry[aClassName])
-	
-	_G[aClassName] = class
+	_readMethods(ffi.cast("Class", metaClass), _objc_classMethodRegistry[aClassName])
+	_readMethods(class, _objc_instanceMethodRegistry[aClassName])
+
+	objc[aClassName] = class
 	return class
 end
 
 -- Convenience functions
 
-objc_loadClass("NSString")
-function objc_strToObj(aStr)
-	return NSString.stringWithUTF8String_(aStr)
+function objc.strToObj(aStr)
+	return objc.NSString.stringWithUTF8String_(aStr)
 end
-function objc_objToStr(aObj)
+function objc.objToStr(aObj)
 	local str = aObj.description().UTF8String()
 	return ffi.string(str)
 end
@@ -443,25 +466,24 @@ end
 
 -- Blocks
 
-local objc_sharedBlockDescriptor = ffi.new("struct __block_descriptor_1")
-objc_sharedBlockDescriptor.reserved = 0;
-objc_sharedBlockDescriptor.size = ffi.sizeof("struct __block_literal_1")
-local objc_NSConcreteGlobalBlock = ffi.C._NSConcreteGlobalBlock
+local _sharedBlockDescriptor = ffi.new("struct __block_descriptor_1")
+_sharedBlockDescriptor.reserved = 0;
+_sharedBlockDescriptor.size = ffi.sizeof("struct __block_literal_1")
 
 -- Wraps a function to be used with a block
-local function _objc_createBlockWrapper(lambda, retType, argTypes)
+local function _createBlockWrapper(lambda, retType, argTypes)
 	-- Build a function definition string to cast to
 	retType = retType or "v"
 	argTypes = argTypes or {"v"}
 
-	retType = objc_typeEncodingToCType(retType)
+	retType = _typeEncodingToCType(retType)
 	if retType == nil then
 		return nil
 	end
 	local funTypeStr = ""..retType.." (*)(void *,"
 
 	for i,typeStr in pairs(argTypes) do
-		typeStr = objc_typeEncodingToCType(typeStr)
+		typeStr = _typeEncodingToCType(typeStr)
 		-- If we encounter an unsupported type, we skip loading this method
 		if typeStr == nil then
 			return nil
@@ -473,7 +495,7 @@ local function _objc_createBlockWrapper(lambda, retType, argTypes)
 	end
 
 	funTypeStr = funTypeStr..")"
-	objc_log("Created block with signature:", funTypeStr)
+	_log("Created block with signature:", funTypeStr)
 	
 	ret = function(theBlock, ...)
 		return lambda(...)
@@ -482,16 +504,18 @@ local function _objc_createBlockWrapper(lambda, retType, argTypes)
 end
 
 -- Creates a block and returns it typecast to 'id'
-function objc_createBlock(lambda, retType, argTypes)
+function objc.createBlock(lambda, retType, argTypes)
 	if not lambda then
 		return nil
 	end
 	local block = ffi.new("struct __block_literal_1")
-	block.isa = objc_NSConcreteGlobalBlock
+	block.isa = C._NSConcreteGlobalBlock
 	block.flags = bit.lshift(1, 29)
 	block.reserved = 0
-	block.invoke = ffi.cast("void*", _objc_createBlockWrapper(lambda, retType, argTypes))
-	block.descriptor = objc_sharedBlockDescriptor
+	block.invoke = ffi.cast("void*", _createBlockWrapper(lambda, retType, argTypes))
+	block.descriptor = _sharedBlockDescriptor
 
 	return ffi.cast("id", block)
 end
+
+return objc

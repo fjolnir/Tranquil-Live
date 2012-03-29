@@ -1,4 +1,4 @@
-objc_loadClass("Logger")
+Logger = objc.Logger
 local _print = print
 function print(...)
 	_print(...)
@@ -10,5 +10,5 @@ function print(...)
 			output = output .. ",   " .. tostring(arg)
 		end
 	end
-    Logger.sharedLogger().log_(objc_strToObj(output))
+    Logger.sharedLogger().log_(objc.strToObj(output))
 end

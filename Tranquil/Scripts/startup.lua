@@ -4,11 +4,11 @@ ffi = require("ffi")
 for k,v in pairs(math) do _G[k] = v end
 
 require "glmath"
-require "objc"
+objc = require "objc"
 
-objc_loadClass("Scene")
-objc_loadClass("Camera")
-objc_loadClass("Light")
+Scene = objc.Scene
+Camera = objc.Camera
+Light = objc.Light
 
 scene = Scene.globalScene()
 
