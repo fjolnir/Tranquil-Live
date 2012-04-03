@@ -153,109 +153,182 @@ mat4_t mat4_create_scale(GLMFloat x, GLMFloat y, GLMFloat z);
 mat4_t mat4_scale(mat4_t mat, GLMFloat x, GLMFloat y, GLMFloat z);
 ]]
 
-mat4_create_translation = ffi.C.mat4_create_translation
-mat4_translate = ffi.C.mat4_translate
-mat4_create_rotation = ffi.C.mat4_create_rotation
-mat4_rotate = ffi.C.mat4_rotate
-mat4_create_scale = ffi.C.mat4_create_scale
-mat4_scale = ffi.C.mat4_scale
+mat4_create_translation = C.mat4_create_translation
+mat4_translate = C.mat4_translate
+mat4_create_rotation = C.mat4_create_rotation
+mat4_rotate = C.mat4_rotate
+mat4_create_scale = C.mat4_create_scale
+mat4_scale = C.mat4_scale
 
 -- Create the metatables
 
 vec2_t = ffi.metatype("vec2_t",
 {
-	__call = ffi.C.printVec2,
-	__add = ffi.C.vec2_add,
-	__sub = ffi.C.vec2_sub,
-	__mul = ffi.C.vec2_mul,
-	__div = ffi.C.vec2_div,
-	__eq = ffi.C.vec2_equals,
-	__len = function(a) return ffi.C.vec2_mag(a) end, -- Not quite sure why simply assigning to _mag doesn't work here.
+	__call = C.printVec2,
+	__add = function(a,b)
+		if type(b) == "number" then
+			return C.vec2_scalarAdd(a,b)
+		else
+			return C.vec2_add(a,b)
+		end
+	end,
+	__sub = function(a,b)
+		if type(b) == "number" then
+			return C.vec2_scalarSub(a,b)
+		else
+			return C.vec2_sub(a,b)
+		end
+	end,
+	__mul = function(a,b)
+		if type(b) == "number" then
+			return C.vec2_scalarMul(a,b)
+		else
+			return C.vec2_mul(a,b)
+		end
+	end,
+	__div = function(a,b)
+		if type(b) == "number" then
+			return C.vec2_scalarDiv(a,b)
+		else
+			return C.vec2_div(a,b)
+		end
+	end,
+	__eq = C.vec2_equals,
+	__len = function(a) return C.vec2_mag(a) end,
 	__index = {
-		dot = ffi.C.vec2_dot,
-		magSquared = ffi.C.vec2_magSquared,
-		mag = ffi.C.vec2_mag,
-		dist = ffi.C.vec2_dist,
---		cross = ffi.C.vec2_cross,
-		negate = ffi.C.vec2_negate,
-		floor = ffi.C.vec2_floor,
-		normalize = ffi.C.vec2_normalize,
+		dot = C.vec2_dot,
+		magSquared = C.vec2_magSquared,
+		mag = C.vec2_mag,
+		dist = C.vec2_dist,
+		negate = C.vec2_negate,
+		floor = C.vec2_floor,
+		normalize = C.vec2_normalize,
 	}
 })
+
 vec3_t = ffi.metatype("vec3_t",
 {
-	__call = ffi.C.printVec3,
-	__add = ffi.C.vec3_add,
-	__sub = ffi.C.vec3_sub,
-	__mul = ffi.C.vec3_mul,
-	__div = ffi.C.vec3_div,
-	__eq = ffi.C.vec3_equals,
-	__len = function(a) return ffi.C.vec3_mag(a) end,
+	__call = C.printVec3,
+	__add = function(a,b)
+		if type(b) == "number" then
+			return C.vec3_scalarAdd(a,b)
+		else
+			return C.vec3_add(a,b)
+		end
+	end,
+	__sub = function(a,b)
+		if type(b) == "number" then
+			return C.vec3_scalarSub(a,b)
+		else
+			return C.vec3_sub(a,b)
+		end
+	end,
+	__mul = function(a,b)
+		if type(b) == "number" then
+			return C.vec3_scalarMul(a,b)
+		else
+			return C.vec3_mul(a,b)
+		end
+	end,
+	__div = function(a,b)
+		if type(b) == "number" then
+			return C.vec3_scalarDiv(a,b)
+		else
+			return C.vec3_div(a,b)
+		end
+	end,
+	__eq = C.vec3_equals,
+	__len = function(a) return C.vec3_mag(a) end,
 	__index = {
-		dot = ffi.C.vec3_dot,
-		magSquared = ffi.C.vec3_magSquared,
-		mag = ffi.C.vec3_mag,
-		dist = ffi.C.vec3_dist,
-		cross = ffi.C.vec3_cross,
-		negate = ffi.C.vec3_negate,
-		floor = ffi.C.vec3_floor,
-		normalize = ffi.C.vec3_normalize,
+		dot = C.vec3_dot,
+		magSquared = C.vec3_magSquared,
+		mag = C.vec3_mag,
+		dist = C.vec3_dist,
+		cross = C.vec3_cross,
+		negate = C.vec3_negate,
+		floor = C.vec3_floor,
+		normalize = C.vec3_normalize,
 	}
 })
+
 vec4_t = ffi.metatype("vec4_t",
 {
-	__call = ffi.C.printVec4,
-	__add = ffi.C.vec4_add,
-	__sub = ffi.C.vec4_sub,
-	__mul = ffi.C.vec4_mul,
-	__div = ffi.C.vec4_div,
-	__eq = ffi.C.vec4_equals,
-	__len = function(a) return ffi.C.vec4_mag(a) end,
+	__call = C.printVec4,
+	__add = function(a,b)
+		if type(b) == "number" then
+			return C.vec4_scalarAdd(a,b)
+		else
+			return C.vec4_add(a,b)
+		end
+	end,
+	__sub = function(a,b)
+		if type(b) == "number" then
+			return C.vec4_scalarSub(a,b)
+		else
+			return C.vec4_sub(a,b)
+		end
+	end,
+	__mul = function(a,b)
+		if type(b) == "number" then
+			return C.vec4_scalarMul(a,b)
+		else
+			return C.vec4_mul(a,b)
+		end
+	end,
+	__div = function(a,b)
+		if type(b) == "number" then
+			return C.vec4_scalarDiv(a,b)
+		else
+			return C.vec4_div(a,b)
+		end
+	end,
+	__eq = C.vec4_equals,
+	__len = function(a) return C.vec4_mag(a) end,
 	__index = {
-		dot = ffi.C.vec4_dot,
-		magSquared = ffi.C.vec4_magSquared,
-		mag = ffi.C.vec4_mag,
-		dist = ffi.C.vec4_dist,
-		cross = ffi.C.vec4_cross,
-		negate = ffi.C.vec4_negate,
-		floor = ffi.C.vec4_floor,
-		normalize = ffi.C.vec4_normalize,
+		dot = C.vec4_dot,
+		magSquared = C.vec4_magSquared,
+		mag = C.vec4_mag,
+		dist = C.vec4_dist,
+		cross = C.vec4_cross,
+		negate = C.vec4_negate,
+		floor = C.vec4_floor,
+		normalize = C.vec4_normalize,
 	}
 })
 quat_t = ffi.metatype("quat_t",
 {
-	__call = ffi.C.printQuat,
-	__mul = ffi.C.quat_multQuat,
-	__eq = ffi.C.quat_equals,
+	__call = C.printQuat,
+	__mul = C.quat_multQuat,
+	__eq = C.quat_equals,
 	__index = {
-		magSquared = ffi.C.quat_magSquared,
-		mag = ffi.C.quat_mag,
-		toOrtho = ffi.C.quat_to_ortho,
-		slerp = ffi.C.quat_slerp,
-		inverse = ffi.C.quat_inverse,
-		computeW = ffi.C.quat_computeW,
-		normalize = ffi.C.quat_normalize,
-		rotatePoint = ffi.C.quat_rotatePoint
+		magSquared = C.quat_magSquared,
+		mag = C.quat_mag,
+		toOrtho = C.quat_to_ortho,
+		slerp = C.quat_slerp,
+		inverse = C.quat_inverse,
+		computeW = C.quat_computeW,
+		normalize = C.quat_normalize,
+		rotatePoint = C.quat_rotatePoint
 	}
 })
 mat4_t = ffi.metatype("mat4_t",
 {
-	__call = ffi.C.printMat4,
-	__mul = ffi.C.mat4_mul,
-	__eq = ffi.C.mat4_equals,
+	__call = C.printMat4,
+	__mul = C.mat4_mul,
+	__eq = C.mat4_equals,
 	__index = {
-		det = ffi.C.mat4_det,
-		inverse = ffi.C.mat4_inverse,
-		transpose = ffi.C.mat4_transpose
+		det = C.mat4_det,
+		inverse = C.mat4_inverse,
+		transpose = C.mat4_transpose
 	}
 })
 
 
-vec2 = ffi.C.vec2_create
-vec3 = ffi.C.vec3_create
-vec4 = ffi.C.vec4_create
+vec2 = C.vec2_create
+vec3 = C.vec3_create
+vec4 = C.vec4_create
 rgba = vec4
-quat = ffi.C.quat_createf
+quat = C.quat_createf
 
 function rgb(r,g,b,a)
 	a = a or 1

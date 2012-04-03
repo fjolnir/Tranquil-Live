@@ -13,6 +13,8 @@
     NSString *scriptDir = [path stringByDeletingLastPathComponent];
     [[ScriptContext sharedContext] addSearchPath:scriptDir];
     
+    // Add TLC to the search path
+    [[ScriptContext sharedContext] addSearchPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Scripts/tlc"]];
 	NSError *err = nil;
 	[[ScriptContext sharedContext] executeFile:path error:&err];
 	if(err) {

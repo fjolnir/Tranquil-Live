@@ -45,7 +45,4 @@
 - (void)popState;
 // Executes a block with a copy of the current state as it's argument
 - (void)withState:(void (^)(State *))block;
-
-+ (void)testMethod:(vec4_t)foobar;
-- (void)testInstance;
 @end

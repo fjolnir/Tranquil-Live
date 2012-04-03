@@ -10,5 +10,5 @@ function print(...)
 			output = output .. ",   " .. tostring(arg)
 		end
 	end
-    Logger.sharedLogger().log_(objc.strToObj(output))
+    Logger:sharedLogger():log_(objc.NSStr(output))
 end

@@ -4,3 +4,6 @@
 [submodule "LuaCocoa"]
 	path = LuaCocoa
 	url = git@github.com:aptiva/LuaCococa.git
+[submodule "Tranquil/Scripts/tlc"]
+	path = Tranquil/Scripts/tlc
+	url = git@github.com:aptiva/TLC.git

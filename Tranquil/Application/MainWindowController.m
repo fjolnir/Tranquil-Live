@@ -9,7 +9,8 @@
 - (void)awakeFromNib
 {
     [[ScriptContext sharedContext] setDelegate:self];
-	self.window.aspectRatio = NSMakeSize(1.65, 1);
+    // Use the same aspect ratio as the display
+//	self.window.aspectRatio = NSMakeSize(1.65, 1);
     [Logger sharedLogger].delegate = self;
 }
 

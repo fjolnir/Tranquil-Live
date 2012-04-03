@@ -1,5 +1,5 @@
 function loadTex(aPath)
-    return Texture.load(aPath)
+    return Texture:load(aPath)
 end
 -- class Texture
 --     def self.load(aPath)
