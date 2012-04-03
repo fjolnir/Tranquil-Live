@@ -100,7 +100,7 @@ void instanceToLua(lua_State *L, id instance);
 
 - (void)addSearchPath:(NSString *)aPath
 {
-    [self executeScript:[NSString stringWithFormat:@"package.path = package.path .. ';%@/?.lua'", aPath]
+    [self executeScript:[NSString stringWithFormat:@"package.path = package.path .. ';%@/?.lua;%@/?/init.lua'", aPath, aPath]
                   error:nil];
 }
 
