@@ -7,3 +7,4 @@ Lua/build
 build
 .idea
 libluajit.so
+libluajit.a
