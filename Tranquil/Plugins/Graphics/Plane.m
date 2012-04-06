@@ -18,13 +18,14 @@
 	
 	// Build the vertex list
 	Vertex_t verts[uDiv*vDiv];
-	vec4_t pos, color, normal;
+    vec3_t pos, normal;
+	vec4_t color;
 	color = self.state.color;
-	normal = vec4_create(0, 1, 0, 0);
+	normal = vec3_create(0, 1, 0);
 	int i = 0;
 	for(int v = 0; v < vDiv; ++v) {
 		for(int u = 0; u < uDiv; ++u) {
-			pos = vec4_create((2.0f*(GLMFloat)u/(uDiv-1))-1.0f, 0.0, 2.0f*((GLMFloat)v/(vDiv-1))-1.0, 1);
+			pos = vec3_create((2.0f*(GLMFloat)u/(uDiv-1))-1.0f, 0.0, 2.0f*((GLMFloat)v/(vDiv-1))-1.0);
 			verts[i++] = VertexCreate(pos, normal, vec2_create(pos.x, pos.y), color, 1, 1);
 		}
 	}

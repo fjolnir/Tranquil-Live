@@ -1,7 +1,7 @@
 ffi.cdef([[
 typedef struct _Vertex_t {
-    vec4_t position;
-    vec4_t normal;
+    vec3_t position;
+    vec3_t normal;
     vec4_t color;
     vec2_t texCoord;
     GLMFloat size;

@@ -3,17 +3,17 @@
 #define MAX_LIGHTS 8
 uniform mat4 u_worldMatrix;
 uniform mat4 u_projMatrix;
-uniform vec4 u_cameraPosition;
+uniform vec3 u_cameraPosition;
 uniform vec4 u_globalAmbientColor;
 // Lights
 uniform int u_lightCount;
-uniform vec4 u_lightPositions[MAX_LIGHTS];
+uniform vec3 u_lightPositions[MAX_LIGHTS];
 uniform vec4 u_ambientColors[MAX_LIGHTS];
 uniform vec4 u_diffuseColors[MAX_LIGHTS];
 uniform vec4 u_specularColors[MAX_LIGHTS];
 
-attribute vec4 a_position;
-attribute vec4 a_normal;
+attribute vec3 a_position;
+attribute vec3 a_normal;
 attribute vec2 a_texCoord;
 attribute vec4 a_color;
 attribute float a_shininess;
@@ -24,10 +24,10 @@ varying vec2 v_texCoord;
 
 void main()
 {
-	vec4 worldPos = u_worldMatrix * a_position;
+	vec4 worldPos = u_worldMatrix * vec4(a_position, 1.0);
 	vec4 projectedPos = u_projMatrix * worldPos;
 	
-	vec4 normal = u_worldMatrix * a_normal;
+	vec4 normal = u_worldMatrix * vec4(a_normal, 0.0);
 	vec4 vertColor = u_globalAmbientColor * a_color;
 	vec3 eyeVec = worldPos.xyz - u_cameraPosition.xyz;
 	vec3 eyeDir = normalize(eyeVec);

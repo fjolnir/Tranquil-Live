@@ -119,6 +119,7 @@ quat_t quat_computeW(quat_t q);
 quat_t quat_normalize(quat_t q);
 quat_t quat_multQuat(const quat_t qA, const quat_t qB);
 vec4_t quat_rotatePoint(const quat_t q, const vec4_t v);
+vec3_t quat_rotateVec3(const quat_t q, const vec3_t v);
 quat_t quat_inverse(const quat_t q);
 GLMFloat quat_dotProduct(const quat_t qA, const quat_t qB);
 quat_t quat_slerp(const quat_t qA, const quat_t qB, GLMFloat t);
@@ -308,7 +309,7 @@ quat_t = ffi.metatype("quat_t",
 		inverse = C.quat_inverse,
 		computeW = C.quat_computeW,
 		normalize = C.quat_normalize,
-		rotatePoint = C.quat_rotatePoint
+		rotatePoint = C.quat_rotateVec3
 	}
 })
 mat4_t = ffi.metatype("mat4_t",

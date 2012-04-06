@@ -92,8 +92,8 @@
 			glUniformMatrix4fv(loc, 1, GL_FALSE, GLM_FCAST(worldMat));
 		}];
 		[shader withUniform:@"u_cameraPosition" do:^(GLuint loc) {
-            vec4_t camPos = aScene.camera.position;
-			glUniform4fv(loc, 1, GLM_FCAST(camPos));
+            vec3_t camPos = aScene.camera.position;
+			glUniform3fv(loc, 1, GLM_FCAST(camPos));
 		}];
 		[shader withUniform:@"u_globalAmbientColor" do:^(GLuint loc) {
             vec4_t ambient = aScene.ambientLight;
@@ -101,10 +101,10 @@
 			glUniform4fv(loc, 1, _unlit ? white : GLM_FCAST(ambient));
 		}];
 		[shader withUniform:@"u_lightPositions" do:^(GLuint loc) {
-			vec4_t positions[[aScene.lights count]];
+			vec3_t positions[[aScene.lights count]];
 			for(int i = 0; i < [aScene.lights count]; ++i)
                 positions[i] = [(Light*)[aScene.lights objectAtIndex:i] position];
-			glUniform4fv(loc, (int)[aScene.lights count], (float*)positions);
+			glUniform3fv(loc, (int)[aScene.lights count], (float*)positions);
 		}];
 		[shader withUniform:@"u_ambientColors" do:^(GLuint loc) {
 			vec4_t colors[[aScene.lights count]];

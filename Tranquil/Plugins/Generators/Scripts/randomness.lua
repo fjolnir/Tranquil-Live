@@ -9,13 +9,13 @@ end
 -- A random vector with each component between 0&1
 -- Visualized: A positive unit cube
 function randVec()
-	return vec4(rand(), rand(), rand())
+	return vec3(rand(), rand(), rand())
 end
 
 -- A random vector with each component between -1&1
 -- Visualized: A 2x2x2 cube centered on the origin,
 function cRandVec()
-	return vec4(cRand(), cRand(), cRand())
+	return vec3(cRand(), cRand(), cRand())
 end
 
 -- A random vector of length equal to or less than 1
@@ -43,7 +43,7 @@ function gaussRand()
 end
     
 function gaussVec()
-    return vec4(gaussRand(), gaussRand(), gaussRand(), 1)
+    return vec3(gaussRand(), gaussRand(), gaussRand())
 end
     
     

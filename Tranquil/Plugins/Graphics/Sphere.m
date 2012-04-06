@@ -35,18 +35,18 @@
 			npoint[0] = vec3_create(sinf(i*radsPerSeg)*(aRadius+1.0f), 0, cos(i*radsPerSeg)*(aRadius+1.0f));
 			npoint[1] = vec3_create(sinf((i+1)*radsPerSeg)*(aRadius+1.0f), 0, cos((i+1)*radsPerSeg)*(aRadius+1.0f));
 			
-			vec4_t vertices[4], normals[4];
+			vec3_t vertices[4], normals[4];
 			vec2_t texCoords[4];
 			
-			vertices[0] = vec4_create(point[1].x*scale[0], height[0], point[1].z*scale[0], 1);
-			vertices[1] = vec4_create(point[0].x*scale[1], height[1], point[0].z*scale[1], 1);
-			vertices[2] = vec4_create(point[0].x*scale[0], height[0], point[0].z*scale[0], 1);
-			vertices[3] = vec4_create(point[1].x*scale[1], height[1], point[1].z*scale[1], 1);
+			vertices[0] = vec3_create(point[1].x*scale[0], height[0], point[1].z*scale[0]);
+			vertices[1] = vec3_create(point[0].x*scale[1], height[1], point[0].z*scale[1]);
+			vertices[2] = vec3_create(point[0].x*scale[0], height[0], point[0].z*scale[0]);
+			vertices[3] = vec3_create(point[1].x*scale[1], height[1], point[1].z*scale[1]);
 
-			normals[0] = vec4_normalize(vec4_sub(vec4_create(npoint[1].x*scale[0], nheight[0], npoint[1].z*scale[0], 1), vertices[0]));
-			normals[1] = vec4_normalize(vec4_sub(vec4_create(npoint[0].x*scale[1], nheight[1], npoint[0].z*scale[1], 1), vertices[1]));
-			normals[2] = vec4_normalize(vec4_sub(vec4_create(npoint[0].x*scale[0], nheight[0], npoint[0].z*scale[0], 1), vertices[2]));
-			normals[3] = vec4_normalize(vec4_sub(vec4_create(npoint[1].x*scale[1], nheight[1], npoint[1].z*scale[1], 1), vertices[3]));
+			normals[0] = vec3_normalize(vec3_sub(vec3_create(npoint[1].x*scale[0], nheight[0], npoint[1].z*scale[0]), vertices[0]));
+			normals[1] = vec3_normalize(vec3_sub(vec3_create(npoint[0].x*scale[1], nheight[1], npoint[0].z*scale[1]), vertices[1]));
+			normals[2] = vec3_normalize(vec3_sub(vec3_create(npoint[0].x*scale[0], nheight[0], npoint[0].z*scale[0]), vertices[2]));
+			normals[3] = vec3_normalize(vec3_sub(vec3_create(npoint[1].x*scale[1], nheight[1], npoint[1].z*scale[1]), vertices[3]));
 
 			texCoords[0] = vec2_create((i+1)/(GLMFloat)aStacks, j/(GLMFloat)aSlices);
 			texCoords[1] = vec2_create(i/(GLMFloat)aStacks, (j+1)/(GLMFloat)aSlices);

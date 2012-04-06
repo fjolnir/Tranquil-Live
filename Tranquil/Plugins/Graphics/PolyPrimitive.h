@@ -5,15 +5,15 @@
 @class State;
 
 typedef struct _Vertex_t {
-    vec4_t position;
-    vec4_t normal;
+    vec3_t position;
+    vec3_t normal;
     vec4_t color;
     vec2_t texCoord;
     GLMFloat size;
     GLMFloat shininess;
 } Vertex_t;
 
-static __inline__ Vertex_t VertexCreate(vec4_t aPos, vec4_t aNormal, vec2_t aTexCoord, vec4_t aColor, GLMFloat aSize, GLMFloat aShininess) {
+static __inline__ Vertex_t VertexCreate(vec3_t aPos, vec3_t aNormal, vec2_t aTexCoord, vec4_t aColor, GLMFloat aSize, GLMFloat aShininess) {
 	Vertex_t out = { .position=aPos, .normal=aNormal, .color=aColor, .texCoord=aTexCoord, .size=aSize, .shininess=aShininess };
 	return out;
 }

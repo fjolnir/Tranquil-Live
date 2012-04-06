@@ -94,18 +94,19 @@
 		glUniform1i(loc, 0);
 	}];
 	int count = 2*_vertexCount;
-	vec4_t *points, *colors;
-	points = malloc(sizeof(vec4_t)*count);
+    vec3_t *points;
+	vec4_t *colors;
+	points = malloc(sizeof(vec3_t)*count);
 	colors = malloc(sizeof(vec4_t)*count);
 	for(int i = 0; i < _vertexCount; ++i) {
 		points[2*i] = _vertices[i].position;
-		points[2*i+1] = vec4_add(_vertices[i].position, vec4_scalarMul(_vertices[i].normal, 0.5f));
+		points[2*i+1] = vec3_add(_vertices[i].position, vec3_scalarMul(_vertices[i].normal, 0.5f));
 		colors[2*i] = vec4_create(1, 0, 0, 1);
 		colors[2*i+1] = colors[2*i];
 	}
 	[shader withAttribute:@"a_position" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(vec4_t), points);
+		glVertexAttribPointer(loc, 3, GL_FLOAT, GL_FALSE, sizeof(vec3_t), points);
 	}];
 	[shader withAttribute:@"a_color" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
@@ -132,11 +133,11 @@
 	}
 	[shader withAttribute:@"a_position" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, position)));
+		glVertexAttribPointer(loc, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, position)));
 	}];
 	[shader withAttribute:@"a_normal" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, normal)));
+		glVertexAttribPointer(loc, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, normal)));
 	}];
 	[shader withAttribute:@"a_color" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);

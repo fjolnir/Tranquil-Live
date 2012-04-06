@@ -93,12 +93,11 @@
             v->position.x = r1*cosf(theta)*r2*cosPhi;
             v->position.y = r1*sinf(theta)*r2*cosPhi;
             v->position.z = r2*sinf(phi);
-            v->position.w = 1;
             
             v->texCoord = vec2_create((theta+M_PI)/(2.0*M_PI), (phi+M_PI_2)/M_PI);
             v->color = vec4_create(1, 0, 0, 1);
             v->size = 1.0;
-            v->normal = GLMVec4_zero;
+            v->normal = GLMVec3_zero;
             v->shininess = 0.3;
             
             phi += _vStep;
@@ -120,25 +119,24 @@
             
             // This normal generations 
             if(y == 0) {
-                vert1->normal = vec4_create(0, 0, -1, 0);
-                vert2->normal = vec4_create(0, 0, -1, 0);
+                vert1->normal = vec3_create(0, 0, -1);
+                vert2->normal = vec3_create(0, 0, -1);
             } else if(y == _vRes-1) {
-                vert1->normal = vec4_create(0, 0, 1, 0);
-                vert2->normal = vec4_create(0, 0, 1, 0);
+                vert1->normal = vec3_create(0, 0, 1);
+                vert2->normal = vec3_create(0, 0, 1);
             } else {
-                vec4_t v1 = vec4_sub(vert2->position, vert1->position);
-                vec4_t v2 = vec4_sub(vert3->position, vert1->position);
-                vert1->normal = vec4_normalize(vec4_cross(v1, v2));
+                vec3_t v1 = vec3_sub(vert2->position, vert1->position);
+                vec3_t v2 = vec3_sub(vert3->position, vert1->position);
+                vert1->normal = vec3_normalize(vec3_cross(v1, v2));
                 vert2->normal = vert1->normal;
             }
             
         }
     }
     for(i = 0; i < _vertexCount; ++i) {
-        _vertices[i].normal = vec4_normalize(_vertices[i].normal);
-        _vertices[i].color = _vertices[i].normal;
+        _vertices[i].normal = vec3_normalize(_vertices[i].normal);
+        _vertices[i].color.xyz = _vertices[i].normal;
         _vertices[i].color.w = 1;
-        _vertices[i].normal.w = 0;
     }
     
 	[_state applyToScene:aScene];
@@ -151,11 +149,11 @@
 	}
 	[shader withAttribute:@"a_position" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, position)));
+		glVertexAttribPointer(loc, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, position)));
 	}];
 	[shader withAttribute:@"a_normal" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);
-		glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, normal)));
+		glVertexAttribPointer(loc, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), (void*)(baseOffset+offsetof(Vertex_t, normal)));
 	}];
 	[shader withAttribute:@"a_color" do:^(GLuint loc) {
 		glEnableVertexAttribArray(loc);

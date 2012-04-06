@@ -35,18 +35,18 @@ require "state"
 require "mouse"
 
 function _setup()
-	scene:setClearColor_(vec4(0,0,0,1))
+	scene:setClearColor_(rgb(0,0,0,1))
 	
-	scene:camera():setPosition_(vec4(0, 0, 5, 1))
+	scene:camera():setPosition_(vec3(0, 0, 5))
 	scene:camera():setOrientation_(quat(0, 1, 0, 0))
 	scene:camera():setFov_(math.pi/2.0)
 	scene:camera():updateMatrix()
 	
 	light = Light:new()
-	light:setPosition_(vec4(4,10,10,1))
-	light:setAmbientColor_(vec4(0.2, 0.2, 0.2, 1))
-	light:setSpecularColor_(vec4(0.1, 0.1, 0.1, 1))
-	light:setDiffuseColor_(vec4(0.7, 0.7, 0.7, 1))
+	light:setPosition_(vec3(4,10,10))
+	light:setAmbientColor_(rgb(0.2, 0.2, 0.2, 1))
+	light:setSpecularColor_(rgb(0.1, 0.1, 0.1, 1))
+	light:setDiffuseColor_(rgb(0.7, 0.7, 0.7, 1))
 	scene:addLight_(light)
 end
 

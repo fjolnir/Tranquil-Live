@@ -14,7 +14,7 @@
 {
 	self = [super init];
 	if(!self) return nil;
-	_position = vec4_create(0, 0, 0, 1);
+	_position = GLMVec3_zero;
 	_orientation = quat_createf(0, 1, 0, 0);
 	_zoom = 1;
 	_fov = degToRad(45.0);
@@ -28,12 +28,12 @@
 - (void)updateMatrix
 {   
 	// First we must translate & rotate the world into place
-	vec4_t t = vec4_negate(_position);
+	vec3_t t = vec3_negate(_position);
 	mat4_t translation = mat4_create_translation(t.x, t.y, t.z);
 	mat4_t rotation = quat_to_ortho(quat_inverse(_orientation));
     
     // Implement zooming just by translating in the view direction
-    vec4_t p = (vec4_t){ 0,0,-_zoom,1 };
+    vec4_t p = (vec4_t){ 0, 0, -_zoom, 1 };
     p = quat_rotatePoint(_orientation, p);
     translation = mat4_mul(translation, mat4_create_translation(p.x, p.y, p.z));
     
@@ -54,13 +54,14 @@
 	_matrix = mat4_mul(projection, mat4_mul(rotation,translation));
 }
 
-- (vec4_t)unProjectPoint:(vec4_t)aPoint
+- (vec3_t)unProjectPoint:(vec3_t)aPoint
 {
 	bool succ = NO;
-	vec4_t p = vec4_mul_mat4(aPoint, mat4_inverse(_matrix, &succ));
+    vec4_t p = vec4_create(aPoint.x, aPoint.y, aPoint.z, 1);
+	p = vec4_mul_mat4(p, mat4_inverse(_matrix, &succ));
 	assert(succ);
 	p = vec4_scalarDiv(p, p.w);
-    return p;
+    return p.xyz;
 }
 
 @end
