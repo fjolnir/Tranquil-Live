@@ -7,7 +7,6 @@ Pi = pi -- It's not very obvious that 'pi' is a global constant
 
 require "glmath"
 objc = require "objc"
-objc.util = require "objc.utils"
 setmetatable(_G, {__index=objc})
 
 Scene = objc.Scene
@@ -15,6 +14,21 @@ Camera = objc.Camera
 Light = objc.Light
 
 scene = Scene:globalScene()
+
+ffi.cdef[[
+uint64_t mach_absolute_time(void);
+uint64_t AbsoluteToNanoseconds(uint64_t absoluteTime);
+]]
+
+
+function globalTime()
+	return tonumber(C.AbsoluteToNanoseconds(C.mach_absolute_time()))/1000000000
+end
+
+local startTime = globalTime()
+function time()
+    return globalTime() - startTime
+end
 
 require "logging"
 require "state"

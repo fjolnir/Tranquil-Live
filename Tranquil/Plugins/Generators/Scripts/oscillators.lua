@@ -1,12 +1,4 @@
 oop = require("oop")
-ffi.cdef[[
-uint64_t mach_absolute_time(void);
-uint64_t AbsoluteToNanoseconds(uint64_t absoluteTime);
-]]
-
-function time()
-	return tonumber(C.AbsoluteToNanoseconds(C.mach_absolute_time()))/1000000000
-end
 
 Osc = class()
 function Osc:new(period)
