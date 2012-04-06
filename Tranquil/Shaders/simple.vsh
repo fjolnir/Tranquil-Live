@@ -54,6 +54,6 @@ void main()
 	v_color = vertColor;
 	v_texCoord = a_texCoord;
 
-    gl_PointSize = a_size;//*30.0/length(eyeVec);
+    gl_PointSize = min(a_size*4.0, a_size*4.0/length(eyeVec));
 	gl_Position = projectedPos;
 }
