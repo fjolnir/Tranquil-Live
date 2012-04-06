@@ -5,7 +5,7 @@
 @property(readwrite, assign) vec3_t position;
 @property(readwrite, assign) quat_t orientation;
 @property(readwrite, assign) GLMFloat fov, zoom, aspectRatio;
-@property(readonly) mat4_t matrix;
+@property(readwrite) mat4_t matrix;
 + (vec4_t)viewportSize;
 
 - (void)updateMatrix;
