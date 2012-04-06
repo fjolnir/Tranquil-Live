@@ -108,6 +108,8 @@ void instanceToLua(lua_State *L, id instance);
 
 - (void)_reportErrorWithMessage:(char *)aMessage errorOut:(NSError **)aoErr
 {
+    if(strlen(aMessage) == 0)
+        return;
     NSString *errMsg = [NSString stringWithUTF8String:aMessage];
     NSError *err = [NSError errorWithDomain:@"ScriptError" 
                                        code:0 
