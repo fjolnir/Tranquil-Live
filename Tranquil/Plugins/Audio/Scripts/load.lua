@@ -10,7 +10,7 @@ objc.addMethod(AudioProcessor, SEL("open:"), function(self, sel, aDeviceName)
 	self:openDevice(deviceId)
 	self:start()
 	return true
-end, "B", {"@",":","@"})
+end, "B@:@")
 
 objc.instanceMethodCache["AudioProcessor"] = objc.instanceMethodCache["AudioProcessor"] or {}
 objc.instanceMethodCache["AudioProcessor"]["mag_"] = function(self, band)

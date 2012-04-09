@@ -46,20 +46,10 @@ function _tranq_scroll(dx,dy)
 	cam:updateMatrix()
 end
 
-objc.createClass(NSObject, "CameraManager")
-objc.addMethod(CameraManager, SEL("resetCam"), function(self, sel)
+function _tranq_resetCam()
 	scene:camera():setPosition_(vec3(0, 0, 5))
 	scene:camera():setOrientation_(quat(0, 1, 0, 0))
 	scene:camera():setFov_(math.pi/2.0)
 	scene:camera():updateMatrix()
-end)
-
--- Add a "Reset Camera" menu item
---local NSApp = NSApplication:sharedApplication()
---local menubar = NSApp:mainMenu()
---local viewMenu = menubar:itemWithTitle(NSStr("View"))
---local resetItem = NSMenuItem:alloc():initWithTitle_action_keyEquivalent(NSStr("Reset Camera"), SEL("resetCam"), NSStr("k"))
---resetItem.target = CameraManager:alloc():init()
---print(viewMenu,"----------------")
---viewMenu:submenu():addItem(resetItem)
+end
 

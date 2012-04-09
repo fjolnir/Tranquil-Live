@@ -84,7 +84,7 @@
 		C79EF20114F5354D00570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C79EF20214F535AA00570FB6 /* TranquilCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79EF1C014F530DF00570FB6 /* TranquilCore.framework */; };
 		C79EF20314F5368800570FB6 /* TranquilAudio.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3E914B84CB400078FBB /* TranquilAudio.bundle */; };
-		C7C0B4ED1521863200F27EE9 /* libluajit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D46ABE151FFD8600B28E23 /* libluajit.a */; };
+		C7B03C201533214F00D4C8F3 /* libluajit-5.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B03C1F1533214F00D4C8F3 /* libluajit-5.1.a */; };
 		C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E2EF2114B78D4C0000884E /* Cocoa.framework */; };
 		C7E2EF2C14B78D4C0000884E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF2A14B78D4C0000884E /* InfoPlist.strings */; };
 		C7E2EF3214B78D4C0000884E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C7E2EF3014B78D4C0000884E /* Credits.rtf */; };
@@ -312,8 +312,7 @@
 		C79EF1F614F5342900570FB6 /* PluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginManager.h; sourceTree = "<group>"; };
 		C79EF1F714F5342900570FB6 /* PluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginManager.m; sourceTree = "<group>"; };
 		C79EF1FD14F5345300570FB6 /* TranquilCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranquilCore.h; sourceTree = "<group>"; };
-		C7D46A20151F550600B28E23 /* LuaJIT-2.0.0-beta9.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "LuaJIT-2.0.0-beta9.xcodeproj"; path = "LuaJIT-2.0.0-beta9/LuaJIT-2.0.0-beta9.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		C7D46ABE151FFD8600B28E23 /* libluajit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libluajit.a; path = "LuaJIT-2.0.0-beta9/src/libluajit.a"; sourceTree = SOURCE_ROOT; };
+		C7B03C1F1533214F00D4C8F3 /* libluajit-5.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libluajit-5.1.a"; path = "/usr/local/lib/libluajit-5.1.a"; sourceTree = "<absolute>"; };
 		C7E2EF1D14B78D4C0000884E /* Tranquil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tranquil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E2EF2114B78D4C0000884E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C7E2EF2414B78D4C0000884E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -378,11 +377,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7B03C201533214F00D4C8F3 /* libluajit-5.1.a in Frameworks */,
 				C75208A51501F8E0008400C4 /* GLMath.framework in Frameworks */,
 				C79EF1E514F5328500570FB6 /* Accelerate.framework in Frameworks */,
 				C79EF1E414F5327E00570FB6 /* OpenGL.framework in Frameworks */,
 				C79EF1C114F530E000570FB6 /* Cocoa.framework in Frameworks */,
-				C7C0B4ED1521863200F27EE9 /* libluajit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,22 +541,6 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		C7D46A21151F550600B28E23 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C7D46ABA151FFD6D00B28E23 /* LuaJIT */ = {
-			isa = PBXGroup;
-			children = (
-				C7D46ABE151FFD8600B28E23 /* libluajit.a */,
-				C7D46A20151F550600B28E23 /* LuaJIT-2.0.0-beta9.xcodeproj */,
-			);
-			name = LuaJIT;
-			sourceTree = "<group>";
-		};
 		C7E2EF1214B78D4C0000884E = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +567,7 @@
 		C7E2EF2014B78D4C0000884E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7B03C1F1533214F00D4C8F3 /* libluajit-5.1.a */,
 				C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */,
 				C760C4F514B7AE1700451951 /* OpenGL.framework */,
 				C7E2EF2114B78D4C0000884E /* Cocoa.framework */,
@@ -631,7 +615,6 @@
 		C7E2EF9E14B78E010000884E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				C7D46ABA151FFD6D00B28E23 /* LuaJIT */,
 				C79EF1FD14F5345300570FB6 /* TranquilCore.h */,
 				C773FEE714BFB0E3003338FE /* Debug.h */,
 				C72A6AEF1506678000A8DAA3 /* Logger.h */,
@@ -843,10 +826,6 @@
 				{
 					ProductGroup = C786047E14BA5C3B006ED999 /* Products */;
 					ProjectRef = C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */;
-				},
-				{
-					ProductGroup = C7D46A21151F550600B28E23 /* Products */;
-					ProjectRef = C7D46A20151F550600B28E23 /* LuaJIT-2.0.0-beta9.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1260,16 +1239,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Core/Supporting Files/TranquilCore-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				HEADER_SEARCH_PATHS = (
-					GLMath,
-					"LuaJIT-2.0.0-beta9/src/",
-				);
 				INFOPLIST_FILE = "Tranquil/Core/Supporting Files/TranquilCore-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/src\"",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1285,16 +1256,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tranquil/Core/Supporting Files/TranquilCore-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				HEADER_SEARCH_PATHS = (
-					GLMath,
-					"LuaJIT-2.0.0-beta9/src/",
-				);
 				INFOPLIST_FILE = "Tranquil/Core/Supporting Files/TranquilCore-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/LuaJIT-2.0.0-beta9/src\"",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1321,10 +1284,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					GLMath,
-					"/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin11.0",
-				);
+				HEADER_SEARCH_PATHS = GLMath;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
@@ -1352,10 +1312,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					GLMath,
-					"/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin11.0",
-				);
+				HEADER_SEARCH_PATHS = GLMath;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (

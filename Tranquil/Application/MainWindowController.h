@@ -11,4 +11,5 @@
 - (IBAction)switchScriptView:(id)sender;
 - (IBAction)runActiveScript:(id)sender;
 - (IBAction)runSelection:(id)sender;
+- (IBAction)resetCamera:(id)sender;
 @end

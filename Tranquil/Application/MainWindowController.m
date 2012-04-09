@@ -78,4 +78,9 @@
     [[_consoleView textStorage] appendAttributedString:consoleOutput];
     [consoleOutput release];
 }
+
+- (IBAction)resetCamera:(id)sender
+{
+	[[ScriptContext sharedContext] executeFunction:@"_tranq_resetCam" withObjects:nil error:nil];
+}
 @end
