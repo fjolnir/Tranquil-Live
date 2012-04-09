@@ -1,9 +1,6 @@
 [submodule "GLMath"]
 	path = GLMath
 	url = git://github.com/aptiva/GLMath.git
-[submodule "LuaCocoa"]
-	path = LuaCocoa
-	url = git@github.com:aptiva/LuaCococa.git
 [submodule "Tranquil/Scripts/tlc"]
 	path = Tranquil/Scripts/tlc
-	url = git@github.com:aptiva/TLC.git
+	url = git://github.com/aptiva/TLC.git
