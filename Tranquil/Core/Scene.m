@@ -118,19 +118,15 @@ static NSOpenGLContext *_globalGlContext = nil;
 
     [_objects sortUsingComparator:_depthSortingBlock];
     [_immediateModeObjects sortUsingComparator:_depthSortingBlock];
-//    [_objects makeObjectsPerformSelector:@selector(render:) withObject:self];
-//    [_immediateModeObjects makeObjectsPerformSelector:@selector(render:) withObject:self];
-	for(id<SceneObject> obj in _objects) {
-		[obj render:self];
-	}
-	for(id<SceneObject> obj in _immediateModeObjects) {
-		[obj render:self];
-	}
+    
+    [_objects makeObjectsPerformSelector:@selector(render:) withObject:self];
+    [_immediateModeObjects makeObjectsPerformSelector:@selector(render:) withObject:self];
+
     [_immediateModeObjects makeObjectsPerformSelector:@selector(invalidate)];
 	[_immediateModeObjects removeAllObjects];
+    
     matrix_stack_pop(_projStack);
 
-	// Notify the script
     @try {
         [[ScriptContext sharedContext] executeFunction:@"_tranq_handleFrame"
                                            withObjects:nil error:nil];
