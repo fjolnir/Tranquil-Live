@@ -24,9 +24,9 @@ function class(superClass)
 	end
 
 	function class:isa(aClass)
-		local currClass = aClass
-		while (currClass ~= nil) and (isa == false) do
-			if currClass  == aClass then
+		local currClass = class
+		while (currClass ~= nil) do
+			if currClass == aClass then
 				return true
 			else
 				currClass = currClass:superClass()
