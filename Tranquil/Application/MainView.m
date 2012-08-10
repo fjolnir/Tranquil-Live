@@ -29,6 +29,10 @@
 	[invocation setArgument:&arg atIndex:2];
 }
 
+- (void)drawRect:(NSRect)dirtyRect
+{
+    
+}
 - (BOOL)canBecomeKeyView
 {
 	return NO;

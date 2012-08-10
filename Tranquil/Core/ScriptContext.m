@@ -1,5 +1,5 @@
-#import <lua.h>
-#import <lauxlib.h>
+#import <luajit-2.0/lua.h>
+#import <luajit-2.0/lauxlib.h>
 #import <lualib.h>
 #import "ScriptContext.h"
 #import <objc/runtime.h>
