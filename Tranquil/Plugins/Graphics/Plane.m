@@ -20,7 +20,7 @@
 	Vertex_t verts[uDiv*vDiv];
     vec3_t pos, normal;
 	vec4_t color;
-	color = self.state.color;
+	color = self.state.color.vec;
 	normal = vec3_create(0, 1, 0);
 	int i = 0;
 	for(int v = 0; v < vDiv; ++v) {

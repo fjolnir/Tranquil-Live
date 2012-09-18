@@ -1,6 +1,5 @@
 #import "PluginManager.h"
 #import <TranquilCore/TranquilCore.h>
-#import "ScriptContext.h"
 
 static PluginManager *sharedInstance;
 
@@ -56,8 +55,8 @@ static PluginManager *sharedInstance;
             // Add the script dir to the load path
             NSString *scriptDir = [loadScriptPath stringByDeletingLastPathComponent];
             
-            [[ScriptContext sharedContext] addSearchPath:scriptDir];
-            [[ScriptContext sharedContext] executeFile:loadScriptPath error:nil];
+//            [[ScriptContext sharedContext] addSearchPath:scriptDir];
+//            [[ScriptContext sharedContext] executeFile:loadScriptPath error:nil];
         }
 	}
 	return YES;

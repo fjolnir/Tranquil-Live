@@ -3,6 +3,7 @@
 #import <OpenGL/gl.h>
 #import <OpenGL/OpenGL.h>
 #import "TAppDelegate.h"
+#import <Tranquil/CodeGen/TQProgram.h>
 
 @interface OverlayTextView () {
 	NSRect _insertionPointRect;
@@ -63,8 +64,8 @@
                      [NSNumber numberWithFloat:aEvent.scrollingDeltaX],
                      [NSNumber numberWithDouble:aEvent.scrollingDeltaY],
                      nil];
-    [[ScriptContext sharedContext] executeFunction:@"_tranq_scroll"
-                                       withObjects:args error:nil];
+//    [[ScriptContext sharedContext] executeFunction:@"_tranq_scroll"
+//                                       withObjects:args error:nil];
 }
 
 - (void)mouseEntered:(NSEvent *)aEvent
@@ -90,8 +91,8 @@
                      [NSNumber numberWithFloat:aEvent.locationInWindow.x],
                      [NSNumber numberWithDouble:aEvent.locationInWindow.y],
                      nil];
-    [[ScriptContext sharedContext] executeFunction:@"_tranq_leftClick"
-                                       withObjects:args error:nil];
+//    [[ScriptContext sharedContext] executeFunction:@"_tranq_leftClick"
+//                                       withObjects:args error:nil];
 }
 
 - (void)mouseDragged:(NSEvent *)aEvent
@@ -100,8 +101,8 @@
      [NSNumber numberWithFloat:aEvent.locationInWindow.x],
      [NSNumber numberWithDouble:aEvent.locationInWindow.y],
      nil];
-    [[ScriptContext sharedContext] executeFunction:@"_tranq_leftDrag"
-                                       withObjects:args error:nil];
+//    [[ScriptContext sharedContext] executeFunction:@"_tranq_leftDrag"
+//                                       withObjects:args error:nil];
 }
 
 @end

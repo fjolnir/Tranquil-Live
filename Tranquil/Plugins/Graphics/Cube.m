@@ -33,7 +33,7 @@
 	vec2_t t_rb = { 1, 0 };
 	vec2_t t_rt = { 1, 1 };
 	vec2_t t_lt = { 0, 1 };
-	vec4_t color = self.state.color;
+	vec4_t color = self.state.color.vec;
 
 	vec3_t normal;
 	normal = vec3_create(0, 0, -1);

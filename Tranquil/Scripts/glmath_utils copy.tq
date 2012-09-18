@@ -1,0 +1,106 @@
+import "GLMath"
+
+vec2           = Vec2_create
+vec3           = Vec3_create
+vec3 print
+vec3 retainCount print
+
+vec4           = Vec4_create
+quat           = Quat_createf
+rgba           = vec4
+rgb            = `r,g,b,a | a == nil ? rgba(r,g,b,1) : rgba(r,g,b,a)`
+
+vec2_zero      = GLMVec2_zero
+vec3_zero      = GLMVec3_zero
+vec4_zero      = GLMVec4_zero
+
+mat3_identity  = GLMMat3_identity
+mat4_identity  = GLMMat4_identity
+mat3_zero      = GLMMat3_zero
+mat4_zero      = GLMMat4_zero
+
+pi             = M_PI
+
+\ Get references to the struct classes
+vec2_klass     = vec2_zero class
+vec3_klass     = vec3_zero class
+vec4_klass     = vec4_zero class
+mat3_klass     = mat3_zero class
+mat4_klass     = mat4_zero class
+quat_klass     = quat(0,0,0,0) class
+temp           = Matrix_stack_create(1)
+matStack_klass = temp class
+Matrix_stack_destroy(temp)
+
+\ Add accessors
+vec2_klass addFieldNames: [$x, $y]
+vec3_klass addFieldNames: [$x, $y, $z]
+vec4_klass addFieldNames: [$x, $y, $z, $w]
+vec4_klass addFieldNames: [$r, $g, $b, $a]
+quat_klass addFieldNames: [$x, $y, $z, $w]
+mat3_class addFieldNames: ((0 to: 2) map: { n | ^(0 to: 2) map: `k | "m#{n}#{k}"` }) concat
+mat4_class addFieldNames: ((0 to: 3) map: { n | ^(0 to: 3) map: `k | "m#{n}#{k}"` }) concat
+
+\ Implement operators/methods
+vec2_klass;     addMethod: $+:           withBlock: `a, b | (b isa: vec2_klass) ? Vec2_add(a, b) : Vec2_scalarAdd(a, b)`;
+                addMethod: $-:           withBlock: `a, b | (b isa: vec2_klass) ? Vec2_sub(a, b) : Vec2_scalarSub(a, b)`;
+                addMethod: $*:           withBlock: `a, b | (b isa: vec2_klass) ? Vec2_mul(a, b) : Vec2_scalarMul(a, b)`;
+                addMethod: $/:           withBlock: `a, b | (b isa: vec2_klass) ? Vec2_div(a, b) : Vec2_scalarDiv(a, b)`;
+                addMethod: $==:          withBlock: `a, b | (b isa: vec2_klass) ? Vec2_equals(a, b) : no`;
+                addMethod: $dot:         withBlock: Vec2_dot;
+                addMethod: $mag          withBlock: Vec2_mag;
+                addMethod: $floored      withBlock: Vec2_floor;
+                addMethod: $normalized   withBlock: Vec2_normalize;
+                addMethod: $-            withBlock: Vec2_negate;
+                addMethod: $print        withBlock: PrintVec2
+
+vec3_klass;     addMethod: $+:           withBlock: `a, b | (b isa: vec3_klass) ? Vec3_add(a, b) : Vec3_scalarAdd(a, b)`;
+                addMethod: $-:           withBlock: `a, b | (b isa: vec3_klass) ? Vec3_sub(a, b) : Vec3_scalarSub(a, b)`;
+                addMethod: $*:           withBlock: `a, b | (b isa: vec3_klass) ? Vec3_mul(a, b) : Vec3_scalarMul(a, b)`;
+                addMethod: $/:           withBlock: `a, b | (b isa: vec3_klass) ? Vec3_div(a, b) : Vec3_scalarDiv(a, b)`;
+                addMethod: $==:          withBlock: `a, b | (b isa: vec3_klass) ? Vec3_equals(a, b) : no`;
+                addMethod: $dot:         withBlock: Vec3_dot;
+                addMethod: $cross:       withBlock: Vec3_cross;
+                addMethod: $mag          withBlock: Vec3_mag;
+                addMethod: $floored      withBlock: Vec3_floor;
+                addMethod: $normalized   withBlock: Vec3_normalize;
+                addMethod: $-            withBlock: Vec3_negate
+                \addMethod: $print        withBlock: PrintVec3
+
+vec4_klass;     addMethod: $+:           withBlock: `a, b | (b isa: vec4_klass) ? Vec4_add(a, b) : Vec4_scalarAdd(a, b)`;
+                addMethod: $-:           withBlock: `a, b | (b isa: vec4_klass) ? Vec4_sub(a, b) : Vec4_scalarSub(a, b)`;
+                addMethod: $*:           withBlock: `a, b | (b isa: vec4_klass) ? Vec4_mul(a, b) : Vec4_scalarMul(a, b)`;
+                addMethod: $/:           withBlock: `a, b | (b isa: vec4_klass) ? Vec4_div(a, b) : Vec4_scalarDiv(a, b)`;
+                addMethod: $==:          withBlock: `a, b | (b isa: vec4_klass) ? Vec4_equals(a, b) : no`;
+                addMethod: $dot:         withBlock: Vec4_dot;
+                addMethod: $cross:       withBlock: Vec4_cross;
+                addMethod: $mag          withBlock: Vec4_mag;
+                addMethod: $floored      withBlock: Vec4_floor;
+                addMethod: $normalized   withBlock: Vec4_normalize;
+                addMethod: $-            withBlock: Vec4_negate;
+                addMethod: $print        withBlock: PrintVec4
+
+quat_klass;     addMethod: $*:           withBlock: Quat_multQuat;
+                addMethod: $==:          withBlock: `a, b | (b isa: quat_klass) ? Quat_equals(a, b) : no`;
+                addMethod: $mag          withBlock: Quat_mag;
+                addMethod: $normalized   withBlock: Quat_normalize;
+                addMethod: $computeW     withBlock: Quat_computeW;
+                addMethod: $rotatePoint: withBlock: Quat_rotateVec3;
+                addMethod: $toOrtho      withBlock: Quat_to_ortho;
+                addMethod: $slerp:       withBlock: Quat_slerp;
+                addMethod: $print        withBlock: PrintQuat
+
+mat4_klass;     addMethod: $*:           withBlock: Mat4_mul;
+                addMethod: $==:          withBlock: `a, b | (b isa: mat4_klass) ? Mat4_equals(a, b) : no`;
+                addMethod: $det          withBlock: Mat4_det;
+                addMethod: $inverse      withBlock: Mat4_inverse;
+                addMethod: $transpose    withBlock: Mat4_transpose;
+                addMethod: $print        withBlock: PrintMat4
+
+matStack_klass; addMethod: $<<:          withBlock: Matrix_stack_push_item;
+                addMethod: $push         withBlock: Matrix_stack_push;
+                addMethod: $mat4         withBlock: Matrix_stack_get_mat4;
+                addMethod: $mat3         withBlock: Matrix_stack_get_mat3;
+                addMethod: $translate:   withBlock: Matrix_stack_translate;
+                addMethod: $rotate:      withBlock: Matrix_stack_rotate;
+                addMethod: $scale:       withBlock: Matrix_stack_scale

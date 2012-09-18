@@ -1,14 +1,20 @@
+#import "Vec3.h"
+#import "Vec4.h"
+#import "Quat.h"
+#import "Mat4.h"
+
 @interface Camera : NSObject {
 @public
-    mat4_t _matrix;
+    Mat4 *_matrix;
 }
-@property(readwrite, assign) vec3_t position;
-@property(readwrite, assign) quat_t orientation;
+@property(readwrite, copy) Vec3 *position;
+@property(readwrite, assign) Quat *orientation;
 @property(readwrite, assign) GLMFloat fov, zoom, aspectRatio;
-@property(readwrite) mat4_t matrix;
-+ (vec4_t)viewportSize;
+@property(readwrite, copy) Mat4 *matrix;
+
++ (Vec4 *)viewportSize;
 
 - (void)updateMatrix;
 // Takes a point in screen space and un-projects it back into world space
-- (vec3_t)unProjectPoint:(vec3_t)aPoint;
+- (Vec3 *)unProjectPoint:(Vec3 *)aPoint;
 @end

@@ -1,12 +1,13 @@
 #import <OpenGL/gl.h>
 #import "Scene.h"
-#import "ScriptContext.h"
 #import "State.h"
 #import "Light.h"
 #import "Shader.h"
 #import "GLErrorChecking.h"
 #import "Logger.h"
+#import "Camera.h"
 #import <TranquilCore/TranquilCore.h>
+#import <Tranquil/Runtime/TQStubs.h>
 
 static Scene *_GlobalScene = nil;
 static NSOpenGLContext *_globalGlContext = nil;
@@ -18,7 +19,7 @@ static NSOpenGLContext *_globalGlContext = nil;
 }
 @end
 @implementation Scene
-@synthesize projMatStack=_projStack, worldMatStack=_worldStack, objects=_objects, immediateModeObjects=_immediateModeObjects, stateStack=_stateStack, clearColor=_clearColor, ambientLight=_ambientLight, lights=_lights, camera=_camera;
+@synthesize projMatStack=_projStack, worldMatStack=_worldStack, objects=_objects, immediateModeObjects=_immediateModeObjects, stateStack=_stateStack, clearColor=_clearColor, ambientLight=_ambientLight, lights=_lights, camera=_camera, frameCallback=_frameCallback;
 
 + (NSOpenGLPixelFormat *)pixelFormat
 {
@@ -79,8 +80,8 @@ static NSOpenGLContext *_globalGlContext = nil;
 	[_stateStack addObject:rootState];
     [rootState release];
 	
-	self.clearColor = vec4_create(0, 0, 0, 1);
-	_ambientLight = vec4_create(0, 0, 0, 1);
+	self.clearColor   = [Vec4 withVec:vec4_create(0, 0, 0, 1)];
+	self.ambientLight = [Vec4 withVec:vec4_create(0, 0, 0, 1)];
 	
 	self.camera = [[[Camera alloc] init] autorelease];
 	
@@ -103,18 +104,19 @@ static NSOpenGLContext *_globalGlContext = nil;
     // Script ready
 }
 
-- (void)initializeGLState
+- (id)initializeGLState
 {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    return nil;
 }
 
-- (void)render
+- (id)render
 {
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 	
-    matrix_stack_push_item(_projStack, _camera.matrix);
+    matrix_stack_push_item(_projStack, _camera.matrix.mat);
 
     [_objects sortUsingComparator:_depthSortingBlock];
     [_immediateModeObjects sortUsingComparator:_depthSortingBlock];
@@ -128,18 +130,20 @@ static NSOpenGLContext *_globalGlContext = nil;
     matrix_stack_pop(_projStack);
 
     @try {
-        [[ScriptContext sharedContext] executeFunction:@"_tranq_handleFrame"
-                                           withObjects:nil error:nil];
+        if(_frameCallback)
+            TQDispatchBlock0(_frameCallback);
     } @catch(NSException *e) {
         [[Logger sharedLogger] log:e.description];
     }
+    return nil;
 }
 
 #pragma - Accessors
-- (void)clear
+- (id)clear
 {
 	[_objects makeObjectsPerformSelector:@selector(invalidate)];
 	[_objects removeAllObjects];
+    return nil;
 }
 
 - (void)setCamera:(Camera *)aCamera
@@ -149,10 +153,10 @@ static NSOpenGLContext *_globalGlContext = nil;
     _camera = aCamera;
     _depthSortingBlock = [^NSComparisonResult(id<SceneObject> obj1, id<SceneObject> obj2) {
         vec4_t origin = { 0,0,0,1 };
-        vec4_t p1 = vec4_mul_mat4(origin, obj1.state->_transform);
-        p1 = vec4_mul_mat4(p1, _camera->_matrix);
-        vec4_t p2 = vec4_mul_mat4(origin, obj2.state->_transform);
-        p2 = vec4_mul_mat4(p2, _camera->_matrix);
+        vec4_t p1 = vec4_mul_mat4(origin, [[[obj1 state] transform] mat]);
+        p1 = vec4_mul_mat4(p1, _camera->_matrix.mat);
+        vec4_t p2 = vec4_mul_mat4(origin, [[[obj2 state] transform] mat]);
+        p2 = vec4_mul_mat4(p2, _camera->_matrix.mat);
         return ((p1.z >= p2.z) ? NSOrderedAscending : NSOrderedDescending);
     } copy];
 }
@@ -162,9 +166,10 @@ static NSOpenGLContext *_globalGlContext = nil;
 	[_objects addObject:aObject];
 	return aObject;
 }
-- (void)removeObject:(id<SceneObject>)aObject
+- (id)removeObject:(id<SceneObject>)aObject
 {
 	[_objects removeObject:aObject];
+    return nil;
 }
 - (id<SceneObject>)addImmediateModeObject:(id<SceneObject>)aObject
 {
@@ -172,39 +177,47 @@ static NSOpenGLContext *_globalGlContext = nil;
     return aObject;
 }
 
-- (void)addLight:(Light *)aLight
+- (id)addLight:(Light *)aLight
 {
 	[_lights addObject:aLight];
+    return aLight;
 }
-- (void)removeLight:(Light *)aLight
+- (id)removeLight:(Light *)aLight
 {
 	[_lights removeObject:aLight];
+    return nil;
 }
 
-- (void)setClearColor:(vec4_t)aColor
+- (void)setClearColor:(Vec4 *)aColor
 {
-	_clearColor = aColor;
-	glClearColor(aColor.x, aColor.y, aColor.z, aColor.w);
+    Vec4 *old = _clearColor;
+	_clearColor = [aColor copy];
+    [old release];
+    vec4_t color = _clearColor.vec;
+	glClearColor(color.x, color.y, color.z, color.w);
 }
 
 - (State *)currentState
 {
 	return [_stateStack lastObject];
 }
-- (void)pushState
+- (id)pushState
 {
     State *copy = [[self currentState] copy];
 	[_stateStack addObject:copy];
     [copy release];
+    return copy;
 }
-- (void)popState
+- (id)popState
 {
-	[_stateStack removeLastObject];
+    [_stateStack removeLastObject];
+    return nil;
 }
-- (void)withState:(void (^)(State *))block
+- (id)pushState:(id (^)(State *))block
 {
 	[self pushState];
-	block([self currentState]);
+    id res = block([self currentState]);
 	[self popState];
+    return res;
 }
 @end

@@ -1,7 +1,9 @@
 #import "State.h"
 #import "Scene.h"
+#import "Camera.h"
 #import "Shader.h"
 #import "Light.h"
+#import "Vec4.h"
 #import "Texture.h"
 #import <OpenGL/gl.h>
 #import <TranquilCore/TranquilCore.h>
@@ -22,14 +24,14 @@
 	self = [super init];
 	if(!self) return nil;
 
-	_pointRadius = 1;
-	_lineWidth = 1;
-	_shininess = 0;
-	_opacity = 1;
-	_color = vec4_create(1, 1, 1, 1);
-    _transform = GLMMat4_identity;
-	_shader = nil;
-    _texture = nil;
+	self.pointRadius = [TQNumber numberWithInt:1];
+	self.lineWidth   = [TQNumber numberWithInt:1];
+	self.shininess   = [TQNumber numberWithInt:0];
+	self.opacity     = [TQNumber numberWithInt:1];
+	self.color       = [Vec4 withVec:vec4_create(1, 1, 1, 1)];
+    self.transform   = [Mat4 identity];
+	_shader      = nil;
+    _texture     = nil;
 
 	return self;
 }
@@ -38,10 +40,10 @@
 {
     matrix_stack_push(aScene.projMatStack);
     matrix_stack_push(aScene.worldMatStack);
-    matrix_stack_mul_mat4(aScene.worldMatStack, _transform);
+    matrix_stack_mul_mat4(aScene.worldMatStack, _transform.mat);
 
-	glLineWidth(_lineWidth);
-	glPointSize(_pointRadius);
+	glLineWidth([_lineWidth floatValue]);
+	glPointSize([_pointRadius floatValue]);
 
 	if(_noZWrite)
 		glDepthMask(false);
@@ -92,36 +94,36 @@
 			glUniformMatrix4fv(loc, 1, GL_FALSE, GLM_FCAST(worldMat));
 		}];
 		[shader withUniform:@"u_cameraPosition" do:^(GLuint loc) {
-            vec3_t camPos = aScene.camera.position;
+            vec3_t camPos = aScene.camera.position.vec;
 			glUniform3fv(loc, 1, GLM_FCAST(camPos));
 		}];
 		[shader withUniform:@"u_globalAmbientColor" do:^(GLuint loc) {
-            vec4_t ambient = aScene.ambientLight;
+            vec4_t ambient = aScene.ambientLight.vec;
             GLMFloat white[] = {1,1,1,1};
 			glUniform4fv(loc, 1, _unlit ? white : GLM_FCAST(ambient));
 		}];
 		[shader withUniform:@"u_lightPositions" do:^(GLuint loc) {
 			vec3_t positions[[aScene.lights count]];
 			for(int i = 0; i < [aScene.lights count]; ++i)
-                positions[i] = [(Light*)[aScene.lights objectAtIndex:i] position];
+                positions[i] = [[(Light*)[aScene.lights objectAtIndex:i] position] vec];
 			glUniform3fv(loc, (int)[aScene.lights count], (float*)positions);
 		}];
 		[shader withUniform:@"u_ambientColors" do:^(GLuint loc) {
 			vec4_t colors[[aScene.lights count]];
 			for(int i = 0; i < [aScene.lights count]; ++i)
-                colors[i] = [(Light*)[aScene.lights objectAtIndex:i] ambientColor];
+                colors[i] = [[(Light*)[aScene.lights objectAtIndex:i] ambientColor] vec];
 			glUniform4fv(loc, (int)[aScene.lights count], (float*)colors);
 		}];
 		[shader withUniform:@"u_diffuseColors" do:^(GLuint loc) {
 			vec4_t colors[[aScene.lights count]];
 			for(int i = 0; i < [aScene.lights count]; ++i)
-                colors[i] = [(Light*)[aScene.lights objectAtIndex:i] diffuseColor];
+                colors[i] = [[(Light*)[aScene.lights objectAtIndex:i] diffuseColor] vec];
 			glUniform4fv(loc, (int)[aScene.lights count], (float*)colors);
 		}];
 		[shader withUniform:@"u_specularColors" do:^(GLuint loc) {
 			vec4_t colors[[aScene.lights count]];
 			for(int i = 0; i < [aScene.lights count]; ++i)
-                colors[i] = [(Light*)[aScene.lights objectAtIndex:i] specularColor];
+                colors[i] = [[(Light*)[aScene.lights objectAtIndex:i] specularColor] vec];
 			glUniform4fv(loc, (int)[aScene.lights count], (float*)colors);
 		}];
 		[shader withUniform:@"u_lightCount" do:^(GLuint loc) {

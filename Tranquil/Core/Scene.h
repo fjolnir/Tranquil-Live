@@ -1,9 +1,8 @@
 // Manages the graphics state
 
 #import <GLMath/GLMath.h>
-#import "Camera.h"
 
-@class Scene, State, Light;
+@class Scene, State, Light, Camera, Vec4;
 
 @protocol SceneObject <NSObject>
 - (void)render:(Scene *)aScene;
@@ -15,34 +14,36 @@
 @end
 
 @interface Scene : NSObject
-@property(readonly, nonatomic) NSArray *objects;
-@property(readonly, nonatomic) NSArray *immediateModeObjects;
-@property(readonly, nonatomic) NSArray *lights;
-@property(readwrite, nonatomic) vec4_t clearColor;
-@property(readwrite) vec4_t ambientLight;
+@property(readonly) NSArray *objects;
+@property(readonly) NSArray *immediateModeObjects;
+@property(readonly) NSArray *lights;
+@property(readwrite, copy, nonatomic) Vec4 *clearColor;
+@property(readwrite, copy, nonatomic) Vec4 *ambientLight;
 @property(readonly) NSArray *stateStack;
 @property(readonly) matrix_stack_t *projMatStack;
 @property(readonly) matrix_stack_t *worldMatStack;
 @property(readwrite, retain, nonatomic) Camera *camera;
+@property(readwrite, copy) id (^frameCallback)();
 
-- (void)initializeGLState;
+- (id)initializeGLState;
 
 + (Scene *)globalScene;
 + (NSOpenGLPixelFormat *)pixelFormat;
 + (NSOpenGLContext *)globalContext;
 
-- (void)clear;
-- (void)render;
+- (id)clear;
+- (id)render;
 - (id<SceneObject>)addObject:(id<SceneObject>)aObject;
-- (void)removeObject:(id<SceneObject>)aObject;
+- (id)removeObject:(id<SceneObject>)aObject;
 - (id<SceneObject>)addImmediateModeObject:(id<SceneObject>)aObject;
 
-- (void)addLight:(Light *)aLight;
-- (void)removeLight:(Light *)aLight;
+- (id)addLight:(Light *)aLight;
+- (id)removeLight:(Light *)aLight;
 
 - (State *)currentState;
-- (void)pushState;
-- (void)popState;
+- (id)pushState;
+- (id)pushState;
+- (id)popState;
 // Executes a block with a copy of the current state as it's argument
-- (void)withState:(void (^)(State *))block;
+- (id)pushState:(id (^)(State *))block;
 @end

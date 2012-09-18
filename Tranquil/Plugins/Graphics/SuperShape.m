@@ -134,8 +134,10 @@
         }
     }
     for(i = 0; i < _vertexCount; ++i) {
-        _vertices[i].normal = vec3_normalize(_vertices[i].normal);
-        _vertices[i].color.xyz = _vertices[i].normal;
+        _vertices[i].normal  = vec3_normalize(_vertices[i].normal);
+        _vertices[i].color.x = _vertices[i].normal.x;
+        _vertices[i].color.y = _vertices[i].normal.y;
+        _vertices[i].color.z = _vertices[i].normal.z;
         _vertices[i].color.w = 1;
     }
     

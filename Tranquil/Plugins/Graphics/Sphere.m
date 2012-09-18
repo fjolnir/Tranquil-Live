@@ -18,7 +18,7 @@
 	self.renderMode = PolyPrimitiveRenderModeTriList;
 
 	GLMFloat radsPerSeg = degToRad(360.0/(GLMFloat)aStacks);
-	vec4_t color = self.state.color;
+	vec4_t color = self.state.color.vec;
 	for(int j = 0; j < aSlices; ++j) {
 		GLMFloat scale[2],height[2],nheight[2];
 		scale[0] = sinf(degToRad((j/(GLMFloat)aSlices)*180));

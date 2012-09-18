@@ -1,4 +1,3 @@
-#import "Scene.h"
 #import "GLErrorChecking.h"
 
 #define GlobalGLContext() [Scene globalContext]

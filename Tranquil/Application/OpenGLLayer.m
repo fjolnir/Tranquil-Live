@@ -49,7 +49,8 @@
 {
 	[[Scene globalScene] render];
 
-	glFinish();
+//	glFinish();
+    glFlush();
 	[context flushBuffer];
 }
 

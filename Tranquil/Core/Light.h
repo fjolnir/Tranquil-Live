@@ -1,6 +1,6 @@
-#import <GLMath/GLMath.h>
+@class Vec3, Vec4;
 
 @interface Light : NSObject
-@property vec3_t position;
-@property vec4_t ambientColor, diffuseColor, specularColor;
+@property(readwrite, copy) Vec3 *position;
+@property(readwrite, copy) Vec4 *ambientColor, *diffuseColor, *specularColor;
 @end

@@ -9,7 +9,7 @@
 
 - (id)initWithCount:(NSUInteger)aCount useVBO:(BOOL)aUseVBO
 {
-    if(!(self = [super initWithVertexCapacity:aCount indexCapacity:0 useVBO:aUseVBO]))
+    if(!(self = [super initWithVertexCapacity:(int)aCount indexCapacity:0 useVBO:aUseVBO]))
        return nil;
     
     // Zero all the vertices, the position is set by using mapVertices

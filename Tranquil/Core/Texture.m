@@ -48,7 +48,7 @@
     CGContextScaleCTM(context, 1, -1);
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), image);
     
-    glPixelStorei(GL_UNPACK_ROW_LENGTH, width);
+    glPixelStorei(GL_UNPACK_ROW_LENGTH, (int)width);
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
     GLuint textureId;
     glGenTextures(1, &textureId);

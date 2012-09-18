@@ -3,21 +3,27 @@
 
 @implementation Camera
 @synthesize position=_position, orientation=_orientation, matrix=_matrix, fov=_fov, zoom=_zoom, aspectRatio=_aspectRatio;
-+ (vec4_t)viewportSize
+
++ (Vec4 *)viewportSize
 {
 	vec4_t viewport;
-	glGetFloatv(GL_VIEWPORT, GLM_FCAST(viewport));
-    return viewport;
+#ifdef GLM_USE_DOUBLE
+	glGetDoublev(GL_VIEWPORT, GLM_FCAST(viewport));
+#else
+    glGetFloatv(GL_VIEWPORT, GLM_FCAST(viewport));
+#endif
+    return [Vec4 withVec:viewport];
 }
 
 - (id)init
 {
-	self = [super init];
-	if(!self) return nil;
-	_position = GLMVec3_zero;
-	_orientation = quat_createf(0, 1, 0, 0);
+	if(!(self = [super init]))
+        return nil;
+    
+	self.position    = [Vec3 zero];
+	self.orientation = [Quat withQuat:quat_createf(0, 1, 0, 0)];
 	_zoom = 1;
-	_fov = degToRad(45.0);
+	_fov  = degToRad(45.0);
 	_aspectRatio = 1.65;
 	
 	[self updateMatrix];
@@ -28,40 +34,35 @@
 - (void)updateMatrix
 {   
 	// First we must translate & rotate the world into place
-	vec3_t t = vec3_negate(_position);
+	vec3_t t = [_position negate].vec;
 	mat4_t translation = mat4_create_translation(t.x, t.y, t.z);
-	mat4_t rotation = quat_to_ortho(quat_inverse(_orientation));
+	mat4_t rotation    = quat_to_ortho([[_orientation inverse] quat]);
     
     // Implement zooming just by translating in the view direction
     vec4_t p = (vec4_t){ 0, 0, -_zoom, 1 };
-    p = quat_rotatePoint(_orientation, p);
+    p = quat_rotatePoint(_orientation.quat, p);
     translation = mat4_mul(translation, mat4_create_translation(p.x, p.y, p.z));
 
 	// Then apply the projection
 	GLMFloat near = 1;
 	GLMFloat far = 1000;
-	GLMFloat top = tanf(0.5*_fov/_aspectRatio)*near;
+	GLMFloat top = tanf(0.5 * _fov/_aspectRatio)*near;
 	GLMFloat bottom = -top;
 	GLMFloat left = _aspectRatio*bottom;
 	GLMFloat right = _aspectRatio*top;
-//    GLMFloat left = -1.0;
-//	GLMFloat right = -left;
-//    GLMFloat top = 1.0f/_aspectRatio;
-//	GLMFloat bottom = -top;
-	
-//	mat4_t projection = mat4_frustum(left*_zoom, right*_zoom, bottom*_zoom, top*_zoom, near, far);
+
 	mat4_t projection = mat4_frustum(left, right, bottom, top, near, far);
-	_matrix = mat4_mul(projection, mat4_mul(rotation,translation));
+	self.matrix = [Mat4 withMat:mat4_mul(projection, mat4_mul(rotation, translation))];
 }
 
-- (vec3_t)unProjectPoint:(vec3_t)aPoint
+- (Vec3 *)unProjectPoint:(Vec3 *)aPoint
 {
 	bool succ = NO;
-    vec4_t p = vec4_create(aPoint.x, aPoint.y, aPoint.z, 1);
-	p = vec4_mul_mat4(p, mat4_inverse(_matrix, &succ));
+    vec4_t p = vec4_create(aPoint.vec.x, aPoint.vec.y, aPoint.vec.z, 1);
+	p = vec4_mul_mat4(p, mat4_inverse(_matrix.mat, &succ));
 	assert(succ);
 	p = vec4_scalarDiv(p, p.w);
-    return p.xyz;
+    return [Vec3 withVec:(vec3_t){ p.x, p.y, p.z }];
 }
 
 @end

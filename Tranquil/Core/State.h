@@ -1,19 +1,19 @@
 // Just a container for the render state of an object
 #import <GLMath/GLMath.h>
 
-@class Scene, Shader, Texture;
+@class Scene, Shader, Texture, TQNumber, Vec4, Mat4;
 
 @interface State : NSObject {
 @public
-    mat4_t _transform;
+    Mat4 *_transform;
 }
-@property(readwrite, assign) mat4_t transform;
-@property(readwrite, assign) vec4_t ambientLight;
-@property(readwrite, assign) vec4_t color;
-@property(readwrite, assign) GLMFloat shininess;
-@property(readwrite, assign) GLMFloat opacity;
-@property(readwrite, assign) GLMFloat lineWidth;
-@property(readwrite, assign) GLMFloat pointRadius;
+@property(readwrite, copy) Mat4 *transform;
+@property(readwrite, copy) Vec4 *ambientLight;
+@property(readwrite, copy) Vec4 *color;
+@property(readwrite, copy) TQNumber *shininess;
+@property(readwrite, copy) TQNumber *opacity;
+@property(readwrite, copy) TQNumber *lineWidth;
+@property(readwrite, copy) TQNumber *pointRadius;
 @property(readwrite, retain) Shader *shader;
 @property(readwrite, retain) Texture *texture;
 

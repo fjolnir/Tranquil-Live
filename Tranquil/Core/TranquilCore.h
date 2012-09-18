@@ -4,13 +4,15 @@
 #define kTranquilFinishedLaunching @"kTranquilFinishedLaunching"
 
 #import <TranquilCore/Debug.h>
-#import <TranquilCore/ScriptContext.h>
 #import <TranquilCore/Scene.h>
 #import <TranquilCore/State.h>
 #import <TranquilCore/Shader.h>
 #import <TranquilCore/Debug.h>
 #import <TranquilCore/Light.h>
 #import <TranquilCore/TranquilPlugin.h>
+#import <TranquilCore/Vec2.h>
+#import <TranquilCore/Vec3.h>
+#import <TranquilCore/Vec4.h>
 #import <GLMath/GLMath.h>
 
 // We are using double precision vertices for the time being, so we need these macros to cast uniforms to floats
