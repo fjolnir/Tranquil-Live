@@ -12,11 +12,11 @@ time = `_startTime timeIntervalSinceNow * -1`
 scene setClearColor: rgb(0, 0, 0, 1)
 resetCam()
 
-light = Light new; setPosition: vec3(4, 10, 10);
-               setAmbientColor: rgb(0.2, 0.2, 0.2, 1);
-              setSpecularColor: rgb(0.1, 0.1, 0.1, 1);
-               setDiffuseColor: rgb(0.7, 0.7, 0.7, 1);
-                          self
+light = Light new setPosition: vec3(4, 10, 10);
+              setAmbientColor: rgb(0.2, 0.2, 0.2, 1);
+             setSpecularColor: rgb(0.1, 0.1, 0.1, 1);
+              setDiffuseColor: rgb(0.7, 0.7, 0.7, 1);
+                         self
 scene addLight: light
 
 userCallback = nil
@@ -24,7 +24,6 @@ everyFrame = { lambda |
     userCallback = lambda
 }
 
-scene#frameCallback = {
-    if userCallback != nil
-        userCallback()
+scene frameCallback = {
+    userCallback call
 }

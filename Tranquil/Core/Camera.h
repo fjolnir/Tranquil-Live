@@ -14,7 +14,7 @@
 
 + (Vec4 *)viewportSize;
 
-- (void)updateMatrix;
+- (id)updateMatrix;
 // Takes a point in screen space and un-projects it back into world space
 - (Vec3 *)unProjectPoint:(Vec3 *)aPoint;
 @end

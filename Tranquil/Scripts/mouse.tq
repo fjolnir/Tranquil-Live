@@ -1,50 +1,50 @@
-NSZeroPoint class addFieldNames: [$x, $y]
+NSZeroPoint class addFieldNames: [#x, #y]
 
 mapToSphere = { windowCoord |
     viewport = Camera viewportSize
-    mapped   = vec3(2*windowCoord#x / viewport#z - 1, 2*windowCoord#y/viewport#w - 1, 0)
-    mag = p#x^2 + p#y^2
+    mapped   = vec3(2*windowCoord x / viewport z - 1, 2*windowCoord y / viewport w - 1, 0)
+    mag = mapped x^2 + mapped y^2
 
     if mag > 1.0 {
         scale = 1.0 / mag sqrt
-        mapped#x, mapped#y *= scale
-        mapped#z            = 0
+        mapped x, mapped y *= scale
+        mapped z            = 0
     } else
-        mapped#z = -1 * (1.0 - mag) sqrt
+        mapped z = -1 * (1.0 - mag) sqrt
     ^mapped
 }
 
 resetCam = {
-    scene camera; setPosition: vec3(0, 0, 5);
-               setOrientation: quat(0, 1, 0, 0);
-                       setFov: pi / 2;
-                      setZoom: 1;
-               setAspectRatio: 1.65;
-                 updateMatrix
+    scene camera setPosition: vec3(0, 0, 5);
+              setOrientation: quat(0, 1, 0, 0);
+                      setFov: pi / 2;
+                     setZoom: 1;
+              setAspectRatio: 1.65;
+                updateMatrix
 }
 
-#OverlayTextView {
+@OverlayTextView {
     - mouseDown: event {
-        #lastMouseLoc = mapToSphere(event#locationInWindow)
-        #startOrien   = scene#camera#orientation
+        @lastMouseLoc = mapToSphere(event locationInWindow)
+        @startOrien   = scene camera orientation
     }
     - mouseDragged: event {
-        cam      = scene#camera
-        mouseLoc = mapToSphere(event#locationInWindow)
+        cam      = scene camera
+        mouseLoc = mapToSphere(event locationInWindow)
 
         rotation     = quat(0,0,0,0)
-        rotation#vec = #startOrien rotatePoint: (#lastMouseLoc cross: mouseLoc)
+        rotation vec = @startOrien rotatePoint: (@lastMouseLoc cross: mouseLoc)
         rotation     = rotation normalize
 
-        cam#orientation = cam#orientation * rotation
-        cam#position    = rotation rotatePoint: cam#position
+        cam orientation = cam orientation * rotation
+        cam position    = rotation rotatePoint: cam position
         cam updateMatrix
 
-        #lastMouseLoc = mouseLoc
+        @lastMouseLoc = mouseLoc
     }
     - scrollWheel: event {
-        cam = scene#camera
-        cam#zoom -= event#deltaY/50
+        cam = scene camera
+        cam zoom -= event deltaY / 50
         cam updateMatrix
     }
 }

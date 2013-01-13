@@ -31,7 +31,7 @@
 	return self;
 }
 
-- (void)updateMatrix
+- (id)updateMatrix
 {   
 	// First we must translate & rotate the world into place
 	vec3_t t = [_position negate].vec;
@@ -53,6 +53,8 @@
 
 	mat4_t projection = mat4_frustum(left, right, bottom, top, near, far);
 	self.matrix = [Mat4 withMat:mat4_mul(projection, mat4_mul(rotation, translation))];
+    
+    return nil;
 }
 
 - (Vec3 *)unProjectPoint:(Vec3 *)aPoint

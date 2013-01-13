@@ -2,7 +2,7 @@ _objectStack = []
 
 \ Returns the current state object, be it the scene state or of an object in it.
 currState = {
-    if _objectStack count > 0
+    if _objectStack count > 0 then
         ^_objectStack lastObject state
     else
         ^scene currentState
@@ -28,7 +28,7 @@ scale = { vec |
 }
 translate = { vec |
     state = currState()
-    state:setTransform: state transform * (Mat4 translation: vec)
+    state setTransform: state transform * (Mat4 translation: vec)
 }
 rotate = { angle, vec |
     state = currState()

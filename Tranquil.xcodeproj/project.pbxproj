@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C700622416A2BA170060A2FF /* libtranquil_codegen.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C700622316A2BA170060A2FF /* libtranquil_codegen.dylib */; };
+		C700622516A2BAC30060A2FF /* libtranquil_codegen.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C700622316A2BA170060A2FF /* libtranquil_codegen.dylib */; };
+		C700622616A2BAF00060A2FF /* libtranquil_codegen.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C700622316A2BA170060A2FF /* libtranquil_codegen.dylib */; };
 		C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C744E42714B8A26D00078FBB /* Accelerate.framework */; };
 		C70E8A6014D46AD4000DAF2F /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = C70E8A5F14D46ACD000DAF2F /* Scripts */; };
 		C729B47214F554F100CDEEE4 /* TAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7906D6F14F554CE0070AA7E /* TAppDelegate.m */; };
@@ -42,44 +45,7 @@
 		C752088C15010AD0008400C4 /* TranquilMIDIPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C752088B15010AD0008400C4 /* TranquilMIDIPlugin.m */; };
 		C75208A21501F8CA008400C4 /* GLMath.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
 		C75208A51501F8E0008400C4 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
-		C75B198D15ECBB0000A0E204 /* libtranquil_codegen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B198C15ECBB0000A0E204 /* libtranquil_codegen.a */; };
-		C75B199115ECC3D300A0E204 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B199015ECC3D300A0E204 /* libclang.dylib */; };
 		C75B199315ECC3E200A0E204 /* libffi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B199215ECC3E200A0E204 /* libffi.dylib */; };
-		C75B19E815ECC4B600A0E204 /* libLLVMAnalysis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B199515ECC4B600A0E204 /* libLLVMAnalysis.a */; };
-		C75B19F215ECC4B600A0E204 /* libLLVMBitReader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B199F15ECC4B600A0E204 /* libLLVMBitReader.a */; };
-		C75B19F315ECC4B600A0E204 /* libLLVMBitWriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19A015ECC4B600A0E204 /* libLLVMBitWriter.a */; };
-		C75B19F715ECC4B600A0E204 /* libLLVMCodeGen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19A415ECC4B600A0E204 /* libLLVMCodeGen.a */; };
-		C75B19F815ECC4B600A0E204 /* libLLVMCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19A515ECC4B600A0E204 /* libLLVMCore.a */; };
-		C75B19F915ECC4B600A0E204 /* libLLVMCppBackendCodeGen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19A615ECC4B600A0E204 /* libLLVMCppBackendCodeGen.a */; };
-		C75B19FA15ECC4B600A0E204 /* libLLVMCppBackendInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19A715ECC4B600A0E204 /* libLLVMCppBackendInfo.a */; };
-		C75B19FB15ECC4B600A0E204 /* libLLVMDebugInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19A815ECC4B600A0E204 /* libLLVMDebugInfo.a */; };
-		C75B19FC15ECC4B600A0E204 /* libLLVMExecutionEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19A915ECC4B600A0E204 /* libLLVMExecutionEngine.a */; };
-		C75B1A0115ECC4B600A0E204 /* libLLVMInstCombine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19AE15ECC4B600A0E204 /* libLLVMInstCombine.a */; };
-		C75B1A0215ECC4B600A0E204 /* libLLVMInstrumentation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19AF15ECC4B600A0E204 /* libLLVMInstrumentation.a */; };
-		C75B1A0315ECC4B600A0E204 /* libLLVMInterpreter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19B015ECC4B600A0E204 /* libLLVMInterpreter.a */; };
-		C75B1A0615ECC4B600A0E204 /* libLLVMJIT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19B315ECC4B600A0E204 /* libLLVMJIT.a */; };
-		C75B1A0715ECC4B600A0E204 /* libLLVMLinker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19B415ECC4B600A0E204 /* libLLVMLinker.a */; };
-		C75B1A0E15ECC4B600A0E204 /* libLLVMMC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19BB15ECC4B600A0E204 /* libLLVMMC.a */; };
-		C75B1A0F15ECC4B600A0E204 /* libLLVMMCDisassembler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19BC15ECC4B600A0E204 /* libLLVMMCDisassembler.a */; };
-		C75B1A1015ECC4B600A0E204 /* libLLVMMCJIT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19BD15ECC4B600A0E204 /* libLLVMMCJIT.a */; };
-		C75B1A1115ECC4B600A0E204 /* libLLVMMCParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19BE15ECC4B600A0E204 /* libLLVMMCParser.a */; };
-		C75B1A1C15ECC4B600A0E204 /* libLLVMObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19C915ECC4B600A0E204 /* libLLVMObject.a */; };
-		C75B1A2515ECC4B600A0E204 /* libLLVMRuntimeDyld.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19D215ECC4B600A0E204 /* libLLVMRuntimeDyld.a */; };
-		C75B1A2615ECC4B600A0E204 /* libLLVMScalarOpts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19D315ECC4B600A0E204 /* libLLVMScalarOpts.a */; };
-		C75B1A2715ECC4B600A0E204 /* libLLVMSelectionDAG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19D415ECC4B600A0E204 /* libLLVMSelectionDAG.a */; };
-		C75B1A2B15ECC4B600A0E204 /* libLLVMSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19D815ECC4B600A0E204 /* libLLVMSupport.a */; };
-		C75B1A2C15ECC4B600A0E204 /* libLLVMTableGen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19D915ECC4B600A0E204 /* libLLVMTableGen.a */; };
-		C75B1A2D15ECC4B600A0E204 /* libLLVMTarget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19DA15ECC4B600A0E204 /* libLLVMTarget.a */; };
-		C75B1A2E15ECC4B600A0E204 /* libLLVMTransformUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19DB15ECC4B600A0E204 /* libLLVMTransformUtils.a */; };
-		C75B1A2F15ECC4B600A0E204 /* libLLVMVectorize.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19DC15ECC4B600A0E204 /* libLLVMVectorize.a */; };
-		C75B1A3015ECC4B600A0E204 /* libLLVMX86AsmParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19DD15ECC4B600A0E204 /* libLLVMX86AsmParser.a */; };
-		C75B1A3115ECC4B600A0E204 /* libLLVMX86AsmPrinter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19DE15ECC4B600A0E204 /* libLLVMX86AsmPrinter.a */; };
-		C75B1A3215ECC4B600A0E204 /* libLLVMX86CodeGen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19DF15ECC4B600A0E204 /* libLLVMX86CodeGen.a */; };
-		C75B1A3315ECC4B600A0E204 /* libLLVMX86Desc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19E015ECC4B600A0E204 /* libLLVMX86Desc.a */; };
-		C75B1A3415ECC4B600A0E204 /* libLLVMX86Disassembler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19E115ECC4B600A0E204 /* libLLVMX86Disassembler.a */; };
-		C75B1A3515ECC4B600A0E204 /* libLLVMX86Info.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19E215ECC4B600A0E204 /* libLLVMX86Info.a */; };
-		C75B1A3615ECC4B600A0E204 /* libLLVMX86Utils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19E315ECC4B600A0E204 /* libLLVMX86Utils.a */; };
-		C75B1A3A15ECC4B600A0E204 /* libLTO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B19E715ECC4B600A0E204 /* libLTO.a */; };
 		C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C760C4F514B7AE1700451951 /* OpenGL.framework */; };
 		C7622B2114D087AA0093DDD0 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
 		C7622B2214D087CD0093DDD0 /* GLMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7622B1F14D0866E0093DDD0 /* GLMath.framework */; };
@@ -100,8 +66,6 @@
 		C776B49B15F9F39F006C28DF /* Vec3.m in Sources */ = {isa = PBXBuildFile; fileRef = C776B49515F9F39F006C28DF /* Vec3.m */; };
 		C776B49C15F9F39F006C28DF /* Vec4.h in Headers */ = {isa = PBXBuildFile; fileRef = C776B49615F9F39F006C28DF /* Vec4.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C776B49D15F9F39F006C28DF /* Vec4.m in Sources */ = {isa = PBXBuildFile; fileRef = C776B49715F9F39F006C28DF /* Vec4.m */; };
-		C78D1D1015ECC678009FF5C9 /* libLLVMipa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C78D1D0F15ECC678009FF5C9 /* libLLVMipa.a */; };
-		C78D1D1215ECC686009FF5C9 /* libLLVMipo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C78D1D1115ECC686009FF5C9 /* libLLVMipo.a */; };
 		C78ED01815FF68F500BCA849 /* Quat.h in Headers */ = {isa = PBXBuildFile; fileRef = C78ED01615FF68F500BCA849 /* Quat.h */; };
 		C78ED01915FF68F500BCA849 /* Quat.m in Sources */ = {isa = PBXBuildFile; fileRef = C78ED01715FF68F500BCA849 /* Quat.m */; };
 		C79EF1B814F5277000570FB6 /* TranquilGraphics.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C744E3C814B8464E00078FBB /* TranquilGraphics.bundle */; };
@@ -269,6 +233,7 @@
 			files = (
 				C75208A21501F8CA008400C4 /* GLMath.framework in Copy Frameworks */,
 				C7E6E19C14F60B7000215A8D /* TranquilCore.framework in Copy Frameworks */,
+				C700622616A2BAF00060A2FF /* libtranquil_codegen.dylib in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +241,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C700622316A2BA170060A2FF /* libtranquil_codegen.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtranquil_codegen.dylib; path = ../../../../../../usr/local/tranquil/lib/libtranquil_codegen.dylib; sourceTree = "<group>"; };
 		C70E8A5F14D46ACD000DAF2F /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		C72A6AE8150634D400A8DAA3 /* Particles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles.h; sourceTree = "<group>"; };
 		C72A6AE9150634D400A8DAA3 /* Particles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Particles.m; sourceTree = "<group>"; };
@@ -320,7 +286,6 @@
 		C752088815010A60008400C4 /* TranquilMIDI.bridgesupport */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TranquilMIDI.bridgesupport; sourceTree = "<group>"; };
 		C752088A15010AD0008400C4 /* TranquilMIDIPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranquilMIDIPlugin.h; sourceTree = "<group>"; };
 		C752088B15010AD0008400C4 /* TranquilMIDIPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranquilMIDIPlugin.m; sourceTree = "<group>"; };
-		C75B198C15ECBB0000A0E204 /* libtranquil_codegen.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtranquil_codegen.a; path = ../../../../../../usr/local/tranquil/lib/libtranquil_codegen.a; sourceTree = "<group>"; };
 		C75B198E15ECC35F00A0E204 /* libtranquil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtranquil.a; path = ../../../../../../usr/local/tranquil/lib/libtranquil.a; sourceTree = "<group>"; };
 		C75B199015ECC3D300A0E204 /* libclang.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclang.dylib; path = ../../../../../../usr/local/tranquil/llvm/lib/libclang.dylib; sourceTree = "<group>"; };
 		C75B199215ECC3E200A0E204 /* libffi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libffi.dylib; path = usr/lib/libffi.dylib; sourceTree = SDKROOT; };
@@ -474,6 +439,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C700622416A2BA170060A2FF /* libtranquil_codegen.dylib in Frameworks */,
 				C776B48D15F9ED44006C28DF /* libffi.dylib in Frameworks */,
 				C776B48C15F9ED36006C28DF /* libtranquil.a in Frameworks */,
 				C75208A51501F8E0008400C4 /* GLMath.framework in Frameworks */,
@@ -487,51 +453,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C700622516A2BAC30060A2FF /* libtranquil_codegen.dylib in Frameworks */,
 				C75B199315ECC3E200A0E204 /* libffi.dylib in Frameworks */,
 				C79EF20214F535AA00570FB6 /* TranquilCore.framework in Frameworks */,
 				C701C3CF14BBD87000DD9C0C /* Accelerate.framework in Frameworks */,
 				C760C50414B7AFA600451951 /* OpenGL.framework in Frameworks */,
 				C7622B2114D087AA0093DDD0 /* GLMath.framework in Frameworks */,
 				C7E2EF2214B78D4C0000884E /* Cocoa.framework in Frameworks */,
-				C75B198D15ECBB0000A0E204 /* libtranquil_codegen.a in Frameworks */,
-				C75B199115ECC3D300A0E204 /* libclang.dylib in Frameworks */,
-				C75B19E815ECC4B600A0E204 /* libLLVMAnalysis.a in Frameworks */,
-				C75B19F215ECC4B600A0E204 /* libLLVMBitReader.a in Frameworks */,
-				C75B19F315ECC4B600A0E204 /* libLLVMBitWriter.a in Frameworks */,
-				C75B19F715ECC4B600A0E204 /* libLLVMCodeGen.a in Frameworks */,
-				C75B19F815ECC4B600A0E204 /* libLLVMCore.a in Frameworks */,
-				C75B19F915ECC4B600A0E204 /* libLLVMCppBackendCodeGen.a in Frameworks */,
-				C75B19FA15ECC4B600A0E204 /* libLLVMCppBackendInfo.a in Frameworks */,
-				C75B19FB15ECC4B600A0E204 /* libLLVMDebugInfo.a in Frameworks */,
-				C75B19FC15ECC4B600A0E204 /* libLLVMExecutionEngine.a in Frameworks */,
-				C75B1A0115ECC4B600A0E204 /* libLLVMInstCombine.a in Frameworks */,
-				C75B1A0215ECC4B600A0E204 /* libLLVMInstrumentation.a in Frameworks */,
-				C75B1A0315ECC4B600A0E204 /* libLLVMInterpreter.a in Frameworks */,
-				C75B1A0615ECC4B600A0E204 /* libLLVMJIT.a in Frameworks */,
-				C75B1A0715ECC4B600A0E204 /* libLLVMLinker.a in Frameworks */,
-				C75B1A0E15ECC4B600A0E204 /* libLLVMMC.a in Frameworks */,
-				C75B1A0F15ECC4B600A0E204 /* libLLVMMCDisassembler.a in Frameworks */,
-				C75B1A1015ECC4B600A0E204 /* libLLVMMCJIT.a in Frameworks */,
-				C75B1A1115ECC4B600A0E204 /* libLLVMMCParser.a in Frameworks */,
-				C75B1A1C15ECC4B600A0E204 /* libLLVMObject.a in Frameworks */,
-				C75B1A2515ECC4B600A0E204 /* libLLVMRuntimeDyld.a in Frameworks */,
-				C75B1A2615ECC4B600A0E204 /* libLLVMScalarOpts.a in Frameworks */,
-				C75B1A2715ECC4B600A0E204 /* libLLVMSelectionDAG.a in Frameworks */,
-				C75B1A2B15ECC4B600A0E204 /* libLLVMSupport.a in Frameworks */,
-				C75B1A2C15ECC4B600A0E204 /* libLLVMTableGen.a in Frameworks */,
-				C75B1A2D15ECC4B600A0E204 /* libLLVMTarget.a in Frameworks */,
-				C75B1A2E15ECC4B600A0E204 /* libLLVMTransformUtils.a in Frameworks */,
-				C75B1A2F15ECC4B600A0E204 /* libLLVMVectorize.a in Frameworks */,
-				C75B1A3015ECC4B600A0E204 /* libLLVMX86AsmParser.a in Frameworks */,
-				C75B1A3115ECC4B600A0E204 /* libLLVMX86AsmPrinter.a in Frameworks */,
-				C75B1A3215ECC4B600A0E204 /* libLLVMX86CodeGen.a in Frameworks */,
-				C75B1A3315ECC4B600A0E204 /* libLLVMX86Desc.a in Frameworks */,
-				C75B1A3415ECC4B600A0E204 /* libLLVMX86Disassembler.a in Frameworks */,
-				C75B1A3515ECC4B600A0E204 /* libLLVMX86Info.a in Frameworks */,
-				C75B1A3615ECC4B600A0E204 /* libLLVMX86Utils.a in Frameworks */,
-				C75B1A3A15ECC4B600A0E204 /* libLTO.a in Frameworks */,
-				C78D1D1015ECC678009FF5C9 /* libLLVMipa.a in Frameworks */,
-				C78D1D1215ECC686009FF5C9 /* libLLVMipo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +672,7 @@
 		C7E2EF1214B78D4C0000884E = {
 			isa = PBXGroup;
 			children = (
+				C700622316A2BA170060A2FF /* libtranquil_codegen.dylib */,
 				C786047D14BA5C3B006ED999 /* GLMath.xcodeproj */,
 				C7E2EF2714B78D4C0000884E /* Tranquil */,
 				C7E2EF2014B78D4C0000884E /* Frameworks */,
@@ -770,7 +699,6 @@
 				C75B199415ECC45F00A0E204 /* LLVM */,
 				C75B199215ECC3E200A0E204 /* libffi.dylib */,
 				C75B198E15ECC35F00A0E204 /* libtranquil.a */,
-				C75B198C15ECBB0000A0E204 /* libtranquil_codegen.a */,
 				C75B199015ECC3D300A0E204 /* libclang.dylib */,
 				C74B3A9B14B80AA1006741C4 /* CoreVideo.framework */,
 				C760C4F514B7AE1700451951 /* OpenGL.framework */,
@@ -1512,6 +1440,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/lib,
 					/usr/local/tranquil/lib,
+					/usr/local/tranquil/gmp/lib,
 				);
 				OTHER_LDFLAGS = (
 					"-force_load",
@@ -1543,6 +1472,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/lib,
 					/usr/local/tranquil/lib,
+					/usr/local/tranquil/gmp/lib,
 				);
 				OTHER_LDFLAGS = (
 					"-force_load",
@@ -1562,7 +1492,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_FAST_MATH = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = 2;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1651,8 +1581,6 @@
 					100000000,
 					"-L/usr/local/tranquil/llvm/lib",
 					"-lstdc++",
-					"-force_load",
-					/usr/local/tranquil/lib/libtranquil_codegen.a,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_STYLE = all;
@@ -1690,8 +1618,6 @@
 					100000000,
 					"-L/usr/local/tranquil/llvm/lib",
 					"-lstdc++",
-					"-force_load",
-					/usr/local/tranquil/lib/libtranquil_codegen.a,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_STYLE = all;

@@ -4,6 +4,11 @@
 #import <TranquilCore/TranquilCore.h>
 #import <Tranquil/CodeGen/TQProgram.h>
 
+@interface MainWindowController () {
+    dispatch_queue_t _compilationQueue;
+}
+@end
+
 @implementation MainWindowController
 @synthesize mainView=_mainView, consoleView=_consoleView, tabView=_tabView;
 
@@ -12,6 +17,7 @@
     // Use the same aspect ratio as the display
     // self.window.aspectRatio = NSMakeSize(1.65, 1);
     [Logger sharedLogger].delegate = self;
+    _compilationQueue = dispatch_queue_create("TranquilCompilation", DISPATCH_QUEUE_SERIAL);
 }
 
 - (IBAction)switchScriptView:(id)sender
@@ -32,15 +38,23 @@
 
 - (IBAction)runActiveScript:(id)sender
 {
-	NSError *err = nil;
     OverlayTextView *scriptView = [self _activeScriptView];
     if(!scriptView)
         return;
-    @try {
-        [[TQProgram sharedProgram] executeScript:[[scriptView textStorage] string] error:&err];
-    } @catch(NSException *e) {
-        NSLog(@"Exception %@", e);
-    }
+
+    dispatch_async(_compilationQueue, ^{
+        __block NSError *err = nil;
+        TQProgramBlock compiled = [[TQProgram sharedProgram] compileScript:[[scriptView textStorage] string]
+                                                     error:&err];
+        if(compiled)
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                @try {
+                    compiled(&err);
+                } @catch(NSException *e) {
+                    NSLog(@"Exception %@", e);
+                }
+            });
+    });
 }
 
 - (IBAction)runSelection:(id)sender
@@ -51,14 +65,20 @@
 	NSRange range = [scriptView selectedRange];
 	if(range.length <= 0) return;
 	NSString *script = [[[scriptView textStorage] string] substringWithRange:range];
-	NSError *err = nil;
-    @try {
-    [[TQProgram sharedProgram] executeScript:script error:&err];
-    } @catch(NSException *e) {
-        NSLog(@"Exception %@", e);
-    }
-    if(err)
-        NSLog(@"Error! %@", err);
+
+    dispatch_async(_compilationQueue, ^{
+        __block NSError *err = nil;
+        TQProgramBlock compiled = [[TQProgram sharedProgram] compileScript:script
+                                                                     error:&err];
+        if(compiled)
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                @try {
+                    compiled(&err);
+                } @catch(NSException *e) {
+                    NSLog(@"Exception %@", e);
+                }
+            });
+    });
 }
 
 #pragma mark - Script context delegate TODO: migrate to tqprogram

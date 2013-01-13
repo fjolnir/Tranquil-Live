@@ -1,7 +1,7 @@
-#Vec2 { + :x :y       `self withX: x y: y` }
-#Vec3 { + :x :y :z    `self withX: x y: y z: z` }
-#Vec4 { + :x :y :z :w `self withX: x y: y z: z w: w` }
-#Quat { + :x :y :z :a `self withX: x y: y z: z angle: a` }
+@Vec2 { + :x :y       `self withX: x y: y` }
+@Vec3 { + :x :y :z    `self withX: x y: y z: z` }
+@Vec4 { + :x :y :z :w `self withX: x y: y z: z w: w` }
+@Quat { + :x :y :z :a `self withX: x y: y z: z angle: a` }
 
 vec2           = `x,y     | Vec2 withX: x y: y`
 vec3           = `x,y,z   | Vec3 withX: x y: y z: z`
@@ -12,4 +12,3 @@ rgba           = vec4
 rgb            = `r,g,b,a=1 | vec4(r, g, b, a)`
 
 pi             = M_PI
-
